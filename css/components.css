@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Kickback — shared components
+   Buttons, inputs, cards, badges, kbd, dividers, alerts
+   Consumes tokens from tokens.css.
+   ========================================================================== */
+
+/* Buttons */
+.ks-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+  height: 36px;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 150ms var(--ease-out),
+              border-color 150ms var(--ease-out),
+              box-shadow 150ms var(--ease-out);
+  user-select: none;
+  white-space: nowrap;
+}
+.ks-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ring-focus);
+}
+.ks-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.ks-btn-sm { height: 28px; padding: 0 var(--space-3); font-size: var(--text-xs); }
+.ks-btn-lg { height: 44px; padding: 0 var(--space-5); font-size: var(--text-base); }
+
+.ks-btn-primary {
+  background: var(--bg-brand);
+  color: var(--fg-on-brand);
+}
+.ks-btn-primary:hover { background: var(--bg-brand-hover); }
+.ks-btn-primary:active { background: var(--red-700); }
+
+.ks-btn-secondary {
+  background: var(--bg-surface);
+  color: var(--fg-1);
+  border-color: var(--border-default);
+}
+.ks-btn-secondary:hover { background: var(--bg-hover); border-color: var(--border-strong); }
+.ks-btn-secondary:active { background: var(--bg-active); }
+
+.ks-btn-ghost {
+  background: var(--bg-muted);
+  color: var(--fg-2);
+}
+.ks-btn-ghost:hover { background: var(--bg-hover); color: var(--fg-1); }
+.ks-btn-ghost:active { background: var(--bg-active); }
+
+.ks-btn-danger {
+  background: var(--red-700);
+  color: var(--fg-on-brand);
+}
+.ks-btn-danger:hover { background: var(--red-800); }
+
+.ks-btn .ks-icon,
+.ks-btn svg { width: 16px; height: 16px; flex: 0 0 auto; stroke-width: 1.75; }
+
+.ks-btn-icon-lead { padding-left: var(--space-2); }
+.ks-btn-icon-trail { padding-right: var(--space-2); }
+.ks-btn-sm.ks-btn-icon-lead { padding-left: 6px; }
+.ks-btn-sm.ks-btn-icon-trail { padding-right: 6px; }
+.ks-btn-lg.ks-btn-icon-lead { padding-left: var(--space-3); }
+.ks-btn-lg.ks-btn-icon-trail { padding-right: var(--space-3); }
+.ks-btn-sm .ks-icon, .ks-btn-sm svg { width: 14px; height: 14px; }
+.ks-btn-lg .ks-icon, .ks-btn-lg svg { width: 18px; height: 18px; }
+
+/* Inputs */
+.ks-input, .ks-textarea, .ks-select {
+  display: block;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--fg-1);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-3);
+  height: 36px;
+  box-shadow: var(--shadow-inset-input);
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.ks-textarea { height: auto; padding: var(--space-3); min-height: 88px; resize: vertical; line-height: var(--leading-body); }
+.ks-input::placeholder, .ks-textarea::placeholder { color: var(--fg-4); }
+.ks-input:focus, .ks-textarea:focus, .ks-select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-inset-input), var(--ring-focus);
+}
+
+/* Card */
+.ks-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}
+
+/* Badge / Pill */
+.ks-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  height: 20px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  background: var(--bg-sunken);
+  color: var(--fg-2);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.ks-badge-paid    { background: var(--green-50); color: var(--fg-success); border-color: rgba(107,142,61,0.22); }
+.ks-badge-overdue { background: var(--red-50);   color: var(--fg-danger);  border-color: rgba(198,47,47,0.22); }
+.ks-badge-pending { background: var(--amber-50); color: var(--fg-warning); border-color: rgba(201,122,60,0.22); }
+.ks-badge-progress{ background: var(--blue-50);  color: var(--fg-info);    border-color: rgba(62,122,120,0.22); }
+.ks-badge-brand   { background: var(--bg-brand-subtle); color: var(--fg-brand); border-color: rgba(222,68,68,0.22); }
+
+/* Keyboard */
+kbd, .ks-kbd {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--fg-2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-bottom-width: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Divider */
+.ks-divider { height: 1px; background: var(--border-subtle); width: 100%; border: 0; margin: 0; }
+
+/* Link */
+.ks-link { color: var(--fg-brand); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.ks-link:hover { color: var(--red-700); }
+
+/* Avatar */
+.ks-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: var(--radius-pill);
+  background: var(--stone-200); color: var(--fg-2);
+  font-weight: 600; font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+/* Dot indicator */
+.ks-dot { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--stone-400); }
+.ks-dot-paid { background: var(--green-500); }
+.ks-dot-overdue { background: var(--red-500); }
+.ks-dot-pending { background: var(--amber-500); }
