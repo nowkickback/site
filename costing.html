@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Costing — Kickback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Costing matches vendor invoices to your CRM jobs, automatically. Sherwin-Williams, Home Depot Pro, Lowe's Pro, and more. Built for the keyboard.">
+  <meta name="theme-color" content="#DE4444">
+  <meta property="og:title" content="Costing — Kickback">
+  <meta property="og:description" content="Vendor invoices matched to your CRM jobs in seconds. Cleared with the keyboard. Posted straight to your CRM.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20260509-2">
+  <link rel="stylesheet" href="css/components.css?v=20260509-2">
+  <link rel="stylesheet" href="css/site.css?v=20260509-2">
+  <link rel="stylesheet" href="css/theme.css?v=20260509-2">
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('kb-theme'); } catch (_) {}
+      var pref = stored || 'auto';
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', effective);
+    })();
+  </script>
+</head>
+
+<body data-screen-label="Costing page">
+
+  <!-- ============================================================ NAV -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Kickback home">
+        <img src="assets/logo.svg" alt="kickback">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#platform">Platform</a>
+        <a href="costing.html" aria-current="page" class="nav-link-active">Costing</a>
+        <a href="costing.html#how">How It Works</a>
+        <a href="index.html#pricing">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
+        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://costing.nowkickback.com">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero hero-product">
+    <div class="ks-dotgrid hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner reveal-group">
+      <div class="ks-eyebrow hero-eyebrow reveal">
+        <span class="hero-crumb"><a href="index.html">Kickback platform</a> <span aria-hidden="true">/</span> Costing</span>
+      </div>
+      <h1 class="hero-headline reveal">
+        Job costing that <em>does itself.</em>
+      </h1>
+      <p class="hero-lede reveal">
+        Costing pulls vendor invoices in from anywhere &mdash; Sherwin-Williams sync, Home Depot Pro and Lowe's Pro email ingest, forwarded PDFs &mdash; matches each one to the right job, and posts it to your CRM with a single keystroke.
+      </p>
+      <div class="hero-ctas reveal">
+        <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing Today</a>
+        <a class="ks-btn ks-btn-secondary ks-btn-lg" href="#how">See how it works &downarrow;</a>
+      </div>
+      <div class="hero-meta reveal">
+        14-day trial &middot; Connect your CRM in 60 seconds &middot; No card required
+      </div>
+
+      <!-- ============================================================ PRODUCT SHOT — Matching UI -->
+      <div class="shot reveal">
+        <div class="shot-frame">
+          <div class="shot-topbar">
+            <div class="shot-traffic">
+              <span style="background:#E56767"></span>
+              <span style="background:#E8B94B"></span>
+              <span style="background:#6CC078"></span>
+            </div>
+            <div class="shot-url">costing.nowkickback.com/matching</div>
+            <div></div>
+          </div>
+          <div class="shot-body shot-body-3col">
+
+            <!-- Sidebar -->
+            <div class="shot-sidebar">
+              <div class="shot-side-item">
+                <i class="ph ph-tray" aria-hidden="true"></i>
+                Invoice Inbox <span class="shot-pill">755</span>
+              </div>
+              <div class="shot-side-item">
+                <i class="ph ph-clipboard-text" aria-hidden="true"></i>
+                Jobs
+              </div>
+              <div class="shot-side-section">SYNC</div>
+              <div class="shot-side-item">
+                <i class="ph ph-database" aria-hidden="true"></i>
+                CRM Accounts
+              </div>
+              <div class="shot-side-item">
+                <i class="ph ph-storefront" aria-hidden="true"></i>
+                Vendors
+              </div>
+              <div class="shot-side-section">DATA INTEGRITY</div>
+              <div class="shot-side-item shot-side-muted">Duplicates</div>
+              <div class="shot-side-item shot-side-muted">Zero-cost items</div>
+              <div class="shot-side-item shot-side-muted">Unlinked items</div>
+            </div>
+
+            <!-- Queue -->
+            <div class="shot-queue">
+              <div class="shot-queue-head">
+                <span>Invoice Inbox</span>
+                <span class="ks-badge ks-badge-brand">755</span>
+              </div>
+              <div class="shot-queue-row shot-queue-active">
+                <span class="vendor-tag vendor-sw">SW</span>
+                <div class="shot-queue-meta">
+                  <div class="shot-queue-num">22405</div>
+                  <div class="shot-queue-sub">(no P/O)</div>
+                </div>
+                <div class="shot-queue-amt">
+                  <div class="ks-numeric">$45.32</div>
+                  <div class="shot-queue-date">Apr 23</div>
+                </div>
+              </div>
+              <div class="shot-queue-row">
+                <span class="vendor-tag vendor-sw">SW</span>
+                <div class="shot-queue-meta">
+                  <div class="shot-queue-num">21668</div>
+                  <div class="shot-queue-sub">(no P/O)</div>
+                </div>
+                <div class="shot-queue-amt">
+                  <div class="ks-numeric">$7.87</div>
+                  <div class="shot-queue-date">Apr 23</div>
+                </div>
+              </div>
+              <div class="shot-queue-row">
+                <span class="vendor-tag vendor-sw">SW</span>
+                <div class="shot-queue-meta">
+                  <div class="shot-queue-num">31071</div>
+                  <div class="shot-queue-sub">SHOP &middot; Christopher H. <span class="check">&#10003;</span></div>
+                </div>
+                <div class="shot-queue-amt">
+                  <div class="ks-numeric">$255.66</div>
+                  <div class="shot-queue-date">Apr 22</div>
+                </div>
+              </div>
+              <div class="shot-queue-row">
+                <span class="vendor-tag vendor-thd">THD</span>
+                <div class="shot-queue-meta">
+                  <div class="shot-queue-num">F8294</div>
+                  <div class="shot-queue-sub">12025030318</div>
+                </div>
+                <div class="shot-queue-amt">
+                  <div class="ks-numeric">$418.20</div>
+                  <div class="shot-queue-date">Apr 22</div>
+                </div>
+              </div>
+              <div class="shot-queue-row">
+                <span class="vendor-tag vendor-lowes">L</span>
+                <div class="shot-queue-meta">
+                  <div class="shot-queue-num">907314</div>
+                  <div class="shot-queue-sub">CARTER CT &middot; Larry B. <span class="check">&#10003;</span></div>
+                </div>
+                <div class="shot-queue-amt">
+                  <div class="ks-numeric">$258.49</div>
+                  <div class="shot-queue-date">Apr 22</div>
+                </div>
+              </div>
+              <div class="shot-queue-row">
+                <span class="vendor-tag vendor-sw">SW</span>
+                <div class="shot-queue-meta">
+                  <div class="shot-queue-num">94426</div>
+                  <div class="shot-queue-sub">(no P/O)</div>
+                </div>
+                <div class="shot-queue-amt">
+                  <div class="ks-numeric">$63.96</div>
+                  <div class="shot-queue-date">Apr 21</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Match panel -->
+            <div class="shot-panel">
+              <div class="shot-panel-head">
+                <span class="vendor-tag vendor-sw" style="width:36px;height:36px;font-size:12px;border-radius:4px">SW</span>
+                <div style="flex:1">
+                  <div style="font-size:18px;font-weight:600">22405</div>
+                  <div class="shot-queue-sub">(no P/O)</div>
+                </div>
+                <div style="text-align:right">
+                  <div class="ks-numeric" style="font-size:20px;font-weight:600">$45.32</div>
+                  <div class="shot-queue-date">Apr 23</div>
+                </div>
+              </div>
+
+              <div class="shot-panel-row">
+                <div class="shot-panel-title">Matching suggestions</div>
+                <div class="shot-keyhint">
+                  <kbd>1</kbd>&ndash;<kbd>3</kbd> select &middot; <kbd>Enter</kbd> confirm
+                </div>
+              </div>
+
+              <div class="suggest suggest-active">
+                <div class="suggest-num">1</div>
+                <div class="suggest-body">
+                  <div class="suggest-name">Laura M.</div>
+                  <div class="suggest-meta">
+                    <span><i class="ph ph-map-pin" aria-hidden="true"></i>123 Main Street, Richmond, VA</span>
+                    <span class="suggest-sep">&middot;</span>
+                    <span><i class="ph ph-calendar" aria-hidden="true"></i>Apr 16 &ndash; Apr 22</span>
+                  </div>
+                  <div class="suggest-tag">
+                    <i class="ph-bold ph-check" aria-hidden="true"></i>
+                    WITHIN JOB DATES
+                  </div>
+                </div>
+                <div class="suggest-id">2025-04-0123</div>
+                <button class="ks-btn ks-btn-secondary ks-btn-sm">Match &rarr;</button>
+              </div>
+
+              <div class="suggest">
+                <div class="suggest-num">2</div>
+                <div class="suggest-body">
+                  <div class="suggest-name">Rachelle B.</div>
+                  <div class="suggest-meta">
+                    <span><i class="ph ph-map-pin" aria-hidden="true"></i>123 Main Street, Richmond, VA</span>
+                    <span class="suggest-sep">&middot;</span>
+                    <span><i class="ph ph-calendar" aria-hidden="true"></i>Apr 20 &ndash; Apr 21</span>
+                  </div>
+                  <div class="suggest-tag">
+                    <i class="ph-bold ph-check" aria-hidden="true"></i>
+                    WITHIN JOB DATES
+                  </div>
+                </div>
+                <div class="suggest-id">2025-04-0128</div>
+              </div>
+
+              <div class="suggest">
+                <div class="suggest-num">3</div>
+                <div class="suggest-body">
+                  <div class="suggest-name">Tiffany S.</div>
+                  <div class="suggest-meta">
+                    <span><i class="ph ph-map-pin" aria-hidden="true"></i>123 Main Street, Richmond, VA</span>
+                    <span class="suggest-sep">&middot;</span>
+                    <span><i class="ph ph-calendar" aria-hidden="true"></i>Apr 27</span>
+                  </div>
+                  <div class="suggest-tag">
+                    <i class="ph-bold ph-check" aria-hidden="true"></i>
+                    WITHIN JOB DATES
+                  </div>
+                </div>
+                <div class="suggest-id">2025-04-0131</div>
+              </div>
+
+              <div class="suggest suggest-action">
+                <div class="suggest-key"><kbd>S</kbd></div>
+                <div class="suggest-body">
+                  <div class="suggest-name suggest-name-sm">Search for a job</div>
+                  <div class="suggest-action-desc">None of these right? Find by job #, customer, or address.</div>
+                </div>
+              </div>
+              <div class="suggest suggest-action">
+                <div class="suggest-key"><kbd>O</kbd></div>
+                <div class="suggest-body">
+                  <div class="suggest-name suggest-name-sm">Mark as overhead</div>
+                  <div class="suggest-action-desc">Not a job expense. Stays in the system, off the queue.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ VENDOR INTEGRATIONS -->
+  <section class="logo-strip">
+    <div class="ks-eyebrow logo-strip-title reveal">Integrated with the vendors you already use</div>
+    <div class="vendor-marquee reveal" aria-label="Vendor integrations">
+      <div class="vendor-marquee-track">
+        <span class="vendor-logo vendor-housecall">
+          <span class="vendor-mark">HCP</span>
+          <span class="vendor-name">HOUSECALL PRO</span>
+        </span>
+        <span class="vendor-logo vendor-home-depot vbrand-tall">
+          <img class="vendor-img" src="assets/vendors/home-depot.svg" alt="The Home Depot">
+        </span>
+        <span class="vendor-logo vendor-lowes">
+          <img class="vendor-img" src="assets/vendors/lowes.svg" alt="Lowe's">
+        </span>
+        <span class="vendor-logo vendor-sherwin vbrand-tall">
+          <img class="vendor-img" src="assets/vendors/sherwin-williams.svg" alt="Sherwin-Williams">
+        </span>
+        <span class="vendor-logo vendor-ppg vbrand-tall">
+          <img class="vendor-img" src="assets/vendors/ppg.svg" alt="PPG Pittsburgh Paints">
+        </span>
+        <span class="vendor-logo vendor-spectrum">
+          <span class="vendor-mark">S</span>
+          <span class="vendor-name">SPECTRUM PAINT</span>
+        </span>
+        <span class="vendor-logo vendor-mccormick">
+          <span class="vendor-mark">M</span>
+          <span class="vendor-name">McCORMICK PAINT</span>
+        </span>
+        <span class="vendor-logo vendor-sunbelt vbrand-tall">
+          <img class="vendor-img" src="assets/vendors/sunbelt-rentals.svg" alt="Sunbelt Rentals">
+        </span>
+        <span class="vendor-logo vendor-housecall" aria-hidden="true">
+          <span class="vendor-mark">HCP</span>
+          <span class="vendor-name">HOUSECALL PRO</span>
+        </span>
+        <span class="vendor-logo vendor-home-depot vbrand-tall" aria-hidden="true">
+          <img class="vendor-img" src="assets/vendors/home-depot.svg" alt="">
+        </span>
+        <span class="vendor-logo vendor-lowes" aria-hidden="true">
+          <img class="vendor-img" src="assets/vendors/lowes.svg" alt="">
+        </span>
+        <span class="vendor-logo vendor-sherwin vbrand-tall" aria-hidden="true">
+          <img class="vendor-img" src="assets/vendors/sherwin-williams.svg" alt="">
+        </span>
+        <span class="vendor-logo vendor-ppg vbrand-tall" aria-hidden="true">
+          <img class="vendor-img" src="assets/vendors/ppg.svg" alt="">
+        </span>
+        <span class="vendor-logo vendor-spectrum" aria-hidden="true">
+          <span class="vendor-mark">S</span>
+          <span class="vendor-name">SPECTRUM PAINT</span>
+        </span>
+        <span class="vendor-logo vendor-mccormick" aria-hidden="true">
+          <span class="vendor-mark">M</span>
+          <span class="vendor-name">McCORMICK PAINT</span>
+        </span>
+        <span class="vendor-logo vendor-sunbelt vbrand-tall" aria-hidden="true">
+          <img class="vendor-img" src="assets/vendors/sunbelt-rentals.svg" alt="">
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ HOW IT WORKS -->
+  <section id="how" class="section section-tinted">
+    <div class="container">
+      <div class="section-head reveal-group">
+        <div class="ks-eyebrow reveal">HOW COSTING WORKS</div>
+        <h2 class="ks-display reveal" style="font-size:48px">Three steps from receipt to job costing.</h2>
+        <p class="ks-lede reveal">Connect your CRM and your supplier accounts to the platform once. Costing watches for new invoices, suggests where they belong, and lets you confirm with a single keystroke.</p>
+      </div>
+
+      <div class="steps reveal-group">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <div class="step-icon">
+            <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+          </div>
+          <h3 class="step-title">Invoices arrive on their own.</h3>
+          <p class="step-body">
+            Invoices can come from anywhere &mdash; vendor portals, email receipts, forwarded PDFs, or direct integrations. Costing pulls in PDFs, line items, and totals automatically, so nothing gets re-typed.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <div class="step-icon">
+            <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          </div>
+          <h3 class="step-title">Costing suggests the matching job.</h3>
+          <p class="step-body">
+            We rank likely matches using the signals on each invoice and across your job data &mdash; names, dates, locations, references, and historical patterns. The best options rise to the top so approvals stay fast.
+          </p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <div class="step-icon">
+            <i class="ph ph-check-square" aria-hidden="true"></i>
+          </div>
+          <h3 class="step-title">Confirm and Costing posts it.</h3>
+          <p class="step-body">
+            Pick a line item or create one, hit <kbd>Enter</kbd>. The cost is posted to the matched job, the receipt PDF is attached, and your job-costing report stays accurate.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ COSTING DEEP-DIVE -->
+  <section id="matching" class="section section-surface">
+    <div class="container">
+      <div class="split">
+        <div class="split-copy reveal">
+          <div class="ks-eyebrow split-eyebrow">KEYBOARD-DRIVEN MATCHING</div>
+          <h3 class="ks-h1 split-title">Clear an invoice every five seconds.</h3>
+          <p class="split-body">
+            The whole inbox runs on the keyboard. <kbd>J</kbd>/<kbd>K</kbd> through the queue, <kbd>1</kbd>&ndash;<kbd>3</kbd> to pick a suggested job, <kbd>Enter</kbd> to confirm. Hard ones go to <kbd>S</kbd>earch. Junk goes to <kbd>O</kbd>verhead or <kbd>I</kbd>gnore. Built for the office manager who'd rather get their Saturday back.
+          </p>
+          <ul class="split-list">
+            <li>
+              <i class="ph-bold ph-check" aria-hidden="true"></i>
+              <span><strong>Vendor coverage today</strong> &mdash; Sherwin-Williams (live API sync), Home Depot Pro &amp; Lowe's Pro (email ingest with PDF attachment).</span>
+            </li>
+            <li>
+              <i class="ph-bold ph-check" aria-hidden="true"></i>
+              <span><strong>Smart suggestions</strong> that read the P/O field, the customer name on the receipt, and active job dates. Most invoices match in one click.</span>
+            </li>
+            <li>
+              <i class="ph-bold ph-check" aria-hidden="true"></i>
+              <span><strong>Pushed straight to your CRM</strong> &mdash; cost item posted, receipt PDF attached to the job, and job-costing reports that finally add up.</span>
+            </li>
+            <li>
+              <i class="ph-bold ph-check" aria-hidden="true"></i>
+              <span><strong>Data-integrity guards</strong> &mdash; spot duplicate invoices, jobs with no cost items yet, and zero-cost line items waiting on a receipt.</span>
+            </li>
+          </ul>
+          <a class="split-cta" href="https://costing.nowkickback.com">Try Costing free <span aria-hidden="true">&rarr;</span></a>
+        </div>
+
+        <div class="estimate-wrap reveal">
+          <div class="dashboard-card">
+            <div class="dashboard-head">
+              <div>
+                <div class="estimate-head-meta">JOBS &middot; HEALTH</div>
+                <div class="estimate-head-title">Costing sanity check</div>
+              </div>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi">
+                <div class="kpi-label">Total jobs</div>
+                <div class="kpi-value">403</div>
+                <div class="kpi-sub">active across all CRM accounts</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">Missing cost items</div>
+                <div class="kpi-value">94</div>
+                <div class="kpi-sub">no costs recorded on the job yet</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">Unlinked invoices</div>
+                <div class="kpi-value">5</div>
+                <div class="kpi-sub">matched to a job but not a line item</div>
+              </div>
+              <div class="kpi">
+                <div class="kpi-label">Unmatched line items</div>
+                <div class="kpi-value">266</div>
+                <div class="kpi-sub">cost items with no invoice attached</div>
+              </div>
+            </div>
+          </div>
+          <div class="estimate-callout">
+            <div class="estimate-callout-tag">
+              <i class="ph ph-clock-clockwise" aria-hidden="true"></i>
+              COSTING &middot; HOURLY SYNC
+            </div>
+            New invoices land in your inbox automatically. Job costing in your CRM catches up without anyone re-typing a single line.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CTA BANNER -->
+  <section class="section-sm" style="background: var(--bg-page);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-banner-copy">
+          <div class="cta-banner-kicker">RISK-FREE CATCH-UP OFFER</div>
+          <h2>More than a month behind on job costing?</h2>
+          <p>Get caught up on the Kickback platform in under an hour &mdash; or your first month is free. Connect your CRM and supplier accounts in under five minutes, and we&rsquo;ll run your first sync with you live.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing free</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://costing.nowkickback.com/demo">Book a 15-min demo</a>
+          <p class="cta-banner-fineprint">Still behind after onboarding? Your first month is free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <div>
+          <img src="assets/logo-inverse.svg" alt="kickback">
+          <p class="site-footer-tag">The AI-native platform for the home-services back office. Costing today. Follow-up, HUD, and Coach next.</p>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Platform</span>
+          <ul>
+            <li><a href="costing.html">Costing</a></li>
+            <li>Follow-up <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li>HUD <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li>Coach <span style="color:var(--stone-500)">&mdash; preview</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Integrations</span>
+          <ul>
+            <li>Housecall Pro</li>
+            <li>Sherwin-Williams</li>
+            <li>Home Depot Pro</li>
+            <li>Lowe's Pro</li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Company</span>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Resources</span>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <div>&copy; 2026 Kickback Group, Inc.</div>
+        <div class="links">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>DPA</span>
+          <span class="site-footer-status">All systems normal</span>
+          <div class="theme-toggle" role="radiogroup" aria-label="Color theme">
+            <button type="button" role="radio" data-theme-pref="light"
+                    aria-label="Light theme" title="Light">
+              <i class="ph ph-sun" aria-hidden="true"></i><span>Light</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="auto"
+                    aria-label="Match system theme" title="Match system">
+              <i class="ph ph-circle-half" aria-hidden="true"></i><span>System</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="dark"
+                    aria-label="Dark theme" title="Dark">
+              <i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      var prefersReduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.theme-toggle [data-theme-pref]');
+      if (!btns.length) return;
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      function readPref() {
+        try { return localStorage.getItem('kb-theme') || 'auto'; } catch (_) { return 'auto'; }
+      }
+      function writePref(v) {
+        try {
+          if (v === 'auto') localStorage.removeItem('kb-theme');
+          else localStorage.setItem('kb-theme', v);
+        } catch (_) {}
+      }
+      function effectiveFor(pref) {
+        return pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      }
+      function paintToggle(pref) {
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.dataset.themePref === pref ? 'true' : 'false');
+          b.setAttribute('aria-checked', b.dataset.themePref === pref ? 'true' : 'false');
+        });
+      }
+      function apply(pref) {
+        document.documentElement.setAttribute('data-theme', effectiveFor(pref));
+        paintToggle(pref);
+      }
+      apply(readPref());
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = b.dataset.themePref;
+          writePref(v);
+          apply(v);
+        });
+      });
+      if (darkMQ && darkMQ.addEventListener) {
+        darkMQ.addEventListener('change', function () {
+          if (readPref() === 'auto') apply('auto');
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

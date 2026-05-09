@@ -422,13 +422,13 @@
   border-radius: 3px;
   flex: 0 0 auto;
 }
-.vendor-sw {
+.vendor-tag.vendor-sw {
   background: #c62828;
 }
-.vendor-thd {
+.vendor-tag.vendor-thd {
   background: #ee6b22;
 }
-.vendor-lowes {
+.vendor-tag.vendor-lowes {
   background: #1e4a9a;
 }
 
@@ -742,28 +742,133 @@
   margin-bottom: 28px;
   color: var(--fg-3);
 }
+/* legacy class — kept for any stragglers, no layout */
 .logo-strip-row {
-  max-width: 1120px;
+  display: none;
+}
+
+/* Continuous-scroll vendor marquee
+   Track holds two copies of the logo set; animation translates -50% so
+   the second copy lands exactly where the first started → seamless loop.
+   Hover anywhere in the marquee pauses the scroll and un-grayscales all logos. */
+.vendor-marquee {
+  position: relative;
+  max-width: 1280px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
+  overflow: hidden;
+}
+/* Edge fades as overlays — cheaper than mask-image, which forces non-composited paint */
+.vendor-marquee::before,
+.vendor-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 1;
+}
+.vendor-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-surface) 0%, transparent 100%);
+}
+.vendor-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-surface) 0%, transparent 100%);
+}
+.vendor-marquee-track {
+  display: flex;
   align-items: center;
+  gap: 64px;
+  width: max-content;
+  /* Trailing gap-equivalent so set 2's left edge sits exactly at -50% of the track. */
+  padding-right: 64px;
+  animation: vendor-scroll 60s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
-.logo-strip-row span {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--fg-3);
-  letter-spacing: 0.05em;
-  text-align: center;
-  opacity: 0.75;
+.vendor-marquee:hover .vendor-marquee-track,
+.vendor-marquee:focus-within .vendor-marquee-track {
+  animation-play-state: paused;
 }
-@media (max-width: 760px) {
-  .logo-strip-row {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 20px;
+@keyframes vendor-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
   }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vendor-marquee-track {
+    animation: none;
+  }
+}
+
+.vendor-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--fg-2);
+  white-space: nowrap;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition:
+    filter 220ms var(--ease-out),
+    opacity 220ms var(--ease-out);
+  cursor: default;
+  user-select: none;
+  /* Force own composite layer so the grayscale filter is rasterized once
+     and the GPU just transforms the cached bitmap during the marquee animation. */
+  transform: translateZ(0);
+  will-change: filter, opacity;
+}
+.vendor-logo:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.vendor-mark {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 1px 0 rgba(15, 23, 42, 0.06);
+}
+.vendor-spectrum .vendor-mark {
+  background: #c8102e;
+}
+.vendor-mccormick .vendor-mark {
+  background: #2c5697;
+}
+.vendor-housecall .vendor-mark {
+  background: #1f73ba;
+  font-size: 12px;
+}
+
+.vendor-img {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+}
+.vbrand-tall .vendor-img {
+  height: 60px;
+  max-width: 80px;
 }
 
 /* ---------- Section base ---------- */
@@ -1112,13 +1217,30 @@
   background: var(--stone-400);
 }
 .suite-card-icon {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--fg-1);
-  margin-bottom: 12px;
+  color: #fff;
+  background: var(--stone-900);
+  border-radius: 8px;
+  margin-bottom: 14px;
+  box-shadow:
+    0 1px 0 0 rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+.suite-card-costing .suite-card-icon {
+  background: var(--bg-brand);
+}
+.suite-card-followup .suite-card-icon {
+  background: #2f5bd9;
+}
+.suite-card-hud .suite-card-icon {
+  background: #2f8b83;
+}
+.suite-card-coach .suite-card-icon {
+  background: #7cb342;
 }
 .suite-card-name {
   font-size: 17px;
@@ -1147,9 +1269,11 @@
   color: var(--red-700);
 }
 .suite-card-disabled .suite-card-name,
-.suite-card-disabled .suite-card-body,
+.suite-card-disabled .suite-card-body {
+  opacity: 0.7;
+}
 .suite-card-disabled .suite-card-icon {
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 @media (max-width: 920px) {
@@ -1513,24 +1637,56 @@
 
 /* Stagger direct children of a reveal-group container.
    Default cadence: 80ms. Up to 8 children handled. */
-.reveal-group > .reveal:nth-child(1) { --reveal-delay:   0ms; }
-.reveal-group > .reveal:nth-child(2) { --reveal-delay:  80ms; }
-.reveal-group > .reveal:nth-child(3) { --reveal-delay: 160ms; }
-.reveal-group > .reveal:nth-child(4) { --reveal-delay: 240ms; }
-.reveal-group > .reveal:nth-child(5) { --reveal-delay: 320ms; }
-.reveal-group > .reveal:nth-child(6) { --reveal-delay: 400ms; }
-.reveal-group > .reveal:nth-child(7) { --reveal-delay: 480ms; }
-.reveal-group > .reveal:nth-child(8) { --reveal-delay: 560ms; }
+.reveal-group > .reveal:nth-child(1) {
+  --reveal-delay: 0ms;
+}
+.reveal-group > .reveal:nth-child(2) {
+  --reveal-delay: 80ms;
+}
+.reveal-group > .reveal:nth-child(3) {
+  --reveal-delay: 160ms;
+}
+.reveal-group > .reveal:nth-child(4) {
+  --reveal-delay: 240ms;
+}
+.reveal-group > .reveal:nth-child(5) {
+  --reveal-delay: 320ms;
+}
+.reveal-group > .reveal:nth-child(6) {
+  --reveal-delay: 400ms;
+}
+.reveal-group > .reveal:nth-child(7) {
+  --reveal-delay: 480ms;
+}
+.reveal-group > .reveal:nth-child(8) {
+  --reveal-delay: 560ms;
+}
 
 /* Tight cadence for dense lists (queue rows, suggestion cards). */
-.reveal-group-tight > .reveal:nth-child(1) { --reveal-delay:   0ms; }
-.reveal-group-tight > .reveal:nth-child(2) { --reveal-delay:  40ms; }
-.reveal-group-tight > .reveal:nth-child(3) { --reveal-delay:  80ms; }
-.reveal-group-tight > .reveal:nth-child(4) { --reveal-delay: 120ms; }
-.reveal-group-tight > .reveal:nth-child(5) { --reveal-delay: 160ms; }
-.reveal-group-tight > .reveal:nth-child(6) { --reveal-delay: 200ms; }
-.reveal-group-tight > .reveal:nth-child(7) { --reveal-delay: 240ms; }
-.reveal-group-tight > .reveal:nth-child(8) { --reveal-delay: 280ms; }
+.reveal-group-tight > .reveal:nth-child(1) {
+  --reveal-delay: 0ms;
+}
+.reveal-group-tight > .reveal:nth-child(2) {
+  --reveal-delay: 40ms;
+}
+.reveal-group-tight > .reveal:nth-child(3) {
+  --reveal-delay: 80ms;
+}
+.reveal-group-tight > .reveal:nth-child(4) {
+  --reveal-delay: 120ms;
+}
+.reveal-group-tight > .reveal:nth-child(5) {
+  --reveal-delay: 160ms;
+}
+.reveal-group-tight > .reveal:nth-child(6) {
+  --reveal-delay: 200ms;
+}
+.reveal-group-tight > .reveal:nth-child(7) {
+  --reveal-delay: 240ms;
+}
+.reveal-group-tight > .reveal:nth-child(8) {
+  --reveal-delay: 280ms;
+}
 
 /* Subtler translate variant for inline UI bits in the product shot. */
 .js .reveal-soft {
@@ -1545,5 +1701,107 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Phosphor icon sizing — match the sizes the inline SVGs used to use
+   ========================================================================== */
+.shot-side-item > i {
+  font-size: 14px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.suggest-meta i {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--fg-4);
+  flex: 0 0 auto;
+}
+.suggest-tag i {
+  font-size: 11px;
+  line-height: 1;
+}
+.estimate-callout-tag i {
+  font-size: 11px;
+  line-height: 1;
+}
+.step-icon i {
+  font-size: 22px;
+  line-height: 1;
+}
+.feature-icon i {
+  font-size: 22px;
+  line-height: 1;
+}
+.suite-card-icon i {
+  font-size: 26px;
+  line-height: 1;
+  color: inherit;
+}
+.split-list i {
+  font-size: 16px;
+  line-height: 1;
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--fg-brand);
+}
+.tier-list i {
+  font-size: 14px;
+  line-height: 1;
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--fg-brand);
+}
+
+/* ==========================================================================
+   Platform pillars — the four "one X" capabilities under the suite grid
+   ========================================================================== */
+.platform-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-subtle);
+}
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pillar-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-brand);
+  margin-bottom: 4px;
+}
+.pillar-icon i {
+  font-size: 24px;
+  line-height: 1;
+}
+.pillar-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg-1);
+  letter-spacing: -0.005em;
+}
+.pillar-body {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  margin: 0;
+}
+@media (max-width: 920px) {
+  .platform-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 540px) {
+  .platform-pillars {
+    grid-template-columns: 1fr;
   }
 }
