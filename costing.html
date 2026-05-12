@@ -34,6 +34,7 @@
       var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
       var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', effective);
+      window.__kbTheme = { pref: pref, effective: effective };
     })();
   </script>
 </head>
