@@ -14,10 +14,10 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-  <link rel="stylesheet" href="css/tokens.css?v=20260610-2">
-  <link rel="stylesheet" href="css/components.css?v=20260610-2">
-  <link rel="stylesheet" href="css/site.css?v=20260610-2">
-  <link rel="stylesheet" href="css/theme.css?v=20260610-2">
+  <link rel="stylesheet" href="css/tokens.css?v=20260611-1">
+  <link rel="stylesheet" href="css/components.css?v=20260611-1">
+  <link rel="stylesheet" href="css/site.css?v=20260611-1">
+  <link rel="stylesheet" href="css/theme.css?v=20260611-1">
 
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
@@ -93,12 +93,6 @@
           <div class="tier-ribbon">BUILD YOUR PACKAGE</div>
           <div class="tier-tag">PICK YOUR APPS</div>
           <div class="tier-name">Your Kickback</div>
-          <div class="tier-price-row">
-            <span class="tier-dollar">$</span>
-            <span class="tier-price" id="builder-total">978</span>
-            <span class="tier-per">/mo</span>
-          </div>
-
           <label class="builder-row is-locked is-on" style="--row-accent: var(--red-500)">
             <input type="checkbox" checked disabled aria-label="Kickback Platform (required)">
             <span class="builder-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
@@ -115,6 +109,15 @@
             <span class="builder-copy">
               <span class="builder-name">Costing</span>
               <p class="builder-desc">Unlimited invoice matching, vendor sync + email ingest, PDFs attached to your CRM jobs, data-integrity dashboards.</p>
+              <span class="builder-users">
+                <span class="builder-users-label">Users</span>
+                <span class="builder-stepper">
+                  <button type="button" data-users="costing" data-dir="-1" aria-label="Fewer Costing users">&minus;</button>
+                  <span class="builder-stepper-count" id="users-costing">5</span>
+                  <button type="button" data-users="costing" data-dir="1" aria-label="More Costing users">+</button>
+                </span>
+                <span class="builder-users-hint">5 included &middot; $89/user after</span>
+              </span>
             </span>
             <span class="builder-price" id="price-costing">+$489/mo</span>
           </label>
@@ -125,26 +128,31 @@
             <span class="builder-copy">
               <span class="builder-name">Follow-Up</span>
               <p class="builder-desc">Unlimited estimates in cadence, nightly AI drafting in your voice, sends from your own Gmail + iMessage.</p>
+              <span class="builder-users">
+                <span class="builder-users-label">Users</span>
+                <span class="builder-stepper">
+                  <button type="button" data-users="follow-up" data-dir="-1" aria-label="Fewer Follow-Up users">&minus;</button>
+                  <span class="builder-stepper-count" id="users-follow-up">5</span>
+                  <button type="button" data-users="follow-up" data-dir="1" aria-label="More Follow-Up users">+</button>
+                </span>
+                <span class="builder-users-hint">5 included &middot; $89/user after</span>
+              </span>
             </span>
             <span class="builder-price" id="price-follow-up">+$489/mo</span>
           </label>
 
-          <div class="builder-row is-locked" style="--row-accent: var(--stone-400)">
-            <span class="builder-mark" style="background: var(--stone-600)"><i class="ph-fill ph-users" aria-hidden="true"></i></span>
-            <span class="builder-copy">
-              <span class="builder-name">Team size</span>
-              <p class="builder-desc">Each app covers 5 users. $89/user/mo per app after that.</p>
-            </span>
-            <span class="builder-stepper">
-              <button type="button" id="users-minus" aria-label="Fewer users">&minus;</button>
-              <span class="builder-stepper-count" id="users-count">5</span>
-              <button type="button" id="users-plus" aria-label="More users">+</button>
-            </span>
-          </div>
-
           <div class="builder-note" id="builder-note">
             <i class="ph-bold ph-check" aria-hidden="true"></i>
             <span>Both apps added &mdash; the platform fee is on us.</span>
+          </div>
+
+          <div class="builder-total">
+            <span class="builder-total-label">Your package</span>
+            <span class="tier-price-row">
+              <span class="tier-dollar">$</span>
+              <span class="tier-price" id="builder-total">978</span>
+              <span class="tier-per">/mo</span>
+            </span>
           </div>
 
           <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Your Package</a>
@@ -179,42 +187,45 @@
   <script>
     (function () {
       var PLATFORM = 249, APP = 489, PER_USER = 89, INCLUDED_USERS = 5;
-      var costing = document.getElementById('opt-costing');
-      var followUp = document.getElementById('opt-follow-up');
+      var APPS = ['costing', 'follow-up'];
       var total = document.getElementById('builder-total');
       var platformPrice = document.getElementById('platform-price');
       var note = document.getElementById('builder-note');
-      var usersCount = document.getElementById('users-count');
-      var usersMinus = document.getElementById('users-minus');
-      var usersPlus = document.getElementById('users-plus');
-      if (!costing || !followUp || !total) return;
+      if (!total || !platformPrice) return;
 
-      var users = INCLUDED_USERS;
+      var users = { 'costing': INCLUDED_USERS, 'follow-up': INCLUDED_USERS };
       var fmt = function (n) { return n.toLocaleString('en-US'); };
+      var box = function (key) { return document.getElementById('opt-' + key); };
 
-      function appPrice() {
-        return APP + Math.max(0, users - INCLUDED_USERS) * PER_USER;
+      function appPrice(key) {
+        return APP + Math.max(0, users[key] - INCLUDED_USERS) * PER_USER;
       }
 
       function paint() {
-        var apps = (costing.checked ? 1 : 0) + (followUp.checked ? 1 : 0);
-        var waived = apps === 2;
-        total.textContent = fmt((waived ? 0 : PLATFORM) + apps * appPrice());
+        var checked = APPS.filter(function (key) { return box(key).checked; });
+        var waived = checked.length === APPS.length;
+        var sum = checked.reduce(function (acc, key) { return acc + appPrice(key); }, 0);
+        total.textContent = fmt((waived ? 0 : PLATFORM) + sum);
         platformPrice.classList.toggle('is-waived', waived);
         note.style.display = waived ? '' : 'none';
-        usersCount.textContent = String(users);
-        document.getElementById('price-costing').textContent = '+$' + fmt(appPrice()) + '/mo';
-        document.getElementById('price-follow-up').textContent = '+$' + fmt(appPrice()) + '/mo';
-        [costing, followUp].forEach(function (box) {
-          box.closest('.builder-row').classList.toggle('is-on', box.checked);
+        APPS.forEach(function (key) {
+          document.getElementById('users-' + key).textContent = String(users[key]);
+          document.getElementById('price-' + key).textContent = '+$' + fmt(appPrice(key)) + '/mo';
+          box(key).closest('.builder-row').classList.toggle('is-on', box(key).checked);
         });
       }
 
-      [costing, followUp].forEach(function (box) {
-        box.addEventListener('change', paint);
+      APPS.forEach(function (key) {
+        box(key).addEventListener('change', paint);
       });
-      usersMinus.addEventListener('click', function () { users = Math.max(1, users - 1); paint(); });
-      usersPlus.addEventListener('click', function () { users = Math.min(99, users + 1); paint(); });
+      document.querySelectorAll('.builder-stepper button[data-users]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var key = btn.dataset.users;
+          users[key] = Math.min(99, Math.max(1, users[key] + Number(btn.dataset.dir)));
+          paint();
+        });
+      });
       paint();
     })();
   </script>

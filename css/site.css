@@ -72,7 +72,7 @@
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: 96px 0 56px;
+  padding: 110px 0 64px;
   overflow: hidden;
 }
 .hero-bg {
@@ -92,10 +92,10 @@
 }
 .hero-headline {
   font-family: var(--font-display);
-  font-size: 72px;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  font-weight: 600;
+  font-size: clamp(48px, 6.8vw, 86px);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  font-weight: 700;
   margin: 0 auto;
   max-width: 1120px;
   color: var(--fg-1);
@@ -103,6 +103,54 @@
 .hero-headline em {
   font-style: normal;
   color: var(--fg-brand);
+}
+
+/* Announcement pill above the headline */
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-xs);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg-2);
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: border-color 150ms var(--ease-out), color 150ms var(--ease-out), box-shadow 150ms var(--ease-out);
+}
+.hero-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--fg-1);
+  box-shadow: var(--shadow-sm);
+}
+.hero-pill i {
+  color: var(--fg-brand);
+  font-size: 15px;
+}
+.hero-pill-arrow {
+  color: var(--fg-3);
+}
+
+/* When a headline carries a highlight box, that box is the single accent —
+   the em line drops back to ink so the two don't compete. */
+.hero-headline:has(.hero-highlight) em {
+  color: var(--fg-1);
+  text-shadow: none;
+}
+
+/* Highlight-boxed phrase inside the headline */
+.hero-highlight {
+  display: inline-block;
+  background: var(--bg-brand);
+  color: var(--fg-on-brand);
+  padding: 0 0.18em 0.06em;
+  border-radius: 14px;
+  transform: rotate(-1.2deg);
+  box-shadow: 0 14px 36px -12px rgba(var(--accent-rgb), 0.6);
 }
 .hero-lede {
   font-size: 19px;
@@ -1925,4 +1973,49 @@
   color: var(--fg-1);
   min-width: 24px;
   text-align: center;
+}
+.builder-users {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  background: var(--bg-sunken);
+  border-radius: 3px;
+  font-size: 12px;
+  color: var(--fg-3);
+}
+.builder-users-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.builder-users-hint {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.builder-row:not(.is-on) .builder-users {
+  display: none;
+}
+.builder-users .builder-stepper {
+  margin-top: 0;
+}
+.builder-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  margin: 18px 0 8px;
+  padding-top: 18px;
+}
+.builder-total-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg-3);
+}
+.builder-total .tier-price-row {
+  margin-bottom: 0;
 }
