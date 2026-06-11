@@ -41,7 +41,7 @@
   color: var(--fg-on-brand);
 }
 .ks-btn-primary:hover { background: var(--bg-brand-hover); }
-.ks-btn-primary:active { background: var(--red-700); }
+.ks-btn-primary:active { background: var(--accent-700); }
 
 .ks-btn-secondary {
   background: var(--bg-surface);
@@ -129,7 +129,7 @@
 .ks-badge-overdue { background: var(--red-50);   color: var(--fg-danger);  border-color: rgba(198,47,47,0.22); }
 .ks-badge-pending { background: var(--amber-50); color: var(--fg-warning); border-color: rgba(201,122,60,0.22); }
 .ks-badge-progress{ background: var(--blue-50);  color: var(--fg-info);    border-color: rgba(62,122,120,0.22); }
-.ks-badge-brand   { background: var(--bg-brand-subtle); color: var(--fg-brand); border-color: rgba(222,68,68,0.22); }
+.ks-badge-brand   { background: var(--bg-brand-subtle); color: var(--fg-brand); border-color: rgba(var(--accent-rgb),0.22); }
 
 /* Keyboard */
 kbd, .ks-kbd {
@@ -148,7 +148,7 @@ kbd, .ks-kbd {
 
 /* Link */
 .ks-link { color: var(--fg-brand); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
-.ks-link:hover { color: var(--red-700); }
+.ks-link:hover { color: var(--accent-700); }
 
 /* Avatar */
 .ks-avatar {

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Kickback — the AI-native platform for home-services businesses</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kickback is the AI-native platform for the home-services back office. Costing is live today — vendor invoices matched to your CRM jobs in seconds. Follow-up, HUD, and Coach are next.">
+  <meta name="description" content="Kickback is the AI-native platform for the home-services back office. Costing is live today — vendor invoices matched to your CRM jobs in seconds. Follow-Up is in private preview. HUD and Coach are next.">
   <meta name="theme-color" content="#DE4444">
   <meta property="og:title" content="Kickback — the AI-native platform for home-services businesses">
   <meta property="og:description" content="One platform for the messy back office: costing, follow-up, dashboards, coaching. Start with Costing — the only public app today.">
@@ -14,10 +14,10 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-  <link rel="stylesheet" href="css/tokens.css?v=20260509-2">
-  <link rel="stylesheet" href="css/components.css?v=20260509-2">
-  <link rel="stylesheet" href="css/site.css?v=20260509-6">
-  <link rel="stylesheet" href="css/theme.css?v=20260509-2">
+  <link rel="stylesheet" href="css/tokens.css?v=20260610-2">
+  <link rel="stylesheet" href="css/components.css?v=20260610-2">
+  <link rel="stylesheet" href="css/site.css?v=20260610-2">
+  <link rel="stylesheet" href="css/theme.css?v=20260610-2">
 
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
@@ -50,7 +50,8 @@
       <div class="nav-links">
         <a href="#platform">Platform</a>
         <a href="costing.html">Costing</a>
-        <a href="#pricing">Pricing</a>
+        <a href="follow-up.html">Follow-Up</a>
+        <a href="pricing.html">Pricing</a>
       </div>
       <div class="nav-actions">
         <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
@@ -162,13 +163,14 @@
           <p class="suite-card-body">Vendor invoices from anywhere get matched, posted, and attached without manual data entry, right into your CRM. No more hunting for receipts or guessing where an invoice belongs.</p>
           <a class="suite-card-link" href="costing.html">Learn more &rarr;</a>
         </div>
-        <div class="suite-card suite-card-disabled suite-card-followup reveal">
+        <div class="suite-card suite-card-followup reveal">
           <div class="suite-card-tag next">PRIVATE PREVIEW</div>
           <div class="suite-card-icon">
             <i class="ph-fill ph-chats" aria-hidden="true"></i>
           </div>
-          <div class="suite-card-name">Follow-up</div>
-          <p class="suite-card-body">AI-drafted follow-up for unsold estimates, stale leads, and re-quote opportunities. Drafted in your voice, sent only with approval.</p>
+          <div class="suite-card-name">Follow-Up</div>
+          <p class="suite-card-body">Every unsold estimate gets an AI-drafted follow-up, in your voice, queued in a daily outbox. You approve, it sends, and the pipeline keeps itself warm.</p>
+          <a class="suite-card-link" href="follow-up.html">Learn more &rarr;</a>
         </div>
         <div class="suite-card suite-card-disabled suite-card-hud reveal">
           <div class="suite-card-tag later">COMING SOON</div>
@@ -177,6 +179,7 @@
           </div>
           <div class="suite-card-name">HUD</div>
           <p class="suite-card-body">Leaderboards and live team stats on the office TVs. Everyone sees the same numbers in real time, pulled from the same platform data.</p>
+          <a class="suite-card-link" href="hud.html">Learn more &rarr;</a>
         </div>
         <div class="suite-card suite-card-disabled suite-card-coach reveal">
           <div class="suite-card-tag later">COMING SOON</div>
@@ -185,6 +188,7 @@
           </div>
           <div class="suite-card-name">Coach</div>
           <p class="suite-card-body">An AI that reads across costing, jobs, and pipeline data and gives owners actionable insights in plain language &mdash; not another dashboard to ignore.</p>
+          <a class="suite-card-link" href="coach.html">Learn more &rarr;</a>
         </div>
       </div>
 
@@ -266,89 +270,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ PRICING -->
-  <section id="pricing" class="section section-tinted">
-    <div class="container">
-      <div class="section-head reveal-group">
-        <div class="ks-eyebrow reveal">PRICING</div>
-        <h2 class="ks-h1 reveal">C-Suite value, priced like a part-time assistant.</h2>
-        <p class="ks-lede reveal">Start free, then scale by vendor connections. Every plan includes core matching, posting, and PDF attachment workflows. Pricing for additional platform apps is announced when each one leaves preview.</p>
-      </div>
-
-      <div class="pricing-grid reveal-group">
-        <div class="tier reveal">
-          <div class="tier-tag">GET STARTED</div>
-          <div class="tier-name">Free</div>
-          <div class="tier-price-row">
-            <span class="tier-dollar">$</span>
-            <span class="tier-price">0</span>
-            <span class="tier-per">/mo</span>
-          </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Free</a>
-          <ul class="tier-list">
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>1 HCP account</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>1 vendor connection</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Core invoice matching</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Standard support</span></li>
-          </ul>
-        </div>
-
-        <div class="tier tier-hi reveal">
-          <div class="tier-ribbon">MOST POPULAR</div>
-          <div class="tier-tag">FOR GROWING SHOPS</div>
-          <div class="tier-name">Growth</div>
-          <div class="tier-price-row">
-            <span class="tier-dollar">$</span>
-            <span class="tier-price">89</span>
-            <span class="tier-per">/mo</span>
-          </div>
-          <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Growth</a>
-          <ul class="tier-list">
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Up to 5 vendor connections</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Everything in Free</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Priority processing</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Data-integrity dashboards</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Priority email support</span></li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-tag">FOR MULTI-CREW OPS</div>
-          <div class="tier-name">Scale</div>
-          <div class="tier-price-row">
-            <span class="tier-dollar">$</span>
-            <span class="tier-price">249</span>
-            <span class="tier-per">/mo</span>
-          </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Scale</a>
-          <ul class="tier-list">
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Up to 25 vendor connections</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Everything in Growth</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Advanced reporting</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Faster sync windows</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Dedicated onboarding support</span></li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-tag">ENTERPRISE / CUSTOM</div>
-          <div class="tier-name">Enterprise</div>
-          <div class="tier-price-row">
-            <span class="tier-price">Custom</span>
-          </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com/sales">Contact Us</a>
-          <ul class="tier-list">
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>More than 25 vendor connections</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Everything in Scale</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Custom limits and rollout plan</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Security + procurement support</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Dedicated success manager</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============================================================ CTA BANNER -->
   <section class="section-sm" style="background: var(--bg-page);">
     <div class="container">
@@ -373,15 +294,15 @@
       <div class="site-footer-top">
         <div>
           <img src="assets/wordmark-on-dark.svg" alt="kickback">
-          <p class="site-footer-tag">The AI-native platform for the home-services back office. Costing today. Follow-up, HUD, and Coach next.</p>
+          <p class="site-footer-tag">The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview. HUD and Coach are next.</p>
         </div>
         <div>
           <span class="ks-eyebrow">Platform</span>
           <ul>
             <li><a href="costing.html">Costing</a></li>
-            <li>Follow-up <span style="color:var(--stone-500)">&mdash; preview</span></li>
-            <li>HUD <span style="color:var(--stone-500)">&mdash; preview</span></li>
-            <li>Coach <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li><a href="follow-up.html">Follow-Up</a> <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li><a href="hud.html">HUD</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+            <li><a href="coach.html">Coach</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
           </ul>
         </div>
         <div>
@@ -392,6 +313,7 @@
             <li>Home Depot Pro</li>
             <li>Lowe's Pro</li>
             <li>PPG</li>
+            <li>Siro</li>
           </ul>
         </div>
         <div>

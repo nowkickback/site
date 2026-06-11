@@ -82,6 +82,47 @@
   --stone-900: #1A1614;
   --stone-950: #0F0C0B;
 
+  /* Product accents — mirror the app's per-product theming
+     (Costing = moss, Follow-Up = tide, HUD = ochre, Coach = plum) */
+  --moss-50:  #F3F6EB;
+  --moss-200: #CBDCA4;
+  --moss-300: #ABC474;
+  --moss-500: #6F9334;
+  --moss-600: #587A26;
+  --moss-700: #46621E;
+
+  --tide-50:  #EDF4F6;
+  --tide-200: #B3D0D9;
+  --tide-300: #84B0C0;
+  --tide-500: #41778D;
+  --tide-600: #336077;
+  --tide-700: #294E61;
+
+  --ochre-50:  #FAF3E4;
+  --ochre-200: #E9CD8D;
+  --ochre-300: #DBAF55;
+  --ochre-500: #B27818;
+  --ochre-600: #95620E;
+  --ochre-700: #7A4F10;
+
+  --plum-50:  #F7F0F5;
+  --plum-200: #D9BFD3;
+  --plum-300: #C19AB8;
+  --plum-500: #8E5C84;
+  --plum-600: #76486D;
+  --plum-700: #5F3958;
+
+  /* Page accent — platform red by default; product pages override these
+     on <body data-product="…"> (see theme.css) and every brand-derived
+     token below follows. */
+  --accent-50:  var(--red-50);
+  --accent-200: var(--red-200);
+  --accent-300: var(--red-300);
+  --accent-500: var(--red-500);
+  --accent-600: var(--red-600);
+  --accent-700: var(--red-700);
+  --accent-rgb: 222, 68, 68;
+
   /* Supporting semantic hues — warmed and desaturated */
   --green-50:  #F2F5EC;
   --green-500: #6B8E3D;
@@ -101,7 +142,7 @@
   --fg-3: var(--stone-500);
   --fg-4: var(--stone-400);
   --fg-on-brand: var(--stone-0);
-  --fg-brand: var(--red-600);
+  --fg-brand: var(--accent-600);
   --fg-success: var(--green-700);
   --fg-warning: var(--amber-700);
   --fg-danger:  var(--red-700);
@@ -115,9 +156,9 @@
   --bg-hover:   var(--stone-100);
   --bg-active:  var(--stone-200);
   --bg-muted:   var(--stone-50);
-  --bg-brand:         var(--red-500);
-  --bg-brand-hover:   var(--red-600);
-  --bg-brand-subtle:  var(--red-50);
+  --bg-brand:         var(--accent-500);
+  --bg-brand-hover:   var(--accent-600);
+  --bg-brand-subtle:  var(--accent-50);
   --bg-success-subtle: var(--green-50);
   --bg-warning-subtle: var(--amber-50);
   --bg-danger-subtle:  var(--red-50);
@@ -128,8 +169,8 @@
   --border-subtle: var(--stone-200);
   --border-default: var(--stone-300);
   --border-strong: var(--stone-400);
-  --border-brand: var(--red-500);
-  --border-focus: var(--red-500);
+  --border-brand: var(--accent-500);
+  --border-focus: var(--accent-500);
 
   /* Radii */
   --radius-xs: 2px;
@@ -149,7 +190,7 @@
   --shadow-inset-input: inset 0 1px 2px 0 rgba(15, 23, 42, 0.06);
   --shadow-inset-well:  inset 0 1px 3px 0 rgba(15, 23, 42, 0.08);
 
-  --ring-focus: 0 0 0 3px rgba(222, 68, 68, 0.25);
+  --ring-focus: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
 
   /* Spacing — 4px base */
   --space-0: 0;

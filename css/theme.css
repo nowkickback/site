@@ -15,40 +15,40 @@
 
 .step-icon,
 .feature-icon {
-  background: var(--red-500);
+  background: var(--accent-500);
   color: #ffffff;
 }
 .pillar-icon {
   background: var(--bg-brand-subtle);
   border-radius: 4px;
-  color: var(--red-600);
+  color: var(--accent-600);
 }
 .suite-card-costing .suite-card-icon {
   box-shadow:
-    0 0 0 4px rgba(222, 68, 68, 0.18),
-    0 8px 20px -6px rgba(222, 68, 68, 0.45),
+    0 0 0 4px rgba(111, 147, 52, 0.18),
+    0 8px 20px -6px rgba(111, 147, 52, 0.45),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
 }
 .suite-card-live {
   box-shadow:
-    0 0 0 2px var(--red-500),
-    0 12px 32px -12px rgba(222, 68, 68, 0.4),
+    0 0 0 2px var(--moss-500),
+    0 12px 32px -12px rgba(111, 147, 52, 0.4),
     var(--shadow-md);
 }
 .ks-eyebrow {
-  color: var(--red-500);
+  color: var(--accent-500);
   font-weight: 600;
 }
 .ks-btn-primary {
-  box-shadow: 0 6px 18px -6px rgba(222, 68, 68, 0.65);
+  box-shadow: 0 6px 18px -6px rgba(var(--accent-rgb), 0.65);
 }
 .ks-btn-primary:hover {
-  box-shadow: 0 10px 24px -8px rgba(222, 68, 68, 0.7);
+  box-shadow: 0 10px 24px -8px rgba(var(--accent-rgb), 0.7);
 }
 .tier-hi {
   box-shadow:
-    0 0 0 2px var(--red-500),
-    0 16px 40px -16px rgba(222, 68, 68, 0.45),
+    0 0 0 2px var(--accent-500),
+    0 16px 40px -16px rgba(var(--accent-rgb), 0.45),
     var(--shadow-lg);
 }
 .step-num,
@@ -56,11 +56,71 @@
   font-weight: 700;
 }
 .hero-headline em {
-  color: var(--red-500);
-  text-shadow: 0 0 30px rgba(222, 68, 68, 0.25);
+  color: var(--accent-500);
+  text-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25);
 }
 .estimate-callout-tag {
-  color: var(--red-300);
+  color: var(--accent-300);
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   PRODUCT ACCENT — body[data-product] mirrors the app shell
+   Each product page carries its own accent; the platform stays red.
+   Suite-card icons keep their fixed product colors everywhere.
+   ───────────────────────────────────────────────────────────────────── */
+
+body[data-product="costing"] {
+  --accent-50:  var(--moss-50);
+  --accent-200: var(--moss-200);
+  --accent-300: var(--moss-300);
+  --accent-500: var(--moss-500);
+  --accent-600: var(--moss-600);
+  --accent-700: var(--moss-700);
+  --accent-rgb: 111, 147, 52;
+}
+body[data-product="follow_up"] {
+  --accent-50:  var(--tide-50);
+  --accent-200: var(--tide-200);
+  --accent-300: var(--tide-300);
+  --accent-500: var(--tide-500);
+  --accent-600: var(--tide-600);
+  --accent-700: var(--tide-700);
+  --accent-rgb: 65, 119, 141;
+}
+body[data-product="hud"] {
+  --accent-50:  var(--ochre-50);
+  --accent-200: var(--ochre-200);
+  --accent-300: var(--ochre-300);
+  --accent-500: var(--ochre-500);
+  --accent-600: var(--ochre-600);
+  --accent-700: var(--ochre-700);
+  --accent-rgb: 178, 120, 24;
+}
+body[data-product="coach"] {
+  --accent-50:  var(--plum-50);
+  --accent-200: var(--plum-200);
+  --accent-300: var(--plum-300);
+  --accent-500: var(--plum-500);
+  --accent-600: var(--plum-600);
+  --accent-700: var(--plum-700);
+  --accent-rgb: 142, 92, 132;
+}
+
+/* Brand-derived tokens are computed where they're declared, so the :root
+   copies in tokens.css resolve against the platform red. Re-declare them on
+   the themed body so they pick up the product accent. */
+body[data-product] {
+  --fg-brand: var(--accent-600);
+  --bg-brand: var(--accent-500);
+  --bg-brand-hover: var(--accent-600);
+  --bg-brand-subtle: var(--accent-50);
+  --border-brand: var(--accent-500);
+  --border-focus: var(--accent-500);
+  --ring-focus: 0 0 0 3px rgba(var(--accent-rgb), 0.25);
+}
+:root[data-theme="dark"] body[data-product] {
+  --fg-brand: var(--accent-300);
+  --bg-brand-subtle: rgba(var(--accent-rgb), 0.14);
 }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -93,7 +153,7 @@
   --bg-hover: #2a2522;
   --bg-active: #423c36;
   --bg-muted: #1a1614;
-  --bg-brand-subtle: rgba(222, 68, 68, 0.14);
+  --bg-brand-subtle: rgba(var(--accent-rgb), 0.14);
   --bg-success-subtle: rgba(107, 142, 61, 0.14);
   --bg-warning-subtle: rgba(201, 122, 60, 0.14);
   --bg-danger-subtle: rgba(222, 68, 68, 0.14);
@@ -104,7 +164,7 @@
   --fg-3: #aba39a;
   --fg-4: #7c746b;
   --fg-on-brand: #ffffff;
-  --fg-brand: #ef6f6f;
+  --fg-brand: var(--accent-300);
   --fg-success: #95b770;
   --fg-warning: #e0a06a;
   --fg-danger: #ef6f6f;
@@ -112,8 +172,8 @@
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-default: rgba(255, 255, 255, 0.16);
   --border-strong: rgba(255, 255, 255, 0.24);
-  --border-brand: #de4444;
-  --border-focus: #de4444;
+  --border-brand: var(--accent-500);
+  --border-focus: var(--accent-500);
   --dotgrid-color: rgba(255, 255, 255, 0.07);
   --grain-opacity: 0;
   --shadow-xs: 0 1px 0 0 rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
@@ -171,6 +231,17 @@
 }
 :root[data-theme="dark"] .estimate-callout {
   background: #000000;
+}
+/* Product-shot browser chrome: keep the frame a step darker than its body
+   (light mode gets the same hierarchy from --bg-muted in site.css). */
+:root[data-theme="dark"] .shot-topbar,
+:root[data-theme="dark"] .shot-sidebar,
+:root[data-theme="dark"] .shot-panel {
+  background: #14110f;
+}
+:root[data-theme="dark"] .ks-avatar {
+  background: var(--stone-700);
+  color: var(--stone-200);
 }
 
 /* ─────────────────────────────────────────────────────────────────────

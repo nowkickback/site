@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Coach — Kickback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Coach is an AI that reads across your costing, pipeline, follow-up, and call data — and tells you what to do about it in plain language. Coming soon.">
+  <meta name="theme-color" content="#8E5C84">
+  <meta property="og:title" content="Coach — Kickback">
+  <meta property="og:description" content="Insights, not another dashboard. An AI that's read every job, every estimate, and every call. Coming soon.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20260610-2">
+  <link rel="stylesheet" href="css/components.css?v=20260610-2">
+  <link rel="stylesheet" href="css/site.css?v=20260610-2">
+  <link rel="stylesheet" href="css/theme.css?v=20260610-2">
+
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('kb-theme'); } catch (_) { }
+      var pref = stored || 'auto';
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', effective);
+      window.__kbTheme = { pref: pref, effective: effective };
+    })();
+  </script>
+</head>
+
+<body data-product="coach" data-screen-label="Coach page">
+
+  <!-- ============================================================ NAV -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Kickback home">
+        <img src="assets/wordmark-on-light.svg" alt="kickback">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#platform">Platform</a>
+        <a href="costing.html">Costing</a>
+        <a href="follow-up.html">Follow-Up</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
+        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://costing.nowkickback.com/sales">Get Notified</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero hero-product">
+    <div class="ks-dotgrid hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner reveal-group">
+      <div class="ks-eyebrow hero-eyebrow reveal">
+        <span class="hero-crumb"><a href="index.html">Kickback platform</a> <span aria-hidden="true">/</span> Coach <span class="ks-badge" style="margin-left:8px">COMING SOON</span></span>
+      </div>
+      <h1 class="hero-headline reveal">
+        An AI that's read <em>every job.</em>
+      </h1>
+      <p class="hero-lede reveal">
+        Coach reads across your costing, pipeline, follow-up, and call data &mdash; the whole platform &mdash; and tells you what's working, what's slipping, and what to do about it. In plain language, not another dashboard you'll stop opening by March.
+      </p>
+      <div class="hero-ctas reveal">
+        <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com/sales">Get Notified at Launch</a>
+        <a class="ks-btn ks-btn-secondary ks-btn-lg" href="index.html#platform">See the platform</a>
+      </div>
+      <div class="hero-meta reveal">
+        Coming soon &middot; Built on the Kickback platform &middot; Insights, not homework
+      </div>
+
+      <!-- ============================================================ PRODUCT SHOT — Weekly insights -->
+      <div class="shot reveal">
+        <div class="shot-frame">
+          <div class="shot-topbar">
+            <div class="shot-traffic">
+              <span style="background:#E56767"></span>
+              <span style="background:#E8B94B"></span>
+              <span style="background:#6CC078"></span>
+            </div>
+            <div class="shot-url">costing.nowkickback.com/coach</div>
+            <div></div>
+          </div>
+          <div class="shot-body" style="display:block;padding:24px">
+            <div class="dashboard-card" style="box-shadow:none">
+              <div class="dashboard-head">
+                <div>
+                  <div class="estimate-head-meta">COACH &middot; THIS WEEK</div>
+                  <div class="estimate-head-title">Three things worth your attention</div>
+                </div>
+              </div>
+
+              <div class="suggest">
+                <div class="suggest-num"><i class="ph ph-trend-up" aria-hidden="true"></i></div>
+                <div class="suggest-body">
+                  <div class="suggest-name">Exterior repaints are quietly your best work.</div>
+                  <div class="suggest-action-desc">Margins ran 9 points above interior jobs over the last 60 days &mdash; and your win rate on them is climbing. Worth steering the estimate calendar that way.</div>
+                </div>
+              </div>
+
+              <div class="suggest">
+                <div class="suggest-num"><i class="ph ph-warning-circle" aria-hidden="true"></i></div>
+                <div class="suggest-body">
+                  <div class="suggest-name">Paint costs on the Carter Ct job look off.</div>
+                  <div class="suggest-action-desc">Materials hit 31% of the contract against your usual 22%. Two invoices landed after the job closed &mdash; might be a missed change order.</div>
+                </div>
+              </div>
+
+              <div class="suggest">
+                <div class="suggest-num"><i class="ph ph-chats-circle" aria-hidden="true"></i></div>
+                <div class="suggest-body">
+                  <div class="suggest-name">Estimates over $15k stall in week two.</div>
+                  <div class="suggest-action-desc">Your calls on big quotes go great &mdash; then follow-up gaps open around day 10. Follow-Up's Thinking cadence would cover exactly that window.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ WHY COACH -->
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-head reveal-group">
+        <div class="ks-eyebrow reveal">WHY COACH</div>
+        <h2 class="ks-h1 reveal">It already knows the business. That's the point.</h2>
+      </div>
+      <div class="feature-grid reveal-group">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <i class="ph ph-books" aria-hidden="true"></i>
+          </div>
+          <h3 class="feature-title">Reads everything, remembers everything.</h3>
+          <p class="feature-body">
+            Every costed job, every estimate, every follow-up, every recorded call &mdash; Coach reads the whole platform, so its advice is grounded in your numbers, not generic benchmarks.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <i class="ph ph-chat-circle-text" aria-hidden="true"></i>
+          </div>
+          <h3 class="feature-title">Plain language, not pivot tables.</h3>
+          <p class="feature-body">
+            No chart-hunting. Coach leads with the finding and the recommended move, and shows its work underneath when you want to dig in.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <i class="ph ph-target" aria-hidden="true"></i>
+          </div>
+          <h3 class="feature-title">Coaching for the crew, too.</h3>
+          <p class="feature-body">
+            From call recordings to close rates, Coach spots what your best reps do differently &mdash; and turns it into specific, kind feedback for everyone else.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CTA BANNER -->
+  <section class="section-sm" style="background: var(--bg-page);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-banner-copy">
+          <div class="cta-banner-kicker">COMING SOON</div>
+          <h2>The best insights come from your own data.</h2>
+          <p>Coach gets sharper with every job you cost and every follow-up you send. Start on the platform now and Coach arrives already knowing your business.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com/sales">Get Notified</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing Today</a>
+          <p class="cta-banner-fineprint">Early platform customers get Coach first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <div>
+          <img src="assets/wordmark-on-dark.svg" alt="kickback">
+          <p class="site-footer-tag">The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview. HUD and Coach are next.</p>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Platform</span>
+          <ul>
+            <li><a href="costing.html">Costing</a></li>
+            <li><a href="follow-up.html">Follow-Up</a> <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li><a href="hud.html">HUD</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+            <li><a href="coach.html">Coach</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Integrations</span>
+          <ul>
+            <li>Housecall Pro</li>
+            <li>Sherwin-Williams</li>
+            <li>Home Depot Pro</li>
+            <li>Lowe's Pro</li>
+            <li>Siro</li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Company</span>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Resources</span>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <div>&copy; 2026 Kickback Group, Inc.</div>
+        <div class="links">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>DPA</span>
+          <span class="site-footer-status">All systems normal</span>
+          <div class="theme-toggle" role="radiogroup" aria-label="Color theme">
+            <button type="button" role="radio" data-theme-pref="light" aria-label="Light theme" title="Light">
+              <i class="ph ph-sun" aria-hidden="true"></i><span>Light</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="auto" aria-label="Match system theme" title="Match system">
+              <i class="ph ph-circle-half" aria-hidden="true"></i><span>System</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="dark" aria-label="Dark theme" title="Dark">
+              <i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      var prefersReduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.theme-toggle [data-theme-pref]');
+      if (!btns.length) return;
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      function readPref() {
+        try { return localStorage.getItem('kb-theme') || 'auto'; } catch (_) { return 'auto'; }
+      }
+      function writePref(v) {
+        try {
+          if (v === 'auto') localStorage.removeItem('kb-theme');
+          else localStorage.setItem('kb-theme', v);
+        } catch (_) { }
+      }
+      function effectiveFor(pref) {
+        return pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      }
+      function paintToggle(pref) {
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.dataset.themePref === pref ? 'true' : 'false');
+          b.setAttribute('aria-checked', b.dataset.themePref === pref ? 'true' : 'false');
+        });
+      }
+      function apply(pref) {
+        document.documentElement.setAttribute('data-theme', effectiveFor(pref));
+        paintToggle(pref);
+      }
+      apply(readPref());
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = b.dataset.themePref;
+          writePref(v);
+          apply(v);
+        });
+      });
+      if (darkMQ && darkMQ.addEventListener) {
+        darkMQ.addEventListener('change', function () {
+          if (readPref() === 'auto') apply('auto');
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

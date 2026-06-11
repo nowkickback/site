@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>HUD — Kickback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HUD puts live leaderboards and team stats on the office TVs — real numbers from the same platform data Costing and Follow-Up run on. Coming soon.">
+  <meta name="theme-color" content="#B27818">
+  <meta property="og:title" content="HUD — Kickback">
+  <meta property="og:description" content="Your whole office, heads up. Live leaderboards and team stats from real platform data. Coming soon.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20260610-2">
+  <link rel="stylesheet" href="css/components.css?v=20260610-2">
+  <link rel="stylesheet" href="css/site.css?v=20260610-2">
+  <link rel="stylesheet" href="css/theme.css?v=20260610-2">
+
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('kb-theme'); } catch (_) { }
+      var pref = stored || 'auto';
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', effective);
+      window.__kbTheme = { pref: pref, effective: effective };
+    })();
+  </script>
+</head>
+
+<body data-product="hud" data-screen-label="HUD page">
+
+  <!-- ============================================================ NAV -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Kickback home">
+        <img src="assets/wordmark-on-light.svg" alt="kickback">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#platform">Platform</a>
+        <a href="costing.html">Costing</a>
+        <a href="follow-up.html">Follow-Up</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
+        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://costing.nowkickback.com/sales">Get Notified</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================ HERO -->
+  <section class="hero hero-product">
+    <div class="ks-dotgrid hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner reveal-group">
+      <div class="ks-eyebrow hero-eyebrow reveal">
+        <span class="hero-crumb"><a href="index.html">Kickback platform</a> <span aria-hidden="true">/</span> HUD <span class="ks-badge" style="margin-left:8px">COMING SOON</span></span>
+      </div>
+      <h1 class="hero-headline reveal">
+        Your whole office, <em>heads up.</em>
+      </h1>
+      <p class="hero-lede reveal">
+        HUD puts live leaderboards and team stats on the office TVs &mdash; jobs closed, estimates out, win rates, revenue. Real numbers from the same platform data Costing and Follow-Up already run on, not another spreadsheet someone has to update.
+      </p>
+      <div class="hero-ctas reveal">
+        <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com/sales">Get Notified at Launch</a>
+        <a class="ks-btn ks-btn-secondary ks-btn-lg" href="index.html#platform">See the platform</a>
+      </div>
+      <div class="hero-meta reveal">
+        Coming soon &middot; Built on the Kickback platform &middot; Zero data entry
+      </div>
+
+      <!-- ============================================================ PRODUCT SHOT — HUD board -->
+      <div class="shot reveal">
+        <div class="shot-frame">
+          <div class="shot-topbar">
+            <div class="shot-traffic">
+              <span style="background:#E56767"></span>
+              <span style="background:#E8B94B"></span>
+              <span style="background:#6CC078"></span>
+            </div>
+            <div class="shot-url">costing.nowkickback.com/hud</div>
+            <div></div>
+          </div>
+          <div class="shot-body" style="display:block;padding:24px">
+            <div class="dashboard-card" style="box-shadow:none">
+              <div class="dashboard-head">
+                <div>
+                  <div class="estimate-head-meta">HUD &middot; THIS WEEK</div>
+                  <div class="estimate-head-title">Office leaderboard</div>
+                </div>
+                <span class="ks-badge ks-badge-brand">LIVE</span>
+              </div>
+              <div class="kpi-grid">
+                <div class="kpi">
+                  <div class="kpi-label">Jobs closed</div>
+                  <div class="kpi-value">23</div>
+                  <div class="kpi-sub">up 4 from last week</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Revenue</div>
+                  <div class="kpi-value">$148k</div>
+                  <div class="kpi-sub">booked this week</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Estimates out</div>
+                  <div class="kpi-value">41</div>
+                  <div class="kpi-sub">all in follow-up cadences</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Win rate</div>
+                  <div class="kpi-value">38%</div>
+                  <div class="kpi-sub">trailing 30 days</div>
+                </div>
+              </div>
+              <div style="margin-top:20px">
+                <div class="shot-queue-row">
+                  <span class="ks-avatar">CH</span>
+                  <div class="shot-queue-meta">
+                    <div class="shot-queue-num">Christopher H.</div>
+                    <div class="shot-queue-sub">9 closed &middot; 14 estimates out</div>
+                  </div>
+                  <div class="shot-queue-amt">
+                    <div class="ks-numeric">$61,400</div>
+                    <div class="shot-queue-date">#1 this week</div>
+                  </div>
+                </div>
+                <div class="shot-queue-row">
+                  <span class="ks-avatar">LB</span>
+                  <div class="shot-queue-meta">
+                    <div class="shot-queue-num">Larry B.</div>
+                    <div class="shot-queue-sub">7 closed &middot; 12 estimates out</div>
+                  </div>
+                  <div class="shot-queue-amt">
+                    <div class="ks-numeric">$48,950</div>
+                    <div class="shot-queue-date">#2 this week</div>
+                  </div>
+                </div>
+                <div class="shot-queue-row">
+                  <span class="ks-avatar">TS</span>
+                  <div class="shot-queue-meta">
+                    <div class="shot-queue-num">Tiffany S.</div>
+                    <div class="shot-queue-sub">7 closed &middot; 15 estimates out</div>
+                  </div>
+                  <div class="shot-queue-amt">
+                    <div class="ks-numeric">$37,680</div>
+                    <div class="shot-queue-date">#3 this week</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ WHY HUD -->
+  <section class="section section-tinted">
+    <div class="container">
+      <div class="section-head reveal-group">
+        <div class="ks-eyebrow reveal">WHY HUD</div>
+        <h2 class="ks-h1 reveal">Numbers everyone sees. Numbers everyone trusts.</h2>
+      </div>
+      <div class="feature-grid reveal-group">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <i class="ph ph-trophy" aria-hidden="true"></i>
+          </div>
+          <h3 class="feature-title">Leaderboards that run themselves.</h3>
+          <p class="feature-body">
+            Nobody updates a whiteboard. Jobs, estimates, and wins flow in from the platform as they happen, and the board keeps score in real time.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <i class="ph ph-broadcast" aria-hidden="true"></i>
+          </div>
+          <h3 class="feature-title">One set of numbers.</h3>
+          <p class="feature-body">
+            HUD reads the same jobs, estimates, and costing data as every other Kickback app. When the TV says 23 jobs closed, your reports say it too.
+          </p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <i class="ph ph-monitor-play" aria-hidden="true"></i>
+          </div>
+          <h3 class="feature-title">On the TV in minutes.</h3>
+          <p class="feature-body">
+            If your CRM is connected to the platform, HUD has everything it needs. Point a browser at the board, fullscreen it, done.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CTA BANNER -->
+  <section class="section-sm" style="background: var(--bg-page);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-banner-copy">
+          <div class="cta-banner-kicker">COMING SOON</div>
+          <h2>Want the office watching the same scoreboard?</h2>
+          <p>HUD is in the works on the same platform data you may already be syncing. Tell us you want it and we'll let you know the moment it's ready &mdash; early platform customers get it first.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com/sales">Get Notified</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing Today</a>
+          <p class="cta-banner-fineprint">Connecting your CRM today means HUD lights up with your data on day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <div>
+          <img src="assets/wordmark-on-dark.svg" alt="kickback">
+          <p class="site-footer-tag">The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview. HUD and Coach are next.</p>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Platform</span>
+          <ul>
+            <li><a href="costing.html">Costing</a></li>
+            <li><a href="follow-up.html">Follow-Up</a> <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li><a href="hud.html">HUD</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+            <li><a href="coach.html">Coach</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Integrations</span>
+          <ul>
+            <li>Housecall Pro</li>
+            <li>Sherwin-Williams</li>
+            <li>Home Depot Pro</li>
+            <li>Lowe's Pro</li>
+            <li>Siro</li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Company</span>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Resources</span>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <div>&copy; 2026 Kickback Group, Inc.</div>
+        <div class="links">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>DPA</span>
+          <span class="site-footer-status">All systems normal</span>
+          <div class="theme-toggle" role="radiogroup" aria-label="Color theme">
+            <button type="button" role="radio" data-theme-pref="light" aria-label="Light theme" title="Light">
+              <i class="ph ph-sun" aria-hidden="true"></i><span>Light</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="auto" aria-label="Match system theme" title="Match system">
+              <i class="ph ph-circle-half" aria-hidden="true"></i><span>System</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="dark" aria-label="Dark theme" title="Dark">
+              <i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      var prefersReduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.theme-toggle [data-theme-pref]');
+      if (!btns.length) return;
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      function readPref() {
+        try { return localStorage.getItem('kb-theme') || 'auto'; } catch (_) { return 'auto'; }
+      }
+      function writePref(v) {
+        try {
+          if (v === 'auto') localStorage.removeItem('kb-theme');
+          else localStorage.setItem('kb-theme', v);
+        } catch (_) { }
+      }
+      function effectiveFor(pref) {
+        return pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      }
+      function paintToggle(pref) {
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.dataset.themePref === pref ? 'true' : 'false');
+          b.setAttribute('aria-checked', b.dataset.themePref === pref ? 'true' : 'false');
+        });
+      }
+      function apply(pref) {
+        document.documentElement.setAttribute('data-theme', effectiveFor(pref));
+        paintToggle(pref);
+      }
+      apply(readPref());
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = b.dataset.themePref;
+          writePref(v);
+          apply(v);
+        });
+      });
+      if (darkMQ && darkMQ.addEventListener) {
+        darkMQ.addEventListener('change', function () {
+          if (readPref() === 'auto') apply('auto');
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

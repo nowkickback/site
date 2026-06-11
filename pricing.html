@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pricing — Kickback</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kickback pricing. Start free — 1 CRM connection, 10 invoices matched and 10 estimates on follow-up each month. Then build your package: the platform plus Costing, Follow-Up, or both.">
+  <meta name="theme-color" content="#DE4444">
+  <meta property="og:title" content="Pricing — Kickback">
+  <meta property="og:description" content="Start free, then build your package — the Kickback platform plus the apps you need.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20260610-2">
+  <link rel="stylesheet" href="css/components.css?v=20260610-2">
+  <link rel="stylesheet" href="css/site.css?v=20260610-2">
+  <link rel="stylesheet" href="css/theme.css?v=20260610-2">
+
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem('kb-theme'); } catch (_) { }
+      var pref = stored || 'auto';
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', effective);
+      window.__kbTheme = { pref: pref, effective: effective };
+    })();
+  </script>
+</head>
+
+<body data-screen-label="Pricing page">
+
+  <!-- ============================================================ NAV -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="index.html" aria-label="Kickback home">
+        <img src="assets/wordmark-on-light.svg" alt="kickback">
+      </a>
+      <div class="nav-links">
+        <a href="index.html#platform">Platform</a>
+        <a href="costing.html">Costing</a>
+        <a href="follow-up.html">Follow-Up</a>
+        <a href="pricing.html" aria-current="page" class="nav-link-active">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
+        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://costing.nowkickback.com">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================ PRICING -->
+  <section id="pricing" class="section section-tinted">
+    <div class="container">
+      <div class="section-head reveal-group">
+        <div class="ks-eyebrow reveal">PRICING</div>
+        <h2 class="ks-h1 reveal">Start free. Add the apps you need.</h2>
+        <p class="ks-lede reveal">Everything runs on the Kickback platform &mdash; one login, your CRM synced once, shared by every app. Try it all free, then build your package: add Costing, Follow-Up, or both. Change it any time.</p>
+      </div>
+
+      <div class="pricing-grid pricing-grid-builder reveal-group">
+
+        <div class="tier reveal">
+          <div class="tier-tag">KICK THE TIRES</div>
+          <div class="tier-name">Free</div>
+          <div class="tier-price-row">
+            <span class="tier-dollar">$</span>
+            <span class="tier-price">0</span>
+            <span class="tier-per">/mo</span>
+          </div>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Free</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>1 CRM connection</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Every app included</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 invoices matched / month</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 estimates on follow-up / month</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>No card required</span></li>
+          </ul>
+        </div>
+
+        <div class="tier tier-hi reveal">
+          <div class="tier-ribbon">BUILD YOUR PACKAGE</div>
+          <div class="tier-tag">PICK YOUR APPS</div>
+          <div class="tier-name">Your Kickback</div>
+          <div class="tier-price-row">
+            <span class="tier-dollar">$</span>
+            <span class="tier-price" id="builder-total">978</span>
+            <span class="tier-per">/mo</span>
+          </div>
+
+          <label class="builder-row is-locked is-on" style="--row-accent: var(--red-500)">
+            <input type="checkbox" checked disabled aria-label="Kickback Platform (required)">
+            <span class="builder-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Platform <span class="ks-badge">REQUIRED</span></span>
+              <p class="builder-desc">One login, unlimited teammates with roles, your CRM synced, credentials in a bank-grade vault.</p>
+            </span>
+            <span class="builder-price" id="platform-price">$249/mo</span>
+          </label>
+
+          <label class="builder-row is-on" style="--row-accent: var(--moss-500)">
+            <input type="checkbox" id="opt-costing" checked aria-label="Add Costing">
+            <span class="builder-mark" style="background: var(--moss-500)"><i class="ph-fill ph-currency-dollar" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Costing</span>
+              <p class="builder-desc">Unlimited invoice matching, vendor sync + email ingest, PDFs attached to your CRM jobs, data-integrity dashboards.</p>
+            </span>
+            <span class="builder-price" id="price-costing">+$489/mo</span>
+          </label>
+
+          <label class="builder-row is-on" style="--row-accent: var(--tide-500)">
+            <input type="checkbox" id="opt-follow-up" checked aria-label="Add Follow-Up">
+            <span class="builder-mark" style="background: var(--tide-500)"><i class="ph-fill ph-chats" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Follow-Up</span>
+              <p class="builder-desc">Unlimited estimates in cadence, nightly AI drafting in your voice, sends from your own Gmail + iMessage.</p>
+            </span>
+            <span class="builder-price" id="price-follow-up">+$489/mo</span>
+          </label>
+
+          <div class="builder-row is-locked" style="--row-accent: var(--stone-400)">
+            <span class="builder-mark" style="background: var(--stone-600)"><i class="ph-fill ph-users" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Team size</span>
+              <p class="builder-desc">Each app covers 5 users. $89/user/mo per app after that.</p>
+            </span>
+            <span class="builder-stepper">
+              <button type="button" id="users-minus" aria-label="Fewer users">&minus;</button>
+              <span class="builder-stepper-count" id="users-count">5</span>
+              <button type="button" id="users-plus" aria-label="More users">+</button>
+            </span>
+          </div>
+
+          <div class="builder-note" id="builder-note">
+            <i class="ph-bold ph-check" aria-hidden="true"></i>
+            <span>Both apps added &mdash; the platform fee is on us.</span>
+          </div>
+
+          <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Your Package</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Unlimited usage on every app you add</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Add or drop apps any time</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>HUD and Coach join your package when they launch</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Priority email support</span></li>
+          </ul>
+        </div>
+
+        <div class="tier reveal">
+          <div class="tier-tag">ENTERPRISE / CUSTOM</div>
+          <div class="tier-name">Enterprise</div>
+          <div class="tier-price-row">
+            <span class="tier-price">Custom</span>
+          </div>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com/sales">Contact Us</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Multi-location &amp; franchise rollouts</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>More than 25 vendor connections</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Custom limits and rollout plan</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Security + procurement support</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Dedicated success manager</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var PLATFORM = 249, APP = 489, PER_USER = 89, INCLUDED_USERS = 5;
+      var costing = document.getElementById('opt-costing');
+      var followUp = document.getElementById('opt-follow-up');
+      var total = document.getElementById('builder-total');
+      var platformPrice = document.getElementById('platform-price');
+      var note = document.getElementById('builder-note');
+      var usersCount = document.getElementById('users-count');
+      var usersMinus = document.getElementById('users-minus');
+      var usersPlus = document.getElementById('users-plus');
+      if (!costing || !followUp || !total) return;
+
+      var users = INCLUDED_USERS;
+      var fmt = function (n) { return n.toLocaleString('en-US'); };
+
+      function appPrice() {
+        return APP + Math.max(0, users - INCLUDED_USERS) * PER_USER;
+      }
+
+      function paint() {
+        var apps = (costing.checked ? 1 : 0) + (followUp.checked ? 1 : 0);
+        var waived = apps === 2;
+        total.textContent = fmt((waived ? 0 : PLATFORM) + apps * appPrice());
+        platformPrice.classList.toggle('is-waived', waived);
+        note.style.display = waived ? '' : 'none';
+        usersCount.textContent = String(users);
+        document.getElementById('price-costing').textContent = '+$' + fmt(appPrice()) + '/mo';
+        document.getElementById('price-follow-up').textContent = '+$' + fmt(appPrice()) + '/mo';
+        [costing, followUp].forEach(function (box) {
+          box.closest('.builder-row').classList.toggle('is-on', box.checked);
+        });
+      }
+
+      [costing, followUp].forEach(function (box) {
+        box.addEventListener('change', paint);
+      });
+      usersMinus.addEventListener('click', function () { users = Math.max(1, users - 1); paint(); });
+      usersPlus.addEventListener('click', function () { users = Math.min(99, users + 1); paint(); });
+      paint();
+    })();
+  </script>
+
+  <!-- ============================================================ CTA BANNER -->
+  <section class="section-sm" style="background: var(--bg-page);">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <div class="cta-banner-copy">
+          <div class="cta-banner-kicker">RISK-FREE CATCH-UP OFFER</div>
+          <h2>More than a month behind on job costing?</h2>
+          <p>Get caught up on the Kickback platform in under an hour &mdash; or your first month is free. Connect your CRM and supplier accounts in under five minutes, and we&rsquo;ll run your first sync with you live.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing free</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://costing.nowkickback.com/demo">Book a 15-min demo</a>
+          <p class="cta-banner-fineprint">Still behind after onboarding? Your first month is free.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-top">
+        <div>
+          <img src="assets/wordmark-on-dark.svg" alt="kickback">
+          <p class="site-footer-tag">The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview. HUD and Coach are next.</p>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Platform</span>
+          <ul>
+            <li><a href="costing.html">Costing</a></li>
+            <li><a href="follow-up.html">Follow-Up</a> <span style="color:var(--stone-500)">&mdash; preview</span></li>
+            <li><a href="hud.html">HUD</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+            <li><a href="coach.html">Coach</a> <span style="color:var(--stone-500)">&mdash; soon</span></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Integrations</span>
+          <ul>
+            <li>Housecall Pro</li>
+            <li>Sherwin-Williams</li>
+            <li>Home Depot Pro</li>
+            <li>Lowe's Pro</li>
+            <li>Siro</li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Company</span>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="ks-eyebrow">Resources</span>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <div>&copy; 2026 Kickback Group, Inc.</div>
+        <div class="links">
+          <span>Privacy</span>
+          <span>Terms</span>
+          <span>DPA</span>
+          <span class="site-footer-status">All systems normal</span>
+          <div class="theme-toggle" role="radiogroup" aria-label="Color theme">
+            <button type="button" role="radio" data-theme-pref="light" aria-label="Light theme" title="Light">
+              <i class="ph ph-sun" aria-hidden="true"></i><span>Light</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="auto" aria-label="Match system theme" title="Match system">
+              <i class="ph ph-circle-half" aria-hidden="true"></i><span>System</span>
+            </button>
+            <button type="button" role="radio" data-theme-pref="dark" aria-label="Dark theme" title="Dark">
+              <i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!els.length) return;
+
+      var prefersReduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('.theme-toggle [data-theme-pref]');
+      if (!btns.length) return;
+      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      function readPref() {
+        try { return localStorage.getItem('kb-theme') || 'auto'; } catch (_) { return 'auto'; }
+      }
+      function writePref(v) {
+        try {
+          if (v === 'auto') localStorage.removeItem('kb-theme');
+          else localStorage.setItem('kb-theme', v);
+        } catch (_) { }
+      }
+      function effectiveFor(pref) {
+        return pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
+      }
+      function paintToggle(pref) {
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', b.dataset.themePref === pref ? 'true' : 'false');
+          b.setAttribute('aria-checked', b.dataset.themePref === pref ? 'true' : 'false');
+        });
+      }
+      function apply(pref) {
+        document.documentElement.setAttribute('data-theme', effectiveFor(pref));
+        paintToggle(pref);
+      }
+      apply(readPref());
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var v = b.dataset.themePref;
+          writePref(v);
+          apply(v);
+        });
+      });
+      if (darkMQ && darkMQ.addEventListener) {
+        darkMQ.addEventListener('change', function () {
+          if (readPref() === 'auto') apply('auto');
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
