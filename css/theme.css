@@ -2,9 +2,7 @@
    Kickback — Theme overrides
    - Workshop is the default surface (warm stone) — already in tokens.css.
    - Dark mode (Midnight palette) applies when the bootstrap script in <head>
-     sets data-theme="dark" on <html>. The script picks that up from either:
-       • the user's stored preference (localStorage 'kb-theme'), or
-       • the OS prefers-color-scheme: dark when the preference is 'auto'/unset.
+     sets data-theme="dark" on <html> from prefers-color-scheme.
    - Vivid accent and Bold headline are baked in as the standard look.
    ========================================================================== */
 
@@ -70,7 +68,7 @@
    ───────────────────────────────────────────────────────────────────── */
 
 body[data-product="costing"] {
-  --accent-50:  var(--moss-50);
+  --accent-50: var(--moss-50);
   --accent-200: var(--moss-200);
   --accent-300: var(--moss-300);
   --accent-500: var(--moss-500);
@@ -79,7 +77,7 @@ body[data-product="costing"] {
   --accent-rgb: 111, 147, 52;
 }
 body[data-product="follow_up"] {
-  --accent-50:  var(--tide-50);
+  --accent-50: var(--tide-50);
   --accent-200: var(--tide-200);
   --accent-300: var(--tide-300);
   --accent-500: var(--tide-500);
@@ -88,7 +86,7 @@ body[data-product="follow_up"] {
   --accent-rgb: 65, 119, 141;
 }
 body[data-product="hud"] {
-  --accent-50:  var(--ochre-50);
+  --accent-50: var(--ochre-50);
   --accent-200: var(--ochre-200);
   --accent-300: var(--ochre-300);
   --accent-500: var(--ochre-500);
@@ -97,7 +95,7 @@ body[data-product="hud"] {
   --accent-rgb: 178, 120, 24;
 }
 body[data-product="coach"] {
-  --accent-50:  var(--plum-50);
+  --accent-50: var(--plum-50);
   --accent-200: var(--plum-200);
   --accent-300: var(--plum-300);
   --accent-500: var(--plum-500);
@@ -245,52 +243,7 @@ body[data-product] {
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   THEME TOGGLE — Footer segmented control
-   ───────────────────────────────────────────────────────────────────── */
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.theme-toggle button {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.55);
-  font: 500 12px/1 var(--font-sans, system-ui);
-  letter-spacing: 0.02em;
-  padding: 7px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition:
-    color 160ms ease,
-    background 160ms ease;
-}
-.theme-toggle button i {
-  font-size: 14px;
-}
-.theme-toggle button:hover {
-  color: rgba(255, 255, 255, 0.85);
-}
-.theme-toggle button[aria-pressed="true"] {
-  color: #14110f;
-  background: #fbfaf8;
-}
-.theme-toggle button:focus-visible {
-  outline: 2px solid var(--red-500);
-  outline-offset: 2px;
-}
-
-/* ─────────────────────────────────────────────────────────────────────
-   Smooth crossfade when the theme flips
+   Smooth crossfade when the theme flips (system preference)
    ───────────────────────────────────────────────────────────────────── */
 
 body,

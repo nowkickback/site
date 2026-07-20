@@ -28,13 +28,12 @@
   <script>document.documentElement.classList.add('js');</script>
   <script>
     (function () {
-      var stored = null;
-      try { stored = localStorage.getItem('kb-theme'); } catch (_) { }
-      var pref = stored || 'auto';
       var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', effective);
-      window.__kbTheme = { pref: pref, effective: effective };
+      function apply() {
+        document.documentElement.setAttribute('data-theme', darkMQ && darkMQ.matches ? 'dark' : 'light');
+      }
+      apply();
+      if (darkMQ && darkMQ.addEventListener) darkMQ.addEventListener('change', apply);
     })();
   </script>
 </head>
@@ -54,8 +53,8 @@
         <a href="pricing.html">Pricing</a>
       </div>
       <div class="nav-actions">
-        <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
-        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://costing.nowkickback.com">Get Started</a>
+        <a class="nav-signin" href="https://platform.nowkickback.com/users/sign_in">Sign In</a>
+        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://platform.nowkickback.com">Get Started</a>
       </div>
     </div>
   </nav>
@@ -74,7 +73,7 @@
         Every unsold estimate in your CRM gets a follow-up cadence the moment it syncs in. Overnight, the AI drafts the day's outreach in your voice &mdash; with the estimate, the history, and your call recordings as context. You open the outbox, approve, and move on.
       </p>
       <div class="hero-ctas reveal">
-        <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com/sales">Request Early Access</a>
+        <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://platform.nowkickback.com/sales">Request Early Access</a>
         <a class="ks-btn ks-btn-secondary ks-btn-lg" href="#how">See how it works &downarrow;</a>
       </div>
       <div class="hero-meta reveal">
@@ -90,7 +89,7 @@
               <span style="background:#E8B94B"></span>
               <span style="background:#6CC078"></span>
             </div>
-            <div class="shot-url">costing.nowkickback.com/follow_up</div>
+            <div class="shot-url">platform.nowkickback.com/follow_up</div>
             <div></div>
           </div>
           <div class="shot-body shot-body-3col">
@@ -327,7 +326,7 @@
               <span><strong>Synced back</strong> &mdash; wins, losses, and follow-up dates push to your CRM automatically. One source of truth, like everything on the platform.</span>
             </li>
           </ul>
-          <a class="split-cta" href="https://costing.nowkickback.com/sales">Request Early Access <span aria-hidden="true">&rarr;</span></a>
+          <a class="split-cta" href="https://platform.nowkickback.com/sales">Request Early Access <span aria-hidden="true">&rarr;</span></a>
         </div>
 
         <div class="estimate-wrap reveal">
@@ -383,8 +382,8 @@
           <p>Follow-Up is rolling out to early-access teams now. It runs on the same platform connection as Costing &mdash; if your CRM is already synced, you're a toggle away.</p>
         </div>
         <div class="cta-banner-actions">
-          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com/sales">Request Early Access</a>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing Today</a>
+          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://platform.nowkickback.com/sales">Request Early Access</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://platform.nowkickback.com">Try Costing Today</a>
           <p class="cta-banner-fineprint">Already on Kickback? Ask us to flip Follow-Up on for your team.</p>
         </div>
       </div>
@@ -434,7 +433,7 @@
             <li><a href="#">Docs</a></li>
             <li><a href="#">Help center</a></li>
             <li><a href="#">Changelog</a></li>
-            <li><a href="#">Privacy</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
             <li><a href="#">Terms</a></li>
           </ul>
         </div>
@@ -442,21 +441,9 @@
       <div class="site-footer-bottom">
         <div>&copy; 2026 Kickback Group, Inc.</div>
         <div class="links">
-          <span>Privacy</span>
+          <a href="privacy.html">Privacy</a>
           <span>Terms</span>
-          <span>DPA</span>
           <span class="site-footer-status">All systems normal</span>
-          <div class="theme-toggle" role="radiogroup" aria-label="Color theme">
-            <button type="button" role="radio" data-theme-pref="light" aria-label="Light theme" title="Light">
-              <i class="ph ph-sun" aria-hidden="true"></i><span>Light</span>
-            </button>
-            <button type="button" role="radio" data-theme-pref="auto" aria-label="Match system theme" title="Match system">
-              <i class="ph ph-circle-half" aria-hidden="true"></i><span>System</span>
-            </button>
-            <button type="button" role="radio" data-theme-pref="dark" aria-label="Dark theme" title="Dark">
-              <i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -491,48 +478,6 @@
     })();
   </script>
 
-  <script>
-    (function () {
-      var btns = document.querySelectorAll('.theme-toggle [data-theme-pref]');
-      if (!btns.length) return;
-      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      function readPref() {
-        try { return localStorage.getItem('kb-theme') || 'auto'; } catch (_) { return 'auto'; }
-      }
-      function writePref(v) {
-        try {
-          if (v === 'auto') localStorage.removeItem('kb-theme');
-          else localStorage.setItem('kb-theme', v);
-        } catch (_) { }
-      }
-      function effectiveFor(pref) {
-        return pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
-      }
-      function paintToggle(pref) {
-        btns.forEach(function (b) {
-          b.setAttribute('aria-pressed', b.dataset.themePref === pref ? 'true' : 'false');
-          b.setAttribute('aria-checked', b.dataset.themePref === pref ? 'true' : 'false');
-        });
-      }
-      function apply(pref) {
-        document.documentElement.setAttribute('data-theme', effectiveFor(pref));
-        paintToggle(pref);
-      }
-      apply(readPref());
-      btns.forEach(function (b) {
-        b.addEventListener('click', function () {
-          var v = b.dataset.themePref;
-          writePref(v);
-          apply(v);
-        });
-      });
-      if (darkMQ && darkMQ.addEventListener) {
-        darkMQ.addEventListener('change', function () {
-          if (readPref() === 'auto') apply('auto');
-        });
-      }
-    })();
-  </script>
 
 </body>
 

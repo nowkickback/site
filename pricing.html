@@ -28,13 +28,12 @@
   <script>document.documentElement.classList.add('js');</script>
   <script>
     (function () {
-      var stored = null;
-      try { stored = localStorage.getItem('kb-theme'); } catch (_) { }
-      var pref = stored || 'auto';
       var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      var effective = pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', effective);
-      window.__kbTheme = { pref: pref, effective: effective };
+      function apply() {
+        document.documentElement.setAttribute('data-theme', darkMQ && darkMQ.matches ? 'dark' : 'light');
+      }
+      apply();
+      if (darkMQ && darkMQ.addEventListener) darkMQ.addEventListener('change', apply);
     })();
   </script>
 </head>
@@ -54,8 +53,8 @@
         <a href="pricing.html" aria-current="page" class="nav-link-active">Pricing</a>
       </div>
       <div class="nav-actions">
-        <a class="nav-signin" href="https://costing.nowkickback.com/users/sign_in">Sign In</a>
-        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://costing.nowkickback.com">Get Started</a>
+        <a class="nav-signin" href="https://platform.nowkickback.com/users/sign_in">Sign In</a>
+        <a class="ks-btn ks-btn-primary ks-btn-sm" href="https://platform.nowkickback.com">Get Started</a>
       </div>
     </div>
   </nav>
@@ -71,28 +70,9 @@
 
       <div class="pricing-grid pricing-grid-builder reveal-group">
 
-        <div class="tier reveal">
-          <div class="tier-tag">KICK THE TIRES</div>
-          <div class="tier-name">Free</div>
-          <div class="tier-price-row">
-            <span class="tier-dollar">$</span>
-            <span class="tier-price">0</span>
-            <span class="tier-per">/mo</span>
-          </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Free</a>
-          <ul class="tier-list">
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>1 CRM connection</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Every app included</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 invoices matched / month</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 estimates on follow-up / month</span></li>
-            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>No card required</span></li>
-          </ul>
-        </div>
-
         <div class="tier tier-hi reveal">
-          <div class="tier-ribbon">BUILD YOUR PACKAGE</div>
           <div class="tier-tag">PICK YOUR APPS</div>
-          <div class="tier-name">Your Kickback</div>
+          <div class="tier-name">Kickback Platform</div>
           <label class="builder-row is-locked is-on" style="--row-accent: var(--red-500)">
             <input type="checkbox" checked disabled aria-label="Kickback Platform (required)">
             <span class="builder-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
@@ -142,8 +122,8 @@
           </label>
 
           <div class="builder-note" id="builder-note">
-            <i class="ph-bold ph-check" aria-hidden="true"></i>
-            <span>Both apps added &mdash; the platform fee is on us.</span>
+            <i class="ph-bold ph-check" id="builder-note-icon" aria-hidden="true"></i>
+            <span id="builder-note-text">Both apps added &mdash; the platform fee is on us.</span>
           </div>
 
           <div class="builder-total">
@@ -155,7 +135,7 @@
             </span>
           </div>
 
-          <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://costing.nowkickback.com">Start Your Package</a>
+          <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://platform.nowkickback.com">Start Your Package</a>
           <ul class="tier-list">
             <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Unlimited usage on every app you add</span></li>
             <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Add or drop apps any time</span></li>
@@ -165,12 +145,29 @@
         </div>
 
         <div class="tier reveal">
-          <div class="tier-tag">ENTERPRISE / CUSTOM</div>
-          <div class="tier-name">Enterprise</div>
+          <div class="tier-tag">FOR SOLO OPERATORS</div>
+          <div class="tier-name">Forever Free</div>
           <div class="tier-price-row">
-            <span class="tier-price">Custom</span>
+            <span class="tier-dollar">$</span>
+            <span class="tier-price">0</span>
           </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://costing.nowkickback.com/sales">Contact Us</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://platform.nowkickback.com">Start Free</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>1 CRM connection</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Every app included</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 invoices matched / month</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 estimates on follow-up / month</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>No card required</span></li>
+          </ul>
+        </div>
+
+        <div class="tier reveal">
+          <div class="tier-tag">FOR FRANCHISES AND MULTI-LOCATION OWNERS</div>
+          <div class="tier-name">Custom</div>
+          <div class="tier-price-row">
+            <span class="tier-price" style="font-size: 36px;">(let&rsquo;s chat)</span>
+          </div>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://platform.nowkickback.com/sales">Contact Us</a>
           <ul class="tier-list">
             <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Multi-location &amp; franchise rollouts</span></li>
             <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>More than 25 vendor connections</span></li>
@@ -191,6 +188,8 @@
       var total = document.getElementById('builder-total');
       var platformPrice = document.getElementById('platform-price');
       var note = document.getElementById('builder-note');
+      var noteIcon = document.getElementById('builder-note-icon');
+      var noteText = document.getElementById('builder-note-text');
       if (!total || !platformPrice) return;
 
       var users = { 'costing': INCLUDED_USERS, 'follow-up': INCLUDED_USERS };
@@ -207,16 +206,28 @@
         var sum = checked.reduce(function (acc, key) { return acc + appPrice(key); }, 0);
         total.textContent = fmt((waived ? 0 : PLATFORM) + sum);
         platformPrice.classList.toggle('is-waived', waived);
-        note.style.display = waived ? '' : 'none';
+        note.classList.toggle('is-prompt', !waived);
+        noteIcon.className = waived ? 'ph-bold ph-check' : 'ph-bold ph-piggy-bank';
+        noteText.innerHTML = waived
+          ? 'Both apps added &mdash; the platform fee is on us.'
+          : 'Add both apps and we&rsquo;ll waive the $' + fmt(PLATFORM) + '/mo platform fee.';
         APPS.forEach(function (key) {
           document.getElementById('users-' + key).textContent = String(users[key]);
           document.getElementById('price-' + key).textContent = '+$' + fmt(appPrice(key)) + '/mo';
+          // The last remaining app can't be unchecked — at least one app is required.
+          box(key).disabled = checked.length === 1 && box(key).checked;
           box(key).closest('.builder-row').classList.toggle('is-on', box(key).checked);
         });
       }
 
       APPS.forEach(function (key) {
-        box(key).addEventListener('change', paint);
+        box(key).addEventListener('change', function () {
+          if (!APPS.some(function (k) { return box(k).checked; })) {
+            box(key).checked = true;
+            return;
+          }
+          paint();
+        });
       });
       document.querySelectorAll('.builder-stepper button[data-users]').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
@@ -240,8 +251,8 @@
           <p>Get caught up on the Kickback platform in under an hour &mdash; or your first month is free. Connect your CRM and supplier accounts in under five minutes, and we&rsquo;ll run your first sync with you live.</p>
         </div>
         <div class="cta-banner-actions">
-          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://costing.nowkickback.com">Try Costing free</a>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://costing.nowkickback.com/demo">Book a 15-min demo</a>
+          <a class="ks-btn ks-btn-primary ks-btn-lg" href="https://platform.nowkickback.com">Try Costing free</a>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg" href="https://platform.nowkickback.com/demo">Book a 15-min demo</a>
           <p class="cta-banner-fineprint">Still behind after onboarding? Your first month is free.</p>
         </div>
       </div>
@@ -291,7 +302,7 @@
             <li><a href="#">Docs</a></li>
             <li><a href="#">Help center</a></li>
             <li><a href="#">Changelog</a></li>
-            <li><a href="#">Privacy</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
             <li><a href="#">Terms</a></li>
           </ul>
         </div>
@@ -299,21 +310,9 @@
       <div class="site-footer-bottom">
         <div>&copy; 2026 Kickback Group, Inc.</div>
         <div class="links">
-          <span>Privacy</span>
+          <a href="privacy.html">Privacy</a>
           <span>Terms</span>
-          <span>DPA</span>
           <span class="site-footer-status">All systems normal</span>
-          <div class="theme-toggle" role="radiogroup" aria-label="Color theme">
-            <button type="button" role="radio" data-theme-pref="light" aria-label="Light theme" title="Light">
-              <i class="ph ph-sun" aria-hidden="true"></i><span>Light</span>
-            </button>
-            <button type="button" role="radio" data-theme-pref="auto" aria-label="Match system theme" title="Match system">
-              <i class="ph ph-circle-half" aria-hidden="true"></i><span>System</span>
-            </button>
-            <button type="button" role="radio" data-theme-pref="dark" aria-label="Dark theme" title="Dark">
-              <i class="ph ph-moon" aria-hidden="true"></i><span>Dark</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -348,48 +347,6 @@
     })();
   </script>
 
-  <script>
-    (function () {
-      var btns = document.querySelectorAll('.theme-toggle [data-theme-pref]');
-      if (!btns.length) return;
-      var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      function readPref() {
-        try { return localStorage.getItem('kb-theme') || 'auto'; } catch (_) { return 'auto'; }
-      }
-      function writePref(v) {
-        try {
-          if (v === 'auto') localStorage.removeItem('kb-theme');
-          else localStorage.setItem('kb-theme', v);
-        } catch (_) { }
-      }
-      function effectiveFor(pref) {
-        return pref === 'dark' || (pref === 'auto' && darkMQ && darkMQ.matches) ? 'dark' : 'light';
-      }
-      function paintToggle(pref) {
-        btns.forEach(function (b) {
-          b.setAttribute('aria-pressed', b.dataset.themePref === pref ? 'true' : 'false');
-          b.setAttribute('aria-checked', b.dataset.themePref === pref ? 'true' : 'false');
-        });
-      }
-      function apply(pref) {
-        document.documentElement.setAttribute('data-theme', effectiveFor(pref));
-        paintToggle(pref);
-      }
-      apply(readPref());
-      btns.forEach(function (b) {
-        b.addEventListener('click', function () {
-          var v = b.dataset.themePref;
-          writePref(v);
-          apply(v);
-        });
-      });
-      if (darkMQ && darkMQ.addEventListener) {
-        darkMQ.addEventListener('change', function () {
-          if (readPref() === 'auto') apply('auto');
-        });
-      }
-    })();
-  </script>
 
 </body>
 
