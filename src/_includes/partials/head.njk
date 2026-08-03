@@ -1,0 +1,34 @@
+{% set p = product or (productKey and products[productKey]) %}
+<meta charset="utf-8">
+<title>{{ title or (p and p.seo.title) or platform.seo.title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ description or (p and p.seo.description) or platform.seo.description }}">
+<meta name="theme-color" content="{{ themeColor or (p and p.themeColor) or site.themeColorDefault }}">
+<meta property="og:title" content="{{ ogTitle or (p and p.seo.ogTitle) or title or (p and p.seo.title) or platform.seo.ogTitle }}">
+<meta property="og:description" content="{{ ogDescription or (p and p.seo.ogDescription) or description or (p and p.seo.description) or platform.seo.ogDescription }}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="/css/tokens.css?v={{ site.cssVersion }}">
+<link rel="stylesheet" href="/css/components.css?v={{ site.cssVersion }}">
+<link rel="stylesheet" href="/css/site.css?v={{ site.cssVersion }}">
+<link rel="stylesheet" href="/css/theme.css?v={{ site.cssVersion }}">
+<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/assets/favicon/site.webmanifest">
+<script>document.documentElement.classList.add('js');</script>
+<script>
+  (function () {
+    var darkMQ = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    function apply() {
+      document.documentElement.setAttribute('data-theme', darkMQ && darkMQ.matches ? 'dark' : 'light');
+    }
+    apply();
+    if (darkMQ && darkMQ.addEventListener) darkMQ.addEventListener('change', apply);
+  })();
+</script>
+<script async src="https://harvv.com/px/4de49b333025d349/pixel.js"></script>

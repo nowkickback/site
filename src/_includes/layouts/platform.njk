@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+{% set hero = platform.hero %}
+{% include "sections/hero.njk" %}
+
+{% include "sections/logo-strip.njk" %}
+
+{% include "sections/suite.njk" %}
+
+{% set section = platform.features %}
+{% include "sections/features.njk" %}
+
+<section class="section">
+  <div class="container">
+    <div class="quote reveal-group">
+      <div class="ks-eyebrow reveal">{{ platform.quote.eyebrow }}</div>
+      <blockquote class="quote-text reveal">“{{ platform.quote.text }}”</blockquote>
+      <div class="quote-byline reveal">{{ platform.quote.bylineHtml | safe }}</div>
+    </div>
+  </div>
+</section>
+
+{% set ctaVariant = "live" %}
+{% include "sections/cta-banner.njk" %}
+
+{{ content | safe }}

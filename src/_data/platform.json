@@ -1,0 +1,86 @@
+{
+  "seo": {
+    "title": "Kickback \u2014 the AI-native platform for home-services businesses",
+    "description": "Kickback is the AI-native platform for the home-services back office. Costing is live today \u2014 vendor invoices matched to your CRM jobs in seconds. Follow-Up is in private preview. HUD and Coach are next.",
+    "ogTitle": "Kickback \u2014 the AI-native platform for home-services businesses",
+    "ogDescription": "One platform for the messy back office: costing, follow-up, dashboards, coaching. Start with Costing \u2014 the only public app today.",
+    "themeColor": "#DE4444"
+  },
+  "hero": {
+    "variant": "platform",
+    "pill": {
+      "icon": "ph-fill ph-sparkle",
+      "text": "Follow-Up is now in private preview",
+      "href": "/follow-up/"
+    },
+    "headlineHtml": "AI for the back office.<br><em>Not another chatbot.</em>",
+    "ledeHtml": "Kickback connects all your data from the tools you already use, then our AI costs jobs, follows up on leads, and more, surfacing only what needs your attention.<br>The work a six-figure ops manager would do, no training required.<br>So you can get your weekend back.",
+    "ctas": [
+      {
+        "label": "Try For Free",
+        "href": "https://platform.nowkickback.com",
+        "style": "primary"
+      },
+      {
+        "label": "See the Platform \u2193",
+        "href": "/#platform",
+        "style": "secondary"
+      }
+    ],
+    "meta": "Risk-Free Trial \u00b7 Forever Free Edition Available \u00b7 No Card Required",
+    "shot": "platform-home"
+  },
+  "suite": {
+    "id": "platform",
+    "eyebrow": "THE KICKBACK PLATFORM",
+    "title": "One platform. The whole back office.",
+    "lede": "Most contracting software locks you in, then forces you to learn a new system. Kickback is built as a platform from the start \u2014 one login, one job graph, one set of crews and customers, sourced from the tools you already use, shared across every app in the platform."
+  },
+  "pillars": [
+    {
+      "icon": "ph ph-graph",
+      "title": "One Source of Truth",
+      "body": "Every part of the platform reads from the same jobs, customers, crews, and vendors, from the CRM you already use."
+    },
+    {
+      "icon": "ph ph-user-circle",
+      "title": "One Login",
+      "body": "Add your teammates to the platform once. Give them access to one app, just a few, or all of them."
+    },
+    {
+      "icon": "ph ph-plugs-connected",
+      "title": "One Connection",
+      "body": "Connect your CRM and your supplier accounts to the platform. Data flows automatically, so you can get right to work."
+    },
+    {
+      "icon": "ph ph-shield-check",
+      "title": "One Trusted Platform",
+      "body": "Bank-grade encryption of your supplier credentials, and secure storage of your data. Peace of mind, without duct tape and string."
+    }
+  ],
+  "features": {
+    "title": "Built for the back office, by people who'd rather be in the field.",
+    "items": [
+      {
+        "icon": "ph ph-clock",
+        "title": "Get your weekend back.",
+        "body": "The receipts pile that used to take a Saturday afternoon clears in under fifteen minutes. The platform handles the data entry; you just confirm what's right."
+      },
+      {
+        "icon": "ph ph-chart-line-up",
+        "title": "Strengthen your relationships.",
+        "body": "Never forget a detail, never lose a lead, and never miss a chance to close. The AI keeps your customer relationships strong, drafting in your voice with context from across your business."
+      },
+      {
+        "icon": "ph ph-plugs-connected",
+        "title": "Stop juggling apps.",
+        "body": "Kickback pushes data back into your CRM and pulls data from the tools you already use, and keeps everything in sync without double-entry, juggling multiple apps, or sharing passwords."
+      }
+    ]
+  },
+  "quote": {
+    "eyebrow": "CUSTOMER STORY",
+    "text": "Job Costing used to give me anxiety. Now, it takes five minutes every morning and everything's in sync.",
+    "bylineHtml": "<strong>Troy</strong> \u00b7 That 1 Painter \u00b7 Richmond, VA"
+  }
+}

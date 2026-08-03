@@ -1,0 +1,59 @@
+<script>
+(function () {
+      var PLATFORM = 249, APP = 489, PER_USER = 89, INCLUDED_USERS = 5;
+      var APPS = ['costing', 'follow-up'];
+      var total = document.getElementById('builder-total');
+      var platformPrice = document.getElementById('platform-price');
+      var note = document.getElementById('builder-note');
+      var noteIcon = document.getElementById('builder-note-icon');
+      var noteText = document.getElementById('builder-note-text');
+      if (!total || !platformPrice) return;
+
+      var users = { 'costing': INCLUDED_USERS, 'follow-up': INCLUDED_USERS };
+      var fmt = function (n) { return n.toLocaleString('en-US'); };
+      var box = function (key) { return document.getElementById('opt-' + key); };
+
+      function appPrice(key) {
+        return APP + Math.max(0, users[key] - INCLUDED_USERS) * PER_USER;
+      }
+
+      function paint() {
+        var checked = APPS.filter(function (key) { return box(key).checked; });
+        var waived = checked.length === APPS.length;
+        var sum = checked.reduce(function (acc, key) { return acc + appPrice(key); }, 0);
+        total.textContent = fmt((waived ? 0 : PLATFORM) + sum);
+        platformPrice.classList.toggle('is-waived', waived);
+        note.classList.toggle('is-prompt', !waived);
+        noteIcon.className = waived ? 'ph-bold ph-check' : 'ph-bold ph-piggy-bank';
+        noteText.innerHTML = waived
+          ? 'Both apps added &mdash; the platform fee is on us.'
+          : 'Add both apps and we&rsquo;ll waive the $' + fmt(PLATFORM) + '/mo platform fee.';
+        APPS.forEach(function (key) {
+          document.getElementById('users-' + key).textContent = String(users[key]);
+          document.getElementById('price-' + key).textContent = '+$' + fmt(appPrice(key)) + '/mo';
+          // The last remaining app can't be unchecked — at least one app is required.
+          box(key).disabled = checked.length === 1 && box(key).checked;
+          box(key).closest('.builder-row').classList.toggle('is-on', box(key).checked);
+        });
+      }
+
+      APPS.forEach(function (key) {
+        box(key).addEventListener('change', function () {
+          if (!APPS.some(function (k) { return box(k).checked; })) {
+            box(key).checked = true;
+            return;
+          }
+          paint();
+        });
+      });
+      document.querySelectorAll('.builder-stepper button[data-users]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var key = btn.dataset.users;
+          users[key] = Math.min(99, Math.max(1, users[key] + Number(btn.dataset.dir)));
+          paint();
+        });
+      });
+      paint();
+    })();
+</script>

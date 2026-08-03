@@ -1,0 +1,155 @@
+{
+  "slug": "follow-up",
+  "dataProduct": "follow_up",
+  "name": "Follow-Up",
+  "themeColor": "#41778D",
+  "status": "preview",
+  "statusLabel": "PRIVATE PREVIEW",
+  "suiteTagClass": "next",
+  "suiteCardClass": "suite-card-followup",
+  "icon": "ph-fill ph-chats",
+  "url": "/follow-up/",
+  "order": 2,
+  "seo": {
+    "title": "Follow-Up \u2014 Kickback",
+    "description": "Follow-Up drafts outreach for every unsold estimate in your voice, queues what's due in a daily outbox, and keeps your pipeline warm. You approve, it sends.",
+    "ogTitle": "Follow-Up \u2014 Kickback",
+    "ogDescription": "Quotes that close themselves. AI-drafted follow-up for every unsold estimate, sent only with your approval."
+  },
+  "screenLabel": "Follow-Up page",
+  "hero": {
+    "variant": "product",
+    "showCrumb": false,
+    "headlineHtml": "Contextual follow-ups that <em>close themselves.</em>",
+    "lede": "Follow-Up pulls all your open estimates and merges in context from your CRM, phone and appointment recordings, and more. It drafts the day's outreach in your voice, then queues it up for you to approve and send.",
+    "ctas": [
+      {
+        "label": "Request Early Access",
+        "href": "https://platform.nowkickback.com/sales",
+        "style": "primary"
+      },
+      {
+        "label": "See how it works \u2193",
+        "href": "#how",
+        "style": "secondary"
+      }
+    ],
+    "metaHtml": "Part of the <a href=\"https://platform.nowkickback.com\">Kickback Platform</a> \u00b7 Sign-In or Create an Account",
+    "shot": "follow-up-outbox"
+  },
+  "sections": [
+    {
+      "type": "steps",
+      "id": "how",
+      "eyebrow": "HOW FOLLOW-UP WORKS",
+      "title": "Never miss a touchpoint again.",
+      "titleClass": "ks-display",
+      "lede": "Connect your CRM and your recording platforms. Our platform pulls all your open estimates and merges in context, drafts the day's outreach in your voice, and queues it up for you to approve and send.",
+      "items": [
+        {
+          "num": "01",
+          "icon": "ph ph-funnel",
+          "title": "Estimates enroll themselves.",
+          "body": "Every unsold estimate syncs in from your CRM and joins a follow-up cadence automatically. No spreadsheet, no whiteboard, no \"did anyone call them back?\""
+        },
+        {
+          "num": "02",
+          "icon": "ph ph-moon-stars",
+          "title": "Drafts are ready before you are.",
+          "body": "Overnight, the AI writes the day's follow-ups in your voice \u2014 with the estimate, the message history, and summaries of your recorded calls as context. Nothing sends without you."
+        },
+        {
+          "num": "03",
+          "icon": "ph ph-paper-plane-tilt",
+          "title": "You approve. Statuses advance.",
+          "body": "Work the outbox top to bottom. Log what happened with one key \u2014 date given, thinking, won, lost \u2014 and the next touch schedules itself. Outcomes sync back to your CRM."
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "id": "outbox",
+      "eyebrow": "THE OUTREACH OUTBOX",
+      "title": "Every due follow-up, cleared before your first coffee.",
+      "body": "Each rep gets a daily worklist of exactly what's due \u2014 nothing more. Date-given promises come first, then the cadence. Approve the draft, log the outcome, next. The pipeline stays warm without anyone keeping a list in their head.",
+      "bullets": [
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Six statuses, zero ambiguity",
+          "text": "Date Given, Active, Thinking, Won, Lost, Nurture. Outcomes you log set the status; statuses pick the cadence."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Drafted in your voice",
+          "text": "nightly AI drafting with the estimate, past messages, and call summaries as context. Sent only with approval."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Your channels, not ours",
+          "text": "connect your own Gmail and iMessage. Replies land back with you, because the message really came from you."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Calls in context",
+          "text": "Siro call recordings sync in and get summarized beside the estimate, so every draft knows what was actually said."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Synced back",
+          "text": "wins, losses, and follow-up dates push to your CRM automatically. One source of truth, like everything on the platform."
+        }
+      ],
+      "cta": {
+        "label": "Request Early Access \u2192",
+        "href": "https://platform.nowkickback.com/sales"
+      },
+      "kpis": {
+        "meta": "FOLLOW-UP \u00b7 DASHBOARD",
+        "title": "Today at a glance",
+        "items": [
+          {
+            "label": "Due today",
+            "value": "12",
+            "sub": "queued in the outbox, drafts ready"
+          },
+          {
+            "label": "Open follow-ups",
+            "value": "84",
+            "sub": "estimates being worked right now"
+          },
+          {
+            "label": "Open value",
+            "value": "$412k",
+            "sub": "pipeline kept warm automatically"
+          },
+          {
+            "label": "Won \u00b7 30 days",
+            "value": "9",
+            "sub": "closed from follow-up outreach"
+          }
+        ]
+      },
+      "callout": {
+        "icon": "ph ph-moon-stars",
+        "tag": "FOLLOW-UP \u00b7 NIGHTLY DRAFTING",
+        "body": "While you sleep, every due touch gets a draft written in your voice. The morning outbox is approval work, not writing work."
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "preview"
+    }
+  ],
+  "suite": {
+    "body": "Every unsold estimate gets an AI-drafted follow-up, in your voice, queued in a daily outbox. You approve, it sends, and the pipeline keeps itself warm.",
+    "disabled": false,
+    "liveRing": false
+  },
+  "pricing": {
+    "billable": true,
+    "baseMonthly": 489,
+    "includedUsers": 5,
+    "perUserAfter": 89,
+    "builderDesc": "Unlimited estimates in cadence, nightly AI drafting in your voice, sends from your own Gmail + iMessage."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "kickback-site",
+  "version": "1.0.0",
+  "description": "Kickback marketing site — built with Build Awesome",
+  "private": true,
+  "scripts": {
+    "build": "buildawesome",
+    "serve": "buildawesome --serve",
+    "start": "npm run serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nowkickback/site.git"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@awesome.me/buildawesome": "4.0.0-alpha.10"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "coach",
+  "dataProduct": "coach",
+  "name": "Coach",
+  "themeColor": "#8E5C84",
+  "status": "soon",
+  "statusLabel": "COMING SOON",
+  "suiteTagClass": "later",
+  "suiteCardClass": "suite-card-coach",
+  "icon": "ph-fill ph-sparkle",
+  "url": "/coach/",
+  "order": 4,
+  "seo": {
+    "title": "Coach \u2014 Kickback",
+    "description": "Coach is an AI that reads across your costing, pipeline, follow-up, and call data \u2014 and tells you what to do about it in plain language. Coming soon.",
+    "ogTitle": "Coach \u2014 Kickback",
+    "ogDescription": "Insights, not another dashboard. An AI that's read every job, every estimate, and every call. Coming soon."
+  },
+  "screenLabel": "Coach page",
+  "ctaPreset": "soonCoach",
+  "hero": {
+    "variant": "product",
+    "showCrumb": true,
+    "crumb": {
+      "parentLabel": "Kickback platform",
+      "parentHref": "/",
+      "current": "Coach"
+    },
+    "badge": "COMING SOON",
+    "headlineHtml": "An AI that's read <em>every job.</em>",
+    "lede": "Coach reads across your costing, pipeline, follow-up, and call data \u2014 the whole platform \u2014 and tells you what's working, what's slipping, and what to do about it. In plain language, not another dashboard you'll stop opening by March.",
+    "ctas": [
+      {
+        "label": "Get Notified at Launch",
+        "href": "https://platform.nowkickback.com/sales",
+        "style": "primary"
+      },
+      {
+        "label": "See the platform",
+        "href": "/#platform",
+        "style": "secondary"
+      }
+    ],
+    "metaHtml": "Coming soon \u00b7 Built on the Kickback platform \u00b7 Insights, not homework",
+    "shot": "coach-insights"
+  },
+  "sections": [
+    {
+      "type": "features",
+      "eyebrow": "WHY COACH",
+      "title": "It already knows the business. That's the point.",
+      "items": [
+        {
+          "icon": "ph ph-books",
+          "title": "Reads everything, remembers everything.",
+          "body": "Every costed job, every estimate, every follow-up, every recorded call \u2014 Coach reads the whole platform, so its advice is grounded in your numbers, not generic benchmarks."
+        },
+        {
+          "icon": "ph ph-chat-circle-text",
+          "title": "Plain language, not pivot tables.",
+          "body": "No chart-hunting. Coach leads with the finding and the recommended move, and shows its work underneath when you want to dig in."
+        },
+        {
+          "icon": "ph ph-target",
+          "title": "Coaching for the crew, too.",
+          "body": "From call recordings to close rates, Coach spots what your best reps do differently \u2014 and turns it into specific, kind feedback for everyone else."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "variant": "soonCoach"
+    }
+  ],
+  "suite": {
+    "body": "An AI that reads across costing, jobs, and pipeline data and gives owners actionable insights in plain language \u2014 not another dashboard to ignore.",
+    "disabled": true,
+    "liveRing": false
+  }
+}

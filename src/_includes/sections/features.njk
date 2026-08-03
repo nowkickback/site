@@ -1,0 +1,17 @@
+{% set s = section %}
+<section class="section section-tinted"{% if s.id %} id="{{ s.id }}"{% endif %}>
+  <div class="container">
+    {% set section = s %}
+    {% set reveal = true %}
+    {% include "partials/section-head.njk" %}
+    <div class="feature-grid reveal-group">
+      {% for item in s.items %}
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i class="{{ item.icon }}" aria-hidden="true"></i></div>
+        <h3 class="feature-title">{{ item.title }}</h3>
+        <p class="feature-body">{{ item.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

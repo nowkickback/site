@@ -1,0 +1,17 @@
+{% set title = section.title or site.logoStripTitle %}
+<section class="logo-strip">
+  <div class="container">
+    <div class="logo-strip-title">{{ title }}</div>
+    <div class="vendor-marquee" aria-label="Integrated vendors">
+      <div class="vendor-marquee-track">
+        {% for pass in [1, 2] %}
+          {% for v in site.vendors %}
+          <div class="vendor-logo{% if v.tall %} vbrand-tall{% endif %}">
+            <img class="vendor-img" src="{{ v.src }}" alt="{{ v.name }}" loading="lazy">
+          </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

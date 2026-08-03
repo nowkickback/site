@@ -1,0 +1,21 @@
+{% set variant = section.variant if section else (ctaVariant or 'live') %}
+{% set cta = ctaData or site.cta[variant] %}
+<section class="section section-sm">
+  <div class="container">
+    <div class="cta-banner reveal-group">
+      <div class="cta-banner-copy">
+        <div class="cta-banner-kicker reveal">{{ cta.kicker }}</div>
+        <h2 class="reveal">{{ cta.title }}</h2>
+        <p class="reveal">{{ cta.body }}</p>
+      </div>
+      <div class="cta-banner-actions reveal">
+        {% for btn in cta.buttons %}
+        <a class="ks-btn ks-btn-{{ btn.style or 'primary' }}{% if btn.style != 'secondary' %} ks-btn-lg{% endif %}" href="{{ btn.href }}">{{ btn.label }}</a>
+        {% endfor %}
+        {% if cta.fineprint %}
+        <div class="cta-banner-fineprint">{{ cta.fineprint }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

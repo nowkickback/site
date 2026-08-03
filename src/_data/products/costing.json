@@ -1,0 +1,153 @@
+{
+  "slug": "costing",
+  "dataProduct": "costing",
+  "name": "Costing",
+  "themeColor": "#6F9334",
+  "status": "live",
+  "statusLabel": "PUBLIC BETA",
+  "suiteTagClass": "live",
+  "suiteCardClass": "suite-card-costing",
+  "icon": "ph-fill ph-currency-dollar",
+  "url": "/costing/",
+  "order": 1,
+  "seo": {
+    "title": "Costing \u2014 Kickback",
+    "description": "Costing matches vendor invoices to your CRM jobs, automatically. Sherwin-Williams, Home Depot Pro, Lowe's Pro, and more. Built for the keyboard.",
+    "ogTitle": "Costing \u2014 Kickback",
+    "ogDescription": "Vendor invoices matched to your CRM jobs in seconds. Cleared with the keyboard. Posted straight to your CRM."
+  },
+  "screenLabel": "Costing page",
+  "hero": {
+    "variant": "product",
+    "showCrumb": false,
+    "headlineHtml": "Never hunt for a <em>receipt</em> again.",
+    "lede": "Costing pulls vendor invoices in from the vendors you already use, matches each one to the right job, and posts it to your CRM with a single keystroke.",
+    "ctas": [
+      {
+        "label": "Try Costing Today",
+        "href": "https://platform.nowkickback.com",
+        "style": "primary"
+      },
+      {
+        "label": "See how it works \u2193",
+        "href": "#how",
+        "style": "secondary"
+      }
+    ],
+    "metaHtml": "Part of the <a href=\"https://platform.nowkickback.com\">Kickback Platform</a> \u00b7 Sign-In or Create an Account",
+    "shot": "costing-inbox"
+  },
+  "sections": [
+    {
+      "type": "logo-strip"
+    },
+    {
+      "type": "steps",
+      "id": "how",
+      "eyebrow": "HOW COSTING WORKS",
+      "title": "From zero to costed in minutes.",
+      "titleClass": "ks-display",
+      "lede": "Connect your CRM and your vendor accounts. Our platform watches for new invoices, uses context from the invoice and your job data to suggest the best match, and lets you confirm with a single keystroke.",
+      "items": [
+        {
+          "num": "01",
+          "icon": "ph ph-envelope-simple",
+          "title": "New invoices arrive in your inbox.",
+          "body": "Invoices can come from any vendor, via their portal, emailed receipts or PDFs, or any other way they send them to you. Costing pulls in the details like line items and totals, P/O numbers, and more, so nothing gets re-typed."
+        },
+        {
+          "num": "02",
+          "icon": "ph ph-magnifying-glass",
+          "title": "Costing suggests the best match.",
+          "body": "We rank likely matches using the signals on each invoice and across your job data: names, dates, locations, references, and historical patterns. The best options rise to the top so you don't have to search for the right job."
+        },
+        {
+          "num": "03",
+          "icon": "ph ph-check-square",
+          "title": "Confirm and Post to your CRM.",
+          "bodyHtml": "Match an existing line item or create a new one, then hit <kbd>Enter</kbd>. The cost is posted to the matched job, the receipt PDF is attached in your CRM, and your job costing reports stay accurate."
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "id": "matching",
+      "eyebrow": "AI-DRIVEN MATCHING",
+      "title": "Clear your queue without even thinking.",
+      "bodyHtml": "The whole inbox runs on the keyboard. <kbd>J</kbd>/<kbd>K</kbd> through the queue, <kbd>1</kbd>\u2013<kbd>3</kbd> to pick a suggested job, <kbd>Enter</kbd> to confirm. Hard ones go to <kbd>S</kbd>earch. Junk goes to <kbd>O</kbd>verhead or <kbd>I</kbd>gnore. Built for the operator who'd rather get their Saturday back.",
+      "bullets": [
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Vendor Support",
+          "text": "Whether your vendors have a portal, email you receipts, or something else, our platform supports it all."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Smart Suggestions",
+          "text": "Costing reads the P/O field, the customer name on the receipt, active job dates, and more to suggest the best match. Most invoices match in one click."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Synced to your CRM",
+          "text": "No need to re-type anything or use another app. The invoice is posted, the receipt PDF is attached, and your job-costing reports stay accurate, all in the CRM you already use."
+        },
+        {
+          "icon": "ph-bold ph-check",
+          "title": "Data-Integrity Checks",
+          "text": "Spot duplicate invoices, jobs with no cost items yet, and zero-cost line items waiting on a receipt. No more manual double-checking."
+        }
+      ],
+      "cta": {
+        "label": "Try Costing free \u2192",
+        "href": "https://platform.nowkickback.com"
+      },
+      "kpis": {
+        "meta": "JOBS \u00b7 HEALTH",
+        "title": "Costing sanity check",
+        "items": [
+          {
+            "label": "Total jobs",
+            "value": "403",
+            "sub": "active across all CRM accounts"
+          },
+          {
+            "label": "Missing cost items",
+            "value": "94",
+            "sub": "no costs recorded on the job yet"
+          },
+          {
+            "label": "Unlinked invoices",
+            "value": "5",
+            "sub": "matched to a job but not a line item"
+          },
+          {
+            "label": "Unmatched line items",
+            "value": "266",
+            "sub": "cost items with no invoice attached"
+          }
+        ]
+      },
+      "callout": {
+        "icon": "ph ph-clock-clockwise",
+        "tag": "COSTING \u00b7 HOURLY SYNC",
+        "body": "New invoices land in your inbox automatically. Job costing in your CRM catches up without anyone re-typing a single line."
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "live"
+    }
+  ],
+  "suite": {
+    "body": "Vendor invoices from anywhere get matched, posted, and attached without manual data entry, right into your CRM. No more hunting for receipts or guessing where an invoice belongs.",
+    "disabled": false,
+    "liveRing": true
+  },
+  "pricing": {
+    "billable": true,
+    "baseMonthly": 489,
+    "includedUsers": 5,
+    "perUserAfter": 89,
+    "builderDesc": "Unlimited invoice matching, vendor sync + email ingest, PDFs attached to your CRM jobs, data-integrity dashboards."
+  }
+}

@@ -1,0 +1,121 @@
+<!-- ============================================================ PRICING -->
+  <section id="pricing" class="section section-tinted">
+    <div class="container">
+      <div class="section-head reveal-group">
+        <div class="ks-eyebrow reveal">PRICING</div>
+        <h2 class="ks-h1 reveal">Start free. Add the apps you need.</h2>
+        <p class="ks-lede reveal">Everything runs on the Kickback platform &mdash; one login, your CRM synced once, shared by every app. Try it all free, then build your package: add Costing, Follow-Up, or both. Change it any time.</p>
+      </div>
+
+      <div class="pricing-grid pricing-grid-builder reveal-group">
+
+        <div class="tier tier-hi reveal">
+          <div class="tier-tag">PICK YOUR APPS</div>
+          <div class="tier-name">Kickback Platform</div>
+          <label class="builder-row is-locked is-on" style="--row-accent: var(--red-500)">
+            <input type="checkbox" checked disabled aria-label="Kickback Platform (required)">
+            <span class="builder-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Platform <span class="ks-badge">REQUIRED</span></span>
+              <p class="builder-desc">One login, unlimited teammates with roles, your CRM synced, credentials in a bank-grade vault.</p>
+            </span>
+            <span class="builder-price" id="platform-price">$249/mo</span>
+          </label>
+
+          <label class="builder-row is-on" style="--row-accent: var(--moss-500)">
+            <input type="checkbox" id="opt-costing" checked aria-label="Add Costing">
+            <span class="builder-mark" style="background: var(--moss-500)"><i class="ph-fill ph-currency-dollar" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Costing</span>
+              <p class="builder-desc">Unlimited invoice matching, vendor sync + email ingest, PDFs attached to your CRM jobs, data-integrity dashboards.</p>
+              <span class="builder-users">
+                <span class="builder-users-label">Users</span>
+                <span class="builder-stepper">
+                  <button type="button" data-users="costing" data-dir="-1" aria-label="Fewer Costing users">&minus;</button>
+                  <span class="builder-stepper-count" id="users-costing">5</span>
+                  <button type="button" data-users="costing" data-dir="1" aria-label="More Costing users">+</button>
+                </span>
+                <span class="builder-users-hint">5 included &middot; $89/user after</span>
+              </span>
+            </span>
+            <span class="builder-price" id="price-costing">+$489/mo</span>
+          </label>
+
+          <label class="builder-row is-on" style="--row-accent: var(--tide-500)">
+            <input type="checkbox" id="opt-follow-up" checked aria-label="Add Follow-Up">
+            <span class="builder-mark" style="background: var(--tide-500)"><i class="ph-fill ph-chats" aria-hidden="true"></i></span>
+            <span class="builder-copy">
+              <span class="builder-name">Follow-Up</span>
+              <p class="builder-desc">Unlimited estimates in cadence, nightly AI drafting in your voice, sends from your own Gmail + iMessage.</p>
+              <span class="builder-users">
+                <span class="builder-users-label">Users</span>
+                <span class="builder-stepper">
+                  <button type="button" data-users="follow-up" data-dir="-1" aria-label="Fewer Follow-Up users">&minus;</button>
+                  <span class="builder-stepper-count" id="users-follow-up">5</span>
+                  <button type="button" data-users="follow-up" data-dir="1" aria-label="More Follow-Up users">+</button>
+                </span>
+                <span class="builder-users-hint">5 included &middot; $89/user after</span>
+              </span>
+            </span>
+            <span class="builder-price" id="price-follow-up">+$489/mo</span>
+          </label>
+
+          <div class="builder-note" id="builder-note">
+            <i class="ph-bold ph-check" id="builder-note-icon" aria-hidden="true"></i>
+            <span id="builder-note-text">Both apps added &mdash; the platform fee is on us.</span>
+          </div>
+
+          <div class="builder-total">
+            <span class="builder-total-label">Your package</span>
+            <span class="tier-price-row">
+              <span class="tier-dollar">$</span>
+              <span class="tier-price" id="builder-total">978</span>
+              <span class="tier-per">/mo</span>
+            </span>
+          </div>
+
+          <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://platform.nowkickback.com">Start Your Package</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Unlimited usage on every app you add</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Add or drop apps any time</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>HUD and Coach join your package when they launch</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Priority email support</span></li>
+          </ul>
+        </div>
+
+        <div class="tier reveal">
+          <div class="tier-tag">FOR SOLO OPERATORS</div>
+          <div class="tier-name">Forever Free</div>
+          <div class="tier-price-row">
+            <span class="tier-dollar">$</span>
+            <span class="tier-price">0</span>
+          </div>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://platform.nowkickback.com">Start Free</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>1 CRM connection</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Every app included</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 invoices matched / month</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>10 estimates on follow-up / month</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>No card required</span></li>
+          </ul>
+        </div>
+
+        <div class="tier reveal">
+          <div class="tier-tag">FOR FRANCHISES AND MULTI-LOCATION OWNERS</div>
+          <div class="tier-name">Custom</div>
+          <div class="tier-price-row">
+            <span class="tier-price" style="font-size: 36px;">(let&rsquo;s chat)</span>
+          </div>
+          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://platform.nowkickback.com/sales">Contact Us</a>
+          <ul class="tier-list">
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Multi-location &amp; franchise rollouts</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>More than 25 vendor connections</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Custom limits and rollout plan</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Security + procurement support</span></li>
+            <li><i class="ph-bold ph-check" aria-hidden="true"></i><span>Dedicated success manager</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>

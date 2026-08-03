@@ -1,0 +1,79 @@
+{
+  "slug": "hud",
+  "dataProduct": "hud",
+  "name": "HUD",
+  "themeColor": "#B27818",
+  "status": "soon",
+  "statusLabel": "COMING SOON",
+  "suiteTagClass": "later",
+  "suiteCardClass": "suite-card-hud",
+  "icon": "ph-fill ph-gauge",
+  "url": "/hud/",
+  "order": 3,
+  "seo": {
+    "title": "HUD \u2014 Kickback",
+    "description": "HUD puts live leaderboards and team stats on the office TVs \u2014 real numbers from the same platform data Costing and Follow-Up run on. Coming soon.",
+    "ogTitle": "HUD \u2014 Kickback",
+    "ogDescription": "Your whole office, heads up. Live leaderboards and team stats from real platform data. Coming soon."
+  },
+  "screenLabel": "HUD page",
+  "hero": {
+    "variant": "product",
+    "showCrumb": true,
+    "crumb": {
+      "parentLabel": "Kickback platform",
+      "parentHref": "/",
+      "current": "HUD"
+    },
+    "badge": "COMING SOON",
+    "headlineHtml": "Your whole office, <em>heads up.</em>",
+    "lede": "HUD puts live leaderboards and team stats on the office TVs \u2014 jobs closed, estimates out, win rates, revenue. Real numbers from the same platform data Costing and Follow-Up already run on, not another spreadsheet someone has to update.",
+    "ctas": [
+      {
+        "label": "Get Notified at Launch",
+        "href": "https://platform.nowkickback.com/sales",
+        "style": "primary"
+      },
+      {
+        "label": "See the platform",
+        "href": "/#platform",
+        "style": "secondary"
+      }
+    ],
+    "metaHtml": "Coming soon \u00b7 Built on the Kickback platform \u00b7 Zero data entry",
+    "shot": "hud-leaderboard"
+  },
+  "sections": [
+    {
+      "type": "features",
+      "eyebrow": "WHY HUD",
+      "title": "Numbers everyone sees. Numbers everyone trusts.",
+      "items": [
+        {
+          "icon": "ph ph-trophy",
+          "title": "Leaderboards that run themselves.",
+          "body": "Nobody updates a whiteboard. Jobs, estimates, and wins flow in from the platform as they happen, and the board keeps score in real time."
+        },
+        {
+          "icon": "ph ph-broadcast",
+          "title": "One set of numbers.",
+          "body": "HUD reads the same jobs, estimates, and costing data as every other Kickback app. When the TV says 23 jobs closed, your reports say it too."
+        },
+        {
+          "icon": "ph ph-monitor-play",
+          "title": "On the TV in minutes.",
+          "body": "If your CRM is connected to the platform, HUD has everything it needs. Point a browser at the board, fullscreen it, done."
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "variant": "soon"
+    }
+  ],
+  "suite": {
+    "body": "Leaderboards and live team stats on the office TVs. Everyone sees the same numbers in real time, pulled from the same platform data.",
+    "disabled": true,
+    "liveRing": false
+  }
+}

@@ -1,0 +1,13 @@
+{% set p = product or (productKey and products[productKey]) %}
+<!doctype html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body{% if p and p.dataProduct %} data-product="{{ p.dataProduct }}"{% endif %}{% if screenLabel %} data-screen-label="{{ screenLabel }}"{% elif p and p.screenLabel %} data-screen-label="{{ p.screenLabel }}"{% endif %}>
+  {% include "partials/nav.njk" %}
+  {{ content | safe }}
+  {% include "partials/footer.njk" %}
+  {% include "partials/scripts-reveal.njk" %}
+</body>
+</html>

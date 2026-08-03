@@ -1,0 +1,36 @@
+{% set s = platform.suite %}
+<section class="section section-surface" id="{{ s.id or 'platform' }}">
+  <div class="container">
+    <div class="section-head reveal-group">
+      <div class="ks-eyebrow reveal">{{ s.eyebrow }}</div>
+      <h2 class="ks-h1 reveal">{{ s.title }}</h2>
+      <p class="ks-lede reveal">{{ s.lede }}</p>
+    </div>
+
+    <div class="suite-grid reveal-group">
+      {% for p in productList %}
+      <div class="suite-card {{ p.suiteCardClass }}{% if p.suite.liveRing %} suite-card-live{% endif %}{% if p.suite.disabled %} suite-card-disabled{% endif %} reveal">
+        <div class="suite-card-tag {{ p.suiteTagClass }}">{{ p.statusLabel }}</div>
+        <div class="suite-card-icon">
+          <i class="{{ p.icon }}" aria-hidden="true"></i>
+        </div>
+        <div class="suite-card-name">{{ p.name }}</div>
+        <p class="suite-card-body">{{ p.suite.body }}</p>
+        <a class="suite-card-link" href="{{ p.url }}">Learn more &rarr;</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if platform.pillars %}
+    <div class="platform-pillars reveal-group">
+      {% for pillar in platform.pillars %}
+      <div class="pillar reveal">
+        <div class="pillar-icon"><i class="{{ pillar.icon }}" aria-hidden="true"></i></div>
+        <div class="pillar-title">{{ pillar.title }}</div>
+        <p class="pillar-body">{{ pillar.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>

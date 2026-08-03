@@ -1596,7 +1596,7 @@
   max-width: 240px;
   margin: 0;
 }
-.site-footer img {
+.site-footer-top img {
   height: 28px;
   margin-bottom: 18px;
 }
@@ -1635,6 +1635,23 @@
   letter-spacing: 0.02em;
   flex-wrap: wrap;
   gap: 12px;
+  align-items: center;
+}
+.site-footer-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+.site-footer-made {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.site-footer-made .ph-heart {
+  color: var(--red-500, #DE4444);
+  font-size: 12px;
+  line-height: 1;
 }
 .site-footer-bottom .links {
   display: flex;
@@ -1652,14 +1669,13 @@
 .site-footer-status {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  line-height: 0;
 }
-.site-footer-status::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--green-500);
+.site-footer-status img {
+  display: block;
+  height: 22px;
+  width: auto;
+  margin: 0;
 }
 
 @media (max-width: 920px) {
@@ -1672,6 +1688,23 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+}
+
+/* ---------- Stub pages ---------- */
+.stub-page {
+  padding-top: 96px;
+  padding-bottom: 120px;
+  min-height: 52vh;
+}
+.stub-page .ks-h1 {
+  margin: 8px 0 16px;
+}
+.stub-page-lead {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--stone-600);
 }
 
 /* ---------- Legal / Privacy ---------- */

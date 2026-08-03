@@ -1,0 +1,22 @@
+{% set s = section %}
+<section class="section section-tinted"{% if s.id %} id="{{ s.id }}"{% endif %}>
+  <div class="container">
+    {% set section = s %}
+    {% set reveal = true %}
+    {% include "partials/section-head.njk" %}
+    <div class="steps reveal-group">
+      {% for item in s.items %}
+      <div class="step reveal">
+        <div class="step-num">{{ item.num }}</div>
+        <div class="step-icon"><i class="{{ item.icon }}" aria-hidden="true"></i></div>
+        <h3 class="step-title">{{ item.title }}</h3>
+        {% if item.bodyHtml %}
+        <p class="step-body">{{ item.bodyHtml | safe }}</p>
+        {% else %}
+        <p class="step-body">{{ item.body }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

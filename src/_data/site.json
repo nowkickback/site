@@ -1,0 +1,193 @@
+{
+  "name": "Kickback",
+  "url": "https://nowkickback.com",
+  "cssVersion": "20260803-1",
+  "themeColorDefault": "#DE4444",
+  "platformUrl": "https://platform.nowkickback.com",
+  "signInUrl": "https://platform.nowkickback.com/users/sign_in",
+  "demoUrl": "https://platform.nowkickback.com/demo",
+  "salesUrl": "https://platform.nowkickback.com/sales",
+  "statusUrl": "https://kickback.stpg.dev/",
+  "statusBadge": "https://kickback.stpg.dev/badge/v2?theme=dark&size=md&variant=outline",
+  "footerTagline": "The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview. HUD and Coach are next.",
+  "integrations": [
+    "Housecall Pro",
+    "Sherwin-Williams",
+    "Home Depot Pro",
+    "Lowe's Pro",
+    "Pittsburgh Paints",
+    "Siro"
+  ],
+  "companyLinks": [
+    {
+      "label": "About",
+      "href": "/about/"
+    },
+    {
+      "label": "Customers",
+      "href": "/customers/"
+    },
+    {
+      "label": "Careers",
+      "href": "/careers/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/"
+    }
+  ],
+  "resourceLinks": [
+    {
+      "label": "Docs",
+      "href": "#"
+    },
+    {
+      "label": "Help Center",
+      "href": "#"
+    },
+    {
+      "label": "Changelog",
+      "href": "#"
+    },
+    {
+      "label": "Privacy",
+      "href": "/privacy/"
+    },
+    {
+      "label": "Terms",
+      "href": "#"
+    }
+  ],
+  "nav": [
+    {
+      "label": "Platform",
+      "href": "/#platform",
+      "key": "platform"
+    },
+    {
+      "label": "Costing",
+      "href": "/costing/",
+      "key": "costing"
+    },
+    {
+      "label": "Follow-Up",
+      "href": "/follow-up/",
+      "key": "follow-up"
+    },
+    {
+      "label": "Pricing",
+      "href": "/pricing/",
+      "key": "pricing"
+    }
+  ],
+  "vendors": [
+    {
+      "name": "Housecall Pro",
+      "src": "/assets/vendors/housecall-pro.png"
+    },
+    {
+      "name": "The Home Depot",
+      "src": "/assets/vendors/home-depot.svg",
+      "tall": true
+    },
+    {
+      "name": "Lowe's",
+      "src": "/assets/vendors/lowes.svg"
+    },
+    {
+      "name": "Sherwin-Williams",
+      "src": "/assets/vendors/sherwin-williams.png"
+    },
+    {
+      "name": "Pittsburgh Paints Co.",
+      "src": "/assets/vendors/pittsburgh-paints.png"
+    },
+    {
+      "name": "Spectrum Paint",
+      "src": "/assets/vendors/spectrum-paint.png"
+    },
+    {
+      "name": "McCormick Paints",
+      "src": "/assets/vendors/mccormick-paints.png"
+    },
+    {
+      "name": "Sunbelt Rentals",
+      "src": "/assets/vendors/sunbelt-rentals.png"
+    }
+  ],
+  "logoStripTitle": "Integrated with the vendors you already use",
+  "cta": {
+    "live": {
+      "kicker": "RISK-FREE CATCH-UP OFFER",
+      "title": "More than a month behind on job costing?",
+      "body": "Get caught up on the Kickback platform in under an hour \u2014 or your first month is free. Connect your CRM and supplier accounts in under five minutes, and we'll run your first sync with you live.",
+      "buttons": [
+        {
+          "label": "Try Costing Free",
+          "href": "https://platform.nowkickback.com",
+          "style": "primary"
+        },
+        {
+          "label": "Book a 15-Min Demo",
+          "href": "https://platform.nowkickback.com/demo",
+          "style": "secondary"
+        }
+      ],
+      "fineprint": "Still behind after onboarding? Your first month is free."
+    },
+    "preview": {
+      "kicker": "PRIVATE PREVIEW",
+      "title": "Your unsold estimates are worth a follow-up. Every one of them.",
+      "body": "Follow-Up is rolling out to early-access teams now. It runs on the same platform connection as Costing \u2014 if your CRM is already synced, you're a toggle away.",
+      "buttons": [
+        {
+          "label": "Request Early Access",
+          "href": "https://platform.nowkickback.com/sales",
+          "style": "primary"
+        },
+        {
+          "label": "Try Costing Today",
+          "href": "https://platform.nowkickback.com",
+          "style": "secondary"
+        }
+      ],
+      "fineprint": "Already on Kickback? Ask us to flip Follow-Up on for your team."
+    },
+    "soon": {
+      "kicker": "COMING SOON",
+      "title": "Want the office watching the same scoreboard?",
+      "body": "HUD is in the works on the same platform data you may already be syncing. Tell us you want it and we'll let you know the moment it's ready \u2014 early platform customers get it first.",
+      "buttons": [
+        {
+          "label": "Get Notified",
+          "href": "https://platform.nowkickback.com/sales",
+          "style": "primary"
+        },
+        {
+          "label": "Try Costing Today",
+          "href": "https://platform.nowkickback.com",
+          "style": "secondary"
+        }
+      ],
+      "fineprint": "Connecting your CRM today means HUD lights up with your data on day one."
+    },
+    "soonCoach": {
+      "kicker": "COMING SOON",
+      "title": "The best insights come from your own data.",
+      "body": "Coach gets sharper with every job you cost and every follow-up you send. Start on the platform now and Coach arrives already knowing your business.",
+      "buttons": [
+        {
+          "label": "Get Notified",
+          "href": "https://platform.nowkickback.com/sales",
+          "style": "primary"
+        },
+        {
+          "label": "Try Costing Today",
+          "href": "https://platform.nowkickback.com",
+          "style": "secondary"
+        }
+      ],
+      "fineprint": "Early platform customers get Coach first."
+    }
+  }
+}

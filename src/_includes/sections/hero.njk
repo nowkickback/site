@@ -1,0 +1,52 @@
+{# Expects: hero object, optional status, product name for crumbs #}
+{% set h = hero %}
+{% set variant = h.variant or 'product' %}
+<section class="hero hero-{{ variant }}">
+  <div class="ks-dotgrid hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner reveal-group">
+    {% if h.pill %}
+    <a class="hero-pill reveal" href="{{ h.pill.href }}">
+      {% if h.pill.icon %}<i class="{{ h.pill.icon }}" aria-hidden="true"></i>{% endif %}
+      {{ h.pill.text }}
+      <span class="hero-pill-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    {% endif %}
+
+    {% if h.showCrumb and h.crumb %}
+    <div class="ks-eyebrow hero-eyebrow reveal">
+      <span class="hero-crumb">
+        <a href="{{ h.crumb.parentHref }}">{{ h.crumb.parentLabel }}</a>
+        <span aria-hidden="true">/</span>
+        {{ h.crumb.current }}
+        {% if h.badge %}<span class="ks-badge" style="margin-left:8px">{{ h.badge }}</span>{% endif %}
+      </span>
+    </div>
+    {% endif %}
+
+    <h1 class="hero-headline reveal">{{ h.headlineHtml | safe }}</h1>
+
+    {% if h.ledeHtml %}
+    <p class="hero-lede reveal">{{ h.ledeHtml | safe }}</p>
+    {% elif h.lede %}
+    <p class="hero-lede reveal">{{ h.lede }}</p>
+    {% endif %}
+
+    {% if h.ctas and (h.ctas | length) %}
+    <div class="hero-ctas reveal">
+      {% for cta in h.ctas %}
+      <a class="ks-btn ks-btn-{{ cta.style or 'primary' }} ks-btn-lg" href="{{ cta.href }}">{{ cta.label }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if h.metaHtml %}
+    <div class="hero-meta reveal">{{ h.metaHtml | safe }}</div>
+    {% elif h.meta %}
+    <div class="hero-meta reveal">{{ h.meta }}</div>
+    {% endif %}
+
+    {% if h.shot %}
+      {% include "shots/" + h.shot + ".njk" %}
+    {% endif %}
+  </div>
+</section>

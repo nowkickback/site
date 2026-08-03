@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+---
+{% set product = products[productKey] %}
+{% set hero = product.hero %}
+{% include "sections/hero.njk" %}
+
+{% for section in product.sections %}
+  {% if section.type == "logo-strip" %}
+    {% include "sections/logo-strip.njk" %}
+  {% elif section.type == "features" %}
+    {% include "sections/features.njk" %}
+  {% elif section.type == "steps" %}
+    {% include "sections/steps.njk" %}
+  {% elif section.type == "split" %}
+    {% include "sections/split.njk" %}
+  {% elif section.type == "cta" %}
+    {% set ctaVariant = section.variant %}
+    {% include "sections/cta-banner.njk" %}
+  {% endif %}
+{% endfor %}
+
+{{ content | safe }}

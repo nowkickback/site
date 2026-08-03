@@ -1,0 +1,7 @@
+{% if section.eyebrow or section.title or section.lede %}
+<div class="section-head{% if reveal %} reveal-group{% endif %}">
+  {% if section.eyebrow %}<div class="ks-eyebrow{% if reveal %} reveal{% endif %}">{{ section.eyebrow }}</div>{% endif %}
+  {% if section.title %}<h2 class="{{ section.titleClass or 'ks-h1' }}{% if reveal %} reveal{% endif %}">{{ section.title }}</h2>{% endif %}
+  {% if section.lede %}<p class="ks-lede{% if reveal %} reveal{% endif %}">{{ section.lede }}</p>{% endif %}
+</div>
+{% endif %}
