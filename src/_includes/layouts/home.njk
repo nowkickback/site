@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or platform.seo.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description or platform.seo.description }}">
+  <meta name="theme-color" content="{{ themeColor or site.themeColorDefault }}">
+  <meta property="og:title" content="{{ ogTitle or title or platform.seo.ogTitle }}">
+  <meta property="og:description" content="{{ ogDescription or description or platform.seo.ogDescription }}">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+
+  <link rel="stylesheet" href="/css/tokens.css?v={{ site.cssVersion }}">
+  <link rel="stylesheet" href="/css/home.css?v={{ site.cssVersion }}">
+
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+  <script>
+    /* Follow the device colour scheme; set before first paint to avoid a flash. */
+    (function () {
+      var mode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", mode);
+    })();
+  </script>
+  <script async src="https://harvv.com/px/4de49b333025d349/pixel.js"></script>
+</head>
+<body>
+  {{ content | safe }}
+  <script src="/assets/home.js?v={{ site.cssVersion }}" defer></script>
+</body>
+</html>

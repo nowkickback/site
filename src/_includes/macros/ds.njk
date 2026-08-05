@@ -1,0 +1,77 @@
+{# ==========================================================================
+   Kickback Design System — homepage component macros
+   Faithful static ports of the React components in the Kickback Design System
+   bundle (Button, FeatureCard, SuiteCard, StepCard, Quote, PricingTier).
+   Styling matches the compiled component output 1:1; hover/active states for
+   Button live in css/home.css.
+   ========================================================================== #}
+
+{# Button — variant: primary|secondary, size: sm|md|lg #}
+{% macro button(label, href="#", variant="primary", size="md", block=false, style="") %}
+<a href="{{ href }}" class="kb-btn kb-btn--{{ variant }} kb-btn--{{ size }}"{% if block %} style="width:100%;{{ style }}"{% elif style %} style="{{ style }}"{% endif %}>{{ label | safe }}</a>
+{%- endmacro %}
+
+{# Inline app-word: a brand-coloured word (uses --fg-brand) with a matching
+   icon tile in front — mirrors the hero's Costing/Follow-Up treatment. #}
+{% macro hWord(word, icon) %}<span style="white-space:nowrap;color:var(--fg-brand)"><span class="kb-hword-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1.02em;height:1.02em;border-radius:4px;background:var(--fg-brand);color:#fff;vertical-align:middle;margin-right:0.16em;position:relative;top:-0.05em"><i class="{{ icon }}" style="font-size:0.72em"></i></span>{{ word }}</span>{%- endmacro %}
+
+{# FeatureCard — optional footer link (linkLabel + linkHref) pinned to the bottom #}
+{% macro featureCard(title, body, icon="", linkLabel="", linkHref="#") %}
+<div style="display:flex;flex-direction:column;padding:32px;background:var(--bg-surface);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);box-sizing:border-box;height:100%">
+{%- if icon %}<div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--bg-brand-subtle);color:var(--fg-brand);border-radius:var(--radius-sm);margin-bottom:20px"><i class="{{ icon }}" style="font-size:22px"></i></div>{% endif -%}
+<h3 style="font-size:20px;font-weight:600;letter-spacing:-0.01em;margin:0 0 10px;color:var(--fg-1)">{{ title }}</h3>
+<p style="font-size:14px;color:var(--fg-2);line-height:1.55;margin:0">{{ body }}</p>
+{%- if linkLabel %}<a href="{{ linkHref }}" class="kb-feature-link" style="margin-top:auto;padding-top:20px;font-size:14px;font-weight:500;color:var(--fg-brand);text-decoration:none;display:inline-flex;align-items:center;gap:5px">{{ linkLabel }} →</a>{% endif -%}
+</div>
+{%- endmacro %}
+
+{# StepCard #}
+{% macro stepCard(num, title, body, icon="") %}
+<div style="background:var(--bg-surface);border-radius:var(--radius-sm);padding:32px;box-shadow:var(--shadow-sm);position:relative;box-sizing:border-box;height:100%">
+{%- if num %}<div style="font-family:var(--font-mono);font-size:11px;font-weight:500;color:var(--fg-brand);letter-spacing:0.06em;margin-bottom:16px">{{ num }}</div>{% endif -%}
+{%- if icon %}<div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--bg-brand-subtle);color:var(--fg-brand);border-radius:var(--radius-sm);margin-bottom:18px"><i class="{{ icon }}" style="font-size:22px"></i></div>{% endif -%}
+<h3 style="font-size:19px;font-weight:600;letter-spacing:-0.01em;margin:0 0 10px;color:var(--fg-1)">{{ title }}</h3>
+<p style="font-size:14px;color:var(--fg-2);line-height:1.55;margin:0">{{ body }}</p>
+</div>
+{%- endmacro %}
+
+{# SuiteCard — status: live|preview|soon #}
+{% set _suiteStatus = {
+  "live":    { "label": "LIVE",            "dot": "var(--green-500)", "color": "var(--fg-success)" },
+  "preview": { "label": "PRIVATE PREVIEW", "dot": "var(--amber-500)", "color": "var(--fg-3)" },
+  "soon":    { "label": "COMING SOON",     "dot": "var(--stone-400)", "color": "var(--fg-3)" }
+} %}
+{% macro suiteCard(name, body, icon, color, status="soon", statusLabel="", href="", linkLabel="Learn more", ringed=false) %}
+{%- set st = _suiteStatus[status] or _suiteStatus["soon"] -%}
+{%- set dim = (status == "soon") -%}
+<div class="kb-suite" style="display:flex;flex-direction:column;min-height:200px;height:100%;padding:24px;background:var(--bg-surface);border-radius:var(--radius-sm);box-sizing:border-box;box-shadow:{% if ringed %}0 0 0 2px {{ color }}, var(--shadow-md){% else %}var(--shadow-sm){% endif %}">
+<span style="font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;display:inline-flex;align-items:center;gap:6px;color:{{ st.color }};margin-bottom:14px"><span style="width:6px;height:6px;border-radius:999px;background:{{ st.dot }}"></span>{{ statusLabel or st.label }}</span>
+<span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#fff;background:{{ color }};border-radius:4px;margin-bottom:14px;opacity:{% if dim %}0.85{% else %}1{% endif %};box-shadow:0 1px 0 0 rgba(15,23,42,0.05), inset 0 1px 0 0 rgba(255,255,255,0.08)"><i class="{{ icon }}" style="font-size:22px"></i></span>
+<div style="font-size:17px;font-weight:600;margin-bottom:6px;color:var(--fg-1);opacity:{% if dim %}0.7{% else %}1{% endif %}">{{ name }}</div>
+<p style="font-size:13px;color:var(--fg-2);line-height:1.5;margin:0;flex:1;opacity:{% if dim %}0.7{% else %}1{% endif %}">{{ body }}</p>
+{%- if href %}<a href="{{ href }}" class="kb-suite-link" style="margin-top:18px;font-size:13px;font-weight:500;color:var(--fg-brand);text-decoration:none;display:inline-flex;align-items:center;gap:4px">{{ linkLabel }} →</a>{% endif -%}
+</div>
+{%- endmacro %}
+
+{# Quote #}
+{% macro quote(text, eyebrow="", byline="") %}
+<div style="text-align:center;max-width:760px;margin:0 auto">
+{%- if eyebrow %}<div class="ks-eyebrow" style="margin-bottom:16px">{{ eyebrow }}</div>{% endif -%}
+<p style="font-family:var(--font-display);font-size:32px;line-height:1.25;letter-spacing:-0.02em;font-weight:500;color:var(--fg-1);margin:0 0 24px"><span style="color:var(--fg-brand);margin-right:4px">“</span>{{ text }}<span style="color:var(--fg-brand);margin-left:2px">”</span></p>
+{%- if byline %}<div style="font-size:13px;color:var(--fg-3)">{{ byline }}</div>{% endif -%}
+</div>
+{%- endmacro %}
+
+{# PricingTier — features is an array of strings; cta is prebuilt button markup #}
+{% macro pricingTier(name, price, features, cta, tag="", per="/mo", ribbon="", highlighted=false) %}
+<div style="position:relative;padding:32px;background:var(--bg-surface);border-radius:var(--radius-sm);box-shadow:{% if highlighted %}var(--shadow-lg){% else %}var(--shadow-sm){% endif %};box-sizing:border-box;height:100%">
+{%- if ribbon %}<span style="position:absolute;top:-11px;left:24px;background:var(--accent-500);color:#fff;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:0.08em;padding:4px 10px;border-radius:var(--radius-sm)">{{ ribbon }}</span>{% endif -%}
+{%- if tag %}<div style="font-family:var(--font-mono);font-size:11px;color:var(--fg-3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">{{ tag }}</div>{% endif -%}
+<div style="font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--fg-1);margin-bottom:16px;letter-spacing:-0.01em">{{ name }}</div>
+<div style="display:flex;align-items:baseline;gap:2px;margin-bottom:24px"><span style="font-family:var(--font-mono);font-size:20px;color:var(--fg-2);font-weight:500">$</span><span style="font-family:var(--font-mono);font-size:56px;font-weight:500;color:var(--fg-1);letter-spacing:-0.03em;line-height:1">{{ price }}</span><span style="font-family:var(--font-mono);font-size:14px;color:var(--fg-3);margin-left:2px">{{ per }}</span></div>
+{%- if cta %}<div style="margin-bottom:28px">{{ cta | safe }}</div>{% endif -%}
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px">
+{%- for item in features %}<li style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--fg-2);line-height:1.4"><span style="flex:0 0 auto;margin-top:3px;color:var(--fg-brand);font-size:14px" aria-hidden="true">✓</span>{{ item }}</li>{% endfor -%}
+</ul>
+</div>
+{%- endmacro %}
