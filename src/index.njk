@@ -173,16 +173,11 @@ themeColor: "#DE4444"
 <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">Cost the jobs.<br>Chase the quotes.</h2>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
-<div data-reveal="1">{{ suiteCard("Costing", "Every dollar in its place. Receipts land, get matched to the job, and post back to your CRM before your coffee's cold.", "ph-fill ph-currency-dollar", "#6F9334", "", "", "#how", "", false, "costing") }}</div>
-<div data-reveal="1" data-delay="80">{{ suiteCard("Follow-Up", "Quotes that close themselves. Unsold estimates get chased on a cadence you set, in your voice, until they answer.", "ph-fill ph-chats", "#41778D", "", "", "#how", "", false, "follow-up") }}</div>
-<div data-reveal="1" data-delay="160" class="kb-suite-soon">
-<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;height:100%;padding:24px;box-sizing:border-box;border-radius:var(--radius-sm);border:1px dashed var(--border-default);background:transparent;color:var(--fg-3);opacity:0.72">
-<span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;border:1px dashed var(--border-default);margin-bottom:14px" aria-hidden="true"></span>
-<div style="font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em">Coming Soon</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:840px">
+<div data-reveal="1">{{ suiteCard("Costing", "Every dollar in its place. Receipts land, get matched to the job, and post back to your CRM before your coffee's cold.", "ph-fill ph-currency-dollar", "#6F9334", "live", "", "#how", "", false, "costing") }}</div>
+<div data-reveal="1" data-delay="80">{{ suiteCard("Follow-Up", "Quotes that close themselves. Unsold estimates get chased on a cadence you set, in your voice, until they answer.", "ph-fill ph-chats", "#41778D", "preview", "", "#how", "", false, "follow-up") }}</div>
 </div>
-</div>
-</div>
+<p data-reveal="1" style="font-size:14px;color:var(--fg-3);margin:18px 0 0;max-width:840px">Pick an app — how it works updates below.</p>
 </div>
 </section>
 
@@ -232,66 +227,6 @@ themeColor: "#DE4444"
 </div>
 </div>
 {% endfor %}
-</section>
-
-<section data-pad="1" style="padding:112px 0;border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;gap:96px">
-<div data-two-col="1" data-reveal="1" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center">
-<div>
-<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:14px">Zero cost items</span>
-<h3 style="font-family:var(--font-display);font-size:clamp(24px,3.2vw,32px);line-height:1.22;letter-spacing:-0.025em;font-weight:600;margin:0 0 14px;text-wrap:balance">See the jobs that are quietly bleeding before the month closes.</h3>
-<p style="font-size:15.5px;color:var(--fg-2);line-height:1.6;margin:0 0 20px;text-wrap:pretty">Kickback watches for jobs with labor logged and no material cost attached. You get a short list every morning instead of a bad number in the quarterly.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--fg-2)"><i class="ph-bold ph-check" style="color:var(--fg-brand);font-size:16px;margin-top:2px"></i>Flags jobs closed with missing costs</div>
-<div style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--fg-2)"><i class="ph-bold ph-check" style="color:var(--fg-brand);font-size:16px;margin-top:2px"></i>Traces the receipt that should have been there</div>
-<div style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--fg-2)"><i class="ph-bold ph-check" style="color:var(--fg-brand);font-size:16px;margin-top:2px"></i>Nudges the crew lead, not you</div>
-</div>
-</div>
-<div style="background:var(--bg-surface);border-radius:4px;box-shadow:var(--shadow-md);padding:20px 22px">
-<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px">
-<span style="font-family:var(--font-display);font-size:17px;font-weight:600">Zero Cost Items</span>
-<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;padding:4px 8px;border-radius:2px;background:var(--bg-warning-subtle);color:var(--fg-warning)">7 FLAGGED</span>
-</div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:0;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3);padding-bottom:8px;border-bottom:1px solid var(--border-default)">
-<span>Job</span><span style="padding:0 16px">Labor</span><span>Material</span>
-</div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;padding:11px 0;border-bottom:1px solid var(--border-subtle);font-size:13px"><span>Kaufman Residence</span><span style="font-family:var(--font-mono);padding:0 16px">$3,120</span><span style="font-family:var(--font-mono);color:var(--fg-danger)">$0</span></div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;padding:11px 0;border-bottom:1px solid var(--border-subtle);font-size:13px"><span>Whitlock Duplex B</span><span style="font-family:var(--font-mono);padding:0 16px">$1,880</span><span style="font-family:var(--font-mono);color:var(--fg-danger)">$0</span></div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;padding:11px 0;border-bottom:1px solid var(--border-subtle);font-size:13px"><span>Ridgeline Cabinets</span><span style="font-family:var(--font-mono);padding:0 16px">$960</span><span style="font-family:var(--font-mono);color:var(--fg-danger)">$0</span></div>
-<div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;padding:11px 0;font-size:13px"><span>Ellison Deck Stain</span><span style="font-family:var(--font-mono);padding:0 16px">$740</span><span style="font-family:var(--font-mono);color:var(--fg-success)">$318</span></div>
-</div>
-</div>
-<div data-two-col="1" data-reveal="1" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center">
-<div style="background:var(--kb-panel);border-radius:4px;box-shadow:var(--shadow-lg);padding:22px;position:relative;overflow:hidden">
-<div class="ks-grain" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"></div>
-<div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px">
-<span style="font-family:var(--font-display);font-size:17px;font-weight:600;color:#fff">Open Outbox</span>
-<span style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--stone-300);letter-spacing:0.06em"><span style="width:6px;height:6px;border-radius:999px;background:#41778D;animation:kbPulse 2.4s ease-out infinite"></span>SENDING</span>
-</div>
-<div style="position:relative;display:flex;flex-direction:column;gap:10px">
-<div style="padding:12px 14px;border-radius:2px;background:rgba(255,255,255,0.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06)">
-<div style="display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--stone-400);letter-spacing:0.06em;margin-bottom:6px"><span>ESTIMATE #2214 · $8,400</span><span>DAY 4 · NUDGE 2</span></div>
-<div style="font-size:13px;color:var(--stone-100);line-height:1.5">"Hi Dana — still holding your spot the week of the 22nd. Want me to lock it in?"</div>
-</div>
-<div style="padding:12px 14px;border-radius:2px;background:rgba(255,255,255,0.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.06);opacity:.72">
-<div style="display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--stone-400);letter-spacing:0.06em;margin-bottom:6px"><span>ESTIMATE #2207 · $2,150</span><span>DAY 9 · NUDGE 3</span></div>
-<div style="font-size:13px;color:var(--stone-100);line-height:1.5">"Last check on the garage floor quote — should I close it out?"</div>
-</div>
-<div style="display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:10px;color:var(--stone-400);letter-spacing:0.06em;padding-top:6px"><i class="ph-fill ph-check-circle" style="color:#8CB85C;font-size:13px"></i>3 REPLIES ROUTED TO YOU THIS WEEK</div>
-</div>
-</div>
-<div>
-<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:14px">Follow-Up · private preview</span>
-<h3 style="font-family:var(--font-display);font-size:clamp(24px,3.2vw,32px);line-height:1.22;letter-spacing:-0.025em;font-weight:600;margin:0 0 14px;text-wrap:balance">Every unsold estimate gets chased. None of them by you.</h3>
-<p style="font-size:15.5px;color:var(--fg-2);line-height:1.6;margin:0 0 20px;text-wrap:pretty">Set the cadence and the tone once. Kickback follows up until the customer answers, then hands you the conversation — not a transcript to read.</p>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--fg-2)"><i class="ph-bold ph-check" style="color:var(--fg-brand);font-size:16px;margin-top:2px"></i>Writes in your voice, from your past wins</div>
-<div style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--fg-2)"><i class="ph-bold ph-check" style="color:var(--fg-brand);font-size:16px;margin-top:2px"></i>Stops the moment a human replies</div>
-<div style="display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--fg-2)"><i class="ph-bold ph-check" style="color:var(--fg-brand);font-size:16px;margin-top:2px"></i>Every send logged against the estimate</div>
-</div>
-</div>
-</div>
-</div>
 </section>
 
 <section id="story" data-pad="1" style="position:relative;padding:104px 0 0;background:var(--bg-surface);border-top:1px solid var(--border-subtle);overflow:hidden">
