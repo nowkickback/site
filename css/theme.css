@@ -162,7 +162,7 @@ body[data-product] {
   --fg-3: #aba39a;
   --fg-4: #7c746b;
   --fg-on-brand: #ffffff;
-  --fg-brand: var(--accent-300);
+  --fg-brand: var(--red-500);
   --fg-success: #95b770;
   --fg-warning: #e0a06a;
   --fg-danger: #ef6f6f;

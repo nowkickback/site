@@ -4,10 +4,12 @@
 <head>
   {% include "partials/head.njk" %}
 </head>
-<body{% if p and p.dataProduct %} data-product="{{ p.dataProduct }}"{% endif %}{% if screenLabel %} data-screen-label="{{ screenLabel }}"{% elif p and p.screenLabel %} data-screen-label="{{ p.screenLabel }}"{% endif %}>
+<body{% if p and p.dataProduct %} data-product="{{ p.dataProduct }}"{% endif %}{% if screenLabel %} data-screen-label="{{ screenLabel }}"{% elif p and p.screenLabel %} data-screen-label="{{ p.screenLabel }}"{% endif %} style="font-family:var(--font-sans);color:var(--fg-1);background:var(--bg-page)">
   {% include "partials/nav.njk" %}
   {{ content | safe }}
   {% include "partials/footer.njk" %}
+  {% include "partials/lightboxes.njk" %}
   {% include "partials/scripts-reveal.njk" %}
+  <script src="/assets/home.js?v={{ site.cssVersion }}" defer></script>
 </body>
 </html>

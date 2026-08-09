@@ -1643,6 +1643,15 @@
   align-items: center;
   gap: 8px 16px;
 }
+.site-footer-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.site-footer-copy .ph-copyright {
+  font-size: 12px;
+  line-height: 1;
+}
 .site-footer-made {
   display: inline-flex;
   align-items: center;

@@ -1,16 +1,34 @@
-<nav class="site-nav">
-  <div class="container nav-inner">
-    <a class="nav-brand" href="/" aria-label="Kickback home">
-      <img src="/assets/wordmark-on-light.svg" alt="kickback">
-    </a>
-    <div class="nav-links">
-      {% for item in site.nav %}
-      <a href="{{ item.href }}"{% if activeNav == item.key %} aria-current="page" class="nav-link-active"{% endif %}>{{ item.label }}</a>
-      {% endfor %}
-    </div>
-    <div class="nav-actions">
-      <a class="nav-signin" href="{{ site.signInUrl }}">Sign In</a>
-      <a class="ks-btn ks-btn-primary ks-btn-sm" href="{{ site.platformUrl }}">Get Started</a>
-    </div>
-  </div>
+{% from "macros/ds.njk" import button %}
+{% set demoUrl = site.demoUrl %}
+{% set signInUrl = site.signInUrl %}
+<nav data-nav="1" class="kb-nav">
+<div data-nav-inner="1" class="kb-nav-inner">
+<a href="/" class="kb-nav-brand"><img data-logo="1" src="/assets/wordmark-on-light.svg" alt="Kickback"></a>
+<div data-desk="1" data-nav-mid="1" class="kb-nav-mid">
+<a href="/#platform">Platform</a>
+<a href="/#apps">Apps</a>
+<a href="/#how">How it works</a>
+<a href="/#pricing">Pricing</a>
+<a href="/#faq">FAQ</a>
+</div>
+<div data-desk="1" class="kb-nav-actions">
+<a href="{{ signInUrl }}" class="kb-nav-signin">Sign In</a>
+{{ button("Book a Demo", demoUrl, "primary", "sm") }}
+</div>
+<button data-mobile-only="1" data-menu-toggle="1" aria-label="Menu" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin-left:auto;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--radius-sm);color:var(--fg-1);cursor:pointer;font-size:20px"><i class="ph ph-list"></i></button>
+</div>
+<div data-menu="1" style="display:none;border-top:1px solid var(--border-subtle);padding:12px 24px 20px;background:var(--bg-surface)">
+<div style="display:flex;flex-direction:column;gap:2px">
+<a href="/#platform" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Platform</a>
+<a href="/#apps" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Apps</a>
+<a href="/#how" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">How it works</a>
+<a href="/#pricing" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Pricing</a>
+<a href="/#faq" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">FAQ</a>
+<div style="display:flex;gap:10px;margin-top:16px">
+{{ button("Book a Demo", demoUrl, "primary", "lg", true) }}
+{{ button("Sign In", signInUrl, "secondary", "lg") }}
+</div>
+</div>
+</div>
 </nav>
+<div class="kb-nav-spacer" aria-hidden="true"></div>

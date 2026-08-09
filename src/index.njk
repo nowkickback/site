@@ -13,43 +13,12 @@ themeColor: "#DE4444"
 {% set signInUrl = site.signInUrl %}
 {% set salesUrl = site.salesUrl %}
 
-<div style="font-family:var(--font-sans);color:var(--fg-1);background:var(--bg-page)">
-
-<nav data-nav="1" style="position:sticky;top:0;z-index:60;backdrop-filter:blur(12px) saturate(150%);-webkit-backdrop-filter:blur(12px) saturate(150%);background:var(--kb-nav);border-bottom:1px solid transparent;transition:border-color 150ms cubic-bezier(0.4,0,0.2,1)">
-<div data-nav-inner="1" style="max-width:1280px;margin:0 auto;padding:0 24px;height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px;transition:height 150ms cubic-bezier(0.4,0,0.2,1)">
-<a href="#top" style="display:flex;align-items:center"><img data-logo="1" src="/assets/wordmark-on-light.svg" alt="Kickback" style="height:24px;display:block"></a>
-<div data-desk="1" style="display:flex;gap:28px;flex:1;justify-content:center">
-<a href="#platform" style="color:var(--fg-2);font-size:14px;font-weight:500">Platform</a>
-<a href="#apps" style="color:var(--fg-2);font-size:14px;font-weight:500">Apps</a>
-<a href="#how" style="color:var(--fg-2);font-size:14px;font-weight:500">How it works</a>
-<a href="#pricing" style="color:var(--fg-2);font-size:14px;font-weight:500">Pricing</a>
-<a href="#faq" style="color:var(--fg-2);font-size:14px;font-weight:500">FAQ</a>
-</div>
-<div data-desk="1" style="display:flex;gap:12px;align-items:center">
-<a href="{{ signInUrl }}" style="color:var(--fg-2);font-size:14px;font-weight:500">Sign In</a>
-{{ button("Book a Demo", demoUrl, "primary", "sm") }}
-</div>
-<button data-mobile-only="1" data-menu-toggle="1" aria-label="Menu" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin-left:auto;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--radius-sm);color:var(--fg-1);cursor:pointer;font-size:20px"><i class="ph ph-list"></i></button>
-</div>
-<div data-menu="1" style="display:none;border-top:1px solid var(--border-subtle);padding:12px 24px 20px;background:var(--bg-surface)">
-<div style="display:flex;flex-direction:column;gap:2px">
-<a href="#platform" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Platform</a>
-<a href="#apps" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Apps</a>
-<a href="#how" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">How it works</a>
-<a href="#pricing" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Pricing</a>
-<a href="#faq" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">FAQ</a>
-<div style="display:flex;gap:10px;margin-top:16px">
-{{ button("Book a Demo", demoUrl, "primary", "lg", true) }}
-{{ button("Sign In", signInUrl, "secondary", "lg") }}
-</div>
-</div>
-</div>
-</nav>
-
-<section id="top" style="position:relative;padding:96px 0 0;background:linear-gradient(180deg,var(--bg-page) 0%,var(--bg-page) 42%,var(--bg-surface) 100%)">
-<canvas data-grid="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mask-image:radial-gradient(ellipse 90% 75% at 50% 28%, black 25%, transparent 78%);-webkit-mask-image:radial-gradient(ellipse 90% 75% at 50% 28%, black 25%, transparent 78%)"></canvas>
+<section id="top" class="kb-hero" style="position:relative;padding:176px 0 0;background:linear-gradient(180deg,var(--bg-page) 0%,var(--bg-page) 42%,var(--bg-surface) 100%)">
+<canvas data-grid="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 88%);-webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 88%)"></canvas>
 <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px;text-align:center">
-<h1 data-reveal="1" data-delay="60" style="font-family:var(--font-display);font-size:clamp(40px,7vw,86px);line-height:1.03;letter-spacing:-0.045em;font-weight:700;margin:0 auto;max-width:1000px;text-wrap:balance">AI built for the <span style="white-space:nowrap"><span style="display:inline-flex;align-items:center;justify-content:center;vertical-align:baseline;margin-right:0.08em;transform:translateY(-0.02em)"><i class="ph-fill ph-wrench" style="font-size:0.72em;color:var(--fg-1);transform-origin:70% 30%;animation:kbWrench 2.6s ease-in-out infinite"></i></span>trades.</span><br><span style="color:var(--fg-brand)">Not another </span><span style="display:inline-flex;align-items:center;justify-content:center;gap:9px;vertical-align:baseline;height:60px;padding:0 22px;margin-right:0.16em;border-radius:999px;background:var(--bg-brand-subtle);transform:translateY(-0.18em)"><span style="width:12px;height:12px;border-radius:999px;background:var(--fg-brand);animation:kbType 1.4s ease-in-out infinite"></span><span style="width:12px;height:12px;border-radius:999px;background:var(--fg-brand);animation:kbType 1.4s ease-in-out infinite 0.18s"></span><span style="width:12px;height:12px;border-radius:999px;background:var(--fg-brand);animation:kbType 1.4s ease-in-out infinite 0.36s"></span></span><span style="color:var(--fg-brand)">chatbot.</span></h1>
+<h1 class="kb-hero-h1" data-reveal="1" data-delay="60">
+<span class="kb-h1-line1">No <span class="kb-h1-typing">typing<span class="kb-h1-cursor" aria-hidden="true"></span></span>.<br class="kb-h1-br-mobile"> No <span class="kb-h1-chat-pill" aria-hidden="true"><span class="kb-h1-chat-dots"><span></span><span></span><span></span></span></span>chat bots.</span><br><span class="kb-h1-brand-line"><span class="kb-h1-mark-wrap" aria-hidden="true"><img class="kb-h1-mark" src="/assets/icon-on-dark.svg" alt="" width="60" height="52"></span><span class="kb-h1-accent">Kickback</span> the busy work.</span>
+</h1>
 <p data-reveal="1" data-delay="120" style="font-size:clamp(16px,2vw,19px);color:var(--fg-2);max-width:700px;margin:22px auto 0;line-height:1.55;text-wrap:pretty">Kickback is built from the ground up by home services business owners, for home services business owners, with native AI features, not just a tacked-on chatbot. Fly through <span style="white-space:nowrap;color:var(--moss-500);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--moss-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em"><i class="ph-fill ph-currency-dollar" style="font-size:0.82em"></i></span>Costing</span>, never forget another <span style="white-space:nowrap;color:var(--tide-500);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--tide-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em"><i class="ph-fill ph-chats" style="font-size:0.82em"></i></span>Follow-Up</span>, and get your weekend back.</p>
 <div data-reveal="1" data-delay="180" style="display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap">
 {{ button("Book a Demo", demoUrl, "primary", "lg") }}
@@ -205,10 +174,14 @@ themeColor: "#DE4444"
 </div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
-<div data-reveal="1">{{ suiteCard("Costing", "Every dollar in its place. Receipts land, get matched to the job, and post back to your CRM before your coffee's cold.", "ph-fill ph-receipt", "#6F9334", "live", "PUBLIC BETA", platformUrl, "See Costing", true) }}</div>
-<div data-reveal="1" data-delay="80">{{ suiteCard("Follow-Up", "Quotes that close themselves. Unsold estimates get chased on a cadence you set, in your voice, until they answer.", "ph-fill ph-envelope-simple", "#41778D", "preview", "", salesUrl, "Join the preview") }}</div>
-<div data-reveal="1" data-delay="160">{{ suiteCard("HUD", "Keeping the entire office in the loop. One board of what changed overnight and who needs to act on it.", "ph-fill ph-gauge", "#B27818", "soon") }}</div>
-<div data-reveal="1" data-delay="240">{{ suiteCard("Coach", "AI-powered team insights. Which crews run hot, which estimates get padded, which jobs quietly lose money.", "ph-fill ph-users", "#8E5C84", "soon") }}</div>
+<div data-reveal="1">{{ suiteCard("Costing", "Every dollar in its place. Receipts land, get matched to the job, and post back to your CRM before your coffee's cold.", "ph-fill ph-currency-dollar", "#6F9334", "", "", "#how", "", false, "costing") }}</div>
+<div data-reveal="1" data-delay="80">{{ suiteCard("Follow-Up", "Quotes that close themselves. Unsold estimates get chased on a cadence you set, in your voice, until they answer.", "ph-fill ph-chats", "#41778D", "", "", "#how", "", false, "follow-up") }}</div>
+<div data-reveal="1" data-delay="160" class="kb-suite-soon">
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;height:100%;padding:24px;box-sizing:border-box;border-radius:var(--radius-sm);border:1px dashed var(--border-default);background:transparent;color:var(--fg-3);opacity:0.72">
+<span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:4px;border:1px dashed var(--border-default);margin-bottom:14px" aria-hidden="true"></span>
+<div style="font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em">Coming Soon</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -231,34 +204,16 @@ themeColor: "#DE4444"
       { "num": "STEP 02", "title": "Set the cadence and tone", "icon": "ph ph-sliders-horizontal", "body": "Choose how often to nudge and in what voice. Kickback writes each follow-up from your past wins and sends on schedule." },
       { "num": "STEP 03", "title": "Replies route to you", "icon": "ph ph-chats", "body": "The moment a customer answers, Kickback stops and hands you the conversation — every send logged against the estimate." }
     ]
-  },
-  {
-    "key": "hud", "name": "HUD", "color": "#B27818", "subtle": "rgba(178,120,24,0.16)", "icon": "ph-fill ph-gauge",
-    "heading": "Three steps to one shared source of truth.",
-    "steps": [
-      { "num": "STEP 01", "title": "Connect your data", "icon": "ph ph-plugs-connected", "body": "HUD runs on the same connections as the rest of Kickback. If your CRM is synced, there's nothing new to set up." },
-      { "num": "STEP 02", "title": "Choose what matters", "icon": "ph ph-gauge", "body": "Pick the numbers and alerts your office should watch — jobs, margins, follow-ups, cash — and HUD builds the board around them." },
-      { "num": "STEP 03", "title": "Everyone sees the same board", "icon": "ph ph-monitor", "body": "One shared view of what changed overnight and who needs to act, so nothing slips between people." }
-    ]
-  },
-  {
-    "key": "coach", "name": "Coach", "color": "#8E5C84", "subtle": "rgba(142,92,132,0.16)", "icon": "ph-fill ph-brain",
-    "heading": "Three steps to sharper crews and cleaner margins.",
-    "steps": [
-      { "num": "STEP 01", "title": "Let it learn your jobs", "icon": "ph ph-brain", "body": "Coach studies every job you cost and every estimate you send — the more you run, the sharper it gets." },
-      { "num": "STEP 02", "title": "Surface the patterns", "icon": "ph ph-chart-line-up", "body": "Which crews run hot, which estimates get padded, which jobs quietly lose money — Coach puts it in plain language." },
-      { "num": "STEP 03", "title": "Act with confidence", "icon": "ph ph-lightbulb", "body": "Get specific, ranked suggestions you can act on this week — not a dashboard you have to interpret." }
-    ]
   }
 ] %}
 {% set howCount = howApps | length %}
 <section id="how" data-pad="1" style="padding:112px 0;background:var(--bg-surface);border-top:1px solid var(--border-subtle)">
 <div style="max-width:1280px;margin:0 auto 30px;padding:0 24px;text-align:center">
-<span data-reveal="1" style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand)">How it works</span>
+<span data-reveal="1" data-how-eyebrow="1" style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:{{ howApps[0].color }};transition:color 180ms cubic-bezier(0.4,0,0.2,1)">How it works</span>
 </div>
 {% for app in howApps %}
 {% set nextApp = howApps[(loop.index0 + 1) % howCount] %}
-<div class="how-panel" data-how-panel="{{ app.key }}"{% if not loop.first %} hidden{% endif %} style="--fg-brand:{{ app.color }};--bg-brand-subtle:{{ app.subtle }}">
+<div class="how-panel" data-how-panel="{{ app.key }}" data-how-color="{{ app.color }}"{% if not loop.first %} hidden{% endif %} style="--fg-brand:{{ app.color }};--bg-brand-subtle:{{ app.subtle }}">
 <div class="how-head">
 <div class="how-nav-side">
 <button class="how-arrow" data-how-prev="1" aria-label="Previous app"><i class="ph ph-arrow-left"></i></button>
@@ -425,56 +380,3 @@ themeColor: "#DE4444"
 </div>
 </div>
 </section>
-
-<footer style="padding:56px 0 40px;border-top:1px solid var(--border-subtle);background:var(--bg-surface)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start">
-<div style="display:flex;flex-direction:column;gap:12px;max-width:280px">
-<img data-logo="1" src="/assets/wordmark-on-light.svg" alt="Kickback" style="height:28px;align-self:flex-start">
-<p style="font-size:13.5px;color:var(--fg-2);margin:0;line-height:1.55">AI for the back office of home-services businesses. Founded by owners, in Richmond, VA.</p>
-</div>
-<div style="display:flex;gap:56px;flex-wrap:wrap">
-<div style="display:flex;flex-direction:column;gap:10px">
-<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Platform</span>
-<a href="#apps" style="font-size:13.5px;color:var(--fg-2)">Costing</a>
-<a href="#apps" style="font-size:13.5px;color:var(--fg-2)">Follow-Up</a>
-<a href="#apps" style="font-size:13.5px;color:var(--fg-2)">HUD</a>
-<a href="#apps" style="font-size:13.5px;color:var(--fg-2)">Coach</a>
-</div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Company</span>
-<a href="#platform" style="font-size:13.5px;color:var(--fg-2)">About</a>
-<a href="#pricing" style="font-size:13.5px;color:var(--fg-2)">Pricing</a>
-<a href="#faq" style="font-size:13.5px;color:var(--fg-2)">FAQ</a>
-<a href="{{ demoUrl }}" style="font-size:13.5px;color:var(--fg-2)">Book a demo</a>
-</div>
-</div>
-</div>
-<div style="max-width:1280px;margin:32px auto 0;padding:20px 24px 0;border-top:1px solid var(--border-subtle);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.04em;color:var(--fg-3);text-transform:uppercase">
-<span>© 2026 Kickback</span>
-<span style="display:inline-flex;align-items:center;gap:5px">Made with <i class="ph-fill ph-heart" style="color:var(--fg-brand)"></i> in Richmond, VA</span>
-</div>
-</footer>
-
-<div data-lightbox="video" role="dialog" aria-modal="true" aria-label="Testimonial video" style="display:none;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">
-<div style="position:relative;width:100%;max-width:900px">
-<button data-lightbox-close="1" aria-label="Close" style="position:absolute;top:-46px;right:0;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;background:rgba(255,255,255,0.14);border:0;color:#fff;cursor:pointer;font-size:18px"><i class="ph ph-x"></i></button>
-<div style="position:relative;aspect-ratio:16/9;background:var(--stone-950);border-radius:8px;overflow:hidden;box-shadow:var(--shadow-xl);display:flex;align-items:center;justify-content:center">
-<div class="ks-grain" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"></div>
-<div style="position:relative;text-align:center;color:var(--stone-300)">
-<div style="display:flex;align-items:center;justify-content:center;width:66px;height:66px;margin:0 auto 16px;border-radius:12px;background:var(--bg-brand);color:#fff"><i class="ph-fill ph-play" style="font-size:27px;margin-left:3px"></i></div>
-<div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase">Testimonial video — coming soon</div>
-</div>
-</div>
-</div>
-</div>
-
-<div data-lightbox="booking" role="dialog" aria-modal="true" aria-label="Book a demo" style="display:none;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,0.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)">
-<div style="position:relative;width:100%;max-width:480px">
-<button data-lightbox-close="1" aria-label="Close" style="position:absolute;top:-46px;right:0;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;background:rgba(255,255,255,0.14);border:0;color:#fff;cursor:pointer;font-size:18px"><i class="ph ph-x"></i></button>
-<div style="background:#fff;border-radius:12px;overflow:hidden;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;box-shadow:var(--shadow-xl)">
-<iframe src="https://connect.golily.io/widget/booking/D2tpr8ik96VXIwclIPjB" allow="payment" style="width:100%;border:none;overflow:hidden;display:block;min-height:620px" scrolling="no" id="D2tpr8ik96VXIwclIPjB_1785886984687"></iframe>
-</div>
-</div>
-</div>
-<script src="https://connect.golily.io/js/form_embed.js" type="text/javascript"></script>
-</div>

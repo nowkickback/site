@@ -41,16 +41,16 @@
   "preview": { "label": "PRIVATE PREVIEW", "dot": "var(--amber-500)", "color": "var(--fg-3)" },
   "soon":    { "label": "COMING SOON",     "dot": "var(--stone-400)", "color": "var(--fg-3)" }
 } %}
-{% macro suiteCard(name, body, icon, color, status="soon", statusLabel="", href="", linkLabel="Learn more", ringed=false) %}
-{%- set st = _suiteStatus[status] or _suiteStatus["soon"] -%}
+{% macro suiteCard(name, body, icon, color, status="", statusLabel="", href="", linkLabel="", ringed=false, howKey="") %}
+{%- set st = _suiteStatus[status] if status else none -%}
 {%- set dim = (status == "soon") -%}
-<div class="kb-suite" style="display:flex;flex-direction:column;min-height:200px;height:100%;padding:24px;background:var(--bg-surface);border-radius:var(--radius-sm);box-sizing:border-box;box-shadow:{% if ringed %}0 0 0 2px {{ color }}, var(--shadow-md){% else %}var(--shadow-sm){% endif %}">
-<span style="font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;display:inline-flex;align-items:center;gap:6px;color:{{ st.color }};margin-bottom:14px"><span style="width:6px;height:6px;border-radius:999px;background:{{ st.dot }}"></span>{{ statusLabel or st.label }}</span>
+{%- set tag = "a" if href else "div" -%}
+<{{ tag }} class="kb-suite{% if href %} is-clickable{% endif %}"{% if href %} href="{{ href }}"{% endif %}{% if howKey %} data-how-select="{{ howKey }}"{% endif %} style="display:flex;flex-direction:column;min-height:200px;height:100%;padding:24px;background:var(--bg-surface);border-radius:var(--radius-sm);box-sizing:border-box;box-shadow:{% if ringed %}0 0 0 2px {{ color }}, var(--shadow-md){% else %}var(--shadow-sm){% endif %};text-decoration:none;color:inherit">
+{%- if st %}<span style="font-family:var(--font-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;display:inline-flex;align-items:center;gap:6px;color:{{ st.color }};margin-bottom:14px"><span style="width:6px;height:6px;border-radius:999px;background:{{ st.dot }}"></span>{{ statusLabel or st.label }}</span>{% endif -%}
 <span style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#fff;background:{{ color }};border-radius:4px;margin-bottom:14px;opacity:{% if dim %}0.85{% else %}1{% endif %};box-shadow:0 1px 0 0 rgba(15,23,42,0.05), inset 0 1px 0 0 rgba(255,255,255,0.08)"><i class="{{ icon }}" style="font-size:22px"></i></span>
 <div style="font-size:17px;font-weight:600;margin-bottom:6px;color:var(--fg-1);opacity:{% if dim %}0.7{% else %}1{% endif %}">{{ name }}</div>
 <p style="font-size:13px;color:var(--fg-2);line-height:1.5;margin:0;flex:1;opacity:{% if dim %}0.7{% else %}1{% endif %}">{{ body }}</p>
-{%- if href %}<a href="{{ href }}" class="kb-suite-link" style="margin-top:18px;font-size:13px;font-weight:500;color:var(--fg-brand);text-decoration:none;display:inline-flex;align-items:center;gap:4px">{{ linkLabel }} →</a>{% endif -%}
-</div>
+</{{ tag }}>
 {%- endmacro %}
 
 {# Quote #}

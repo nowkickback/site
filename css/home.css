@@ -20,7 +20,7 @@
 /* --- Warm-dark theme ------------------------------------------------------ */
 :root[data-theme="dark"] {
   --fg-1: #F5F3F0; --fg-2: #CFC8C1; --fg-3: #A79F96; --fg-4: #7C746B;
-  --fg-brand: #E76B6B; --fg-success: #9BBF6A; --fg-warning: #E0A268;
+  --fg-brand: #DE4444; --fg-success: #9BBF6A; --fg-warning: #E0A268;
   --fg-danger: #E76B6B; --fg-info: #7FB2AF;
   --bg-page: #0F0C0B; --bg-surface: #191512; --bg-sunken: #0B0908;
   --bg-alt-sunken: #141110; --bg-raised: #221D1A;
@@ -48,6 +48,97 @@
 
 /* --- Base page ------------------------------------------------------------ */
 html { scroll-behavior: smooth; }
+
+/* --- Top nav: fixed + transparent over hero until scroll ------------------ */
+.kb-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  /* Let hero dot-grid receive pointer events through the empty nav chrome. */
+  pointer-events: none;
+  transition:
+    background 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kb-nav.is-scrolled {
+  background: var(--kb-nav);
+  border-bottom-color: var(--border-subtle);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  pointer-events: auto;
+}
+.kb-nav-brand,
+.kb-nav-actions,
+.kb-nav [data-menu-toggle],
+.kb-nav [data-menu] {
+  pointer-events: auto;
+}
+.kb-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: height 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kb-nav.is-scrolled .kb-nav-inner { height: 72px; }
+.kb-nav-brand {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.kb-nav-brand img {
+  height: 24px;
+  display: block;
+}
+.kb-nav-mid {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kb-nav.is-scrolled .kb-nav-mid {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.kb-nav-mid a {
+  color: var(--fg-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+.kb-nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.kb-nav-signin {
+  color: var(--fg-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+/* Reserve nav height on inner pages; home hero paints under the fixed nav. */
+.kb-nav-spacer { height: 80px; }
+body:has(.kb-hero) .kb-nav-spacer { height: 0; }
 body {
   margin: 0;
   background: var(--bg-page);
@@ -75,6 +166,31 @@ a:hover { color: var(--accent-700); }
 .kb-btn--secondary { background: var(--bg-surface); color: var(--fg-2); border-color: var(--border-default); }
 .kb-btn--secondary:hover { background: var(--bg-hover); color: var(--fg-2); border-color: var(--border-strong); }
 .kb-btn--secondary:active { background: var(--bg-active); border-color: var(--border-strong); }
+
+/* Footer social icons */
+.kb-socials {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+.kb-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  color: var(--fg-3);
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.kb-social:hover {
+  color: var(--fg-1);
+  background: var(--bg-hover);
+}
 
 /* "How it works" app switcher — prev/next arrows flanking the headline */
 .how-panel[hidden] { display: none; }
@@ -170,6 +286,15 @@ a:hover { color: var(--accent-700); }
 [data-testimonial-thumb]:focus-visible .kb-thumb-play { opacity: 1; }
 
 /* SuiteCard / FeatureCard link hover */
+a.kb-suite.is-clickable {
+  cursor: pointer;
+  transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1), transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+a.kb-suite.is-clickable:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  color: inherit;
+}
 .kb-suite-link:hover, .kb-feature-link:hover { color: var(--accent-700); }
 :root[data-theme="dark"] .kb-suite-link:hover,
 :root[data-theme="dark"] .kb-feature-link:hover { color: #F0A0A0; }
@@ -205,6 +330,104 @@ a:hover { color: var(--accent-700); }
 @keyframes kbWrench {
   0%, 100% { transform: rotate(-9deg); }
   50% { transform: rotate(7deg); }
+}
+@keyframes kbCursor {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* --- Hero H1 -------------------------------------------------------------- */
+.kb-hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 86px);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+  font-weight: 700;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-wrap: balance;
+  color: var(--fg-1);
+}
+.kb-h1-br-mobile { display: none; }
+.kb-h1-line1 {
+  display: inline-block;
+  font-size: 0.8em;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+.kb-h1-accent {
+  color: var(--fg-brand);
+  white-space: nowrap;
+}
+.kb-h1-typing { white-space: nowrap; }
+.kb-h1-cursor {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.82em;
+  margin-left: 0.05em;
+  background: currentColor;
+  vertical-align: -0.04em;
+  animation: kbCursor 1.05s step-end infinite;
+}
+.kb-h1-chat-pill {
+  /* No in-flow content → baseline is the bottom margin edge */
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  width: 1.35em;
+  height: 0.72em;
+  margin-right: 0.14em;
+  border-radius: 999px;
+  background: var(--stone-200);
+  color: var(--fg-1);
+}
+:root[data-theme="dark"] .kb-h1-chat-pill {
+  background: rgba(255, 255, 255, 0.16);
+}
+.kb-h1-chat-dots {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12em;
+}
+.kb-h1-chat-dots span {
+  width: 0.14em;
+  height: 0.14em;
+  border-radius: 999px;
+  background: var(--fg-1);
+  animation: kbType 1.4s ease-in-out infinite;
+}
+.kb-h1-chat-dots span:nth-child(2) { animation-delay: 0.18s; }
+.kb-h1-chat-dots span:nth-child(3) { animation-delay: 0.36s; }
+.kb-h1-brand-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18em;
+  color: var(--fg-1);
+  white-space: nowrap;
+}
+.kb-h1-mark-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.75em;
+  height: 0.75em;
+  flex: 0 0 auto;
+  border-radius: 0.14em;
+  background: var(--fg-brand);
+}
+.kb-h1-mark {
+  display: block;
+  width: auto;
+  height: 0.44em;
+}
+@media (max-width: 640px) {
+  .kb-h1-br-mobile { display: block; }
+  .kb-h1-line1 { white-space: normal; }
+  .kb-h1-brand-line { white-space: normal; }
 }
 
 /* --- Responsive ----------------------------------------------------------- */

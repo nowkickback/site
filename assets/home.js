@@ -122,16 +122,12 @@
     pass();
   }
 
-  /* --- Nav shrink --------------------------------------------------------- */
+  /* --- Nav: transparent at top, solid + mid-links after scroll ------------ */
   function initNav() {
     var nav = document.querySelector("[data-nav]");
-    var inner = document.querySelector("[data-nav-inner]");
-    if (!nav || !inner) return;
+    if (!nav) return;
     function onScroll() {
-      var scrolled = window.scrollY > 40;
-      // taller & borderless at the top; shorter with a bottom border once scrolling
-      inner.style.height = scrolled ? "72px" : "80px";
-      nav.style.borderBottomColor = scrolled ? "var(--border-subtle)" : "transparent";
+      nav.classList.toggle("is-scrolled", window.scrollY > 40);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -187,8 +183,8 @@
           var base = dark ? [124, 116, 107] : [168, 150, 142];
           ctx.fillStyle = red > 0.02
             ? "rgba(" + Math.round(base[0] + red * (222 - base[0])) + "," +
-              Math.round(base[1] - red * (base[1] - 68)) + "," +
-              Math.round(base[2] - red * (base[2] - 68)) + "," + a + ")"
+            Math.round(base[1] - red * (base[1] - 68)) + "," +
+            Math.round(base[2] - red * (base[2] - 68)) + "," + a + ")"
             : "rgba(" + base[0] + "," + base[1] + "," + base[2] + "," + a + ")";
           ctx.fill();
         }
@@ -231,7 +227,7 @@
     });
   }
 
-  /* --- "How it works" app switcher — prev/next arrows --------------------- */
+  /* --- "How it works" app switcher — prev/next + suite-card deep links ---- */
   function initHowNav() {
     var panels = Array.prototype.slice.call(document.querySelectorAll("[data-how-panel]"));
     if (!panels.length) return;
@@ -239,9 +235,17 @@
       for (var i = 0; i < panels.length; i++) { if (!panels[i].hidden) return i; }
       return 0;
     }
+    var eyebrow = document.querySelector("[data-how-eyebrow]");
     function rawShow(idx) {
       idx = (idx + panels.length) % panels.length;
       panels.forEach(function (p, i) { p.hidden = i !== idx; });
+      var color = panels[idx].getAttribute("data-how-color");
+      if (eyebrow && color) eyebrow.style.color = color;
+    }
+    function showKey(key) {
+      for (var i = 0; i < panels.length; i++) {
+        if (panels[i].getAttribute("data-how-panel") === key) { rawShow(i); return; }
+      }
     }
     function go(delta, sourceIcon) {
       var targetIdx = (current() + delta + panels.length) % panels.length;
@@ -267,6 +271,11 @@
     });
     document.querySelectorAll("[data-how-prev]").forEach(function (btn) {
       btn.addEventListener("click", function () { go(-1, null); });
+    });
+    document.querySelectorAll("[data-how-select]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        showKey(el.getAttribute("data-how-select"));
+      });
     });
   }
 
