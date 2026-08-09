@@ -1,5 +1,6 @@
 {% from "macros/ds.njk" import button %}
 {% set demoUrl = site.demoUrl %}
+{% set platformUrl = site.platformUrl %}
 {% set signInUrl = site.signInUrl %}
 <nav data-nav="1" class="kb-nav">
 <div data-nav-inner="1" class="kb-nav-inner">
@@ -13,7 +14,8 @@
 </div>
 <div data-desk="1" class="kb-nav-actions">
 <a href="{{ signInUrl }}" class="kb-nav-signin">Sign In</a>
-{{ button("Book a Demo", demoUrl, "primary", "sm") }}
+{{ button("Book a Demo", demoUrl, "secondary", "sm") }}
+{{ button("Start Free", platformUrl, "primary", "sm") }}
 </div>
 <button data-mobile-only="1" data-menu-toggle="1" aria-label="Menu" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin-left:auto;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--radius-sm);color:var(--fg-1);cursor:pointer;font-size:20px"><i class="ph ph-list"></i></button>
 </div>
@@ -24,9 +26,10 @@
 <a href="/#how" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">How it works</a>
 <a href="/#pricing" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Pricing</a>
 <a href="/#faq" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">FAQ</a>
-<div style="display:flex;gap:10px;margin-top:16px">
-{{ button("Book a Demo", demoUrl, "primary", "lg", true) }}
-{{ button("Sign In", signInUrl, "secondary", "lg") }}
+<div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
+{{ button("Start Free", platformUrl, "primary", "lg", true) }}
+{{ button("Book a Demo", demoUrl, "secondary", "lg", true) }}
+{{ button("Sign In", signInUrl, "secondary", "lg", true) }}
 </div>
 </div>
 </div>
