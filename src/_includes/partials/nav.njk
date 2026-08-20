@@ -2,7 +2,7 @@
 {% set demoUrl = site.demoUrl %}
 {% set platformUrl = site.platformUrl %}
 {% set signInUrl = site.signInUrl %}
-<nav data-nav="1" class="kb-nav">
+<nav data-nav="1" class="kb-nav" aria-label="Primary">
 <div data-nav-inner="1" class="kb-nav-inner">
 <a href="/" class="kb-nav-brand"><img data-logo="1" src="/assets/wordmark-on-light.svg" alt="Kickback"></a>
 <div data-desk="1" data-nav-mid="1" class="kb-nav-mid">
@@ -17,9 +17,9 @@
 {{ button("Book a Demo", demoUrl, "secondary", "sm") }}
 {{ button("Start Free", platformUrl, "primary", "sm") }}
 </div>
-<button data-mobile-only="1" data-menu-toggle="1" aria-label="Menu" style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin-left:auto;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--radius-sm);color:var(--fg-1);cursor:pointer;font-size:20px"><i class="ph ph-list"></i></button>
+<button type="button" data-mobile-only="1" data-menu-toggle="1" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--radius-sm);color:var(--fg-1);cursor:pointer;font-size:20px"><i class="ph ph-list" aria-hidden="true"></i></button>
 </div>
-<div data-menu="1" style="display:none;border-top:1px solid var(--border-subtle);padding:12px 24px 20px;background:var(--bg-surface)">
+<div id="mobile-menu" data-menu="1" hidden style="border-top:1px solid var(--border-subtle);padding:12px 24px 20px;background:var(--bg-surface)">
 <div style="display:flex;flex-direction:column;gap:2px">
 <a href="/#platform" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Platform</a>
 <a href="/#apps" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Apps</a>

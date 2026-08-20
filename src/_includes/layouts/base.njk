@@ -5,8 +5,11 @@
   {% include "partials/head.njk" %}
 </head>
 <body{% if p and p.dataProduct %} data-product="{{ p.dataProduct }}"{% endif %}{% if screenLabel %} data-screen-label="{{ screenLabel }}"{% elif p and p.screenLabel %} data-screen-label="{{ p.screenLabel }}"{% endif %} style="font-family:var(--font-sans);color:var(--fg-1);background:var(--bg-page)">
+  <a class="kb-skip" href="#main">Skip to content</a>
   {% include "partials/nav.njk" %}
+  <main id="main">
   {{ content | safe }}
+  </main>
   {% include "partials/footer.njk" %}
   {% include "partials/lightboxes.njk" %}
   {% include "partials/scripts-reveal.njk" %}

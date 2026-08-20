@@ -2,12 +2,9 @@
 layout: layouts/base.njk
 permalink: /customers/
 title: "Customers — Kickback"
-description: "Teams running their back office on Kickback."
+description: "Customer stories from home-services teams on Kickback."
 ---
-<section class="section section-tinted stub-page">
-  <div class="container">
-    <div class="ks-eyebrow">Company</div>
-    <h1 class="ks-h1">Customers</h1>
-    <p class="stub-page-lead">Customer stories are coming soon. Check back shortly.</p>
-  </div>
-</section>
+{% set eyebrow = "Company" %}
+{% set heading = "Customers" %}
+{% set lead = "Customer stories are coming soon. Check back shortly — or start free and see the product yourself." %}
+{% include "partials/stub-page.njk" %}

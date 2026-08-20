@@ -1,42 +1,40 @@
 {% set demoUrl = site.demoUrl %}
-<footer style="padding:56px 0 40px;border-top:1px solid var(--border-subtle);background:var(--bg-surface)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start">
-<div style="display:flex;flex-direction:column;gap:12px;max-width:280px">
+<footer class="kb-footer" style="padding:var(--space-14) 0 var(--space-10);border-top:1px solid var(--border-subtle);background:var(--bg-surface)">
+<div class="kb-container" style="display:flex;flex-wrap:wrap;gap:var(--space-8);justify-content:space-between;align-items:flex-start">
+<div style="display:flex;flex-direction:column;gap:var(--space-3);max-width:280px">
 <img data-logo="1" src="/assets/wordmark-on-light.svg" alt="Kickback" style="height:28px;align-self:flex-start">
 <p style="font-size:13.5px;color:var(--fg-2);margin:0;line-height:1.55">AI for the back office of home-services businesses. Founded by owners, in Richmond, VA.</p>
 {% if site.socialLinks and site.socialLinks.length %}
-<div class="kb-socials" aria-label="Social links">
+<div class="kb-socials" role="navigation" aria-label="Social links">
 {% for link in site.socialLinks %}
 <a class="kb-social" href="{{ link.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ link.label }}"><i class="ph {{ link.icon }}" aria-hidden="true"></i></a>
 {% endfor %}
 </div>
 {% endif %}
 </div>
-<div style="display:flex;gap:56px;flex-wrap:wrap">
-<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:var(--space-14);flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:var(--space-2)">
 <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Platform</span>
-<a href="/costing/" style="font-size:13.5px;color:var(--fg-2)">Costing</a>
-<a href="/follow-up/" style="font-size:13.5px;color:var(--fg-2)">Follow-Up</a>
-<a href="/hud/" style="font-size:13.5px;color:var(--fg-2)">HUD</a>
-<a href="/coach/" style="font-size:13.5px;color:var(--fg-2)">Coach</a>
+<a class="kb-footer-link" href="/costing/">Costing</a>
+<a class="kb-footer-link" href="/follow-up/">Follow-Up</a>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;flex-direction:column;gap:var(--space-2)">
 <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Company</span>
-<a href="/about/" style="font-size:13.5px;color:var(--fg-2)">About</a>
-<a href="/#pricing" style="font-size:13.5px;color:var(--fg-2)">Pricing</a>
-<a href="/#faq" style="font-size:13.5px;color:var(--fg-2)">FAQ</a>
-<a href="{{ demoUrl }}" style="font-size:13.5px;color:var(--fg-2)">Book a demo</a>
+<a class="kb-footer-link" href="/about/">About</a>
+<a class="kb-footer-link" href="/#pricing">Pricing</a>
+<a class="kb-footer-link" href="/#faq">FAQ</a>
+<a class="kb-footer-link" href="{{ demoUrl }}">Book a Demo</a>
 </div>
 </div>
 </div>
-<div style="max-width:1280px;margin:32px auto 0;padding:20px 24px 0;border-top:1px solid var(--border-subtle);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.04em;color:var(--fg-3);text-transform:uppercase">
-<span style="display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap">
+<div class="kb-container" style="margin-top:var(--space-8);padding-top:var(--space-5);border-top:1px solid var(--border-subtle);display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.04em;color:var(--fg-3);text-transform:uppercase">
+<span style="display:inline-flex;align-items:center;gap:var(--space-4);flex-wrap:wrap">
 <span style="display:inline-flex;align-items:center;gap:5px"><i class="ph ph-copyright" aria-hidden="true"></i> 2026 Kickback, LLC</span>
 <span style="display:inline-flex;align-items:center;gap:5px">Made with <i class="ph-fill ph-heart" style="color:var(--fg-brand)"></i> in Richmond, VA</span>
 </span>
-<span style="display:inline-flex;align-items:center;gap:20px;flex-wrap:wrap">
-<a href="/terms/" style="color:inherit;text-decoration:none">Terms</a>
-<a href="/privacy/" style="color:inherit;text-decoration:none">Privacy</a>
+<span style="display:inline-flex;align-items:center;gap:var(--space-2);flex-wrap:wrap">
+<a class="kb-footer-legal" href="/terms/">Terms</a>
+<a class="kb-footer-legal" href="/privacy/">Privacy</a>
 </span>
 </div>
 </footer>

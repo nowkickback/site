@@ -4,10 +4,7 @@ permalink: /about/
 title: "About — Kickback"
 description: "Who we are and why we build Kickback."
 ---
-<section class="section section-tinted stub-page">
-  <div class="container">
-    <div class="ks-eyebrow">Company</div>
-    <h1 class="ks-h1">About</h1>
-    <p class="stub-page-lead">About Kickback is coming soon. Check back shortly.</p>
-  </div>
-</section>
+{% set eyebrow = "Company" %}
+{% set heading = "About" %}
+{% set lead = "About Kickback is coming soon. In the meantime, start free on the platform or book a demo." %}
+{% include "partials/stub-page.njk" %}

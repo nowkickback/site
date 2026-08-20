@@ -4,8 +4,11 @@
   {% include "partials/head.njk" %}
 </head>
 <body style="font-family:var(--font-sans);color:var(--fg-1);background:var(--bg-page)">
+  <a class="kb-skip" href="#main">Skip to content</a>
   {% include "partials/nav.njk" %}
+  <main id="main">
   {{ content | safe }}
+  </main>
   {% include "partials/footer.njk" %}
   {% include "partials/lightboxes.njk" %}
   <script src="/assets/home.js?v={{ site.cssVersion }}" defer></script>

@@ -1,0 +1,12 @@
+{% from "macros/ds.njk" import button %}
+<section class="section section-tinted stub-page">
+  <div class="container">
+    <div class="ks-eyebrow">{{ eyebrow | default("Company") }}</div>
+    <h1 class="ks-h1">{{ heading }}</h1>
+    <p class="stub-page-lead">{{ lead }}</p>
+    <div class="stub-page-actions" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--space-8)">
+      {{ button("Start Free", site.platformUrl, "primary", "lg") }}
+      {{ button("Book a Demo", site.demoUrl, "secondary", "lg") }}
+    </div>
+  </div>
+</section>

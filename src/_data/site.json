@@ -1,7 +1,7 @@
 {
   "name": "Kickback",
   "url": "https://nowkickback.com",
-  "cssVersion": "20260808-13",
+  "cssVersion": "20260819-audit-fix",
   "themeColorDefault": "#DE4444",
   "platformUrl": "https://platform.nowkickback.com",
   "signInUrl": "https://platform.nowkickback.com/users/sign_in",
@@ -9,7 +9,7 @@
   "salesUrl": "https://platform.nowkickback.com/sales",
   "statusUrl": "https://kickback.stpg.dev/",
   "statusBadge": "https://kickback.stpg.dev/badge/v2?theme=dark&size=md&variant=outline",
-  "footerTagline": "The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview. HUD and Coach are next.",
+  "footerTagline": "The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview.",
   "socialLinks": [
     {
       "label": "X",
