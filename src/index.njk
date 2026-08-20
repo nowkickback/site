@@ -7,28 +7,27 @@ ogTitle: "Kickback — AI for the back office"
 ogDescription: "Connect your CRM and supplier accounts once. Kickback costs the jobs, chases unsold estimates, and surfaces only what needs a human."
 themeColor: "#DE4444"
 ---
-{% from "macros/ds.njk" import button, featureCard, suiteCard, stepCard, quote, pricingTier, hWord %}
+{% from "macros/ds.njk" import button, featureCard, suiteCard, stepCard, pricingTier, hWord %}
 {% set demoUrl = site.demoUrl %}
 {% set platformUrl = site.platformUrl %}
 {% set signInUrl = site.signInUrl %}
 {% set salesUrl = site.salesUrl %}
 
-<section id="top" class="kb-hero" style="position:relative;padding:176px 0 0;background:linear-gradient(180deg,var(--bg-page) 0%,var(--bg-page) 42%,var(--bg-surface) 100%)">
+<section id="top" class="kb-hero">
 <canvas data-grid="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 88%);-webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 88%)"></canvas>
-<div style="position:relative;max-width:1280px;margin:0 auto;padding:0 24px;text-align:center">
+<div class="kb-hero-copy">
 <h1 class="kb-hero-h1" data-reveal="1" data-delay="60">
-<span class="kb-h1-line1">No <span class="kb-h1-typing">typing<span class="kb-h1-cursor" aria-hidden="true"></span></span>.<br class="kb-h1-br-mobile"> No <span class="kb-h1-chat-pill" aria-hidden="true"><span class="kb-h1-chat-dots"><span></span><span></span><span></span></span></span>chat bots.</span><br><span class="kb-h1-brand-line"><span class="kb-h1-mark-wrap" aria-hidden="true"><img class="kb-h1-mark" src="/assets/icon-on-dark.svg" alt="" width="60" height="52"></span><span class="kb-h1-accent">Kickback</span> the busy work.</span>
+<span class="kb-h1-line1">No <span class="kb-h1-typing">typing</span>.<span class="kb-h1-cursor" aria-hidden="true"></span><br class="kb-h1-br-mobile"> No <span class="kb-h1-chat-pill" aria-hidden="true"><span class="kb-h1-chat-dots"><span></span><span></span><span></span></span></span>chat bots.</span><br><span class="kb-h1-brand-line"><span class="kb-h1-mark-wrap" aria-hidden="true"><img class="kb-h1-mark" src="/assets/icon-on-dark.svg" alt="" width="60" height="52"></span><span class="kb-h1-accent">Kickback</span> the busy work.</span>
 </h1>
-<p data-reveal="1" data-delay="120" style="font-size:clamp(16px,2vw,19px);color:var(--fg-2);max-width:640px;margin:22px auto 0;line-height:1.55;text-wrap:pretty">Built by home-services owners. Fly through <span style="white-space:nowrap;color:var(--moss-500);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--moss-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em"><i class="ph-fill ph-currency-dollar" style="font-size:0.82em"></i></span>Costing</span>, never forget another <span style="white-space:nowrap;color:var(--tide-500);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--tide-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em"><i class="ph-fill ph-chats" style="font-size:0.82em"></i></span>Follow-Up</span>, and get your weekend back.</p>
-<div data-reveal="1" data-delay="180" style="display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap">
+<p data-reveal="1" data-delay="120" style="font-size:clamp(16px,2vw,19px);color:var(--fg-2);max-width:640px;margin:var(--space-6) auto 0;line-height:1.55;text-wrap:pretty">Built by home-services owners. Fly through <span style="white-space:nowrap;color:var(--moss-600);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--moss-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em" aria-hidden="true"><i class="ph-fill ph-currency-dollar" style="font-size:0.82em"></i></span>Costing</span>, never forget another <span style="white-space:nowrap;color:var(--tide-600);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--tide-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em" aria-hidden="true"><i class="ph-fill ph-chats" style="font-size:0.82em"></i></span>Follow-Up</span>, and get your weekend back.</p>
+<div data-reveal="1" data-delay="180" style="display:flex;justify-content:center;gap:var(--space-3);margin-top:var(--space-8);flex-wrap:wrap">
 {{ button("Start Free", platformUrl, "primary", "lg") }}
 {{ button("Book a Demo", demoUrl, "secondary", "lg") }}
 </div>
-<div data-reveal="1" data-delay="240" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3);margin-top:18px">No Credit Card Required · See How It Works <a href="#how" style="color:inherit;text-decoration:underline;text-underline-offset:3px">↓</a></div>
 </div>
 
-<div data-reveal="1" data-delay="300" style="position:relative;z-index:3;max-width:1120px;margin:56px auto -80px;padding:0 24px">
-<div data-float="1" style="border-radius:8px;background:var(--bg-surface);box-shadow:var(--shadow-xl);overflow:hidden;animation:kbFloat 9s ease-in-out infinite">
+<div data-reveal="1" data-delay="300" class="kb-hero-shot">
+<div data-parallax="desk" data-parallax-speed="0.14" class="kb-shot-window" style="border-radius:8px;background:var(--bg-surface);box-shadow:var(--shadow-xl);overflow:hidden;will-change:transform">
 <div style="display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;background:var(--kb-shot-chrome);border-bottom:1px solid var(--border-subtle)">
 <span style="width:11px;height:11px;border-radius:999px;background:#E5695C"></span>
 <span style="width:11px;height:11px;border-radius:999px;background:#E8B84B"></span>
@@ -69,7 +68,7 @@ themeColor: "#DE4444"
 </div>
 <div style="padding:16px 14px 0;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--fg-3);text-transform:uppercase"><span data-queue-count="1">94</span> items left in queue</div>
 </div>
-<div style="padding:20px 22px;display:flex;flex-direction:column;gap:12px">
+<div class="kb-shot-panel" style="padding:20px 22px;display:flex;flex-direction:column;gap:12px">
 <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
 <span style="font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-0.015em">Home Depot #4471</span>
 <span style="font-family:var(--font-mono);font-size:11px;color:var(--fg-3);letter-spacing:0.06em">6 LINE ITEMS · $1,284.06</span>
@@ -99,91 +98,146 @@ themeColor: "#DE4444"
 </div>
 </div>
 </div>
+<div class="kb-phone" data-parallax="phone" data-parallax-speed="0.32" style="will-change:transform">
+<div class="kb-phone-body">
+<div class="kb-phone-screen">
+<div class="kb-phone-island" aria-hidden="true"></div>
+<div class="kb-phone-head">
+<span class="kb-phone-title">Outbox</span>
+<span class="kb-phone-due"><span class="kb-phone-due-dot" aria-hidden="true"></span>12 due</span>
+</div>
+<div class="kb-deck">
+<article class="kb-deck-card">
+<div class="kb-deck-chips"><span class="is-done"><i class="ph-fill ph-check" aria-hidden="true"></i>Text</span><span class="is-active">Email</span><span>Call</span><span>Done</span></div>
+<div class="kb-deck-title">
+<span class="kb-deck-who"><strong>Laura M.</strong><span>TOUCH 2 OF 4</span></span>
+<span class="kb-deck-amt"><strong>$8,450</strong><span>ASKED TODAY</span></span>
+</div>
+<div class="kb-deck-rule" aria-hidden="true"></div>
+<div class="kb-deck-eyebrow">Subject</div>
+<div class="kb-deck-subject">Checking in like you asked</div>
+<p class="kb-deck-body">Hi Laura — you mentioned today was a good day to circle back on the Main Street estimate. Happy to walk through the line items…</p>
+<div class="kb-deck-tag"><i class="ph-fill ph-check" aria-hidden="true"></i>DRAFTED IN YOUR VOICE</div>
+<span class="kb-deck-stamp" aria-hidden="true">SEND</span>
+</article>
+<article class="kb-deck-card">
+<div class="kb-deck-chips"><span class="is-active">Text</span><span>Email</span><span>Call</span><span>Done</span></div>
+<div class="kb-deck-title">
+<span class="kb-deck-who"><strong>Rachelle B.</strong><span>TOUCH 1 OF 4</span></span>
+<span class="kb-deck-amt"><strong>$12,300</strong><span>DAY 3 OF 14</span></span>
+</div>
+<div class="kb-deck-rule" aria-hidden="true"></div>
+<p class="kb-deck-body">Hi Rachelle, Troy here from the estimate visit — any questions on the cabinet quote? I can still hold next week's start date if it helps.</p>
+<div class="kb-deck-tag"><i class="ph-fill ph-check" aria-hidden="true"></i>DRAFTED IN YOUR VOICE</div>
+<span class="kb-deck-stamp" aria-hidden="true">SEND</span>
+</article>
+<article class="kb-deck-card">
+<div class="kb-deck-chips"><span class="is-done"><i class="ph-fill ph-check" aria-hidden="true"></i>Text</span><span class="is-done"><i class="ph-fill ph-check" aria-hidden="true"></i>Email</span><span class="is-active">Call</span><span>Done</span></div>
+<div class="kb-deck-title">
+<span class="kb-deck-who"><strong>Tiffany S.</strong><span>TOUCH 3 OF 4</span></span>
+<span class="kb-deck-amt"><strong>$4,980</strong><span>DAY 7 OF 14</span></span>
+</div>
+<div class="kb-deck-rule" aria-hidden="true"></div>
+<div class="kb-deck-eyebrow kb-deck-eyebrow--call">Call brief</div>
+<p class="kb-deck-body">She's comparing two bids. Goal: offer the walk-through Thursday and confirm the trim color before scheduling.</p>
+<span class="kb-deck-stamp" aria-hidden="true">CALL</span>
+</article>
+</div>
+<div class="kb-deck-actions" aria-hidden="true">
+<span class="kb-deck-act kb-deck-act--skip"><i class="ph ph-x"></i></span>
+<span class="kb-deck-act kb-deck-act--details"><i class="ph ph-arrow-up"></i></span>
+<span class="kb-deck-act kb-deck-act--rework"><i class="ph ph-sparkle"></i></span>
+<span class="kb-deck-act kb-deck-act--send"><i class="ph-fill ph-paper-plane-tilt"></i></span>
+</div>
+<div class="kb-phone-homebar" aria-hidden="true"></div>
+</div>
+</div>
+</div>
 </div>
 </section>
 
-<section style="padding:184px 0 40px;background:var(--bg-surface);overflow:hidden">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px 16px;text-align:center">
+<section class="kb-vendors">
+<div class="kb-container" style="padding-bottom:var(--space-4);text-align:center">
 <span data-reveal="1" style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-3)">Works with the Tools, Vendors, and CRM you already use</span>
 </div>
 <div style="position:relative;mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent)">
 <div style="display:flex;width:max-content;animation:kbMarquee 60s linear infinite">
 <div style="display:flex;align-items:center;gap:72px;padding:0 36px">
-<img data-vendor="1" src="/assets/vendors/housecall-pro.png" alt="Housecall Pro" style="height:31px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/home-depot.svg" alt="Home Depot" style="height:36px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/lowes.svg" alt="Lowe's" style="height:31px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sherwin-williams.png" alt="Sherwin-Williams" style="height:34px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/pittsburgh-paints.png" alt="Pittsburgh Paints" style="height:36px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/spectrum-paint.png" alt="Spectrum Paint" style="height:31px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/mccormick-paints.png" alt="McCormick Paints" style="height:34px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sunbelt-rentals.png" alt="Sunbelt Rentals" style="height:29px;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/housecall-pro.png" alt="Housecall Pro" width="120" height="31" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/home-depot.svg" alt="Home Depot" width="120" height="36" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/lowes.svg" alt="Lowe's" width="120" height="31" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/sherwin-williams.png" alt="Sherwin-Williams" width="120" height="34" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/pittsburgh-paints.png" alt="Pittsburgh Paints" width="120" height="36" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/spectrum-paint.png" alt="Spectrum Paint" width="120" height="31" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/mccormick-paints.png" alt="McCormick Paints" width="120" height="34" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/sunbelt-rentals.png" alt="Sunbelt Rentals" width="120" height="29" decoding="async" style="height:29px;width:auto;filter:grayscale(1);opacity:.55">
 </div>
 <div aria-hidden="true" style="display:flex;align-items:center;gap:72px;padding:0 36px">
-<img data-vendor="1" src="/assets/vendors/housecall-pro.png" alt="" style="height:31px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/home-depot.svg" alt="" style="height:36px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/lowes.svg" alt="" style="height:31px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sherwin-williams.png" alt="" style="height:34px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/pittsburgh-paints.png" alt="" style="height:36px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/spectrum-paint.png" alt="" style="height:31px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/mccormick-paints.png" alt="" style="height:34px;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sunbelt-rentals.png" alt="" style="height:29px;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/housecall-pro.png" alt="" width="120" height="31" loading="lazy" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/home-depot.svg" alt="" width="120" height="36" loading="lazy" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/lowes.svg" alt="" width="120" height="31" loading="lazy" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/sherwin-williams.png" alt="" width="120" height="34" loading="lazy" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/pittsburgh-paints.png" alt="" width="120" height="36" loading="lazy" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/spectrum-paint.png" alt="" width="120" height="31" loading="lazy" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/mccormick-paints.png" alt="" width="120" height="34" loading="lazy" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
+<img data-vendor="1" src="/assets/vendors/sunbelt-rentals.png" alt="" width="120" height="29" loading="lazy" decoding="async" style="height:29px;width:auto;filter:grayscale(1);opacity:.55">
 </div>
 </div>
 </div>
 </section>
 
-<section id="platform" data-pad="1" style="padding:112px 0;background:var(--bg-surface)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px">
-<div data-reveal="1" style="max-width:760px;margin:0 auto 56px;text-align:center">
-<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:14px">The Kickback Platform</span>
-<h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">No imports. No onboarding.<br>Your data is already where it belongs.</h2>
+<section id="platform" class="kb-section" data-pad="1" style="background:var(--bg-surface)">
+<div class="kb-container">
+<div data-reveal="1" class="kb-section-head kb-container--copy" style="max-width:760px">
+<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:var(--space-3)">The Kickback Platform</span>
+<h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">No imports. No &ldquo;onboarding&rdquo;.<br>Your data is already where it belongs.</h2>
 </div>
-<div style="display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:16px;margin-bottom:16px">
-<div data-reveal="1" style="flex:1 1 200px;padding:24px;background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
+<div style="display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:var(--space-4);margin-bottom:var(--space-4)">
+<div data-reveal="1" style="flex:1 1 200px;padding:var(--space-6);background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
 <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3);margin-bottom:10px">Jobs Costed in &lt; 5 minutes</div>
 <div style="font-family:var(--font-display);font-size:clamp(34px,4.5vw,44px);font-weight:600;letter-spacing:-0.03em;line-height:1"><span data-count="12480" data-suffix="">12,480</span></div>
 </div>
-<div data-reveal="1" data-delay="60" style="flex:1 1 200px;padding:24px;background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
+<div data-reveal="1" data-delay="60" style="flex:1 1 200px;padding:var(--space-6);background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
 <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3);margin-bottom:10px">Follow-Ups Sent</div>
 <div style="font-family:var(--font-display);font-size:clamp(34px,4.5vw,44px);font-weight:600;letter-spacing:-0.03em;line-height:1"><span data-count="416000" data-suffix="">416,000</span></div>
 </div>
-<div data-reveal="1" data-delay="120" style="flex:1 1 200px;padding:24px;background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
+<div data-reveal="1" data-delay="120" style="flex:1 1 200px;padding:var(--space-6);background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
 <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3);margin-bottom:10px">Avg Morning Clear</div>
 <div style="font-family:var(--font-display);font-size:clamp(34px,4.5vw,44px);font-weight:600;letter-spacing:-0.03em;line-height:1;white-space:nowrap"><span data-count="15" data-suffix="">15</span><span style="font-size:0.45em;letter-spacing:-0.02em;margin-left:0.15em;color:var(--fg-3);font-weight:500">min</span></div>
 </div>
 <div data-reveal="1" data-delay="150" aria-hidden="true" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:clamp(30px,4vw,44px);font-weight:600;color:var(--fg-3)">=</div>
-<div data-reveal="1" data-delay="180" style="flex:1 1 200px;padding:24px;background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
+<div data-reveal="1" data-delay="180" style="flex:1 1 200px;padding:var(--space-6);background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
 <div style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3);margin-bottom:10px">Hours Saved</div>
 <div style="font-family:var(--font-display);font-size:clamp(34px,4.5vw,44px);font-weight:600;letter-spacing:-0.03em;line-height:1"><span data-count="1900" data-suffix="+">1,900+</span></div>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4)">
 <div data-reveal="1">{{ featureCard("Just connect and go.", "Link your CRM, Vendors, and other tools once. Platform keeps everything in sync, and posts back changes where they belong. Keep using the tools you already know and love, we're just here to make it better.", "ph ph-plugs-connected", "Check out the apps", "#apps") }}</div>
 <div data-reveal="1" data-delay="80">{{ featureCard("AI that's not an afterthought.", "Since we built Kickback with AI baked-in from the start, you don't waste time hunting for information or chatting about what should happen with a robot. You'll only need to take action on what needs a human touch, and we'll take care of the rest.", "ph ph-sparkle", "Start Free", platformUrl) }}</div>
-<div data-reveal="1" data-delay="160">{{ featureCard("By owners, for owners.", "We created Kickback to solve a problem in our own businesses, not because we wanted a piece of the AI bubble. No sales bullsh*t, every feature we demo is live and working today. We finally got our weekends back, and we didn't have to hire anyone to do it.", "ph ph-trophy", "How we got our weekends back", "#story") }}</div>
+<div data-reveal="1" data-delay="160">{{ featureCard("By owners, for owners.", "We created Kickback to solve a problem in our own businesses, not because we wanted a piece of the AI bubble. No sales bullsh*t, every feature we demo is live and working today. We finally got our weekends back, and we didn't have to hire anyone to do it.", "ph ph-trophy") }}</div>
 </div>
 </div>
 </section>
 
-<section id="apps" data-pad="1" style="padding:112px 0;border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px">
-<div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:44px">
+<section id="apps" class="kb-section" data-pad="1" style="border-top:1px solid var(--border-subtle)">
+<div class="kb-container">
+<div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap;margin-bottom:var(--space-10)">
 <div style="max-width:620px">
-<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:14px">Our App Lineup</span>
-<h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">Cost the jobs.<br>Chase the quotes.</h2>
+<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:var(--space-3)">Our App Lineup</span>
+<h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">One platform.<br>Many apps.</h2>
 </div>
 </div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:840px">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);max-width:840px">
 <div data-reveal="1">{{ suiteCard("Costing", "Every dollar in its place. Receipts land, get matched to the job, and post back to your CRM before your coffee's cold.", "ph-fill ph-currency-dollar", "#6F9334", "live", "", "#how", "", false, "costing") }}</div>
 <div data-reveal="1" data-delay="80">{{ suiteCard("Follow-Up", "Quotes that close themselves. Unsold estimates get chased on a cadence you set, in your voice, until they answer.", "ph-fill ph-chats", "#41778D", "preview", "", "#how", "", false, "follow-up") }}</div>
 </div>
-<p data-reveal="1" style="font-size:14px;color:var(--fg-3);margin:18px 0 0;max-width:840px">Pick an app — how it works updates below.</p>
+<p data-reveal="1" style="font-size:14px;color:var(--fg-2);margin:var(--space-5) 0 0;max-width:840px">Pick an app — how it works updates below.</p>
 </div>
 </section>
 
 {% set howApps = [
   {
-    "key": "costing", "name": "Costing", "color": "#6F9334", "subtle": "rgba(111,147,52,0.16)", "icon": "ph-fill ph-currency-dollar",
+    "key": "costing", "name": "Costing", "color": "#587A26", "subtle": "rgba(111,147,52,0.16)", "icon": "ph-fill ph-currency-dollar",
     "before": "Job ", "hlWord": "Costing", "hlIcon": "ph-fill ph-currency-dollar", "after": " that does itself.",
     "steps": [
       { "num": "STEP 01", "title": "Connect your accounts", "icon": "ph ph-plugs-connected", "body": "Sign in to your CRM and your supplier portals once. Kickback pulls jobs, POs and invoices from that point forward — and backfills the pile you're behind on." },
@@ -192,7 +246,7 @@ themeColor: "#DE4444"
     ]
   },
   {
-    "key": "follow-up", "name": "Follow-Up", "color": "#41778D", "subtle": "rgba(65,119,141,0.16)", "icon": "ph-fill ph-chats",
+    "key": "follow-up", "name": "Follow-Up", "color": "#336077", "subtle": "rgba(65,119,141,0.16)", "icon": "ph-fill ph-chats",
     "before": "Never miss a ", "hlWord": "Follow-Up", "hlIcon": "ph-fill ph-chats", "after": " again.",
     "steps": [
       { "num": "STEP 01", "title": "Connect your CRM", "icon": "ph ph-plugs-connected", "body": "Kickback reads your open estimates the moment they go unsold — no new list to build, no exports to keep current." },
@@ -202,8 +256,8 @@ themeColor: "#DE4444"
   }
 ] %}
 {% set howCount = howApps | length %}
-<section id="how" data-pad="1" style="padding:112px 0;background:var(--bg-surface);border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto 30px;padding:0 24px;text-align:center">
+<section id="how" class="kb-section" data-pad="1" style="background:var(--bg-surface);border-top:1px solid var(--border-subtle)">
+<div class="kb-container" style="margin-bottom:var(--space-8);text-align:center">
 <span data-reveal="1" data-how-eyebrow="1" style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:{{ howApps[0].color }};transition:color 180ms cubic-bezier(0.4,0,0.2,1)">How it works</span>
 </div>
 {% for app in howApps %}
@@ -220,8 +274,8 @@ themeColor: "#DE4444"
 <button class="how-arrow" data-how-next="1" aria-label="Next app: {{ nextApp.name }}"><i class="ph ph-arrow-right"></i></button>
 </div>
 </div>
-<div style="max-width:1280px;margin:0 auto;padding:0 24px">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+<div class="kb-container">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-4)">
 {% for step in app.steps %}<div>{{ stepCard(step.num, step.title, step.body, step.icon) }}</div>{% endfor %}
 </div>
 </div>
@@ -229,78 +283,53 @@ themeColor: "#DE4444"
 {% endfor %}
 </section>
 
-<section id="story" data-pad="1" style="position:relative;padding:104px 0 0;background:var(--bg-surface);border-top:1px solid var(--border-subtle);overflow:hidden">
-<div data-reveal="1" style="position:relative;z-index:1;pointer-events:none;max-width:1280px;margin:0 auto;padding:0 24px">
-<div class="ks-eyebrow" style="margin-bottom:16px">What your competitors are saying</div>
-<div style="position:relative;z-index:1;pointer-events:auto;max-width:600px;min-height:300px;padding-bottom:40px">
-<p style="font-family:var(--font-display);font-size:clamp(26px,3.2vw,34px);line-height:1.25;letter-spacing:-0.02em;font-weight:500;color:var(--fg-1);margin:0 0 22px;text-wrap:pretty"><span style="color:var(--fg-brand);margin-right:4px">“</span>Job Costing used to give me anxiety. Now it takes five minutes every morning and everything's in sync.<span style="color:var(--fg-brand);margin-left:2px">”</span></p>
-<div style="font-size:14px;color:var(--fg-3);margin-bottom:24px">Troy — Owner, That 1 Painter Richmond</div>
-<button data-mobile-only="1" data-lightbox-open="video" class="kb-video-cta" style="display:inline-flex;align-items:center;gap:11px;background:none;border:0;padding:0;cursor:pointer;font-family:var(--font-sans);font-size:15px;font-weight:500;color:var(--fg-1)"><span class="kb-video-cta-dot" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:var(--bg-brand);color:var(--fg-on-brand);transition:background-color 150ms cubic-bezier(0.4,0,0.2,1)"><i class="ph-fill ph-play" style="font-size:16px;margin-left:2px"></i></span>Watch Troy's testimonial</button>
-</div>
-</div>
-<button data-desk="1" data-lightbox-open="video" data-testimonial-thumb="1" aria-label="Watch Troy's testimonial" style="position:absolute;top:0;bottom:0;right:calc(50% - 616px);width:min(56vw,620px);margin:0;padding:0;border:0;background:none;cursor:pointer;display:block;line-height:0">
-<span class="kb-thumb-bg" aria-hidden="true"></span>
-<span class="kb-thumb-figure">
-<img class="kb-thumb-photo" src="/assets/troy-headshot.png" alt="Troy, Owner of That 1 Painter Richmond">
-<span class="kb-thumb-play" style="position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:12px;background:var(--bg-brand);color:#fff;box-shadow:var(--shadow-lg)"><i class="ph-fill ph-play" style="font-size:27px;margin-left:3px"></i></span>
-</span>
-</button>
-</section>
-
-<section id="pricing" data-pad="1" style="padding:112px 0;border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px">
-<div data-reveal="1" style="max-width:680px;margin:0 auto 52px;text-align:center">
-<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:14px">Pricing</span>
+<section id="pricing" class="kb-section" data-pad="1" style="border-top:1px solid var(--border-subtle)">
+<div class="kb-container">
+<div data-reveal="1" class="kb-section-head" style="max-width:680px">
+<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:var(--space-3)">Pricing</span>
 <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">Start for free.<br>Scale up anytime.</h2>
 </div>
 {% set ctaFree %}{{ button("Start Free", platformUrl, "primary", "md", true) }}{% endset %}
 {% set ctaPlatform %}{{ button("Start Free", platformUrl, "primary", "md", true) }}{% endset %}
 {% set ctaSeats %}{{ button("Talk to Us", salesUrl, "secondary", "md", true) }}{% endset %}
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;align-items:start">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);align-items:start">
 <div data-reveal="1" style="height:100%">{{ pricingTier("Starter", "0", ["Invoice Inbox, up to 25 invoices/mo", "1 supplier connection", "1 user", "Community support"], ctaFree, "Free forever") }}</div>
 <div data-reveal="1" data-delay="80" style="height:100%">{{ pricingTier("Platform", "489", ["Everything in Costing, unlimited invoices", "All supplier connections", "5 users included", "Zero-cost-item flagging", "Onboarding + backfill included", "Follow-Up preview access"], ctaPlatform, "Most contractors", "/mo", "RECOMMENDED", true) }}</div>
 <div data-reveal="1" data-delay="160" style="height:100%">{{ pricingTier("Per user", "89", ["Added to the $489/mo platform fee", "Full access for each seat", "Role-based permissions", "Priority support"], ctaSeats, "Beyond 5 seats", "/user/mo") }}</div>
 </div>
-<div data-reveal="1" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-3);text-align:center;margin-top:24px">No card to start · Cancel any time · Onboarding included</div>
+<div data-reveal="1" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-3);text-align:center;margin-top:var(--space-6)">No card to start · Cancel any time · Onboarding included</div>
 </div>
 </section>
 
-<section id="faq" data-pad="1" style="padding:112px 0;background:var(--bg-surface);border-top:1px solid var(--border-subtle)">
-<div style="max-width:840px;margin:0 auto;padding:0 24px">
-<div data-reveal="1" style="text-align:center;margin-bottom:44px">
-<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:14px">Frequently Asked Questions</span>
+<section id="faq" class="kb-section" data-pad="1" style="background:var(--bg-surface);border-top:1px solid var(--border-subtle)">
+<div class="kb-container kb-container--narrow">
+<div data-reveal="1" class="kb-section-head" style="margin-bottom:var(--space-10)">
+<span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:var(--space-3)">Frequently Asked Questions</span>
 <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0">The things owners ask first.</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div data-reveal="1" style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
-<button data-faq="1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1)">Which CRM do you work with?<i class="ph ph-caret-down" data-faq-caret="1" style="font-size:16px;color:var(--fg-3);transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
-<div data-faq-body="1" style="overflow:hidden;max-height:0;transition:max-height 220ms cubic-bezier(0.22,1,0.36,1)"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6">Your CRM is the source of truth — we connect to it, we don't replace it. One major CRM is live today, and more land each quarter. If yours isn't on the list yet, tell us on a demo call; integration order follows customer demand.</p></div>
+<div style="display:flex;flex-direction:column;gap:var(--space-3)">
+{% set faqs = [
+  { "id": "crm", "q": "Which CRM do you work with?", "a": "Your CRM is the source of truth — we connect to it, we don't replace it. One major CRM is live today, and more land each quarter. If yours isn't on the list yet, tell us on a demo call; integration order follows customer demand." },
+  { "id": "behind", "q": "We're months behind on job costing. Is that a problem?", "a": "It's the normal case. We backfill the pile during onboarding — get caught up in under an hour, or your first month is free." },
+  { "id": "autopost", "q": "Does the AI post things without me?", "a": "No. Kickback does the work and then asks — a ranked match with its reasoning, confirmed by a person. High-confidence rules can be turned on later, one vendor at a time, once you trust them." },
+  { "id": "who", "q": "Who in my office actually uses it?", "a": "Usually the office manager or bookkeeper clears the inbox each morning; the owner watches the flagged jobs. Five users are included, so you don't have to share a login." },
+  { "id": "leave", "q": "What happens to my data if we leave?", "a": "Costs live in your CRM, not ours — that's the point of writing back. Export the raw invoice records any time, and we delete on request." }
+] %}
+{% for item in faqs %}
+<div data-reveal="1"{% if not loop.first %} data-delay="{{ (loop.index0 * 40) }}"{% endif %} style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
+<button type="button" data-faq="1" id="faq-btn-{{ item.id }}" aria-expanded="false" aria-controls="faq-panel-{{ item.id }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1);overflow-wrap:anywhere">{{ item.q }}<i class="ph ph-caret-down" data-faq-caret="1" aria-hidden="true" style="font-size:16px;color:var(--fg-3);flex:0 0 auto;transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
+<div data-faq-body="1" id="faq-panel-{{ item.id }}" role="region" aria-labelledby="faq-btn-{{ item.id }}" hidden style="overflow:hidden"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6;overflow-wrap:anywhere">{{ item.a }}</p></div>
 </div>
-<div data-reveal="1" style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
-<button data-faq="1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1)">We're months behind on job costing. Is that a problem?<i class="ph ph-caret-down" data-faq-caret="1" style="font-size:16px;color:var(--fg-3);transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
-<div data-faq-body="1" style="overflow:hidden;max-height:0;transition:max-height 220ms cubic-bezier(0.22,1,0.36,1)"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6">It's the normal case. We backfill the pile during onboarding — get caught up in under an hour, or your first month is free.</p></div>
-</div>
-<div data-reveal="1" style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
-<button data-faq="1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1)">Does the AI post things without me?<i class="ph ph-caret-down" data-faq-caret="1" style="font-size:16px;color:var(--fg-3);transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
-<div data-faq-body="1" style="overflow:hidden;max-height:0;transition:max-height 220ms cubic-bezier(0.22,1,0.36,1)"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6">No. Kickback does the work and then asks — a ranked match with its reasoning, confirmed by a person. High-confidence rules can be turned on later, one vendor at a time, once you trust them.</p></div>
-</div>
-<div data-reveal="1" style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
-<button data-faq="1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1)">Who in my office actually uses it?<i class="ph ph-caret-down" data-faq-caret="1" style="font-size:16px;color:var(--fg-3);transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
-<div data-faq-body="1" style="overflow:hidden;max-height:0;transition:max-height 220ms cubic-bezier(0.22,1,0.36,1)"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6">Usually the office manager or bookkeeper clears the inbox each morning; the owner watches the flagged jobs. Five users are included, so you don't have to share a login.</p></div>
-</div>
-<div data-reveal="1" style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
-<button data-faq="1" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1)">What happens to my data if we leave?<i class="ph ph-caret-down" data-faq-caret="1" style="font-size:16px;color:var(--fg-3);transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
-<div data-faq-body="1" style="overflow:hidden;max-height:0;transition:max-height 220ms cubic-bezier(0.22,1,0.36,1)"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6">Costs live in your CRM, not ours — that's the point of writing back. Export the raw invoice records any time, and we delete on request.</p></div>
-</div>
+{% endfor %}
 </div>
 </div>
 </section>
 
-<section id="demo" style="padding:96px 0;border-top:1px solid var(--border-subtle)">
-<div style="max-width:1280px;margin:0 auto;padding:0 24px">
-<div data-reveal="1" style="position:relative;overflow:hidden;background:var(--kb-panel);border-radius:4px;padding:clamp(32px,5vw,56px)">
+<section id="demo" class="kb-section kb-section--compact" style="border-top:1px solid var(--border-subtle)">
+<div class="kb-container">
+<div data-reveal="1" style="position:relative;overflow:hidden;background:var(--kb-panel);border-radius:4px;padding:clamp(var(--space-8),5vw,var(--space-14))">
 <div class="ks-grain" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"></div>
-<div data-cta-band="1" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:36px;align-items:end">
+<div data-cta-band="1" style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--space-8);align-items:end">
 <div>
 <div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone-400);margin-bottom:12px">Risk-free catch-up offer</div>
 <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);letter-spacing:-0.025em;font-weight:600;color:#fff;margin:0;line-height:1.12;text-wrap:balance">More than a month behind on job costing?</h2>
