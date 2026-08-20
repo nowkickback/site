@@ -2,10 +2,11 @@
 module.exports = async function ($config) {
   $config.addPassthroughCopy("css");
   $config.addPassthroughCopy("assets");
-  $config.addPassthroughCopy("fonts");
+  $config.addPassthroughCopy({ "fonts/woff2": "fonts/woff2" });
 
   $config.addWatchTarget("css/");
   $config.addWatchTarget("assets/");
+  $config.addWatchTarget("fonts/woff2/");
 
   return {
     dir: {
