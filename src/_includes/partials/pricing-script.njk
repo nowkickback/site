@@ -24,7 +24,7 @@
         total.textContent = fmt((waived ? 0 : PLATFORM) + sum);
         platformPrice.classList.toggle('is-waived', waived);
         note.classList.toggle('is-prompt', !waived);
-        noteIcon.className = waived ? 'ph-bold ph-check' : 'ph-bold ph-piggy-bank';
+        noteIcon.className = waived ? 'ph-fill ph-check' : 'ph ph-piggy-bank';
         noteText.innerHTML = waived
           ? 'Both apps added &mdash; the platform fee is on us.'
           : 'Add both apps and we&rsquo;ll waive the $' + fmt(PLATFORM) + '/mo platform fee.';

@@ -77,22 +77,22 @@
       "bodyHtml": "The whole inbox runs on the keyboard. <kbd>J</kbd>/<kbd>K</kbd> through the queue, <kbd>1</kbd>\u2013<kbd>3</kbd> to pick a suggested job, <kbd>Enter</kbd> to confirm. Hard ones go to <kbd>S</kbd>earch. Junk goes to <kbd>O</kbd>verhead or <kbd>I</kbd>gnore. Built for the operator who'd rather get their Saturday back.",
       "bullets": [
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Vendor Support",
           "text": "Whether your vendors have a portal, email you receipts, or something else, our platform supports it all."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Smart Suggestions",
           "text": "Costing reads the P/O field, the customer name on the receipt, active job dates, and more to suggest the best match. Most invoices match in one click."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Synced to your CRM",
           "text": "No need to re-type anything or use another app. The invoice is posted, the receipt PDF is attached, and your job-costing reports stay accurate, all in the CRM you already use."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Data-Integrity Checks",
           "text": "Spot duplicate invoices, jobs with no cost items yet, and zero-cost line items waiting on a receipt. No more manual double-checking."
         }

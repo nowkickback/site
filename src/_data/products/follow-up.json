@@ -74,27 +74,27 @@
       "body": "Each rep gets a daily worklist of exactly what's due \u2014 nothing more. Date-given promises come first, then the cadence. Approve the draft, log the outcome, next. The pipeline stays warm without anyone keeping a list in their head.",
       "bullets": [
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Six statuses, zero ambiguity",
           "text": "Date Given, Active, Thinking, Won, Lost, Nurture. Outcomes you log set the status; statuses pick the cadence."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Drafted in your voice",
           "text": "nightly AI drafting with the estimate, past messages, and call summaries as context. Sent only with approval."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Your channels, not ours",
           "text": "connect your own Gmail and iMessage. Replies land back with you, because the message really came from you."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Calls in context",
           "text": "Siro call recordings sync in and get summarized beside the estimate, so every draft knows what was actually said."
         },
         {
-          "icon": "ph-bold ph-check",
+          "icon": "ph-fill ph-check",
           "title": "Synced back",
           "text": "wins, losses, and follow-up dates push to your CRM automatically. One source of truth, like everything on the platform."
         }
