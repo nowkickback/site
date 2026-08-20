@@ -34,7 +34,7 @@
     var(--shadow-md);
 }
 .ks-eyebrow {
-  color: var(--accent-500);
+  color: var(--accent-600);
   font-weight: 600;
 }
 .ks-btn-primary {
@@ -109,8 +109,9 @@ body[data-product="coach"] {
    the themed body so they pick up the product accent. */
 body[data-product] {
   --fg-brand: var(--accent-600);
-  --bg-brand: var(--accent-500);
-  --bg-brand-hover: var(--accent-600);
+  --bg-brand: var(--accent-600);
+  --bg-brand-hover: var(--accent-700);
+  --bg-brand-active: var(--accent-700);
   --bg-brand-subtle: var(--accent-50);
   --border-brand: var(--accent-500);
   --border-focus: var(--accent-500);
@@ -221,7 +222,8 @@ body[data-product] {
   color: var(--fg-brand);
 }
 /* Swap the orange logo for the inverse mark in nav (footer is already inverse). */
-:root[data-theme="dark"] .nav-brand img {
+:root[data-theme="dark"] .nav-brand img,
+:root[data-theme="dark"] .kb-nav-brand img {
   content: url("../assets/wordmark-on-dark.svg");
 }
 :root[data-theme="dark"] .cta-banner {

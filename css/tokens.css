@@ -9,49 +9,32 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('../fonts/Inter-VariableFont.ttf') format('truetype-variations');
-}
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('../fonts/Inter-Italic-VariableFont.ttf') format('truetype-variations');
+  src: url('../fonts/woff2/Inter-Variable.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2010-2027, U+2030-203A, U+20AC, U+2122;
 }
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url('../fonts/SpaceGrotesk-VariableFont.ttf') format('truetype-variations');
+  src: url('../fonts/woff2/SpaceGrotesk-Variable.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2010-2027, U+2030-203A, U+20AC, U+2122;
 }
 @font-face {
   font-family: 'Space Mono';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/SpaceMono-Regular.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Space Mono';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/SpaceMono-Italic.ttf') format('truetype');
+  src: url('../fonts/woff2/SpaceMono-Regular.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2010-2027, U+2030-203A, U+20AC, U+2122;
 }
 @font-face {
   font-family: 'Space Mono';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('../fonts/SpaceMono-Bold.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'Space Mono';
-  font-style: italic;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/SpaceMono-BoldItalic.ttf') format('truetype');
+  src: url('../fonts/woff2/SpaceMono-Bold.woff2') format('woff2');
+  unicode-range: U+0020-007E, U+00A0-00FF, U+2010-2027, U+2030-203A, U+20AC, U+2122;
 }
 
 :root {
@@ -120,6 +103,7 @@
   --accent-300: var(--red-300);
   --accent-500: var(--red-500);
   --accent-600: var(--red-600);
+  /* Text / filled controls use 600+ so on-brand labels clear WCAG AA. */
   --accent-700: var(--red-700);
   --accent-rgb: 222, 68, 68;
 
@@ -139,7 +123,7 @@
   /* Foreground */
   --fg-1: var(--stone-900);
   --fg-2: var(--stone-700);
-  --fg-3: var(--stone-500);
+  --fg-3: var(--stone-600);
   --fg-4: var(--stone-400);
   --fg-on-brand: var(--stone-0);
   --fg-brand: var(--accent-600);
@@ -156,8 +140,9 @@
   --bg-hover:   var(--stone-100);
   --bg-active:  var(--stone-200);
   --bg-muted:   var(--stone-50);
-  --bg-brand:         var(--accent-500);
-  --bg-brand-hover:   var(--accent-600);
+  --bg-brand:         var(--accent-600);
+  --bg-brand-hover:   var(--accent-700);
+  --bg-brand-active:  var(--accent-700);
   --bg-brand-subtle:  var(--accent-50);
   --bg-success-subtle: var(--green-50);
   --bg-warning-subtle: var(--amber-50);
@@ -203,9 +188,24 @@
   --space-8: 32px;
   --space-10: 40px;
   --space-12: 48px;
+  --space-14: 56px;
   --space-16: 64px;
+  --space-18: 72px;
   --space-20: 80px;
   --space-24: 96px;
+  --space-28: 112px;
+  --space-44: 176px;
+
+  /* Layout — homepage / marketing sections */
+  --page-max: 1280px;
+  --page-gutter: var(--space-6);
+  --section-y: var(--space-28);
+  --section-y-compact: var(--space-24);
+  --section-y-mobile: var(--space-18);
+  --section-head-gap: var(--space-14);
+  --hero-pad-top: var(--space-44);
+  --hero-shot-gap: var(--space-14);
+  --hero-shot-pull: var(--space-20);
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -258,6 +258,25 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: 'ss01', 'cv11', 'cv02';
+}
+
+/* Emphasis is color/weight in this system — avoid fetching italic faces. */
+em {
+  font-style: normal;
+}
+
+::selection {
+  background: rgba(var(--accent-rgb), 0.22);
+  color: var(--fg-1);
+}
+
+html {
+  scrollbar-color: var(--stone-300) transparent;
+  caret-color: var(--accent-500);
+}
+
+a {
+  text-underline-offset: 2px;
 }
 
 img, svg { display: block; max-width: 100%; }
@@ -355,10 +374,10 @@ img, svg { display: block; max-width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  html {
     scroll-behavior: auto !important;
+  }
+  *, *::before, *::after {
+    animation-iteration-count: 1 !important;
   }
 }
