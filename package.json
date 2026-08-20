@@ -14,6 +14,7 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "@awesome.me/buildawesome": "4.0.0-alpha.10"
+    "@awesome.me/buildawesome": "4.0.0-alpha.10",
+    "@phosphor-icons/web": "^2.1.1"
   }
 }
