@@ -1,0 +1,429 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font-size",
+        "value": "9px",
+        "createdAt": "2026-08-20T00:56:25.525Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "9.5px",
+        "createdAt": "2026-08-20T00:56:25.607Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "10px",
+        "createdAt": "2026-08-20T00:56:25.689Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "10.5px",
+        "createdAt": "2026-08-20T00:56:25.771Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "12px",
+        "createdAt": "2026-08-20T00:56:25.853Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "12.5px",
+        "createdAt": "2026-08-20T00:56:25.935Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13px",
+        "createdAt": "2026-08-20T00:56:26.015Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "createdAt": "2026-08-20T00:56:26.095Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14.5px",
+        "createdAt": "2026-08-20T00:56:26.178Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "16px",
+        "createdAt": "2026-08-20T00:56:26.267Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "17px",
+        "createdAt": "2026-08-20T00:56:26.347Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "18px",
+        "createdAt": "2026-08-20T00:56:26.430Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "19px",
+        "createdAt": "2026-08-20T00:56:26.511Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "22px",
+        "createdAt": "2026-08-20T00:56:26.591Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "24px",
+        "createdAt": "2026-08-20T00:56:26.675Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "26px",
+        "createdAt": "2026-08-20T00:56:26.769Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "32px",
+        "createdAt": "2026-08-20T00:56:26.851Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "36px",
+        "createdAt": "2026-08-20T00:56:26.933Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "40px",
+        "createdAt": "2026-08-20T00:56:27.015Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "44px",
+        "createdAt": "2026-08-20T00:56:27.098Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "48px",
+        "createdAt": "2026-08-20T00:56:27.180Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "56px",
+        "createdAt": "2026-08-20T00:56:27.263Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.05rem",
+        "createdAt": "2026-08-20T00:56:27.353Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.35rem",
+        "createdAt": "2026-08-20T00:56:27.435Z",
+        "reason": "incumbent Kickback marketing/token companion scale (tokens.css + shipped site); DESIGN.md roles document hierarchy not every step"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "3px",
+        "createdAt": "2026-08-20T00:56:27.514Z",
+        "reason": "incumbent shot chrome radius already shipping"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "14px",
+        "createdAt": "2026-08-20T00:56:27.595Z",
+        "reason": "incumbent video CTA icon well radius already shipping"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f0a0a0",
+        "createdAt": "2026-08-20T00:56:27.677Z",
+        "reason": "incumbent dark-theme feature-link hover tint"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(107, 142, 61, 0.55)",
+        "createdAt": "2026-08-20T00:56:27.758Z",
+        "reason": "incumbent moss pulse glow already shipping"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(107, 142, 61, 0.22)",
+        "createdAt": "2026-08-20T00:56:27.846Z",
+        "reason": "incumbent moss badge border already shipping"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(107, 142, 61, 0.25)",
+        "createdAt": "2026-08-20T00:56:27.926Z",
+        "reason": "incumbent moss subtle ring already shipping"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(201, 122, 60, 0.25)",
+        "createdAt": "2026-08-20T00:56:28.005Z",
+        "reason": "incumbent amber subtle ring already shipping"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#c62828",
+        "createdAt": "2026-08-20T00:56:28.085Z",
+        "reason": "incumbent vendor/logo fidelity color in product shots"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#ee6b22",
+        "createdAt": "2026-08-20T00:56:28.168Z",
+        "reason": "incumbent vendor/logo fidelity color in product shots"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#1e4a9a",
+        "createdAt": "2026-08-20T00:56:28.254Z",
+        "reason": "incumbent vendor/logo fidelity color in product shots"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#c8102e",
+        "createdAt": "2026-08-20T00:56:28.340Z",
+        "reason": "incumbent vendor/logo fidelity color in product shots"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#2c5697",
+        "createdAt": "2026-08-20T00:56:28.431Z",
+        "reason": "incumbent vendor/logo fidelity color in product shots"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#1f73ba",
+        "createdAt": "2026-08-20T00:56:28.516Z",
+        "reason": "incumbent vendor/logo fidelity color in product shots"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "86px",
+        "createdAt": "2026-08-20T00:56:39.874Z",
+        "reason": "incumbent hero clamp max already shipping"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-08-20T00:57:20.834Z",
+        "reason": "user-confirmed Job-Site Ledger brand face in DESIGN.md"
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-08-20T00:57:20.916Z",
+        "reason": "user-confirmed Job-Site Ledger display face in DESIGN.md"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e5695c",
+        "createdAt": "2026-08-20T00:59:48.131Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#e8b84b",
+        "createdAt": "2026-08-20T00:59:48.211Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#8cb85c",
+        "createdAt": "2026-08-20T00:59:48.286Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f96302",
+        "createdAt": "2026-08-20T00:59:48.364Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#c64f00",
+        "createdAt": "2026-08-20T00:59:48.443Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#0072ce",
+        "createdAt": "2026-08-20T00:59:48.518Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#004e8f",
+        "createdAt": "2026-08-20T00:59:48.592Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#4a7bc8",
+        "createdAt": "2026-08-20T00:59:48.666Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#2d5391",
+        "createdAt": "2026-08-20T00:59:48.744Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f0a32e",
+        "createdAt": "2026-08-20T00:59:48.819Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#c97a3c",
+        "createdAt": "2026-08-20T00:59:48.893Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#4e6825",
+        "createdAt": "2026-08-20T00:59:48.967Z",
+        "reason": "incumbent product-shot / vendor fidelity colors already shipping in Invoice Inbox demo"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13.5px",
+        "createdAt": "2026-08-20T00:59:49.042Z",
+        "reason": "incumbent marketing companion size already shipping"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "28px",
+        "createdAt": "2026-08-20T00:59:49.114Z",
+        "reason": "incumbent section clamp floor already shipping"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "30px",
+        "createdAt": "2026-08-20T00:59:49.186Z",
+        "reason": "incumbent section clamp floor already shipping"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "34px",
+        "createdAt": "2026-08-20T00:59:49.259Z",
+        "reason": "incumbent stats clamp mid already shipping"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "10px",
+        "createdAt": "2026-08-20T00:59:49.333Z",
+        "reason": "incumbent video CTA well radius already shipping"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(201, 122, 60, 0.22)",
+        "createdAt": "2026-08-20T01:19:18.966Z",
+        "reason": "incumbent amber badge border in components.css"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(62, 122, 120, 0.22)",
+        "createdAt": "2026-08-20T01:19:19.045Z",
+        "reason": "incumbent info badge border in components.css"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000000",
+        "createdAt": "2026-08-20T01:39:52.010Z",
+        "reason": "incumbent estimate-callout dark surface in theme.css"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#587a26",
+        "createdAt": "2026-08-20T01:41:59.717Z",
+        "reason": "moss-600 text accent for how-it-works AA"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#336077",
+        "createdAt": "2026-08-20T01:41:59.800Z",
+        "reason": "tide-600 text accent for how-it-works AA"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "40px",
+        "createdAt": "2026-08-20T03:47:11.949Z",
+        "reason": "prior thread: intentional iPhone bezel radius for hero phone mock"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "31px",
+        "createdAt": "2026-08-20T03:47:12.039Z",
+        "reason": "prior thread: intentional iPhone screen radius for hero phone mock"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#221d1a",
+        "createdAt": "2026-08-20T03:47:12.130Z",
+        "reason": "prior thread: intentional dark iPhone bezel tone for hero phone mock"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "8.5px",
+        "createdAt": "2026-08-20T03:47:12.217Z",
+        "reason": "prior thread: intentional miniature type in hero phone mock chrome"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0, 0, 0, 0.12)",
+        "createdAt": "2026-08-20T03:47:12.307Z",
+        "reason": "prior thread: intentional soft card shadow in hero phone deck mock"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "8px",
+        "createdAt": "2026-08-20T03:47:32.490Z",
+        "reason": "prior thread: intentional miniature chip type in hero phone deck mock"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "7.5px",
+        "createdAt": "2026-08-20T03:47:32.588Z",
+        "reason": "prior thread: intentional miniature mono labels in hero phone deck mock"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "7px",
+        "createdAt": "2026-08-20T03:47:32.687Z",
+        "reason": "prior thread: intentional miniature tag type in hero phone deck mock"
+      }
+    ]
+  }
+}

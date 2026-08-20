@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-18T15:41:14Z",
+  "title": "Design System: Kickback",
+  "extensions": {
+    "colorMeta": {
+      "kickback-mark-red": {
+        "role": "primary",
+        "displayName": "Kickback Mark Red",
+        "canonical": "#DE4444",
+        "tonalRamp": [
+          "#561313",
+          "#7C1A1A",
+          "#A32121",
+          "#C62F2F",
+          "#DE4444",
+          "#E76B6B",
+          "#EF9090",
+          "#FDF1F1"
+        ]
+      },
+      "kickback-mark-deep": {
+        "role": "primary",
+        "displayName": "Kickback Mark Deep",
+        "canonical": "#C62F2F",
+        "tonalRamp": [
+          "#561313",
+          "#7C1A1A",
+          "#A32121",
+          "#C62F2F",
+          "#DE4444",
+          "#E76B6B",
+          "#EF9090",
+          "#FDF1F1"
+        ]
+      },
+      "kickback-mark-ink": {
+        "role": "primary",
+        "displayName": "Kickback Mark Ink",
+        "canonical": "#A32121",
+        "tonalRamp": [
+          "#561313",
+          "#7C1A1A",
+          "#A32121",
+          "#C62F2F",
+          "#DE4444",
+          "#E76B6B",
+          "#EF9090",
+          "#FDF1F1"
+        ]
+      },
+      "shop-paper": {
+        "role": "neutral",
+        "displayName": "Shop Paper",
+        "canonical": "#FBFAF8",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "shop-surface": {
+        "role": "neutral",
+        "displayName": "Shop Surface",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "shop-ink": {
+        "role": "neutral",
+        "displayName": "Shop Ink",
+        "canonical": "#1A1614",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "shop-ink-secondary": {
+        "role": "neutral",
+        "displayName": "Shop Ink Secondary",
+        "canonical": "#423C36",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "shop-ink-muted": {
+        "role": "neutral",
+        "displayName": "Shop Ink Muted",
+        "canonical": "#7C746B",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "shop-border": {
+        "role": "neutral",
+        "displayName": "Shop Border",
+        "canonical": "#D6D0C9",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "shop-border-strong": {
+        "role": "neutral",
+        "displayName": "Shop Border Strong",
+        "canonical": "#ABA39A",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "costing-moss": {
+        "role": "secondary",
+        "displayName": "Costing Moss",
+        "canonical": "#6F9334",
+        "tonalRamp": [
+          "#46621E",
+          "#587A26",
+          "#6F9334",
+          "#ABC474",
+          "#CBDCA4",
+          "#E4EEC8",
+          "#F3F6EB",
+          "#FAFBF6"
+        ]
+      },
+      "costing-moss-deep": {
+        "role": "secondary",
+        "displayName": "Costing Moss Deep",
+        "canonical": "#587A26",
+        "tonalRamp": [
+          "#46621E",
+          "#587A26",
+          "#6F9334",
+          "#ABC474",
+          "#CBDCA4",
+          "#E4EEC8",
+          "#F3F6EB",
+          "#FAFBF6"
+        ]
+      },
+      "followup-tide": {
+        "role": "tertiary",
+        "displayName": "Follow-Up Tide",
+        "canonical": "#41778D",
+        "tonalRamp": [
+          "#294E61",
+          "#336077",
+          "#41778D",
+          "#84B0C0",
+          "#B3D0D9",
+          "#D5E6EB",
+          "#EDF4F6",
+          "#F7FAFB"
+        ]
+      },
+      "followup-tide-deep": {
+        "role": "tertiary",
+        "displayName": "Follow-Up Tide Deep",
+        "canonical": "#336077",
+        "tonalRamp": [
+          "#294E61",
+          "#336077",
+          "#41778D",
+          "#84B0C0",
+          "#B3D0D9",
+          "#D5E6EB",
+          "#EDF4F6",
+          "#F7FAFB"
+        ]
+      },
+      "midnight-page": {
+        "role": "neutral",
+        "displayName": "Midnight Page",
+        "canonical": "#0F0C0B",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      },
+      "midnight-surface": {
+        "role": "neutral",
+        "displayName": "Midnight Surface",
+        "canonical": "#1A1614",
+        "tonalRamp": [
+          "#0F0C0B",
+          "#1A1614",
+          "#2A2522",
+          "#5C554E",
+          "#7C746B",
+          "#D6D0C9",
+          "#F5F3F0",
+          "#FBFAF8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero and major marketing headlines (Space Grotesk, bold, tight)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card and feature titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Owner-readable prose (Inter)."
+      },
+      "label": {
+        "displayName": "Label / Mono",
+        "purpose": "Uppercase stamps: eyebrows, badges, prices, keyboard hints."
+      }
+    },
+    "shadows": [
+      {
+        "name": "xs",
+        "value": "0 1px 0 0 rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(15, 23, 42, 0.04)",
+        "purpose": "Hairline separation."
+      },
+      {
+        "name": "sm",
+        "value": "0 1px 2px 0 rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.05)",
+        "purpose": "Default cards and FAQ shells."
+      },
+      {
+        "name": "md",
+        "value": "0 2px 4px -1px rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.05)",
+        "purpose": "Raised product shots."
+      },
+      {
+        "name": "lg",
+        "value": "0 8px 16px -4px rgba(15, 23, 42, 0.10), 0 2px 4px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.05)",
+        "purpose": "Emphasized tiers and panels."
+      },
+      {
+        "name": "xl",
+        "value": "0 20px 40px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(15, 23, 42, 0.06)",
+        "purpose": "Modals / lightboxes."
+      },
+      {
+        "name": "ring-focus",
+        "value": "0 0 0 3px rgba(222, 68, 68, 0.25)",
+        "purpose": "Keyboard focus ring on brand accent."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default state transitions."
+      },
+      {
+        "name": "duration-base",
+        "value": "150ms",
+        "purpose": "Button and border transitions."
+      },
+      {
+        "name": "duration-fast",
+        "value": "100ms",
+        "purpose": "Micro feedback."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 420ms cubic-bezier(0.22,1,0.36,1), transform 420ms",
+        "purpose": "Scroll reveal; disabled under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-tight",
+        "value": "640px"
+      },
+      {
+        "name": "how-nav",
+        "value": "700px"
+      },
+      {
+        "name": "desk-collapse",
+        "value": "900px"
+      },
+      {
+        "name": "page-max",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Start Free and other primary CTAs \u2014 Kickback Mark Red fill.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Start Free</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;background:#DE4444;color:#fff;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:-0.005em;text-decoration:none;border:1px solid transparent;border-radius:2px;transition:background-color 150ms cubic-bezier(0.4,0,0.2,1),box-shadow 150ms cubic-bezier(0.4,0,0.2,1)}.ds-btn-primary:hover{background:#C62F2F}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(222,68,68,0.25)}.ds-btn-primary:active{background:#A32121}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Book a Demo and secondary actions \u2014 surface with stone border.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Book a Demo</a>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;background:#fff;color:#423C36;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:-0.005em;text-decoration:none;border:1px solid #D6D0C9;border-radius:2px;transition:background-color 150ms cubic-bezier(0.4,0,0.2,1),border-color 150ms cubic-bezier(0.4,0,0.2,1)}.ds-btn-secondary:hover{background:#FBFAF8;border-color:#ABA39A}.ds-btn-secondary:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(222,68,68,0.25)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Default form control \u2014 inset shadow, brand focus ring.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Work email\">",
+      "css": ".ds-input{display:block;width:100%;height:36px;padding:0 12px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:13px;color:#1A1614;background:#fff;border:1px solid #D6D0C9;border-radius:2px;box-shadow:inset 0 1px 2px 0 rgba(15,23,42,0.06);transition:border-color 150ms,box-shadow 150ms}.ds-input::placeholder{color:#ABA39A}.ds-input:focus{outline:none;border-color:#DE4444;box-shadow:inset 0 1px 2px 0 rgba(15,23,42,0.06),0 0 0 3px rgba(222,68,68,0.25)}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Default surface card \u2014 shop white, crisp shadow.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Confirm the matches</h3><p class=\"ds-card-body\">Ranked jobs with reasoning. Confirm with Enter.</p></div>",
+      "css": ".ds-card{background:#fff;border-radius:2px;box-shadow:0 1px 2px 0 rgba(15,23,42,0.06),0 0 0 1px rgba(15,23,42,0.05);padding:24px}.ds-card-title{margin:0 0 12px;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:20px;font-weight:600;letter-spacing:-0.01em;color:#1A1614}.ds-card-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:14px;line-height:1.55;color:#423C36}"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Mono uppercase stamp for status and required tags.",
+      "html": "<span class=\"ds-badge\">Recommended</span> <span class=\"ds-badge ds-badge-brand\">Required</span>",
+      "css": ".ds-badge{display:inline-flex;align-items:center;height:20px;padding:2px 8px;font-family:\"Space Mono\",ui-monospace,monospace;font-size:10.5px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border-radius:999px;background:#F5F3F0;color:#423C36;border:1px solid #EAE6E1}.ds-badge-brand{background:#FDF1F1;color:#C62F2F;border-color:rgba(222,68,68,0.22)}"
+    },
+    {
+      "name": "Nav Link Row",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Scrolled mid-nav links \u2014 medium weight stone ink.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Platform</a><a href=\"#\">Apps</a><a href=\"#\">Pricing</a></nav>",
+      "css": ".ds-nav{display:flex;gap:28px;align-items:center}.ds-nav a{color:#423C36;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:14px;font-weight:500;text-decoration:none}.ds-nav a:hover{color:#1A1614}.ds-nav a:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(222,68,68,0.25);border-radius:2px}"
+    },
+    {
+      "name": "Mono Eyebrow",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Section opener stamp above Space Grotesk headlines.",
+      "html": "<div class=\"ds-eyebrow\">How it works</div><h2 class=\"ds-section-title\">From inbox to posted cost.</h2>",
+      "css": ".ds-eyebrow{display:inline-block;font-family:\"Space Mono\",ui-monospace,monospace;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:#C62F2F;margin-bottom:12px}.ds-section-title{margin:0;font-family:\"Space Grotesk\",Inter,ui-sans-serif,system-ui,sans-serif;font-size:40px;font-weight:700;letter-spacing:-0.025em;line-height:1.15;color:#1A1614}"
+    },
+    {
+      "name": "Product Word (Costing)",
+      "kind": "custom",
+      "refersTo": "costing-moss",
+      "description": "Inline product name with moss icon tile \u2014 Job-Site Ledger accent.",
+      "html": "<span class=\"ds-hword\"><span class=\"ds-hword-icon\" aria-hidden=\"true\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 256 256\" fill=\"currentColor\"><path d=\"M152,120H136V56h8a8,8,0,0,0,0-16H112a8,8,0,0,0,0,16h8v64H104a8,8,0,0,0,0,16h16v64h-8a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16h-8V136h16a8,8,0,0,0,0-16Zm80,16a96,96,0,1,1-96-96A96.1,96.1,0,0,1,232,136Z\"/></svg></span>Costing</span>",
+      "css": ".ds-hword{white-space:nowrap;color:#587A26;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:600}.ds-hword-icon{display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:#6F9334;color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Job-Site Ledger",
+    "overview": "Kickback\u2019s marketing surfaces feel like field-accurate paperwork made digital: warm shop-stone paper, monospace stamps and tabular figures, and a sharp red mark that behaves like a stamp of approval. The living product UI (Invoice Inbox, matching flow) is the artifact on the ledger \u2014 proof, not decoration.\n\nDensity is intentional and crisp. Corners stay tight (mostly 2px). Shadows are short, outlined drops rather than soft glow. Atmosphere comes from warm neutrals, a faint grain/dot-grid texture, and product accents (moss for Costing, tide for Follow-Up) that color words and icons without turning the page into a rainbow.\n\nVisual rejections already enforced by the codebase and product canon: no purple SaaS gradients, no marshmallow soft-UI cards, no manual theme toggle (follow prefers-color-scheme only), no chatbot-chic chrome.",
+    "keyCharacteristics": [
+      "Warm stone paper + Kickback mark red as the platform voice",
+      "Product accents (moss / tide) for app identity, not generic decoration",
+      "Sharp 2px geometry; crisp outline+drop elevation",
+      "Space Grotesk display + Inter body + Space Mono labels",
+      "Product demo shots and keyboard cues as signature proof language"
+    ],
+    "rules": [
+      {
+        "name": "The One Mark Rule",
+        "body": "Platform chrome speaks in Kickback Mark Red. Product accents appear only when naming or demonstrating that product \u2014 never as competing page-wide themes on the platform homepage.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper, Not Plastic Rule",
+        "body": "Neutrals stay warm (hue ~22\u00b0) and low-chroma. Cool gray, slate, or purple-tinted surfaces are out of system.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stamp Label Rule",
+        "body": "Uppercase mono labels mark structure (section, status, price meta). They never replace a real headline.",
+        "section": "typography"
+      },
+      {
+        "name": "The Static Headline Rule",
+        "body": "Heroes stay fixed copy \u2014 no rotating H1 carousel.",
+        "section": "typography"
+      },
+      {
+        "name": "The Crisp Edge Rule",
+        "body": "Prefer outline + short drop over large soft blurs or colored glow halos (except deliberate brand glow already in theme.css).",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do consume css/tokens.css variables (--stone-*, --red-*, --accent-*, --space-*, --radius-*, --shadow-*) instead of inventing new hex/spacing.",
+      "Do keep Start Free visually primary (mark red) and Book a Demo secondary (outlined surface).",
+      "Do let Costing moss / Follow-Up tide color only product-named moments and product pages (body[data-product] accent remap).",
+      "Do use Space Mono for labels, prices, statuses, and keyboard hints.",
+      "Do respect OS light/dark via data-theme \u2014 swap wordmarks accordingly."
+    ],
+    "donts": [
+      "Don't introduce purple gradients, glassmorphism stacks, or oversized soft card radii.",
+      "Don't add a manual theme switcher.",
+      "Don't feature HUD/Coach as live marketing chrome (product canon).",
+      "Don't use muted stone (--fg-3) or bright moss-500 for small body text without checking AA contrast.",
+      "Don't rotate hero headlines or replace the product shot with abstract illustration as the primary proof."
+    ]
+  }
+}
