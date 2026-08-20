@@ -7,11 +7,10 @@
 <meta property="og:title" content="{{ ogTitle or (p and p.seo.ogTitle) or title or (p and p.seo.title) or platform.seo.ogTitle }}">
 <meta property="og:description" content="{{ ogDescription or (p and p.seo.ogDescription) or description or (p and p.seo.description) or platform.seo.ogDescription }}">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://unpkg.com" crossorigin>
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css">
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="preload" href="/fonts/woff2/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/woff2/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/phosphor/regular/style.css?v={{ site.cssVersion }}">
+<link rel="stylesheet" href="/assets/phosphor/fill/style.css?v={{ site.cssVersion }}">
 <link rel="stylesheet" href="/css/tokens.css?v={{ site.cssVersion }}">
 <link rel="stylesheet" href="/css/home.css?v={{ site.cssVersion }}">
 <link rel="stylesheet" href="/css/components.css?v={{ site.cssVersion }}">
