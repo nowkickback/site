@@ -1,7 +1,8 @@
 <script>
 (function () {
       var PLATFORM = 249, APP = 489, PER_USER = 89, INCLUDED_USERS = 5;
-      var APPS = ['costing', 'follow-up'];
+      var APPS = ['costing', 'follow-up', 'warehouse'];
+      var FLAT_APPS = { warehouse: true };
       var total = document.getElementById('builder-total');
       var platformPrice = document.getElementById('platform-price');
       var note = document.getElementById('builder-note');
@@ -14,6 +15,7 @@
       var box = function (key) { return document.getElementById('opt-' + key); };
 
       function appPrice(key) {
+        if (FLAT_APPS[key]) return APP;
         return APP + Math.max(0, users[key] - INCLUDED_USERS) * PER_USER;
       }
 
@@ -26,10 +28,12 @@
         note.classList.toggle('is-prompt', !waived);
         noteIcon.className = waived ? 'ph-fill ph-check' : 'ph ph-piggy-bank';
         noteText.innerHTML = waived
-          ? 'Both apps added &mdash; the platform fee is on us.'
-          : 'Add both apps and we&rsquo;ll waive the $' + fmt(PLATFORM) + '/mo platform fee.';
+          ? 'All apps added &mdash; the platform fee is on us.'
+          : 'Add every app and we&rsquo;ll waive the $' + fmt(PLATFORM) + '/mo platform fee.';
         APPS.forEach(function (key) {
-          document.getElementById('users-' + key).textContent = String(users[key]);
+          if (!FLAT_APPS[key]) {
+            document.getElementById('users-' + key).textContent = String(users[key]);
+          }
           document.getElementById('price-' + key).textContent = '+$' + fmt(appPrice(key)) + '/mo';
           // The last remaining app can't be unchecked — at least one app is required.
           box(key).disabled = checked.length === 1 && box(key).checked;

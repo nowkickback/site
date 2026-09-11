@@ -66,7 +66,8 @@
   --stone-950: #0F0C0B;
 
   /* Product accents — mirror the app's per-product theming
-     (Costing = moss, Follow-Up = tide, HUD = ochre, Coach = plum) */
+     (Costing = moss, Follow-Up = tide, Warehouse = steel,
+      HUD = ochre, Coach = plum) */
   --moss-50:  #F3F6EB;
   --moss-200: #CBDCA4;
   --moss-300: #ABC474;
@@ -94,6 +95,14 @@
   --plum-500: #8E5C84;
   --plum-600: #76486D;
   --plum-700: #5F3958;
+
+  /* Warehouse = steel (mirrors the app shell accent) */
+  --steel-50:  #F1F3F6;
+  --steel-200: #C5CCD8;
+  --steel-300: #A1ACBD;
+  --steel-500: #647285;
+  --steel-600: #4F5B6C;
+  --steel-700: #414B59;
 
   /* Page accent — platform red by default; product pages override these
      on <body data-product="…"> (see theme.css) and every brand-derived

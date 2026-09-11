@@ -423,6 +423,18 @@
         "value": "7px",
         "createdAt": "2026-08-20T03:47:32.687Z",
         "reason": "prior thread: intentional miniature tag type in hero phone deck mock"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "phosphor",
+        "createdAt": "2026-09-11T15:25:13.581Z",
+        "reason": "Existing site icon font; subset CSS in assets/phosphor, not page typography"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "phosphor-fill",
+        "createdAt": "2026-09-11T15:25:13.659Z",
+        "reason": "Existing site icon font fill weight; subset CSS in assets/phosphor"
       }
     ]
   }

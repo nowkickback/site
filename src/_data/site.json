@@ -1,7 +1,7 @@
 {
   "name": "Kickback",
   "url": "https://nowkickback.com",
-  "cssVersion": "20260819-audit-fix",
+  "cssVersion": "20260911-warehouse-icons2",
   "themeColorDefault": "#DE4444",
   "platformUrl": "https://platform.nowkickback.com",
   "signInUrl": "https://platform.nowkickback.com/users/sign_in",
@@ -9,7 +9,7 @@
   "salesUrl": "https://platform.nowkickback.com/sales",
   "statusUrl": "https://kickback.stpg.dev/",
   "statusBadge": "https://kickback.stpg.dev/badge/v2?theme=dark&size=md&variant=outline",
-  "footerTagline": "The AI-native platform for the home-services back office. Costing is live. Follow-Up is in private preview.",
+  "footerTagline": "The AI-native platform for the home-services back office. Costing is live. Follow-Up and Warehouse are in private preview.",
   "socialLinks": [
     {
       "label": "X",
@@ -97,6 +97,11 @@
       "key": "follow-up"
     },
     {
+      "label": "Warehouse",
+      "href": "/warehouse/",
+      "key": "warehouse"
+    },
+    {
       "label": "Pricing",
       "href": "/pricing/",
       "key": "pricing"
@@ -174,6 +179,24 @@
         }
       ],
       "fineprint": "Already on Kickback? Ask us to flip Follow-Up on for your team."
+    },
+    "warehouse": {
+      "kicker": "PRIVATE PREVIEW",
+      "title": "Stop hunting the warehouse for every piece.",
+      "body": "Warehouse imports the load before the truck arrives, receives by scan, and matches material to jobs in your CRM. Scanners ship configured \u2014 no device cost, no per-seat fee.",
+      "buttons": [
+        {
+          "label": "Request Early Access",
+          "href": "https://platform.nowkickback.com/sales",
+          "style": "primary"
+        },
+        {
+          "label": "Try Costing Today",
+          "href": "https://platform.nowkickback.com",
+          "style": "secondary"
+        }
+      ],
+      "fineprint": "Already on Kickback? Ask about adding Warehouse, or enable it in Billing."
     },
     "soon": {
       "kicker": "COMING SOON",

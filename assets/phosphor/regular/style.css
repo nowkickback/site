@@ -36,6 +36,9 @@
 .ph.ph-arrow-right:before {
   content: "\e06c";
 }
+.ph.ph-barcode:before {
+  content: "\e0b8";
+}
 .ph.ph-books:before {
   content: "\e758";
 }
@@ -117,6 +120,9 @@
 .ph.ph-moon-stars:before {
   content: "\e58e";
 }
+.ph.ph-package:before {
+  content: "\e390";
+}
 .ph.ph-paper-plane-tilt:before {
   content: "\e398";
 }
@@ -152,6 +158,9 @@
 }
 .ph.ph-trophy:before {
   content: "\e67e";
+}
+.ph.ph-truck:before {
+  content: "\e4b4";
 }
 .ph.ph-user-circle:before {
   content: "\e4c4";

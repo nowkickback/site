@@ -1,0 +1,156 @@
+{
+  "slug": "warehouse",
+  "dataProduct": "warehouse",
+  "name": "Warehouse",
+  "themeColor": "#647285",
+  "status": "preview",
+  "statusLabel": "PRIVATE PREVIEW",
+  "suiteTagClass": "next",
+  "suiteCardClass": "suite-card-warehouse",
+  "icon": "ph-fill ph-package",
+  "url": "/warehouse/",
+  "order": 3,
+  "seo": {
+    "title": "Warehouse \u2014 Kickback",
+    "description": "Warehouse tracks every piece from truck to install. Scan to receive, locate, and match material to the right CRM job \u2014 no paper load sheets.",
+    "ogTitle": "Warehouse \u2014 Kickback",
+    "ogDescription": "Complete visibility from order to install. Scan receiving, live locations, and CRM job matching for home-services warehouses."
+  },
+  "screenLabel": "Warehouse page",
+  "hero": {
+    "variant": "product",
+    "showCrumb": false,
+    "headlineHtml": "Complete visibility, from <em>order to install.</em>",
+    "lede": "Warehouse replaces paper load sheets and whiteboards with a live dashboard. Shipments import before the truck arrives, receiving is a scan, and every piece already knows which job it belongs to.",
+    "ctas": [
+      {
+        "label": "Request Early Access",
+        "href": "https://platform.nowkickback.com/sales",
+        "style": "primary"
+      },
+      {
+        "label": "See how it works \u2193",
+        "href": "#how",
+        "style": "secondary"
+      }
+    ],
+    "metaHtml": "Part of the <a href=\"https://platform.nowkickback.com\">Kickback Platform</a> \u00b7 Scanners included \u00b7 No per-seat fee",
+    "shot": "warehouse-dashboard"
+  },
+  "sections": [
+    {
+      "type": "steps",
+      "id": "how",
+      "eyebrow": "HOW WAREHOUSE WORKS",
+      "title": "From truck to rack in minutes.",
+      "titleClass": "ks-display",
+      "lede": "Connect your CRM once. Warehouse imports load manifests, matches pieces to open orders, and keeps every location live \u2014 so floor staff scan instead of hunting.",
+      "items": [
+        {
+          "num": "01",
+          "icon": "ph ph-truck",
+          "title": "The truck arrives already matched.",
+          "body": "We pull the load manifest or order confirmation from your supplier. Every PO, strap, bundle, and piece lands in the app before anyone unloads \u2014 no typing required."
+        },
+        {
+          "num": "02",
+          "icon": "ph ph-barcode",
+          "title": "Receiving is point and zap.",
+          "body": "Open the truck's scan screen and zap each barcode. Scan a wrapped bundle once and every piece on that truck inside it receives in one step."
+        },
+        {
+          "num": "03",
+          "icon": "ph ph-map-pin",
+          "title": "Every piece has a home.",
+          "body": "Scan the rack, then the item \u2014 or move a whole order with one tap. Search by serial, PO, customer order, or bill of lading and get an answer in seconds."
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "id": "receiving",
+      "eyebrow": "RECEIVE \u00b7 LOCATE \u00b7 MATCH",
+      "title": "Where is it? One scan, not an hour of walking.",
+      "body": "Orders score against jobs already in your CRM. Clear matches link themselves. Uncertain ones stay unmatched with the best candidates \u2014 never the wrong customer. Shop supplies count by scan, with reorder points on the dashboard.",
+      "bullets": [
+        {
+          "icon": "ph-fill ph-check",
+          "title": "Zero rows typed",
+          "text": "Load sheets import automatically from your suppliers. Upload by hand when you need to."
+        },
+        {
+          "icon": "ph-fill ph-check",
+          "title": "Bundle receive",
+          "text": "One scan marks every piece in a wrapped bundle that is on that truck."
+        },
+        {
+          "icon": "ph-fill ph-check",
+          "title": "CRM job matching",
+          "text": "Pieces link to the right job from your existing CRM data. You confirm the installer \u2014 the app never assigns work alone."
+        },
+        {
+          "icon": "ph-fill ph-check",
+          "title": "Scanners included",
+          "text": "We ship configured guns at no device cost. Floor staff need no daily login. A lost gun locks with one click."
+        },
+        {
+          "icon": "ph-fill ph-check",
+          "title": "Shop supplies too",
+          "text": "Screws, shims, caulk \u2014 multiple barcodes hit the same line. Reorder points flag what is low or out."
+        }
+      ],
+      "cta": {
+        "label": "Request Early Access \u2192",
+        "href": "https://platform.nowkickback.com/sales"
+      },
+      "kpis": {
+        "meta": "WAREHOUSE \u00b7 DASHBOARD",
+        "title": "Today on the floor",
+        "items": [
+          {
+            "label": "Trucks inbound",
+            "value": "3",
+            "sub": "manifests matched, ready to receive"
+          },
+          {
+            "label": "Pieces on hand",
+            "value": "1,248",
+            "sub": "serialized stock with live locations"
+          },
+          {
+            "label": "Unmatched orders",
+            "value": "7",
+            "sub": "awaiting a CRM job confirmation"
+          },
+          {
+            "label": "Low / out",
+            "value": "12",
+            "sub": "shop supplies below reorder point"
+          }
+        ]
+      },
+      "callout": {
+        "icon": "ph ph-barcode",
+        "tag": "WAREHOUSE \u00b7 SCAN TO KNOW",
+        "body": "Serial, bundle, PO, customer order, or bill of lading \u2014 one search answers where it is, on the gun, in seconds."
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "warehouse"
+    }
+  ],
+  "suite": {
+    "body": "Receive shipments by scan, know where every piece sits, and match material to the right CRM job \u2014 no paper load sheets, no hunting the warehouse.",
+    "disabled": false,
+    "liveRing": false
+  },
+  "pricing": {
+    "billable": true,
+    "baseMonthly": 489,
+    "includedUsers": null,
+    "perUserAfter": 0,
+    "flatSeats": true,
+    "builderDesc": "Unlimited shipments and floor staff, scanners included, serialized receiving + locations, CRM job matching, shop-supply counts."
+  }
+}

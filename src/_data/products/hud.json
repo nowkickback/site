@@ -9,7 +9,7 @@
   "suiteCardClass": "suite-card-hud",
   "icon": "ph-fill ph-gauge",
   "url": "/hud/",
-  "order": 3,
+  "order": 4,
   "seo": {
     "title": "HUD \u2014 Kickback",
     "description": "HUD puts live leaderboards and team stats on the office TVs \u2014 real numbers from the same platform data Costing and Follow-Up run on. Coming soon.",

@@ -51,9 +51,12 @@
 .ph-fill.ph-heart:before {
   content: "\e2a8";
 }
-.ph-fill.ph-sparkle:before {
-  content: "\e6a2";
+.ph-fill.ph-package:before {
+  content: "\e390";
 }
 .ph-fill.ph-paper-plane-tilt:before {
   content: "\e398";
+}
+.ph-fill.ph-sparkle:before {
+  content: "\e6a2";
 }

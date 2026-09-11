@@ -9,7 +9,7 @@
   "suiteCardClass": "suite-card-coach",
   "icon": "ph-fill ph-sparkle",
   "url": "/coach/",
-  "order": 4,
+  "order": 5,
   "seo": {
     "title": "Coach \u2014 Kickback",
     "description": "Coach is an AI that reads across your costing, pipeline, follow-up, and call data \u2014 and tells you what to do about it in plain language. Coming soon.",

@@ -1287,6 +1287,9 @@
 .suite-card-followup .suite-card-icon {
   background: var(--tide-500);
 }
+.suite-card-warehouse .suite-card-icon {
+  background: var(--steel-500);
+}
 .suite-card-hud .suite-card-icon {
   background: var(--ochre-500);
 }

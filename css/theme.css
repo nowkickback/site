@@ -85,6 +85,15 @@ body[data-product="follow_up"] {
   --accent-700: var(--tide-700);
   --accent-rgb: 65, 119, 141;
 }
+body[data-product="warehouse"] {
+  --accent-50: var(--steel-50);
+  --accent-200: var(--steel-200);
+  --accent-300: var(--steel-300);
+  --accent-500: var(--steel-500);
+  --accent-600: var(--steel-600);
+  --accent-700: var(--steel-700);
+  --accent-rgb: 100, 114, 133;
+}
 body[data-product="hud"] {
   --accent-50: var(--ochre-50);
   --accent-200: var(--ochre-200);
