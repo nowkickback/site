@@ -53,6 +53,14 @@
 </{{ tag }}>
 {%- endmacro %}
 
+{# Founder headshot — WebP first, PNG fallback #}
+{% macro troyHeadshot(className="", alt="Troy, Owner of That 1 Painter Richmond", width="", height="") %}
+<picture>
+<source type="image/webp" srcset="/assets/troy-headshot.webp">
+<img{% if className %} class="{{ className }}"{% endif %} src="/assets/troy-headshot.png" alt="{{ alt }}"{% if width %} width="{{ width }}"{% endif %}{% if height %} height="{{ height }}"{% endif %} decoding="async" loading="lazy">
+</picture>
+{%- endmacro %}
+
 {# Quote #}
 {% macro quote(text, eyebrow="", byline="") %}
 <div style="text-align:center;max-width:760px;margin:0 auto">

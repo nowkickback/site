@@ -60,7 +60,7 @@ Owners evaluate on phone and desktop after vendor sync pain, quote leakage, or a
 
 - Product UI demos in-page (Invoice Inbox / matching shot, product page shots under `src/_includes/shots/`).
 - Vendor logo strip assets under `assets/vendors/`.
-- Founder headshot `assets/troy-headshot.png` and “Watch Troy's testimonial” CTA — **video content not shipped** (lightbox placeholder).
+- Founder headshot: prefer `assets/troy-headshot.webp`, fall back to `assets/troy-headshot.png` via the `troyHeadshot` macro. “Watch Troy's testimonial” CTA — **video content not shipped** (lightbox placeholder).
 - Live privacy policy content; Terms still stub.
 - Platform/auth URLs and social links in `src/_data/site.json`.
 
