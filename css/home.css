@@ -453,7 +453,17 @@ a.kb-suite.is-clickable:hover {
 @media (max-width: 640px) {
   .kb-h1-br-mobile { display: block; }
   .kb-h1-line1 { white-space: normal; }
-  .kb-h1-brand-line { white-space: normal; }
+  .kb-h1-brand-line {
+    display: inline;
+    white-space: normal;
+  }
+  .kb-h1-mark-wrap {
+    display: inline-flex;
+    vertical-align: -0.12em;
+  }
+  .kb-h1-accent {
+    display: inline;
+  }
 }
 
 /* --- Layout primitives (tokenized section rhythm) ------------------------- */

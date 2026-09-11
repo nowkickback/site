@@ -284,12 +284,13 @@ img, svg { display: block; max-width: 100%; }
 /* Type primitives */
 .ks-display {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
+  font-size: clamp(40px, 8vw + 1rem, var(--text-5xl));
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   font-weight: 600;
   color: var(--fg-1);
   margin: 0;
+  overflow-wrap: anywhere;
 }
 .ks-h1 {
   font-family: var(--font-display);

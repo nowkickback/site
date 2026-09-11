@@ -1991,11 +1991,12 @@
 }
 @media (max-width: 1020px) {
   .pricing-grid-builder {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     max-width: 560px;
   }
   .pricing-grid-builder .tier-hi {
     grid-column: auto;
+    min-width: 0;
   }
 }
 .builder-row {
@@ -2070,6 +2071,22 @@
   text-decoration: line-through;
   color: var(--fg-4);
 }
+@media (max-width: 540px) {
+  .builder-row {
+    flex-wrap: wrap;
+  }
+  .builder-price {
+    order: 4;
+    margin-left: auto;
+  }
+  .builder-copy {
+    flex: 1 0 100%;
+    order: 5;
+  }
+  .builder-users {
+    width: 100%;
+  }
+}
 .builder-note {
   display: flex;
   align-items: center;
@@ -2129,6 +2146,7 @@
 }
 .builder-users {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
@@ -2137,6 +2155,8 @@
   border-radius: 3px;
   font-size: 12px;
   color: var(--fg-3);
+  max-width: 100%;
+  min-width: 0;
 }
 .builder-users-label {
   font-family: var(--font-mono);
@@ -2147,6 +2167,13 @@
 .builder-users-hint {
   margin-left: auto;
   white-space: nowrap;
+}
+@media (max-width: 540px) {
+  .builder-users-hint {
+    flex-basis: 100%;
+    margin-left: 0;
+    white-space: normal;
+  }
 }
 .builder-row:not(.is-on) .builder-users {
   display: none;

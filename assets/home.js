@@ -172,9 +172,8 @@
       // Clamp so motion stays subtle once the hero has scrolled away
       var t = Math.min(Math.max(y, 0), range);
       nodes.forEach(function (el) {
-        var kind = el.getAttribute("data-parallax");
-        // Desktop window is hidden on small screens — skip its transform
-        if (kind === "desk" && !desktopMq.matches) {
+        // Parallax is desktop-only — skip transforms on small screens
+        if (!desktopMq.matches) {
           el.style.transform = "";
           return;
         }
