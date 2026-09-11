@@ -1,0 +1,9 @@
+{
+  "files": [
+    "src/_includes/layouts/base.njk",
+    "src/_includes/layouts/home.njk"
+  ],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}
