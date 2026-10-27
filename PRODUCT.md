@@ -14,37 +14,42 @@ Secondary readers: office staff who clear the Invoice Inbox; copy may acknowledg
 
 ## Product Purpose
 
-Kickback is the AI-native **platform** for the home-services back office. It connects the CRM and vendors contractors already use, then runs back-office work (job costing, estimate follow-up, and later apps) so owners only surface what needs a human decision — and get weekends back.
+Kickback is the AI-native **platform** for the home-services back office. It connects the CRM and supplier accounts a business already uses, then runs back-office work (job costing, estimate follow-up, warehouse receiving) so owners only see what needs a human decision, and get weekends back.
 
-This repository is the **marketing site** (`nowkickback.com`): persuade owners to Start Free or Book a Demo into the live platform at `platform.nowkickback.com`.
+This repository is the **marketing site** (`nowkickback.com`): persuade owners to **Book a Demo**. Accounts are invitation-only: Kickback staff create each organization and invite its owner. There is no self-serve signup and no free plan. Existing customers use **Sign In** to reach `platform.nowkickback.com`.
 
 Success for the site: a clear owner-outcome story, honest product status, and a single primary path into the platform — not AI-literacy theater.
 
 ## Positioning
 
 - **Not a chatbot / not “type prompts.”** AI is background and anticipatory; confirmation is keyboard-first in the product demos.
-- **CRM-agnostic.** Marketing says “your CRM,” not Housecall Pro / HCP by default (integrations may still show vendor logos as tools they already use).
-- **Platform, not a single-app landing.** One login, one connection, apps that share the job graph — Costing is the public proof; Follow-Up is private preview.
-- **Built by owners** (Richmond, VA). Risk-free catch-up / onboarding promises must stay tied to real offer language already on the site — do not invent new guarantees.
+- **CRM-agnostic.** Marketing says “your CRM.” Pages never list supported CRMs or name the industries an app is for; help articles cover that.
+- **Platform, not a single-app landing.** One login, one connection, apps that share the same jobs and customers. Costing, Follow-Up and Warehouse are all released and sold; `/platform/` sells what they share.
+- **Built by owners** (Richmond, VA). Risk-free catch-up / onboarding promises must stay tied to real offer language already on the site; do not invent new guarantees.
 
 ## Operating Context
 
-Owners evaluate on phone and desktop after vendor sync pain, quote leakage, or a piled receipt inbox. They already live in a CRM, paint/supplier portals (Sherwin, Home Depot Pro, Lowe’s Pro, etc.), and email PDFs. Demo booking and platform signup are the conversion rituals; marketing must not invent Docs/Help destinations that are still `#`.
+Owners evaluate on phone and desktop after vendor sync pain, quote leakage, or a piled receipt inbox. They already live in a CRM, supplier portals, and emailed PDFs. Demo booking is the conversion ritual; marketing must not invent Docs/Help destinations that are still `#`.
 
 ## Capabilities and Constraints
 
-**Shipped / featured on marketing (canon):**
+**Shipped / featured on marketing (canon):** anything released on the product's `main` or `next` branch.
 
-- **Costing** — live / public; invoice matching to CRM jobs.
-- **Follow-Up** — private preview; may appear, but not as equal “live” product.
+- **Costing**: supplier invoices in, Auto-Match to jobs, labor costing from payroll, Data Integrity, write-back to the CRM.
+- **Follow-Up**: estimate cadences, overnight drafts, the Outbox (sends from the rep's own Gmail and phone), Pipeline and digests.
+- **Warehouse**: manifest import, scan receiving and put-away, job readiness and picking, consumables.
 
-**Do not feature as live on marketing:** HUD, Coach (omit from lineup / badges unless status is explicitly preview and user later revises this).
+No status labels (“Beta,” “Preview,” “Live”) on any app.
 
-**CTA hierarchy:** **Start Free** primary → `platform.nowkickback.com`; **Book a Demo** secondary → demo / booking flow.
+**Never on marketing:** HUD, Coach, Foreman, the Chrome extension, and unbuilt features (iMessage sending, Gmail reply tracking, Costing “Full” auto-post, AMI unit drawings).
+
+**CTA hierarchy:** **Book a Demo** primary → `site.demoUrl` (opens the booking lightbox). **Sign In** in the nav. No “Start Free.”
+
+**Prices:** `src/_data/pricing.json` is the only place amounts live; /pricing, its package builder, the homepage teaser and each product page's pricing line read it. Update it by hand when Stripe prices change.
 
 **Site stack (existing):** Eleventy via `@awesome.me/buildawesome`; sources in `src/`, tokens in `css/tokens.css`, shared data in `src/_data/`. Prefer tokens over hardcoded spacing/color on marketing pages. Respect **system color scheme** only — no manual theme switcher.
 
-**Open / stub (do not paper over):** About, Customers, Careers, Contact, Terms stubs; resource links that still point to `#`; testimonial video lightbox still “coming soon.”
+**Open / stub (do not paper over):** About, Customers, Careers, Contact, Terms stubs; resource links that still point to `#`; testimonial video lightbox placeholder.
 
 ## Brand Commitments
 
@@ -69,8 +74,8 @@ Owners evaluate on phone and desktop after vendor sync pain, quote leakage, or a
 ## Product Principles
 
 1. **Owner outcomes first** — weekends back and cleared backlog beat feature lists and AI jargon.
-2. **Honest product status** — only ship what’s live; label preview; never fake HUD/Coach as available.
-3. **One conversion path** — Start Free leads; Demo supports; don’t contradict free-start with a sales-only primary.
+2. **Honest product status** — only claim what's released; no status labels; never market HUD, Coach or Foreman.
+3. **One conversion path** — Book a Demo leads everywhere; Sign In serves existing customers. No self-serve signup exists, so never promise one.
 4. **CRM-native trust** — Kickback writes into their world; it doesn’t replace the CRM in the story.
 5. **Token-true craft** — marketing stays on the Kickback token system and system theme; stubs stay honest until real.
 

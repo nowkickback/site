@@ -9,9 +9,6 @@ themeColor: "#DE4444"
 ---
 {% from "macros/ds.njk" import button, featureCard, suiteCard, stepCard, pricingTier, hWord %}
 {% set demoUrl = site.demoUrl %}
-{% set platformUrl = site.platformUrl %}
-{% set signInUrl = site.signInUrl %}
-{% set salesUrl = site.salesUrl %}
 
 <section id="top" class="kb-hero">
 <canvas data-grid="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 88%);-webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 88%)"></canvas>
@@ -21,8 +18,8 @@ themeColor: "#DE4444"
 </h1>
 <p data-reveal="1" data-delay="120" style="font-size:clamp(16px,2vw,19px);color:var(--fg-2);max-width:720px;margin:var(--space-6) auto 0;line-height:1.55;text-wrap:pretty">Built by home-services owners. Fly through <span style="white-space:nowrap;color:var(--moss-600);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--moss-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em" aria-hidden="true"><i class="ph-fill ph-currency-dollar" style="font-size:0.82em"></i></span>Costing</span>, never forget another <span style="white-space:nowrap;color:var(--tide-600);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--tide-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em" aria-hidden="true"><i class="ph-fill ph-chats" style="font-size:0.82em"></i></span>Follow-Up</span>, know every piece in <span style="white-space:nowrap;color:var(--steel-600);font-weight:600"><span style="display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;border-radius:4px;background:var(--steel-500);color:#fff;vertical-align:middle;margin-right:0.2em;position:relative;top:-0.06em" aria-hidden="true"><i class="ph-fill ph-package" style="font-size:0.82em"></i></span>Warehouse</span>, and get your weekend back.</p>
 <div data-reveal="1" data-delay="180" style="display:flex;justify-content:center;gap:var(--space-3);margin-top:var(--space-8);flex-wrap:wrap">
-{{ button("Start Free", platformUrl, "primary", "lg") }}
-{{ button("Book a Demo", demoUrl, "secondary", "lg") }}
+{{ button("Book a Demo", demoUrl, "primary", "lg") }}
+{{ button("See the Apps", "#apps", "secondary", "lg") }}
 </div>
 </div>
 
@@ -34,67 +31,31 @@ themeColor: "#DE4444"
 <span style="width:11px;height:11px;border-radius:999px;background:#8CB85C"></span>
 </div>
 <div data-two-col="1" style="display:grid;grid-template-columns:250px minmax(0,1fr);min-height:352px">
-<div data-shot-list="1" style="border-right:1px solid var(--border-subtle);background:var(--kb-shot-chrome);padding:14px 0">
-<div style="display:flex;align-items:center;justify-content:space-between;padding:0 14px 12px">
-<span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Invoice Inbox</span>
-<span style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;color:var(--fg-success)"><span style="width:6px;height:6px;border-radius:999px;background:var(--green-500);animation:kbPulse 2s ease-out infinite"></span>SYNCING</span>
-</div>
+<div data-shot-list="1" class="cs-hb-list" style="border-right:1px solid var(--border-subtle);background:var(--kb-shot-chrome);padding:12px 0">
+<div class="cs-hb-head"><span>Invoice Inbox</span><span class="cs-nav-count" data-queue-count="1">94</span><span class="cs-btn"><i class="ph ph-funnel"></i>Filters</span></div>
 <div style="display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--bg-surface);border-left:2px solid var(--fg-brand)">
-<span style="width:26px;height:26px;border-radius:2px;background:linear-gradient(to bottom right,#F96302,#C64F00);color:#fff;font-family:var(--font-mono);font-size:11px;display:flex;align-items:center;justify-content:center">HD</span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Home Depot #4471</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">MAR 14 · 6 ITEMS</span></span>
-<span style="font-family:var(--font-mono);font-size:12px">$1,284</span>
-</div>
-<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;animation:kbRowClear 14s linear infinite">
-<span style="width:26px;height:26px;border-radius:2px;background:linear-gradient(to bottom right,#0072CE,#004E8F);color:#fff;font-family:var(--font-mono);font-size:11px;display:flex;align-items:center;justify-content:center">LO</span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lowe's #8820</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">MAR 14 · 3 ITEMS</span></span>
-<span style="font-family:var(--font-mono);font-size:12px">$412</span>
-</div>
-<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;animation:kbRowClear 14s linear infinite 3.5s">
-<span style="width:26px;height:26px;border-radius:2px;background:linear-gradient(to bottom right,#4A7BC8,#2D5391);color:#fff;font-family:var(--font-mono);font-size:11px;display:flex;align-items:center;justify-content:center">SW</span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sherwin-Williams</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">MAR 13 · 11 ITEMS</span></span>
-<span style="font-family:var(--font-mono);font-size:12px">$906</span>
-</div>
-<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;animation:kbRowClear 14s linear infinite 7s">
-<span style="width:26px;height:26px;border-radius:2px;background:linear-gradient(to bottom right,#F0A32E,#C97A3C);color:#fff;font-family:var(--font-mono);font-size:11px;display:flex;align-items:center;justify-content:center">SB</span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sunbelt Rentals</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">MAR 13 · 1 ITEM</span></span>
-<span style="font-family:var(--font-mono);font-size:12px">$248</span>
-</div>
-<div style="display:flex;align-items:center;gap:10px;padding:11px 14px;animation:kbRowClear 14s linear infinite 10.5s">
-<span style="width:26px;height:26px;border-radius:2px;background:linear-gradient(to bottom right,#6F9334,#4E6825);color:#fff;font-family:var(--font-mono);font-size:11px;display:flex;align-items:center;justify-content:center">MC</span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:12.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">McCormick Paints</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">MAR 12 · 4 ITEMS</span></span>
-<span style="font-family:var(--font-mono);font-size:12px">$137</span>
+<div class="cs-hb-row is-selected"><span class="cs-tile cs-tile-sw">SW</span><span class="cs-qbody"><span class="cs-qnum">4387-2</span><span class="cs-qamt">$612.40</span><span class="cs-qsub"><span class="cs-po">2214 WESTOVER</span></span><span class="cs-qdate">Oct 24 <span class="cs-bars" data-tier="close_call" data-level="2"><i></i><i></i><i></i><i></i></span></span></span></div>
+<div class="cs-hb-row" style="animation:kbRowClear 14s linear infinite"><span class="cs-tile cs-tile-thd"><img src="/assets/vendors/home-depot.svg" alt=""></span><span class="cs-qbody"><span class="cs-qnum">H0381-55210</span><span class="cs-qamt">$1,284.55</span><span class="cs-qsub"><span class="cs-po">1046</span><span>&middot;</span><span class="cs-cust">Avery Thompson</span></span><span class="cs-qdate">Oct 24 <span class="cs-bars" data-tier="job_set" data-level="4"><i></i><i></i><i></i><i></i></span></span></span></div>
+<div class="cs-hb-row" style="animation:kbRowClear 14s linear infinite 3.5s"><span class="cs-tile cs-tile-lowes"><img src="/assets/vendors/lowes.svg" alt=""></span><span class="cs-qbody"><span class="cs-qnum">907314</span><span class="cs-qamt">$258.49</span><span class="cs-qsub"><span class="cs-po">CARTER CT</span></span><span class="cs-qdate">Oct 23 <span class="cs-bars" data-tier="close_call" data-level="3"><i></i><i></i><i></i><i></i></span></span></span></div>
+<div class="cs-hb-row" style="animation:kbRowClear 14s linear infinite 7s"><span class="cs-tile cs-tile-spectrum">SP</span><span class="cs-qbody"><span class="cs-qnum">SP-118204</span><span class="cs-qamt">$96.12</span><span class="cs-qsub"><span class="cs-po">(no P/O)</span></span><span class="cs-qdate">Oct 22 <span class="cs-bars" data-tier="no_clear_fit" data-level="1"><i></i><i></i><i></i><i></i></span></span></span></div>
+<div class="cs-hb-row" style="animation:kbRowClear 14s linear infinite 10.5s"><span class="cs-tile cs-tile-am">AM</span><span class="cs-qbody"><span class="cs-qnum">Q-50217</span><span class="cs-qamt">$4,860.00</span><span class="cs-qsub"><span class="cs-po">1044</span><span>&middot;</span><span class="cs-cust">Ruth Callahan</span></span><span class="cs-qdate">Oct 22 <span class="cs-bars" data-tier="job_set" data-level="4"><i></i><i></i><i></i><i></i></span></span></span></div>
+<div class="cs-hb-row"><span class="cs-tile cs-tile-sw">SW</span><span class="cs-qbody"><span class="cs-qnum">4380-9</span><span class="cs-qamt">$45.32</span><span class="cs-qsub"><span class="cs-po">1042</span><span>&middot;</span><span class="cs-cust">Maria Lopez</span></span><span class="cs-qdate">Oct 22 <span class="cs-bars" data-tier="job_set" data-level="4"><i></i><i></i><i></i><i></i></span></span></span></div>
 </div>
 </div>
-<div style="padding:16px 14px 0;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;color:var(--fg-3);text-transform:uppercase"><span data-queue-count="1">94</span> items left in queue</div>
+<div class="kb-shot-panel cs-hb-panel" style="padding:16px 22px;display:flex;flex-direction:column;gap:10px">
+<div class="cs-card cs-invoice-head"><span class="cs-tile cs-tile-lg cs-tile-sw">SW</span><span class="cs-qbody"><span class="cs-qnum">4387-2</span><span class="cs-qamt">$612.40</span><span class="cs-qsub"><span class="cs-po">2214 WESTOVER</span></span><span class="cs-qdate">Oct 24 <span class="cs-bars" data-tier="close_call" data-level="2"><i></i><i></i><i></i><i></i></span></span></span></div>
+<div class="cs-panel-row"><span>Matching Suggestions</span><span class="cs-hints"><span><span class="cs-key">1</span>-<span class="cs-key">3</span> select &middot; <span class="cs-key">Enter</span> confirm</span></span></div>
+<div class="cs-cards">
+<div class="cs-card cs-suggest is-selected" style="animation:kbSweep 14s ease-in-out infinite"><span class="cs-key">1</span><span class="cs-suggest-body"><span class="cs-suggest-name">Dana Whitfield <span class="cs-suggested"><i class="ph ph-magic-wand"></i>Suggested</span></span><span class="cs-suggest-meta"><span><i class="ph ph-map-pin"></i>2214 Westover Hills Blvd, Richmond, VA</span><span>&middot;</span><span><i class="ph ph-calendar"></i>2026-10-20 - 2026-10-27</span></span><span class="cs-chips"><span class="cs-chip cs-chip-success"><i class="ph ph-check"></i>Job Address Match</span><span class="cs-chip cs-chip-muted"><i class="ph ph-tilde"></i>Within Job Dates</span></span></span><span class="cs-jobno">1187</span><span class="cs-btn">Match &rarr;</span></div>
+<div class="cs-card cs-suggest"><span class="cs-key">2</span><span class="cs-suggest-body"><span class="cs-suggest-name">Marcus Bell</span><span class="cs-suggest-meta"><span><i class="ph ph-map-pin"></i>2214 Westover Rd, Midlothian, VA</span><span>&middot;</span><span><i class="ph ph-calendar"></i>2026-10-02 - 2026-10-09</span></span><span class="cs-chips"><span class="cs-chip cs-chip-success"><i class="ph ph-check"></i>Job Address Match</span></span></span><span class="cs-jobno">1179</span></div>
+<div class="cs-card cs-suggest"><span class="cs-key">3</span><span class="cs-suggest-body"><span class="cs-suggest-name">Priya Natarajan</span><span class="cs-suggest-meta"><span><i class="ph ph-map-pin"></i>418 Westview Dr, Richmond, VA</span><span>&middot;</span><span><i class="ph ph-calendar"></i>2026-10-21</span></span><span class="cs-chips"><span class="cs-chip cs-chip-muted"><i class="ph ph-tilde"></i>Within Job Dates</span></span></span><span class="cs-jobno">1190</span></div>
 </div>
-<div class="kb-shot-panel" style="padding:20px 22px;display:flex;flex-direction:column;gap:12px">
-<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
-<span style="font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-0.015em">Home Depot #4471</span>
-<span style="font-family:var(--font-mono);font-size:11px;color:var(--fg-3);letter-spacing:0.06em">6 LINE ITEMS · $1,284.06</span>
+<div class="cs-hb-actions">
+<span class="cs-card"><span class="cs-key">S</span><i class="ph ph-magnifying-glass"></i>Search</span>
+<span class="cs-card"><span class="cs-key">O</span><i class="ph ph-circle-dashed"></i>Overhead</span>
+<span class="cs-card"><span class="cs-key">I</span><i class="ph ph-x"></i>Ignore</span>
 </div>
-<div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Suggested jobs</div>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div style="padding:12px 14px;background:var(--bg-surface);box-shadow:0 0 0 2px var(--green-500), var(--shadow-sm);border-radius:2px;display:flex;align-items:center;gap:12px;animation:kbSweep 14s ease-in-out infinite">
-<span style="color:var(--fg-success);font-size:17px;display:flex"><i class="ph-fill ph-check-circle"></i></span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:13.5px;font-weight:500">Kaufman Residence — Exterior Repaint</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">MATCHED ON PO · CREW ON SITE MAR 14 · 96%</span></span>
-<span style="font-family:var(--font-mono);font-size:10px;padding:4px 8px;border-radius:2px;background:var(--bg-success-subtle);color:var(--fg-success);letter-spacing:0.06em">ENTER</span>
-</div>
-<div style="padding:12px 14px;background:var(--bg-surface);box-shadow:var(--shadow-sm);border-radius:2px;display:flex;align-items:center;gap:12px;opacity:.9">
-<span style="color:var(--fg-3);font-size:17px;display:flex"><i class="ph ph-circle"></i></span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:13.5px;font-weight:500">Whitlock Duplex — Unit B Turn</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">SAME ZIP · MATERIALS OVERLAP · 41%</span></span>
-<span style="font-family:var(--font-mono);font-size:10px;padding:4px 8px;border-radius:2px;background:var(--bg-muted);color:var(--fg-3);letter-spacing:0.06em">2</span>
-</div>
-<div style="padding:12px 14px;background:var(--bg-surface);box-shadow:var(--shadow-sm);border-radius:2px;display:flex;align-items:center;gap:12px;opacity:.75">
-<span style="color:var(--fg-3);font-size:17px;display:flex"><i class="ph ph-circle"></i></span>
-<span style="flex:1;min-width:0"><span style="display:block;font-size:13.5px;font-weight:500">Overhead — Shop Supplies</span><span style="display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3)">NO JOB · POST TO OVERHEAD · 12%</span></span>
-<span style="font-family:var(--font-mono);font-size:10px;padding:4px 8px;border-radius:2px;background:var(--bg-muted);color:var(--fg-3);letter-spacing:0.06em">3</span>
-</div>
-</div>
-<div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding-top:12px;border-top:1px solid var(--border-subtle);font-family:var(--font-mono);font-size:10.5px;color:var(--fg-3);letter-spacing:0.04em;flex-wrap:wrap">
-<span style="display:inline-flex;align-items:center;gap:5px"><span style="animation:kbCheckIn 14s ease-in-out infinite;color:var(--fg-success);display:flex"><i class="ph-fill ph-check-circle"></i></span>PUSHED BACK TO YOUR CRM</span>
-<span>·</span><span>15 MIN TO CLEAR 94 ITEMS</span>
-</div>
+<div class="cs-hb-toast"><span style="animation:kbCheckIn 14s ease-in-out infinite;color:var(--fg-success);display:flex"><i class="ph-fill ph-check-circle"></i></span>Matched #4387-2 to Dana Whitfield.</div>
 </div>
 </div>
 </div>
@@ -102,44 +63,46 @@ themeColor: "#DE4444"
 <div class="kb-phone-body">
 <div class="kb-phone-screen">
 <div class="kb-phone-island" aria-hidden="true"></div>
-<div class="kb-phone-head">
+<div class="kb-phone-head" aria-hidden="true">
+<span class="kb-phone-back"><i class="ph ph-caret-left"></i></span>
 <span class="kb-phone-title">Outbox</span>
-<span class="kb-phone-due"><span class="kb-phone-due-dot" aria-hidden="true"></span>12 due</span>
+<span class="kb-phone-undo"><i class="ph ph-arrow-u-up-left"></i></span>
 </div>
 <div class="kb-deck">
 <article class="kb-deck-card">
-<div class="kb-deck-chips"><span class="is-done"><i class="ph-fill ph-check" aria-hidden="true"></i>Text</span><span class="is-active">Email</span><span>Call</span><span>Done</span></div>
+<div class="kb-deck-chips"><span class="is-done">✓ Call</span><span class="is-active is-text">Text</span><span>Done</span></div>
 <div class="kb-deck-title">
-<span class="kb-deck-who"><strong>Laura M.</strong><span>TOUCH 2 OF 4</span></span>
-<span class="kb-deck-amt"><strong>$8,450</strong><span>ASKED TODAY</span></span>
+<span class="kb-deck-who"><strong>Ana Ruiz</strong><span>TOUCH 1 OF 1 · STEP 2/2</span></span>
+<span class="kb-deck-amt"><strong>$8,450.00</strong><span>Asked: today</span></span>
+</div>
+<div class="kb-deck-rule" aria-hidden="true"></div>
+<p class="kb-deck-body">Hi Ana, it's Mike from Northline. You asked me to check back today about the porch. I attached photos of one we finished last month in the same gray.</p>
+<div class="kb-deck-media"><span class="kb-deck-media-icon"><i class="ph ph-image" aria-hidden="true"></i></span><span class="kb-deck-media-main"><strong>Gray porch, finished</strong><span>AI-PICKED · RIDES WITH THIS TEXT</span></span><span class="kb-deck-media-more">↑ details</span></div>
+<span class="kb-deck-stamp" aria-hidden="true">SEND</span>
+</article>
+<article class="kb-deck-card">
+<div class="kb-deck-chips"><span class="is-done">✓ Call</span><span class="is-done">✓ Text</span><span class="is-active is-email">Email</span><span>Done</span></div>
+<div class="kb-deck-title">
+<span class="kb-deck-who"><strong>Kim Byrd</strong><span>TOUCH 3 OF 4 · STEP 3/3</span></span>
+<span class="kb-deck-amt"><strong>$12,300.00</strong><span>7 days ago</span></span>
 </div>
 <div class="kb-deck-rule" aria-hidden="true"></div>
 <div class="kb-deck-eyebrow">Subject</div>
-<div class="kb-deck-subject">Checking in like you asked</div>
-<p class="kb-deck-body">Hi Laura — you mentioned today was a good day to circle back on the Main Street estimate. Happy to walk through the line items…</p>
-<div class="kb-deck-tag"><i class="ph-fill ph-check" aria-hidden="true"></i>DRAFTED IN YOUR VOICE</div>
+<div class="kb-deck-subject">Still holding your spot this month</div>
+<p class="kb-deck-body">Hi Kim, we can still hold a start date this month for the kitchen. Want me to pencil you in, or is there anything on the quote I can clear up?</p>
 <span class="kb-deck-stamp" aria-hidden="true">SEND</span>
 </article>
 <article class="kb-deck-card">
-<div class="kb-deck-chips"><span class="is-active">Text</span><span>Email</span><span>Call</span><span>Done</span></div>
+<div class="kb-deck-chips"><span class="is-active is-call">Call</span><span>Email</span><span>Done</span></div>
 <div class="kb-deck-title">
-<span class="kb-deck-who"><strong>Rachelle B.</strong><span>TOUCH 1 OF 4</span></span>
-<span class="kb-deck-amt"><strong>$12,300</strong><span>DAY 3 OF 14</span></span>
-</div>
-<div class="kb-deck-rule" aria-hidden="true"></div>
-<p class="kb-deck-body">Hi Rachelle, Troy here from the estimate visit — any questions on the cabinet quote? I can still hold next week's start date if it helps.</p>
-<div class="kb-deck-tag"><i class="ph-fill ph-check" aria-hidden="true"></i>DRAFTED IN YOUR VOICE</div>
-<span class="kb-deck-stamp" aria-hidden="true">SEND</span>
-</article>
-<article class="kb-deck-card">
-<div class="kb-deck-chips"><span class="is-done"><i class="ph-fill ph-check" aria-hidden="true"></i>Text</span><span class="is-done"><i class="ph-fill ph-check" aria-hidden="true"></i>Email</span><span class="is-active">Call</span><span>Done</span></div>
-<div class="kb-deck-title">
-<span class="kb-deck-who"><strong>Tiffany S.</strong><span>TOUCH 3 OF 4</span></span>
-<span class="kb-deck-amt"><strong>$4,980</strong><span>DAY 7 OF 14</span></span>
+<span class="kb-deck-who"><strong>Tom Salas</strong><span>TOUCH 2 OF 4 · STEP 1/2</span></span>
+<span class="kb-deck-amt"><strong>$4,980.00</strong><span>3 days ago</span></span>
 </div>
 <div class="kb-deck-rule" aria-hidden="true"></div>
 <div class="kb-deck-eyebrow kb-deck-eyebrow--call">Call brief</div>
-<p class="kb-deck-body">She's comparing two bids. Goal: offer the walk-through Thursday and confirm the trim color before scheduling.</p>
+<p class="kb-deck-body kb-deck-goal">Quick check-in: any questions on the quote we left you?</p>
+<p class="kb-deck-opener">“Hi Tom, it's Jess from Northline, checking in on your estimate…”</p>
+<ul class="kb-deck-points"><li>Quote of $4,980.00</li><li>Competing bids: 2</li></ul>
 <span class="kb-deck-stamp" aria-hidden="true">CALL</span>
 </article>
 </div>
@@ -147,7 +110,7 @@ themeColor: "#DE4444"
 <span class="kb-deck-act kb-deck-act--skip"><i class="ph ph-x"></i></span>
 <span class="kb-deck-act kb-deck-act--details"><i class="ph ph-arrow-up"></i></span>
 <span class="kb-deck-act kb-deck-act--rework"><i class="ph ph-sparkle"></i></span>
-<span class="kb-deck-act kb-deck-act--send"><i class="ph-fill ph-paper-plane-tilt"></i></span>
+<span class="kb-deck-act kb-deck-act--send"><i class="ph-fill ph-paper-plane-tilt kb-send-icon kb-send-icon--send"></i><i class="ph-fill ph-phone kb-send-icon kb-send-icon--call"></i></span>
 </div>
 <div class="kb-phone-homebar" aria-hidden="true"></div>
 </div>
@@ -162,26 +125,21 @@ themeColor: "#DE4444"
 </div>
 <div style="position:relative;mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,black 12%,black 88%,transparent)">
 <div style="display:flex;width:max-content;animation:kbMarquee 60s linear infinite">
-<div style="display:flex;align-items:center;gap:72px;padding:0 36px">
-<img data-vendor="1" src="/assets/vendors/housecall-pro.png" alt="Housecall Pro" width="120" height="31" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/home-depot.svg" alt="Home Depot" width="120" height="36" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/lowes.svg" alt="Lowe's" width="120" height="31" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sherwin-williams.png" alt="Sherwin-Williams" width="120" height="34" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/pittsburgh-paints.png" alt="Pittsburgh Paints" width="120" height="36" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/spectrum-paint.png" alt="Spectrum Paint" width="120" height="31" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/mccormick-paints.png" alt="McCormick Paints" width="120" height="34" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sunbelt-rentals.png" alt="Sunbelt Rentals" width="120" height="29" decoding="async" style="height:29px;width:auto;filter:grayscale(1);opacity:.55">
+{#- Only suppliers Kickback connects to. Each half of the track holds the set
+    twice so the -50% marquee loop never shows a gap at wide viewports. -#}
+{% set stripVendors = [
+  { "name": "The Home Depot", "src": "/assets/vendors/home-depot.svg", "h": 36 },
+  { "name": "Lowe's", "src": "/assets/vendors/lowes.svg", "h": 31 },
+  { "name": "Sherwin-Williams", "src": "/assets/vendors/sherwin-williams.png", "h": 34 },
+  { "name": "Spectrum Paint", "src": "/assets/vendors/spectrum-paint.png", "h": 31 }
+] %}
+{% for half in [1, 2] %}
+<div{% if half == 2 %} aria-hidden="true"{% endif %} style="display:flex;align-items:center;gap:72px;padding:0 36px">
+{% for pass in [1, 2] %}{% for v in stripVendors %}
+<img data-vendor="1" src="{{ v.src }}" alt="{{ v.name if (half == 1 and pass == 1) else '' }}"{% if half == 1 and pass == 2 %} aria-hidden="true"{% endif %} width="120" height="{{ v.h }}"{% if half == 2 %} loading="lazy"{% endif %} decoding="async" style="height:{{ v.h }}px;width:auto;filter:grayscale(1);opacity:.55">
+{% endfor %}{% endfor %}
 </div>
-<div aria-hidden="true" style="display:flex;align-items:center;gap:72px;padding:0 36px">
-<img data-vendor="1" src="/assets/vendors/housecall-pro.png" alt="" width="120" height="31" loading="lazy" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/home-depot.svg" alt="" width="120" height="36" loading="lazy" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/lowes.svg" alt="" width="120" height="31" loading="lazy" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sherwin-williams.png" alt="" width="120" height="34" loading="lazy" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/pittsburgh-paints.png" alt="" width="120" height="36" loading="lazy" decoding="async" style="height:36px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/spectrum-paint.png" alt="" width="120" height="31" loading="lazy" decoding="async" style="height:31px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/mccormick-paints.png" alt="" width="120" height="34" loading="lazy" decoding="async" style="height:34px;width:auto;filter:grayscale(1);opacity:.55">
-<img data-vendor="1" src="/assets/vendors/sunbelt-rentals.png" alt="" width="120" height="29" loading="lazy" decoding="async" style="height:29px;width:auto;filter:grayscale(1);opacity:.55">
-</div>
+{% endfor %}
 </div>
 </div>
 </section>
@@ -213,7 +171,7 @@ themeColor: "#DE4444"
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4)">
 <div data-reveal="1">{{ featureCard("Just connect and go.", "Link your CRM, Vendors, and other tools once. Platform keeps everything in sync, and posts back changes where they belong. Keep using the tools you already know and love, we're just here to make it better.", "ph ph-plugs-connected", "Check out the apps", "#apps") }}</div>
-<div data-reveal="1" data-delay="80">{{ featureCard("AI that's not an afterthought.", "Since we built Kickback with AI baked-in from the start, you don't waste time hunting for information or chatting about what should happen with a robot. You'll only need to take action on what needs a human touch, and we'll take care of the rest.", "ph ph-sparkle", "Start Free", platformUrl) }}</div>
+<div data-reveal="1" data-delay="80">{{ featureCard("AI that's not an afterthought.", "Since we built Kickback with AI baked-in from the start, you don't waste time hunting for information or chatting about what should happen with a robot. You'll only need to take action on what needs a human touch, and we'll take care of the rest.", "ph ph-sparkle", "See the Platform", "/platform/") }}</div>
 <div data-reveal="1" data-delay="160">{{ featureCard("By owners, for owners.", "We created Kickback to solve a problem in our own businesses, not because we wanted a piece of the AI bubble. No sales bullsh*t, every feature we demo is live and working today. We finally got our weekends back, and we didn't have to hire anyone to do it.", "ph ph-trophy") }}</div>
 </div>
 </div>
@@ -228,11 +186,10 @@ themeColor: "#DE4444"
 </div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4)">
-<div data-reveal="1">{{ suiteCard("Costing", "Every dollar in its place. Receipts land, get matched to the job, and post back to your CRM before your coffee's cold.", "ph-fill ph-currency-dollar", "#6F9334", "live", "", "#how", "", false, "costing") }}</div>
-<div data-reveal="1" data-delay="80">{{ suiteCard("Follow-Up", "Quotes that close themselves. Unsold estimates get chased on a cadence you set, in your voice, until they answer.", "ph-fill ph-chats", "#41778D", "preview", "", "#how", "", false, "follow-up") }}</div>
-<div data-reveal="1" data-delay="160">{{ suiteCard("Warehouse", "Every piece accounted for. Shipments import before the truck, receiving is a scan, and material already knows which job it belongs to.", "ph-fill ph-package", "#647285", "preview", "", "#how", "", false, "warehouse") }}</div>
+{% for app in productList %}
+<div data-reveal="1"{% if not loop.first %} data-delay="{{ loop.index0 * 80 }}"{% endif %}>{{ suiteCard(app.name, app.lineup, app.icon, app.color, app.url, "About " + app.name) }}</div>
+{% endfor %}
 </div>
-<p data-reveal="1" style="font-size:14px;color:var(--fg-2);margin:var(--space-5) 0 0">Pick an app — how it works updates below.</p>
 </div>
 </section>
 
@@ -241,27 +198,27 @@ themeColor: "#DE4444"
     "key": "costing", "name": "Costing", "color": "#587A26", "subtle": "rgba(111,147,52,0.16)", "icon": "ph-fill ph-currency-dollar",
     "before": "Job ", "hlWord": "Costing", "hlIcon": "ph-fill ph-currency-dollar", "after": " that does itself.",
     "steps": [
-      { "num": "STEP 01", "title": "Connect your accounts", "icon": "ph ph-plugs-connected", "body": "Sign in to your CRM and your supplier portals once. Kickback pulls jobs, POs and invoices from that point forward — and backfills the pile you're behind on." },
-      { "num": "STEP 02", "title": "Confirm the matches", "icon": "ph ph-check-square", "body": "We rank likely jobs for every invoice and show the reasoning — PO number, crew location, materials. Confirm with Enter, skip with the arrow keys." },
-      { "num": "STEP 03", "title": "Costs land where they belong", "icon": "ph ph-database", "body": "Every confirmed line item posts back to the job in your CRM. Zero-cost jobs get flagged before they become a margin surprise." }
+      { "num": "STEP 01", "title": "Connect Your Accounts", "icon": "ph ph-plugs-connected", "body": "Sign in to your CRM and supplier accounts once. Kickback pulls new invoices every day, and a full history sync clears the pile you're behind on." },
+      { "num": "STEP 02", "title": "Confirm the Matches", "icon": "ph ph-check-square", "body": "In the Invoice Inbox, invoices Auto-Match linked arrive with the job already set. The rest show the top three jobs and why each fits: P/O, job address, customer name. Press a number, then Enter." },
+      { "num": "STEP 03", "title": "Costs Land Where They Belong", "icon": "ph ph-database", "body": "Confirmed costs post to the job in your CRM, with the invoice PDF attached when the supplier sends one. Zero-cost items get flagged before they turn into a margin surprise." }
     ]
   },
   {
     "key": "follow-up", "name": "Follow-Up", "color": "#336077", "subtle": "rgba(65,119,141,0.16)", "icon": "ph-fill ph-chats",
     "before": "Never miss a ", "hlWord": "Follow-Up", "hlIcon": "ph-fill ph-chats", "after": " again.",
     "steps": [
-      { "num": "STEP 01", "title": "Connect your CRM", "icon": "ph ph-plugs-connected", "body": "Kickback reads your open estimates the moment they go unsold — no new list to build, no exports to keep current." },
-      { "num": "STEP 02", "title": "Set the cadence and tone", "icon": "ph ph-sliders-horizontal", "body": "Choose how often to nudge and in what voice. Kickback writes each follow-up from your past wins and sends on schedule." },
-      { "num": "STEP 03", "title": "Replies route to you", "icon": "ph ph-chats", "body": "The moment a customer answers, Kickback stops and hands you the conversation — every send logged against the estimate." }
+      { "num": "STEP 01", "title": "Connect Your CRM", "icon": "ph ph-plugs-connected", "body": "Every open estimate your CRM hasn't closed enrolls on its own. No list to build, no exports to keep current." },
+      { "num": "STEP 02", "title": "Drafts Are Ready by Morning", "icon": "ph ph-moon-stars", "body": "Overnight, Kickback drafts each touch that's due in your voice, using the quote, your call recordings and photos from your Media Library." },
+      { "num": "STEP 03", "title": "You Approve Every Touch", "icon": "ph ph-paper-plane-tilt", "body": "Work the Outbox each morning. Emails go from your Gmail, texts from your phone, and each touch can be logged as a note on the estimate in your CRM." }
     ]
   },
   {
     "key": "warehouse", "name": "Warehouse", "color": "#4F5B6C", "subtle": "rgba(100,114,133,0.16)", "icon": "ph-fill ph-package",
     "before": "Every piece in the ", "hlWord": "Warehouse", "hlIcon": "ph-fill ph-package", "after": ", accounted for.",
     "steps": [
-      { "num": "STEP 01", "title": "Manifests arrive first", "icon": "ph ph-truck", "body": "Supplier load sheets import before the truck docks. Every PO, bundle, and piece is already on the receive screen — no retyping." },
-      { "num": "STEP 02", "title": "Scan to receive and put away", "icon": "ph ph-barcode", "body": "Zap each piece or a whole bundle in one pass. Scan the rack, then the item — floor staff move orders without a paper trail." },
-      { "num": "STEP 03", "title": "Orders find their jobs", "icon": "ph ph-map-pin", "body": "Pieces score against jobs in your CRM. Clear matches link themselves; uncertain ones stay unmatched until you confirm." }
+      { "num": "STEP 01", "title": "Manifests Arrive First", "icon": "ph ph-truck", "body": "Supplier load sheets import before the truck docks. Every PO, bundle and piece is already on the receive screen, with nothing to retype." },
+      { "num": "STEP 02", "title": "Scan to Receive and Put Away", "icon": "ph ph-barcode", "body": "Scan each piece, or a whole bundle in one pass. Scan the rack, then the item, and floor staff move orders without a paper trail." },
+      { "num": "STEP 03", "title": "Orders Find Their Jobs", "icon": "ph ph-map-pin", "body": "Each order links to its job in your CRM by PO number. When every piece for a job is in, the job shows as ready to pull." }
     ]
   }
 ] %}
@@ -297,17 +254,25 @@ themeColor: "#DE4444"
 <div class="kb-container">
 <div data-reveal="1" class="kb-section-head" style="max-width:680px">
 <span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:var(--space-3)">Pricing</span>
-<h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">Start for free.<br>Scale up anytime.</h2>
+<h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0;text-wrap:balance">One platform fee.<br>Add the apps you need.</h2>
 </div>
-{% set ctaFree %}{{ button("Start Free", platformUrl, "primary", "md", true) }}{% endset %}
-{% set ctaPlatform %}{{ button("Start Free", platformUrl, "primary", "md", true) }}{% endset %}
-{% set ctaSeats %}{{ button("Talk to Us", salesUrl, "secondary", "md", true) }}{% endset %}
+{% set teaserPoints = {
+  "costing": ["Invoice Inbox and Auto-Match", "Labor costing from payroll", "Data Integrity lists"],
+  "follow-up": ["A cadence for every unsold estimate", "Drafts written overnight in your voice", "Sends from your own Gmail and phone"],
+  "warehouse": ["Unlimited floor staff accounts", "Manifest import and scan receiving", "Job readiness and pick routes"]
+} %}
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:var(--space-4);align-items:start">
-<div data-reveal="1" style="height:100%">{{ pricingTier("Starter", "0", ["Invoice Inbox, up to 25 invoices/mo", "1 supplier connection", "1 user", "Community support"], ctaFree, "Free forever") }}</div>
-<div data-reveal="1" data-delay="80" style="height:100%">{{ pricingTier("Platform", "489", ["Everything in Costing, unlimited invoices", "All supplier connections", "5 users included", "Zero-cost-item flagging", "Onboarding + backfill included", "Follow-Up + Warehouse preview access"], ctaPlatform, "Most contractors", "/mo", "RECOMMENDED", true) }}</div>
-<div data-reveal="1" data-delay="160" style="height:100%">{{ pricingTier("Per user", "89", ["Added to the $489/mo platform fee", "Full access for each seat", "Role-based permissions", "Priority support"], ctaSeats, "Beyond 5 seats", "/user/mo") }}</div>
+{% for a in pricing.apps %}
+{%- set prod = products[a.slug] %}
+{%- set seatWord = a.seat if a.includedSeats == 1 else a.seats %}
+<div data-reveal="1"{% if not loop.first %} data-delay="{{ loop.index0 * 80 }}"{% endif %} style="height:100%">{{ pricingTier(prod.name, a.monthly | usd | replace("$", ""), [a.includedSeats + " " + seatWord + " included", (a.seatMonthly | usd) + " per extra " + a.seat + " a month"].concat(teaserPoints[a.slug]), "", prod.tagline) }}</div>
+{% endfor %}
 </div>
-<div data-reveal="1" style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-3);text-align:center;margin-top:var(--space-6)">No card to start · Cancel any time · Onboarding included</div>
+<p data-reveal="1" style="font-size:15px;color:var(--fg-2);text-align:center;max-width:640px;margin:var(--space-8) auto 0;line-height:1.55">Every account adds the {{ pricing.platform.monthly | usd }}/mo platform fee, {{ pricing.platform.waiver | lower }}. {{ pricing.annualNote }}</p>
+<div data-reveal="1" style="display:flex;justify-content:center;gap:var(--space-3);margin-top:var(--space-6);flex-wrap:wrap">
+{{ button("Book a Demo", demoUrl, "primary", "md") }}
+{{ button("See Full Pricing", "/pricing/", "secondary", "md") }}
+</div>
 </div>
 </section>
 
@@ -317,21 +282,16 @@ themeColor: "#DE4444"
 <span style="display:inline-block;font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-brand);margin-bottom:var(--space-3)">Frequently Asked Questions</span>
 <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);line-height:1.2;letter-spacing:-0.025em;font-weight:600;margin:0">The things owners ask first.</h2>
 </div>
-<div style="display:flex;flex-direction:column;gap:var(--space-3)">
+{% set priceAnswer %}Every account pays a {{ pricing.platform.monthly | usd }}/mo platform fee, {{ pricing.platform.waiver | lower }}. {% for a in pricing.apps %}{{ products[a.slug].name }} is {{ a.monthly | usd }}/mo with {{ a.includedSeats }} {{ a.seat if a.includedSeats == 1 else a.seats }} included, plus {{ a.seatMonthly | usd }} a month for each extra {{ a.seat }}. {% endfor %}{{ pricing.annualNote }}{% endset %}
 {% set faqs = [
-  { "id": "crm", "q": "Which CRM do you work with?", "a": "Your CRM is the source of truth — we connect to it, we don't replace it. One major CRM is live today, and more land each quarter. If yours isn't on the list yet, tell us on a demo call; integration order follows customer demand." },
+  { "id": "account", "q": "How do I get an account?", "a": "Book a demo. Our team sets up every Kickback account: we create your organization, invite you as the owner, and connect your CRM and supplier accounts with you on the call." },
+  { "id": "price", "q": "What does it cost?", "a": priceAnswer | trim },
+  { "id": "crm", "q": "Which CRM do you work with?", "a": "Your CRM stays the source of truth. We connect to it, we don't replace it. Tell us which one you use on a demo call and we'll show you what works with it today." },
   { "id": "behind", "q": "We're months behind on job costing. Is that a problem?", "a": "It's the normal case. We backfill the pile during onboarding — get caught up in under an hour, or your first month is free." },
-  { "id": "autopost", "q": "Does the AI post things without me?", "a": "No. Kickback does the work and then asks — a ranked match with its reasoning, confirmed by a person. High-confidence rules can be turned on later, one vendor at a time, once you trust them." },
-  { "id": "who", "q": "Who in my office actually uses it?", "a": "Usually the office manager or bookkeeper clears the inbox each morning; the owner watches the flagged jobs. Five users are included, so you don't have to share a login." },
-  { "id": "leave", "q": "What happens to my data if we leave?", "a": "Costs live in your CRM, not ours — that's the point of writing back. Export the raw invoice records any time, and we delete on request." }
+  { "id": "autopost", "q": "Does the AI post things without me?", "a": "Nothing goes to a customer without your approval. Follow-Up drafts each message and you send it. In Costing, Auto-Match links an invoice to its job only when the match is clear, and a person confirms the cost lines before they're written to your CRM." },
+  { "id": "leave", "q": "What happens to my data if we leave?", "a": "Costs live in your CRM, not ours. That's the point of writing back. Export the raw invoice records any time, and we delete on request." }
 ] %}
-{% for item in faqs %}
-<div data-reveal="1"{% if not loop.first %} data-delay="{{ (loop.index0 * 40) }}"{% endif %} style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
-<button type="button" data-faq="1" id="faq-btn-{{ item.id }}" aria-expanded="false" aria-controls="faq-panel-{{ item.id }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1);overflow-wrap:anywhere">{{ item.q }}<i class="ph ph-caret-down" data-faq-caret="1" aria-hidden="true" style="font-size:16px;color:var(--fg-3);flex:0 0 auto;transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button>
-<div data-faq-body="1" id="faq-panel-{{ item.id }}" role="region" aria-labelledby="faq-btn-{{ item.id }}" hidden style="overflow:hidden"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6;overflow-wrap:anywhere">{{ item.a }}</p></div>
-</div>
-{% endfor %}
-</div>
+{% include "partials/faq-list.njk" %}
 </div>
 </section>
 

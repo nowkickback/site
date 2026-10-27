@@ -1,10 +1,11 @@
+{# Copy on one side, a hand-built mockup (`shot`, a partial in shots/) on the other. #}
 {% set s = section %}
-<section class="section section-surface"{% if s.id %} id="{{ s.id }}"{% endif %}>
+<section class="section {{ s.surface or 'section-surface' }}"{% if s.id %} id="{{ s.id }}"{% endif %}>
   <div class="container">
     <div class="split{% if s.reversed %} split-reversed{% endif %}">
       <div class="split-copy reveal-group">
         {% if s.eyebrow %}<div class="ks-eyebrow split-eyebrow reveal">{{ s.eyebrow }}</div>{% endif %}
-        <h3 class="ks-h1 split-title reveal">{{ s.title }}</h3>
+        <h2 class="ks-h1 split-title reveal">{{ s.title }}</h2>
         {% if s.bodyHtml %}
         <p class="split-body reveal">{{ s.bodyHtml | safe }}</p>
         {% elif s.body %}
@@ -15,7 +16,7 @@
           {% for b in s.bullets %}
           <li>
             <i class="{{ b.icon or 'ph-fill ph-check' }}" aria-hidden="true"></i>
-            <span><strong>{{ b.title }}</strong> &mdash; {{ b.text }}</span>
+            <span><strong class="split-list-title">{{ b.title }}</strong>{{ b.text }}</span>
           </li>
           {% endfor %}
         </ul>
@@ -24,31 +25,9 @@
         <a class="split-cta reveal" href="{{ s.cta.href }}">{{ s.cta.label }}</a>
         {% endif %}
       </div>
-      {% if s.kpis %}
-      <div class="estimate-wrap reveal">
-        <div class="dashboard-card">
-          <div class="dashboard-head">
-            <div>
-              <div class="estimate-head-meta">{{ s.kpis.meta }}</div>
-              <div class="estimate-head-title">{{ s.kpis.title }}</div>
-            </div>
-          </div>
-          <div class="kpi-grid">
-            {% for kpi in s.kpis.items %}
-            <div class="kpi">
-              <div class="kpi-label">{{ kpi.label }}</div>
-              <div class="kpi-value">{{ kpi.value }}</div>
-              <div class="kpi-sub">{{ kpi.sub }}</div>
-            </div>
-            {% endfor %}
-          </div>
-        </div>
-        {% if s.callout %}
-        <div class="estimate-callout">
-          <div class="estimate-callout-tag"><i class="{{ s.callout.icon }}" aria-hidden="true"></i> {{ s.callout.tag }}</div>
-          <p>{{ s.callout.body }}</p>
-        </div>
-        {% endif %}
+      {% if s.shot %}
+      <div class="split-visual reveal">
+        {% include "shots/" + s.shot + ".njk" %}
       </div>
       {% endif %}
     </div>

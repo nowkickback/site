@@ -66,8 +66,8 @@
   --stone-950: #0F0C0B;
 
   /* Product accents — mirror the app's per-product theming
-     (Costing = moss, Follow-Up = tide, Warehouse = steel,
-      HUD = ochre, Coach = plum) */
+     (Costing = moss, Follow-Up = tide, Warehouse = steel;
+      ochre and plum are spare) */
   --moss-50:  #F3F6EB;
   --moss-200: #CBDCA4;
   --moss-300: #ABC474;

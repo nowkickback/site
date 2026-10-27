@@ -1,0 +1,41 @@
+{%- macro pfToggle(on) -%}
+<span class="pf-btn {{ 'pf-btn-primary' if on else 'pf-btn-ghost' }}">{{ 'On' if on else 'Off' }}</span>
+{%- endmacro -%}
+{%- set pfGroups = [
+  { app: "costing", name: "Costing", icon: "ph-fill ph-currency-dollar", kinds: [
+    { label: "Auto-Match Digest", desc: "Invoices auto-match applied in the last day, ready for review.", push: false, email: true }
+  ] },
+  { app: "follow-up", name: "Follow-Up", icon: "ph ph-chats", kinds: [
+    { label: "Drafts to Review", desc: "A new follow-up draft is ready for you to review and send.", push: true, email: false },
+    { label: "Open Follow-Ups Digest", desc: "Follow-ups your reps haven't touched that are still open.", push: true, email: true }
+  ] },
+  { app: "warehouse", name: "Warehouse", icon: "ph ph-package", kinds: [
+    { label: "Shipment Arrived", desc: "A shipment has arrived and is ready to unload.", push: true, email: false },
+    { label: "Open Shipments Digest", desc: "Trucks that still have pieces to scan in.", push: true, email: true }
+  ] }
+] -%}
+<div class="pf-notifications" role="img" aria-label="Notification settings with Push and Email switches for each alert: Costing's Auto-Match Digest, Follow-Up's Drafts to Review and Open Follow-Ups Digest, Warehouse's Shipment Arrived and Open Shipments Digest">
+  <div class="pf-card" aria-hidden="true">
+    <div class="pf-card-head"><div class="pf-card-title">Notifications</div></div>
+    <div class="pf-card-body">
+      <p class="pf-help" style="margin:0 0 12px">Notifications always show in Kickback's notification center. Settings here apply to notifications from <strong>Brightline Co.</strong> only.</p>
+      {% for g in pfGroups %}
+      <div class="pf-notif-group">
+        <div class="pf-notif-product"><span class="pf-mark pf-mark-sm pf-mark-{{ g.app }}"><i class="{{ g.icon }}"></i></span>{{ g.name }}</div>
+        <table class="pf-notif-table">
+          <thead><tr><th>Notification</th><th>Push</th><th>Email</th></tr></thead>
+          <tbody>
+            {% for k in g.kinds %}
+            <tr>
+              <th>{{ k.label }}<span class="pf-notif-desc">{{ k.desc }}</span></th>
+              <td>{{ pfToggle(k.push) }}</td>
+              <td>{{ pfToggle(k.email) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "_note": "Live Stripe prices from the read-only production check recorded in nowkickback/site#1 (2026-10-26). Stripe is the source of truth and the static site can't read it, so update this file by hand whenever a Stripe price changes.",
+  "seatCap": 50,
+  "annualNote": "Pay annually and get two months free.",
+  "platform": {
+    "name": "Platform",
+    "monthly": 249,
+    "annual": 2490,
+    "waiver": "Waived when you subscribe to all three apps"
+  },
+  "apps": [
+    {
+      "slug": "costing",
+      "monthly": 489,
+      "annual": 4890,
+      "includedSeats": 5,
+      "seatMonthly": 89,
+      "seatAnnual": 890,
+      "seat": "user",
+      "seats": "users",
+      "seatLabel": "Users"
+    },
+    {
+      "slug": "follow-up",
+      "monthly": 249,
+      "annual": 2490,
+      "includedSeats": 3,
+      "seatMonthly": 49,
+      "seatAnnual": 490,
+      "seat": "rep",
+      "seats": "reps",
+      "seatLabel": "Reps"
+    },
+    {
+      "slug": "warehouse",
+      "monthly": 489,
+      "annual": 4890,
+      "includedSeats": 1,
+      "seatMonthly": 89,
+      "seatAnnual": 890,
+      "seat": "scanner",
+      "seats": "scanners",
+      "seatLabel": "Scanners",
+      "seatNote": "Billed by scanner, not by person. Floor staff accounts are unlimited."
+    }
+  ]
+}

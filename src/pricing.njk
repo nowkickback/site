@@ -3,13 +3,18 @@ layout: layouts/base.njk
 permalink: /pricing/
 activeNav: pricing
 title: "Pricing — Kickback"
-description: "Kickback pricing. Start free — 1 CRM connection, 10 invoices matched and 10 estimates on follow-up each month. Then build your package: the platform plus Costing, Follow-Up, Warehouse, or any mix."
+description: "Kickback pricing: one platform fee, waived when you subscribe to Costing, Follow-Up and Warehouse, plus each app with seats included. Pay annually and get two months free."
 ogTitle: "Pricing — Kickback"
-ogDescription: "Start free, then build your package — the Kickback platform plus the apps you need."
+ogDescription: "One platform fee, waived when you add all three apps. Costing, Follow-Up and Warehouse each include seats."
 themeColor: "#DE4444"
 screenLabel: "Pricing page"
 ---
 {% include "partials/pricing-body.njk" %}
-{% set ctaVariant = "live" %}
+{% set cta = {
+  kicker: "SEE IT ON YOUR DATA",
+  title: "Want a Number for Your Business?",
+  body: "Book a demo and we'll connect your accounts on the call, then price the apps and seats you need.",
+  secondary: { label: "Read the FAQ", href: "/#faq" }
+} %}
 {% include "sections/cta-banner.njk" %}
 {% include "partials/pricing-script.njk" %}

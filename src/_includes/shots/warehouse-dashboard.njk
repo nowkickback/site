@@ -1,157 +1,93 @@
-<div class="shot reveal">
-        <div class="shot-frame">
-          <div class="shot-topbar">
-            <div class="shot-traffic">
-              <span style="background:#E56767"></span>
-              <span style="background:#E8B94B"></span>
-              <span style="background:#6CC078"></span>
-            </div>
-            <div class="shot-url">platform.nowkickback.com/warehouse</div>
-            <div></div>
+{#- Warehouse desk dashboard (costr app/views/warehouse/dashboard/show.html.erb).
+    Sample data only. -#}
+<div class="shot reveal" role="img" aria-label="Warehouse dashboard: jobs ready to schedule, open shipments, consumables to reorder and material by status">
+  <div class="shot-frame" aria-hidden="true">
+    <div class="shot-topbar">
+      <div class="shot-traffic">
+        <span style="background:#E56767"></span>
+        <span style="background:#E8B94B"></span>
+        <span style="background:#6CC078"></span>
+      </div>
+      <div class="shot-url">platform.nowkickback.com/warehouse</div>
+      <div></div>
+    </div>
+    <div class="shot-body">
+
+      <div class="shot-sidebar">
+        <div class="wh-org"><span class="wh-org-mark"><i class="ph-fill ph-package"></i></span>Ridgeline Exteriors</div>
+        <div class="shot-side-item"><i class="ph ph-magnifying-glass"></i>Search</div>
+        <div class="shot-side-item shot-side-active"><i class="ph ph-gauge"></i>Dashboard</div>
+        <div class="shot-side-item"><i class="ph ph-briefcase"></i>Jobs</div>
+        <div class="shot-side-section">Inventory</div>
+        <div class="shot-side-item"><i class="ph ph-truck"></i>Shipments</div>
+        <div class="shot-side-item"><i class="ph ph-scan"></i>Articles</div>
+        <div class="shot-side-item"><i class="ph ph-stack"></i>Consumables</div>
+        <div class="shot-side-section">Manage</div>
+        <div class="shot-side-item"><i class="ph ph-map-pin"></i>Locations</div>
+        <div class="shot-side-item"><i class="ph ph-map-trifold"></i>Floor Plans</div>
+        <div class="shot-side-item"><i class="ph ph-upload-simple"></i>Manifests</div>
+        <div class="shot-side-item"><i class="ph ph-ruler"></i>Usage Rates</div>
+        <div class="shot-side-item"><i class="ph ph-gear"></i>Settings</div>
+      </div>
+
+      <div class="wh-main">
+        <div class="wh-title">Dashboard</div>
+
+        <div class="wh-stats">
+          <div class="wh-card wh-stat"><div><div class="wh-meta">Ready to schedule</div><div class="wh-stat-value">4</div></div><i class="ph ph-package"></i></div>
+          <div class="wh-card wh-stat"><div><div class="wh-meta">Open shipments</div><div class="wh-stat-value">3</div></div><i class="ph ph-truck"></i></div>
+          <div class="wh-card wh-stat"><div><div class="wh-meta">To reorder</div><div class="wh-stat-value">2</div></div><i class="ph ph-stack"></i></div>
+          <div class="wh-card wh-stat"><div><div class="wh-meta">Short</div><div class="wh-stat-value">1</div></div><i class="ph ph-warning"></i></div>
+          <div class="wh-card wh-stat"><div><div class="wh-meta">Demand gaps</div><div class="wh-stat-value">3</div></div><i class="ph ph-question"></i></div>
+        </div>
+
+        <div class="wh-card">
+          <div class="wh-card-head">
+            <span class="wh-card-title">Material by status</span>
+            <span class="wh-btn wh-btn-sm">All 214 articles</span>
           </div>
-          <div class="shot-body shot-body-3col">
+          <div class="wh-status-row">
+            <span class="wh-badge">48 Expected</span>
+            <span class="wh-badge wh-badge-success">117 Received</span>
+            <span class="wh-badge wh-badge-info">22 Scheduled</span>
+            <span class="wh-badge wh-badge-brand">11 Staged</span>
+            <span class="wh-badge wh-badge-warning">16 Out for Install</span>
+          </div>
+        </div>
 
-            <!-- Sidebar -->
-            <div class="shot-sidebar">
-              <div class="shot-side-item">
-                <i class="ph ph-gauge" aria-hidden="true"></i>
-                Dashboard
-              </div>
-              <div class="shot-side-item">
-                <i class="ph ph-truck" aria-hidden="true"></i>
-                Inbound Trucks <span class="shot-pill">3</span>
-              </div>
-              <div class="shot-side-item">
-                <i class="ph ph-package" aria-hidden="true"></i>
-                Inventory
-              </div>
-              <div class="shot-side-section">OPS</div>
-              <div class="shot-side-item shot-side-muted">Locations</div>
-              <div class="shot-side-item shot-side-muted">Shop Supplies</div>
-              <div class="shot-side-section">PLATFORM DATA</div>
-              <div class="shot-side-item shot-side-muted">CRM Accounts</div>
-              <div class="shot-side-item shot-side-muted">Vendors</div>
+        <div class="wh-dash-tables">
+          <div class="wh-card wh-card-flush">
+            <div class="wh-card-head">
+              <span class="wh-card-title">Ready to schedule</span>
+              <span class="wh-filter wh-hide-sm"><span class="wh-filter-on">All<span class="wh-num">4</span></span><span>Installer<span class="wh-num">3</span></span><span>Service<span class="wh-num">1</span></span></span>
             </div>
+            <table class="wh-table">
+              <thead><tr><th>Customer</th><th class="wh-hide-sm">Job</th><th>Service</th></tr></thead>
+              <tbody>
+                <tr><td>Dana Whitfield<div class="wh-cell-sub">118 Laurel Ct</div></td><td class="wh-num wh-hide-sm">J-20418</td><td>Installer</td></tr>
+                <tr><td>Marcus Ortega<div class="wh-cell-sub">42 Birch Hollow Rd</div></td><td class="wh-num wh-hide-sm">J-20431</td><td>Installer</td></tr>
+                <tr><td>Priya Raman<div class="wh-cell-sub">9 Quarry Ln</div></td><td class="wh-num wh-hide-sm">J-20377</td><td>Service</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-            <!-- Queue -->
-            <div class="shot-queue">
-              <div class="shot-queue-head">
-                <span>Inbound Today</span>
-                <span class="ks-badge ks-badge-brand">3</span>
-              </div>
-              <div class="shot-queue-row shot-queue-active">
-                <span class="ks-avatar" style="background:var(--steel-500);color:#fff;font-size:10px">BOL</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">884205</div>
-                  <div class="shot-queue-sub">Marvin &middot; 48 pcs</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">12/48</div>
-                  <div class="shot-queue-date">Receiving</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="ks-avatar" style="background:var(--steel-600);color:#fff;font-size:10px">PO</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">123-456789</div>
-                  <div class="shot-queue-sub">Pella &middot; 16 pcs</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">0/16</div>
-                  <div class="shot-queue-date">Dock 2</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="ks-avatar" style="background:var(--steel-700);color:#fff;font-size:10px">PO</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">98-112233</div>
-                  <div class="shot-queue-sub">Andersen &middot; 22 pcs</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">22/22</div>
-                  <div class="shot-queue-date">Staged</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="ks-avatar">LM</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">Laura M.</div>
-                  <div class="shot-queue-sub">Order matched &middot; Rack B-12</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">8 pcs</div>
-                  <div class="shot-queue-date">Ready</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="ks-avatar">RB</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">Rachelle B.</div>
-                  <div class="shot-queue-sub">Unmatched &middot; 3 candidates</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">6 pcs</div>
-                  <div class="shot-queue-date">Review</div>
-                </div>
-              </div>
+          <div class="wh-card wh-card-flush">
+            <div class="wh-card-head">
+              <span class="wh-card-title">Open Shipments</span>
+              <span class="wh-btn wh-btn-sm wh-hide-sm">View shipments</span>
             </div>
-
-            <!-- Receive panel -->
-            <div class="shot-panel">
-              <div class="shot-panel-head">
-                <span class="ks-avatar" style="width:36px;height:36px;border-radius:4px;background:var(--steel-500);color:#fff;font-size:11px">BOL</span>
-                <div style="flex:1">
-                  <div style="font-size:18px;font-weight:600">BOL 884205</div>
-                  <div class="shot-queue-sub">Marvin Windows &middot; Dock 1 &middot; ETA 9:40a</div>
-                </div>
-                <div style="text-align:right">
-                  <div class="ks-numeric" style="font-size:20px;font-weight:600">12/48</div>
-                  <div class="shot-queue-date">received</div>
-                </div>
-              </div>
-
-              <div class="shot-panel-row">
-                <div class="shot-panel-title">Scan to receive</div>
-                <div class="shot-keyhint">
-                  zap barcode &middot; bundle = one scan
-                </div>
-              </div>
-
-              <div class="suggest suggest-active">
-                <div class="suggest-num"><i class="ph ph-barcode" aria-hidden="true"></i></div>
-                <div class="suggest-body">
-                  <div class="suggest-name">Bundle BN-4418 &mdash; 6 casements</div>
-                  <div class="suggest-meta">
-                    <span>PO 123-456789 &middot; Laura M. &middot; Job matched</span>
-                  </div>
-                  <div class="suggest-tag">
-                    <i class="ph-fill ph-check" aria-hidden="true"></i>
-                    BUNDLE RECEIVED &middot; 6 PCS
-                  </div>
-                </div>
-              </div>
-
-              <div class="shot-panel-row">
-                <div class="shot-panel-title">Put away</div>
-                <div class="shot-keyhint">scan rack, then item</div>
-              </div>
-
-              <div class="suggest suggest-action">
-                <div class="suggest-key"><i class="ph ph-map-pin" aria-hidden="true"></i></div>
-                <div class="suggest-body">
-                  <div class="suggest-name suggest-name-sm">Assign to Rack B-12</div>
-                  <div class="suggest-action-desc">Move the whole order in one tap, or piece by piece.</div>
-                </div>
-              </div>
-              <div class="suggest suggest-action">
-                <div class="suggest-key"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></div>
-                <div class="suggest-body">
-                  <div class="suggest-name suggest-name-sm">Find by serial / PO / BOL</div>
-                  <div class="suggest-action-desc">Exact hits open the record. Partial hits list matches.</div>
-                </div>
-              </div>
-            </div>
-
+            <table class="wh-table">
+              <thead><tr><th>BOL</th><th class="wh-hide-sm">Vendor</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr><td class="wh-num">884301</td><td class="wh-hide-sm wh-nowrap">MI Windows and Doors</td><td><span class="wh-badge wh-badge-warning">Arrived</span></td><td class="wh-right"><span class="wh-btn wh-btn-sm">Receive</span></td></tr>
+                <tr><td class="wh-num">AM-2026-10-26</td><td class="wh-hide-sm wh-nowrap">Associated Materials</td><td><span class="wh-badge">Shipped</span></td><td class="wh-right"><span class="wh-btn wh-btn-sm">Receive</span></td></tr>
+                <tr><td class="wh-num">WC-2026-10-28</td><td class="wh-hide-sm wh-nowrap">Wincore</td><td><span class="wh-badge">Shipped</span></td><td class="wh-right"><span class="wh-btn wh-btn-sm">Receive</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+
+    </div>
+  </div>
+</div>

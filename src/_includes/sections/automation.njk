@@ -1,0 +1,18 @@
+{# Automatic vs. You Confirm: what runs on its own and what waits for a person. #}
+{% set s = section %}
+<section class="section section-tinted" id="{{ s.id or 'automation' }}">
+  <div class="container">
+    {% set reveal = true %}
+    {% include "partials/section-head.njk" %}
+    <div class="automation-grid reveal-group">
+      {% for col in [s.automatic, s.confirm] %}
+      <div class="automation-col reveal">
+        <h3 class="automation-title"><i class="{{ 'ph ph-lightning' if loop.first else 'ph ph-hand-pointing' }}" aria-hidden="true"></i>{{ col.title or ('Automatic' if loop.first else 'You Confirm') }}</h3>
+        <ul class="automation-list">
+          {% for item in col.items %}<li>{{ item }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

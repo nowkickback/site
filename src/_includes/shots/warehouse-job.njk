@@ -1,0 +1,78 @@
+{#- Warehouse job page (costr app/views/warehouse/jobs/show.html.erb, _status,
+    _contract). Sample data only. -#}
+<div class="shot wh-shot" role="img" aria-label="Job page: every contract line is in, and the CRM booking has scheduled all 8 pieces">
+  <div class="shot-frame" aria-hidden="true">
+    <div class="wh-main">
+      <div class="wh-head">
+        <div class="wh-head-copy">
+          <div class="wh-crumb">Jobs</div>
+          <div class="wh-title">Dana Whitfield <span class="wh-badge wh-badge-info">Scheduled</span></div>
+        </div>
+        <div class="wh-actions">
+          <span class="wh-btn wh-btn-sm"><i class="ph ph-path"></i>Pick</span>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div class="wh-track-band">
+          <span class="wh-track-label">Scheduled <span class="wh-num wh-muted" style="font-size:11px">8/8</span></span>
+          <div class="wh-steps">
+            <span class="wh-step-done"><i class="ph ph-note-pencil"></i></span>
+            <span class="wh-step-done"><i class="ph ph-paper-plane-tilt"></i></span>
+            <span class="wh-step-done"><i class="ph ph-handshake"></i></span>
+            <span class="wh-step-done"><i class="ph ph-truck"></i></span>
+            <span class="wh-step-done"><i class="ph ph-package"></i></span>
+            <span class="wh-step-now"><i class="ph ph-calendar-check"></i></span>
+            <span><i class="ph ph-stack"></i></span>
+            <span><i class="ph ph-van"></i></span>
+            <span><i class="ph ph-house-line"></i></span>
+          </div>
+        </div>
+        <div class="wh-band-note">Booked in the CRM (Scheduled): every piece in is scheduled.</div>
+      </div>
+
+      <div class="wh-job-grid">
+        <div class="wh-card">
+          <div class="wh-card-head">
+            <span class="wh-card-title">Line Items</span>
+            <span class="wh-badge wh-badge-success">Ready</span>
+          </div>
+          <div class="wh-units"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="wh-units-legend"><span class="wh-meta">8 in</span></div>
+
+          <div class="wh-line">
+            <div class="wh-line-head">
+              <span class="wh-line-name">Double Hung, White</span>
+              <span class="wh-line-badges"><span class="wh-badge wh-badge-success">6 of 6</span><span class="wh-badge wh-badge-success"><i class="ph ph-check"></i>In</span></span>
+            </div>
+            <div class="wh-article"><span class="wh-article-serial">7731042</span><span class="wh-article-desc wh-hide-sm">DH white · 35 1/2 × 59 1/2</span></div>
+            <div class="wh-article"><span class="wh-article-serial">7731043</span><span class="wh-article-desc wh-hide-sm">DH white · 35 1/2 × 59 1/2</span></div>
+          </div>
+          <div class="wh-line">
+            <div class="wh-line-head">
+              <span class="wh-line-name">Picture Window</span>
+              <span class="wh-line-badges"><span class="wh-badge wh-badge-success">1 of 1</span><span class="wh-badge wh-badge-success"><i class="ph ph-check"></i>In</span></span>
+            </div>
+          </div>
+          <div class="wh-line">
+            <div class="wh-line-head">
+              <span class="wh-line-name">Patio Door, 6 ft</span>
+              <span class="wh-line-badges"><span class="wh-badge wh-badge-success">1 of 1</span><span class="wh-badge wh-badge-success"><i class="ph ph-check"></i>In</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wh-card">
+          <div class="wh-meta">Customer</div>
+          <div class="wh-rail-name">Dana Whitfield</div>
+          <div class="wh-rail-row"><i class="ph ph-map-pin"></i>118 Laurel Ct</div>
+          <div class="wh-rail-row"><i class="ph ph-hash"></i>Job # J-20418</div>
+          <div class="wh-rail-sep"></div>
+          <div class="wh-meta">Orders</div>
+          <div class="wh-rail-row" style="justify-content:space-between;margin-top:8px"><span class="wh-num" style="color:var(--fg-1)">PO 028-5521</span><span class="wh-badge wh-badge-info">Scheduled</span></div>
+          <div class="wh-help" style="margin-top:3px">Associated Materials · Installer · 8 pieces</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

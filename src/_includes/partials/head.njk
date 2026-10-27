@@ -1,11 +1,11 @@
 {% set p = product or (productKey and products[productKey]) %}
 <meta charset="utf-8">
-<title>{{ title or (p and p.seo.title) or platform.seo.title }}</title>
+<title>{{ title or (p and p.seo.title) or site.name }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ description or (p and p.seo.description) or platform.seo.description }}">
+<meta name="description" content="{{ description or (p and p.seo.description) }}">
 <meta name="theme-color" content="{{ themeColor or (p and p.themeColor) or site.themeColorDefault }}">
-<meta property="og:title" content="{{ ogTitle or (p and p.seo.ogTitle) or title or (p and p.seo.title) or platform.seo.ogTitle }}">
-<meta property="og:description" content="{{ ogDescription or (p and p.seo.ogDescription) or description or (p and p.seo.description) or platform.seo.ogDescription }}">
+<meta property="og:title" content="{{ ogTitle or (p and p.seo.ogTitle) or title or (p and p.seo.title) or site.name }}">
+<meta property="og:description" content="{{ ogDescription or (p and p.seo.ogDescription) or description or (p and p.seo.description) }}">
 <meta property="og:type" content="website">
 <link rel="preload" href="/fonts/woff2/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/woff2/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
@@ -16,6 +16,9 @@
 <link rel="stylesheet" href="/css/components.css?v={{ site.cssVersion }}">
 <link rel="stylesheet" href="/css/site.css?v={{ site.cssVersion }}">
 <link rel="stylesheet" href="/css/theme.css?v={{ site.cssVersion }}">
+{%- for sheet in ["costing", "follow-up", "warehouse", "platform"] %}
+<link rel="stylesheet" href="/css/shots/{{ sheet }}.css?v={{ site.cssVersion }}">
+{%- endfor %}
 <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
 <link rel="shortcut icon" href="/assets/favicon/favicon.ico">

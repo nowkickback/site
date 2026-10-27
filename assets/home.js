@@ -56,10 +56,39 @@
     });
   }
 
+  /* --- Apps menu (desktop nav disclosure) --------------------------------- */
+  function initAppsMenu() {
+    var root = document.querySelector("[data-apps-menu]");
+    if (!root) return;
+    var toggle = root.querySelector("button[aria-controls]");
+    var panel = document.getElementById(toggle.getAttribute("aria-controls"));
+
+    function setOpen(open) {
+      panel.hidden = !open;
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    setOpen(false);
+    toggle.addEventListener("click", function () { setOpen(panel.hidden); });
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !panel.hidden) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    // Close when focus or a click leaves the menu.
+    root.addEventListener("focusout", function (e) {
+      if (!root.contains(e.relatedTarget)) setOpen(false);
+    });
+    document.addEventListener("click", function (e) {
+      if (!root.contains(e.target)) setOpen(false);
+    });
+  }
+
   /* --- FAQ accordion ------------------------------------------------------ */
   function initFaq() {
     document.querySelectorAll("[data-faq]").forEach(function (btn) {
-      var body = btn.parentNode.querySelector("[data-faq-body]");
+      var body = document.getElementById(btn.getAttribute("aria-controls"));
       var caret = btn.querySelector("[data-faq-caret]");
       if (!body) return;
 
@@ -388,7 +417,7 @@
     });
   }
 
-  /* --- "How it works" app switcher — prev/next + suite-card deep links ---- */
+  /* --- "How it works" app switcher: prev/next between apps --------------- */
   function initHowNav() {
     var panels = Array.prototype.slice.call(document.querySelectorAll("[data-how-panel]"));
     if (!panels.length) return;
@@ -402,11 +431,6 @@
       panels.forEach(function (p, i) { p.hidden = i !== idx; });
       var color = panels[idx].getAttribute("data-how-color");
       if (eyebrow && color) eyebrow.style.color = color;
-    }
-    function showKey(key) {
-      for (var i = 0; i < panels.length; i++) {
-        if (panels[i].getAttribute("data-how-panel") === key) { rawShow(i); return; }
-      }
     }
     function go(delta, sourceIcon) {
       var targetIdx = (current() + delta + panels.length) % panels.length;
@@ -433,16 +457,12 @@
     document.querySelectorAll("[data-how-prev]").forEach(function (btn) {
       btn.addEventListener("click", function () { go(-1, null); });
     });
-    document.querySelectorAll("[data-how-select]").forEach(function (el) {
-      el.addEventListener("click", function () {
-        showKey(el.getAttribute("data-how-select"));
-      });
-    });
   }
 
   function init() {
     initTheme();
     initMenu();
+    initAppsMenu();
     initFaq();
     initLightboxes();
     initHowNav();

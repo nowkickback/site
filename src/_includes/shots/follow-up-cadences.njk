@@ -1,0 +1,48 @@
+{% set fuSteps = [
+  { day: 1, hint: "Thanks for having us out. Here's your quote and what happens next.", call: true, text: true, email: false },
+  { day: 3, hint: "Quick check-in: any questions on the quote we left you?", call: true, text: false, email: true },
+  { day: 7, hint: "We can still hold your spot on the schedule this month.", call: true, text: true, email: true },
+  { day: 14, hint: "Final standard touch. Recap, answers, and a gentle deadline.", call: true, text: true, email: true }
+] %}
+<div class="fu-cad" role="img" aria-label="The Standard Follow-Up Sequence cadence: four touches over 14 days, on day 1, 3, 7 and 14, each with its call, text and email channels. Below it, the statuses an estimate moves through: New, Active, Date Given or Thinking, Nurture, then Won or Lost.">
+  <div class="fu-card fu-cad-card" aria-hidden="true">
+    <div class="fu-cad-head">
+      <span class="fu-cad-title">Standard Follow-Up Sequence</span>
+      <span class="fu-mono fu-cad-meta">4 touches · 14 days</span>
+    </div>
+    <dl class="fu-cad-dl">
+      <div><dt>Enters</dt><dd><b>Active</b> estimates with no date from the customer. Call first, then the drafted text and email.</dd></div>
+      <div><dt>Exits</dt><dd>Final touch with no decision → moves to <b>Nurture</b> automatically.</dd></div>
+    </dl>
+    <div class="fu-cad-line">
+      {% for s in fuSteps %}
+      <span class="fu-cad-node" style="left: {{ ((s.day - 1) / 13 * 100) | round(2) }}%"><span>{{ loop.index }}</span><em class="fu-mono">Day {{ s.day }}</em></span>
+      {% endfor %}
+    </div>
+    <div class="fu-cad-rows">
+      {% for s in fuSteps %}
+      <div class="fu-cad-row">
+        <span class="fu-cad-num">{{ loop.index }}</span>
+        <span class="fu-mono fu-cad-day"><span>Day</span><b>{{ s.day }}</b></span>
+        <span class="fu-cad-hint">{{ s.hint }}</span>
+        <span class="fu-cad-pills">
+          <span class="fu-pill{% if s.call %} is-on{% endif %}">Call</span>
+          <span class="fu-pill{% if s.text %} is-on{% endif %}">Text</span>
+          <span class="fu-pill{% if s.email %} is-on{% endif %}">Email</span>
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="fu-cad-flow" aria-hidden="true">
+    <span class="fu-status fu-status-info">New</span>
+    <i class="ph ph-arrow-right"></i>
+    <span class="fu-status">Active</span>
+    <i class="ph ph-arrow-right"></i>
+    <span class="fu-cad-fork"><span class="fu-status fu-status-brand">Date Given</span><span class="fu-status fu-status-warning">Thinking</span></span>
+    <i class="ph ph-arrow-right"></i>
+    <span class="fu-status">Nurture</span>
+    <i class="ph ph-arrow-right"></i>
+    <span class="fu-cad-fork"><span class="fu-status fu-status-success">Won</span><span class="fu-status fu-status-danger">Lost</span></span>
+  </div>
+</div>

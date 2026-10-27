@@ -1,0 +1,14 @@
+{# One-line price for the current product, read from src/_data/pricing.json. #}
+{% set s = section %}
+{% set price = pricing.apps | findBy("slug", product.slug) %}
+<section class="section section-sm section-tinted section-ruled" id="{{ s.id or 'pricing' }}">
+  <div class="container">
+    <div class="pricing-line reveal">
+      <div class="pricing-line-copy">
+        <h2 class="pricing-line-title">{{ product.name }} is <strong>{{ price.monthly | usd }}/mo</strong> with {{ price.includedSeats }} {{ price.seat if price.includedSeats == 1 else price.seats }} included.</h2>
+        <p class="pricing-line-body">Extra {{ price.seats }} are {{ price.seatMonthly | usd }}/mo each.{% if price.seatNote %} {{ price.seatNote }}{% endif %} Every account also pays the {{ pricing.platform.monthly | usd }}/mo platform fee, {{ pricing.platform.waiver | lower }}. {{ pricing.annualNote }}</p>
+      </div>
+      <a class="ks-btn ks-btn-secondary ks-btn-lg" href="/pricing/">See Full Pricing</a>
+    </div>
+  </div>
+</section>

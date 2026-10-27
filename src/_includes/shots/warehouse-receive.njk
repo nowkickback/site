@@ -1,0 +1,66 @@
+{#- Handheld dock scan screen (costr app/views/warehouse/shipments/receive.html.erb,
+    _scan_entry, _receive_counts) beside the Paired Scanners card
+    (app/views/organizations/panels/warehouse/_devices.html.erb). Sample data only. -#}
+<div class="wh-receive-pair" role="img" aria-label="A paired scanner receiving a truck: a bundle scan received 6 pieces, and the Paired Scanners list with a Revoke button per gun">
+  <div class="wh-phone" aria-hidden="true">
+    <div class="wh-phone-screen">
+      <div class="wh-phone-bar">
+        <i class="ph ph-list"></i>
+        <span class="wh-org"><span class="wh-org-mark"><i class="ph-fill ph-package"></i></span>Ridgeline Exteriors</span>
+        <i class="ph ph-magnifying-glass"></i>
+      </div>
+      <div>
+        <div class="wh-crumb">Shipments / MIWD 884301</div>
+        <div class="wh-title">Receive</div>
+      </div>
+      <div>
+        <div class="wh-figure"><span class="wh-meta">Received</span><b>31<span> / 48</span></b></div>
+        <div class="wh-track"><div style="width:65%"></div></div>
+      </div>
+      <div>
+        <div class="wh-meta">Scan to receive</div>
+        <div class="wh-scan-field">Type or scan…</div>
+      </div>
+      <div>
+        <div class="wh-meta">Scan log</div>
+        <div class="wh-scan-log">
+          <div class="wh-scan wh-scan-new">
+            <span class="wh-scan-disc"><i class="ph-fill ph-check"></i></span>
+            <div style="min-width:0;flex:1">
+              <div class="wh-scan-name">Bundle B-20417</div>
+              <div class="wh-scan-detail">6 of 6 pieces received</div>
+            </div>
+          </div>
+          <div class="wh-scan"><i class="ph ph-check-circle wh-ok"></i><span class="wh-scan-name">4471.31.1.1</span><span class="wh-scan-status">Received</span></div>
+          <div class="wh-scan"><i class="ph ph-arrow-counter-clockwise wh-warn"></i><span class="wh-scan-name">4471.29.1.2</span><span class="wh-scan-status">Already received</span></div>
+          <div class="wh-scan"><i class="ph ph-x-circle wh-bad"></i><span class="wh-scan-name">4466.02.1.1</span><span class="wh-scan-status wh-bad">On a different truck</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shot-frame wh-card" aria-hidden="true" style="box-shadow:var(--shadow-lg)">
+    <div class="wh-card-head">
+      <span class="wh-card-title">Paired Scanners</span>
+      <span class="wh-badge">2/3 in use</span>
+    </div>
+    <ul class="wh-scanners" role="list">
+      <li>
+        <i class="ph ph-barcode"></i>
+        <div style="flex:1;min-width:0"><div class="wh-scanner-name">Dock 1</div><div class="wh-help">Last seen 1 minute ago</div></div>
+        <span class="wh-btn wh-btn-sm">Revoke</span>
+      </li>
+      <li>
+        <i class="ph ph-barcode"></i>
+        <div style="flex:1;min-width:0"><div class="wh-scanner-name">Pick Cart</div><div class="wh-help">Last seen 2 hours ago</div></div>
+        <span class="wh-btn wh-btn-sm">Revoke</span>
+      </li>
+    </ul>
+    <div class="wh-pair-code">
+      <div class="wh-scanner-name">Pairing Code for Dock 2</div>
+      <div class="wh-barcode"></div>
+      <div class="wh-pair-digits">7KQ4XM2D</div>
+      <div class="wh-help" style="margin-top:4px">Expires in 15 minutes.</div>
+    </div>
+  </div>
+</div>

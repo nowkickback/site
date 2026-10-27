@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+permalink: /platform/
+activeNav: platform
+title: "Platform — Kickback"
+description: "Connect your CRM, supplier accounts, payroll and call recordings to Kickback once, then run Costing, Follow-Up and Warehouse on the same jobs, team and sign-in."
+ogTitle: "The Kickback Platform"
+ogDescription: "Connect your tools once. Costing, Follow-Up and Warehouse share the same jobs, team, roles, sign-in security and notifications."
+themeColor: "#DE4444"
+screenLabel: "Platform page"
+---
+{#- Platform page. Copy lives in src/_data/platform.json; split sections
+    alternate sides and backgrounds the same way product capabilities do. -#}
+{% set hero = platform.hero | merge({ ctas: [
+  { label: "Book a Demo", href: site.demoUrl, style: "primary" },
+  { label: platform.hero.secondaryCta.label, href: platform.hero.secondaryCta.href, style: "secondary" }
+] }) %}
+{% include "sections/hero.njk" %}
+
+{#- The features grid comes first and is tinted, so splits start on the plain
+    surface at loop.index0 1 and alternate from there. -#}
+{% for s in platform.sections %}
+  {% if s.type == "features" %}
+    {% set section = s %}
+    {% include "sections/features.njk" %}
+  {% elif s.type == "split" %}
+    {% set odd = loop.index0 % 2 == 1 %}
+    {% set section = s | merge({
+      reversed: not odd,
+      surface: "section-surface" if odd else "section-tinted section-ruled"
+    }) %}
+    {% if s.appStoreCta %}
+      {% set section = section | merge({ cta: { label: s.appStoreCta, href: site.appStoreUrl } }) %}
+    {% endif %}
+    {% include "sections/split.njk" %}
+  {% endif %}
+{% endfor %}
+{% set cta = platform.cta %}
+{% include "sections/cta-banner.njk" %}

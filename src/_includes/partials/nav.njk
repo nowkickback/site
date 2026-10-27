@@ -1,35 +1,48 @@
 {% from "macros/ds.njk" import button %}
-{% set demoUrl = site.demoUrl %}
-{% set platformUrl = site.platformUrl %}
-{% set signInUrl = site.signInUrl %}
+{#- Links come from site.nav; the Apps menu lists productList. The Apps button is a
+    disclosure (aria-expanded + aria-controls); behavior lives in home.js initAppsMenu. -#}
 <nav data-nav="1" class="kb-nav" aria-label="Primary">
 <div data-nav-inner="1" class="kb-nav-inner">
 <a href="/" class="kb-nav-brand"><img data-logo="1" src="/assets/wordmark-on-light.svg" alt="Kickback"></a>
 <div data-desk="1" data-nav-mid="1" class="kb-nav-mid">
-<a href="/#platform">Platform</a>
-<a href="/#apps">Apps</a>
-<a href="/#how">How it works</a>
-<a href="/#pricing">Pricing</a>
-<a href="/#faq">FAQ</a>
+{%- for item in site.nav %}
+{%- if item.menu == "apps" %}
+<div class="kb-nav-apps" data-apps-menu="1">
+<button type="button" class="kb-nav-apps-toggle" aria-expanded="false" aria-controls="apps-menu"{% if productKey %} aria-current="true"{% endif %}>{{ item.label }}<i class="ph ph-caret-down" aria-hidden="true"></i></button>
+<div class="kb-nav-apps-panel" id="apps-menu" hidden>
+<ul role="list">
+{%- for app in productList %}
+<li><a href="{{ app.url }}" class="kb-nav-app"{% if productKey == app.slug %} aria-current="page"{% endif %} style="--app-color:{{ app.color }}"><span class="kb-nav-app-mark" aria-hidden="true"><i class="{{ app.icon }}"></i></span><span class="kb-nav-app-copy"><span class="kb-nav-app-name">{{ app.name }}</span><span class="kb-nav-app-tagline">{{ app.tagline }}</span></span></a></li>
+{%- endfor %}
+</ul>
+</div>
+</div>
+{%- else %}
+<a href="{{ item.href }}"{% if activeNav == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
+{%- endif %}
+{%- endfor %}
 </div>
 <div data-desk="1" class="kb-nav-actions">
-<a href="{{ signInUrl }}" class="kb-nav-signin">Sign In</a>
-{{ button("Book a Demo", demoUrl, "secondary", "sm") }}
-{{ button("Start Free", platformUrl, "primary", "sm") }}
+<a href="{{ site.signInUrl }}" class="kb-nav-signin">Sign In</a>
+{{ button("Book a Demo", site.demoUrl, "primary", "sm") }}
 </div>
 <button type="button" data-mobile-only="1" data-menu-toggle="1" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:var(--radius-sm);color:var(--fg-1);cursor:pointer;font-size:20px"><i class="ph ph-list" aria-hidden="true"></i></button>
 </div>
-<div id="mobile-menu" data-menu="1" hidden style="border-top:1px solid var(--border-subtle);padding:12px 24px 20px;background:var(--bg-surface)">
-<div style="display:flex;flex-direction:column;gap:2px">
-<a href="/#platform" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Platform</a>
-<a href="/#apps" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Apps</a>
-<a href="/#how" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">How it works</a>
-<a href="/#pricing" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">Pricing</a>
-<a href="/#faq" data-menu-close="1" style="color:var(--fg-1);font-size:16px;font-weight:500;padding:12px 0;border-bottom:1px solid var(--border-subtle)">FAQ</a>
-<div style="display:flex;flex-direction:column;gap:10px;margin-top:16px">
-{{ button("Start Free", platformUrl, "primary", "lg", true) }}
-{{ button("Book a Demo", demoUrl, "secondary", "lg", true) }}
-{{ button("Sign In", signInUrl, "secondary", "lg", true) }}
+<div id="mobile-menu" data-menu="1" class="kb-mobile-menu" hidden>
+<div class="kb-mobile-menu-links">
+{%- for item in site.nav %}
+{%- if item.menu == "apps" %}
+<span class="kb-mobile-menu-label">{{ item.label }}</span>
+{%- for app in productList %}
+<a href="{{ app.url }}" data-menu-close="1" class="kb-mobile-menu-app"{% if productKey == app.slug %} aria-current="page"{% endif %} style="--app-color:{{ app.color }}"><span class="kb-nav-app-mark" aria-hidden="true"><i class="{{ app.icon }}"></i></span>{{ app.name }}</a>
+{%- endfor %}
+{%- else %}
+<a href="{{ item.href }}" data-menu-close="1"{% if activeNav == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
+{%- endif %}
+{%- endfor %}
+<div class="kb-mobile-menu-actions">
+{{ button("Book a Demo", site.demoUrl, "primary", "lg", true) }}
+{{ button("Sign In", site.signInUrl, "secondary", "lg", true) }}
 </div>
 </div>
 </div>

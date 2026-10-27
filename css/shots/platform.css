@@ -1,0 +1,711 @@
+/* Mockups and page-specific styles for platform. All classes are pf-*; they
+   copy the platform app's own screens (Home, Vendors, Manage Roles, Audit Log,
+   Password & Security, Notifications) closely enough to recognize. */
+
+/* ---------- Shared bits ---------- */
+.pf-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: #fff;
+  font-size: 15px;
+}
+.pf-mark-sm {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.pf-mark-costing { background: var(--moss-600); }
+.pf-mark-follow-up { background: var(--tide-600); }
+.pf-mark-warehouse { background: var(--steel-600); }
+
+.pf-dots {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 3px;
+}
+.pf-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 1px;
+  display: block;
+}
+.pf-dot-platform { background: var(--red-600, #C62F2F); }
+.pf-dot-costing { background: var(--moss-600); }
+.pf-dot-follow-up { background: var(--tide-600); }
+.pf-dot-warehouse { background: var(--steel-600); }
+
+.pf-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  box-shadow: var(--shadow-md, var(--shadow-sm));
+  overflow: hidden;
+  text-align: left;
+  color: var(--fg-1);
+  font-size: 13px;
+}
+.pf-card + .pf-card {
+  margin-top: 16px;
+}
+.pf-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--bg-muted);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.pf-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.pf-card-body {
+  padding: 14px 16px;
+}
+.pf-crumb {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.pf-help {
+  font-size: 11px;
+  color: var(--fg-3);
+  line-height: 1.45;
+  margin: 4px 0 0;
+}
+.pf-text {
+  font-size: 12px;
+  color: var(--fg-2);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  border: 1px solid var(--border-default, var(--border-subtle));
+  background: var(--bg-surface);
+  color: var(--fg-1);
+}
+.pf-btn-primary {
+  background: var(--accent-600, #C62F2F);
+  border-color: var(--accent-600, #C62F2F);
+  color: #fff;
+}
+.pf-btn-ghost {
+  background: var(--bg-muted);
+  border-color: var(--border-subtle);
+  color: var(--fg-3);
+}
+.pf-btn-danger {
+  background: transparent;
+  border-color: rgba(198, 47, 47, 0.45);
+  color: var(--fg-danger, #C62F2F);
+}
+.pf-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--bg-muted);
+  color: var(--fg-3);
+  border: 1px solid var(--border-subtle);
+}
+.pf-badge-on {
+  background: var(--bg-success-subtle, rgba(107, 142, 61, 0.14));
+  color: var(--fg-success);
+  border-color: rgba(107, 142, 61, 0.3);
+}
+.pf-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.pf-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 6px 9px;
+  border: 1px solid var(--border-default, var(--border-subtle));
+  border-radius: 3px;
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pf-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-1);
+}
+
+/* ---------- Hero: platform Home ---------- */
+.pf-home .shot-body {
+  min-height: 460px;
+}
+.pf-home .shot-sidebar {
+  gap: 1px;
+}
+.pf-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 10px 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fg-1);
+}
+.pf-brand-tile {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: var(--red-600, #C62F2F);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.04em;
+}
+.pf-brand em {
+  font-style: normal;
+  color: var(--fg-brand);
+}
+.pf-count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-brand);
+  border: 1px solid rgba(222, 68, 68, 0.45);
+  border-radius: 3px;
+  padding: 0 5px;
+}
+.pf-home-main {
+  padding: 28px 32px;
+}
+.pf-page-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  margin: 0 0 18px;
+  color: var(--fg-1);
+}
+.pf-app-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+.pf-app-row:first-child {
+  border-top: 0;
+}
+.pf-app-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  width: 120px;
+  flex: 0 0 auto;
+}
+.pf-app-tag {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--fg-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pf-caret {
+  color: var(--fg-4, var(--fg-3));
+  font-size: 13px;
+  flex: 0 0 auto;
+}
+.pf-caret::before {
+  content: "›";
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ---------- Vendors ---------- */
+.pf-vendor-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+.pf-vendor-row:first-child {
+  border-top: 0;
+}
+.pf-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: -0.02em;
+}
+.pf-vendor-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.pf-vendor-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.pf-vendor-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--fg-success);
+  margin-top: 2px;
+}
+.pf-vendor-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: currentColor;
+}
+.pf-stat {
+  text-align: right;
+  flex: 0 0 auto;
+}
+.pf-stat-num {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1;
+}
+.pf-stat-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  color: var(--fg-3);
+  margin-top: 3px;
+}
+.pf-address + .pf-address {
+  margin-top: 14px;
+}
+
+/* ---------- Manage Roles + Audit Log ---------- */
+.pf-modal-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.pf-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background: var(--tide-600);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.pf-modal-sub {
+  font-size: 11px;
+  color: var(--fg-3);
+}
+.pf-modal-body {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-page);
+}
+.pf-role {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: var(--bg-surface);
+}
+.pf-check {
+  width: 13px;
+  height: 13px;
+  margin-top: 1px;
+  border: 1px solid var(--fg-3);
+  border-radius: 2px;
+  flex: 0 0 auto;
+  position: relative;
+}
+.pf-check-on {
+  background: var(--accent-600, #C62F2F);
+  border-color: var(--accent-600, #C62F2F);
+}
+.pf-check-on::after {
+  content: "";
+  position: absolute;
+  left: 3.5px;
+  top: 0.5px;
+  width: 3px;
+  height: 7px;
+  border: solid #fff;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.pf-role-name {
+  display: block;
+  font-weight: 600;
+  font-size: 12px;
+}
+.pf-role-desc {
+  display: block;
+  font-size: 10.5px;
+  color: var(--fg-3);
+  line-height: 1.4;
+}
+.pf-app-card {
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: var(--bg-surface);
+}
+.pf-app-card-on {
+  border-color: var(--border-strong, var(--fg-4, var(--border-subtle)));
+}
+.pf-app-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.pf-toggle {
+  margin-left: auto;
+  width: 28px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--stone-300);
+  position: relative;
+  flex: 0 0 auto;
+}
+.pf-toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #fff;
+}
+.pf-toggle-on {
+  background: var(--accent-600, #C62F2F);
+}
+.pf-toggle-on::after {
+  left: 14px;
+}
+.pf-app-card-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 10px 10px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 10px;
+}
+.pf-modal-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+.pf-modal-foot .pf-btn-danger {
+  margin-right: auto;
+}
+.pf-audit {
+  margin-top: 16px;
+}
+.pf-audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.pf-audit-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.pf-audit-table td {
+  padding: 8px 12px;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--fg-2);
+  white-space: nowrap;
+}
+.pf-audit-table tr:first-child td {
+  border-top: 0;
+}
+.pf-audit-table td:first-child {
+  color: var(--fg-1);
+  font-weight: 500;
+}
+.pf-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-3);
+}
+
+/* ---------- Password & Security ---------- */
+.pf-list-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.pf-list-row:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.pf-list-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.pf-list-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+  font-size: 12px;
+}
+.pf-glyph {
+  font-size: 14px;
+  color: var(--fg-3);
+  flex: 0 0 auto;
+}
+.pf-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Notification settings ---------- */
+.pf-notif-group + .pf-notif-group {
+  margin-top: 14px;
+}
+.pf-notif-product {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.pf-notif-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.pf-notif-table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 10.5px;
+  color: var(--fg-3);
+  padding: 4px 0;
+}
+.pf-notif-table th:not(:first-child),
+.pf-notif-table td {
+  width: 56px;
+  text-align: center;
+}
+.pf-notif-table tbody th {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--fg-1);
+  padding: 6px 8px 6px 0;
+}
+.pf-notif-table .pf-btn {
+  min-width: 36px;
+  padding: 4px 6px;
+}
+.pf-notif-desc {
+  display: block;
+  font-size: 10px;
+  color: var(--fg-3);
+  margin-top: 1px;
+}
+
+/* ---------- Phone ---------- */
+.pf-phone {
+  width: 290px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 44px;
+  background: #1c1917;
+  box-shadow: 0 0 0 1px var(--border-default, var(--border-subtle)), var(--shadow-xl);
+}
+.pf-phone-screen {
+  border-radius: 34px;
+  overflow: hidden;
+  background: var(--bg-page);
+  color: var(--fg-1);
+  min-height: 540px;
+  text-align: left;
+}
+.pf-phone-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.pf-phone-island {
+  width: 82px;
+  height: 22px;
+  border-radius: 999px;
+  background: #1c1917;
+}
+.pf-phone-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fg-brand);
+}
+.pf-burger {
+  width: 14px;
+  height: 10px;
+  border-top: 1.5px solid var(--fg-2);
+  border-bottom: 1.5px solid var(--fg-2);
+  position: relative;
+}
+.pf-burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3px;
+  border-top: 1.5px solid var(--fg-2);
+}
+.pf-phone-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  padding: 14px 16px 10px;
+}
+.pf-notif-row {
+  display: flex;
+  gap: 9px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.pf-unread {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--fg-brand);
+  margin-top: 5px;
+  flex: 0 0 auto;
+}
+.pf-read {
+  background: transparent;
+}
+.pf-notif-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+}
+.pf-notif-time {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 9px;
+  color: var(--fg-3);
+  white-space: nowrap;
+}
+.pf-notif-body {
+  font-size: 11px;
+  color: var(--fg-2);
+  line-height: 1.4;
+  margin-top: 1px;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 860px) {
+  .pf-home .shot-body {
+    min-height: 0;
+  }
+  .pf-home-main {
+    padding: 20px 16px;
+  }
+  .pf-app-name {
+    width: 96px;
+  }
+}
+@media (max-width: 520px) {
+  .pf-app-tag,
+  .pf-hide-sm {
+    display: none;
+  }
+  .pf-app-name {
+    flex: 1 1 auto;
+  }
+  .pf-vendor-row .pf-btn {
+    display: none;
+  }
+}

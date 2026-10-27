@@ -1,0 +1,28 @@
+---
+# Retired URLs. GitHub Pages has no server redirects, so each one is a static
+# page that refreshes to its target and tells crawlers where the content lives.
+redirects:
+  - from: /hud/
+    to: /
+  - from: /coach/
+    to: /
+pagination:
+  data: redirects
+  size: 1
+  alias: redirect
+permalink: "{{ redirect.from }}"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting to Kickback</title>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={{ redirect.to }}">
+<link rel="canonical" href="{{ site.url }}{{ redirect.to }}">
+</head>
+<body>
+<p><a href="{{ redirect.to }}">Continue to Kickback</a></p>
+</body>
+</html>

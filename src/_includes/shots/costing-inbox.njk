@@ -1,204 +1,155 @@
-<div class="shot reveal">
-        <div class="shot-frame">
-          <div class="shot-topbar">
-            <div class="shot-traffic">
-              <span style="background:#E56767"></span>
-              <span style="background:#E8B94B"></span>
-              <span style="background:#6CC078"></span>
-            </div>
-            <div class="shot-url">platform.nowkickback.com/matching</div>
-            <div></div>
+{#- Invoice Inbox, redrawn from costing/matching/index: app sidebar, invoice
+    queue, and the match panel at step 1 (pick a job). Sample data only. -#}
+{%- macro qrow(tile, tileText, num, amt, po, cust, date, tier, level, selected) -%}
+<div class="cs-qrow{% if selected %} is-selected{% endif %}">
+  <span class="cs-tile cs-tile-{{ tile }}">{% if tile == 'thd' %}<img src="/assets/vendors/home-depot.svg" alt="">{% elif tile == 'lowes' %}<img src="/assets/vendors/lowes.svg" alt="">{% else %}{{ tileText }}{% endif %}</span>
+  <div class="cs-qbody">
+    <span class="cs-qnum">{{ num }}</span>
+    <span class="cs-qamt">{{ amt }}</span>
+    <span class="cs-qsub">{% if po %}<span class="cs-po">{{ po }}</span>{% else %}<span class="cs-po">(no P/O)</span>{% endif %}{% if cust %}<span>&middot;</span><span class="cs-cust">{{ cust }}</span>{% endif %}</span>
+    <span class="cs-qdate">{{ date }} <span class="cs-bars" data-tier="{{ tier }}" data-level="{{ level }}"><i></i><i></i><i></i><i></i></span></span>
+  </div>
+</div>
+{%- endmacro -%}
+<div class="shot reveal cs-shot" role="img" aria-label="The Costing Invoice Inbox: a queue of supplier invoices, and for the selected invoice three suggested jobs with the reasons each one matched.">
+  <div class="shot-frame">
+    <div class="shot-topbar">
+      <div class="shot-traffic">
+        <span style="background:#E56767"></span>
+        <span style="background:#E8B94B"></span>
+        <span style="background:#6CC078"></span>
+      </div>
+      <div class="shot-url">platform.nowkickback.com/costing/matching</div>
+      <div></div>
+    </div>
+    <div class="cs-inbox">
+
+      <div class="cs-nav">
+        <div class="cs-brand"><span class="cs-brand-mark"><i class="ph-fill ph-currency-dollar"></i></span>Kickback <em>Costing</em></div>
+        <div class="cs-nav-item"><i class="ph ph-gauge"></i>Dashboard</div>
+        <div class="cs-nav-item is-active"><i class="ph ph-tray"></i>Invoice Inbox<span class="cs-nav-count">23</span></div>
+        <div class="cs-nav-item"><i class="ph ph-hand-coins"></i>Labor</div>
+        <div class="cs-nav-label">Data Integrity</div>
+        <div class="cs-nav-item"><i class="ph ph-copy"></i>Duplicates<span class="cs-nav-count">2</span></div>
+        <div class="cs-nav-item"><i class="ph ph-receipt-x"></i>Zero Cost Items<span class="cs-nav-count">4</span></div>
+        <div class="cs-nav-item"><i class="ph ph-link-break"></i>Unlinked Items<span class="cs-nav-count">11</span></div>
+        <div class="cs-nav-label">Platform Data</div>
+        <div class="cs-nav-item"><i class="ph ph-database"></i>CRM Accounts</div>
+        <div class="cs-nav-item"><i class="ph ph-storefront"></i>Vendors</div>
+        <div class="cs-nav-item"><i class="ph ph-bank"></i>Payroll</div>
+        <div class="cs-nav-item"><i class="ph ph-users-three"></i>Laborers</div>
+      </div>
+
+      <div class="cs-queue">
+        <div class="cs-queue-head">
+          <span>Invoice Inbox</span>
+          <span class="cs-btn"><i class="ph ph-funnel"></i>Filters</span>
+        </div>
+        {{ qrow('sw', 'SW', '4387-2', '$612.40', '2214 WESTOVER', '', 'Oct 24', 'close_call', 2, true) }}
+        {{ qrow('thd', '', 'H0381-55210', '$1,284.55', '1046', 'Avery Thompson', 'Oct 24', 'job_set', 4, false) }}
+        {{ qrow('lowes', '', '907314', '$258.49', 'CARTER CT', '', 'Oct 23', 'close_call', 3, false) }}
+        {{ qrow('sw', 'SW', '4380-9', '$45.32', '1042', 'Maria Lopez', 'Oct 22', 'job_set', 4, false) }}
+        {{ qrow('spectrum', 'SP', 'SP-118204', '$96.12', '', '', 'Oct 22', 'no_clear_fit', 1, false) }}
+        {{ qrow('thd', '', 'H0377-41022', '$418.20', 'WALNUT', '', 'Oct 21', 'close_call', 2, false) }}
+        {{ qrow('sw', 'SW', '4371-1', '$7.87', '', '', 'Oct 21', 'none', 0, false) }}
+        {{ qrow('lowes', '', '906988', '$1,032.17', '1039', 'Glen Ortiz', 'Oct 20', 'job_set', 4, false) }}
+      </div>
+
+      <div class="cs-panel">
+        <div class="cs-hints">
+          <span><span class="cs-key">J</span>/<span class="cs-key">&uarr;</span> prev &middot; <span class="cs-key">K</span>/<span class="cs-key">&darr;</span> next</span>
+          <span><span class="cs-key">D</span> view PDF</span>
+        </div>
+        <div class="cs-card cs-invoice-head">
+          <span class="cs-tile cs-tile-lg cs-tile-sw">SW</span>
+          <div class="cs-qbody">
+            <span class="cs-qnum">4387-2</span>
+            <span class="cs-qamt">$612.40</span>
+            <span class="cs-qsub"><span class="cs-po">2214 WESTOVER</span></span>
+            <span class="cs-qdate">Oct 24 <span class="cs-bars" data-tier="close_call" data-level="2"><i></i><i></i><i></i><i></i></span></span>
           </div>
-          <div class="shot-body shot-body-3col">
+        </div>
 
-            <!-- Sidebar -->
-            <div class="shot-sidebar">
-              <div class="shot-side-item">
-                <i class="ph ph-tray" aria-hidden="true"></i>
-                Invoice Inbox <span class="shot-pill">755</span>
-              </div>
-              <div class="shot-side-item">
-                <i class="ph ph-clipboard-text" aria-hidden="true"></i>
-                Jobs
-              </div>
-              <div class="shot-side-section">SYNC</div>
-              <div class="shot-side-item">
-                <i class="ph ph-database" aria-hidden="true"></i>
-                CRM Accounts
-              </div>
-              <div class="shot-side-item">
-                <i class="ph ph-storefront" aria-hidden="true"></i>
-                Vendors
-              </div>
-              <div class="shot-side-section">DATA INTEGRITY</div>
-              <div class="shot-side-item shot-side-muted">Duplicates</div>
-              <div class="shot-side-item shot-side-muted">Zero-cost items</div>
-              <div class="shot-side-item shot-side-muted">Unlinked items</div>
-            </div>
+        <div class="cs-panel-row">
+          <span>Matching Suggestions</span>
+          <span class="cs-hints"><span><span class="cs-key">Enter</span> confirm</span></span>
+        </div>
 
-            <!-- Queue -->
-            <div class="shot-queue">
-              <div class="shot-queue-head">
-                <span>Invoice Inbox</span>
-                <span class="ks-badge ks-badge-brand">755</span>
+        <div class="cs-cards">
+          <div class="cs-card cs-suggest is-selected">
+            <span class="cs-key">1</span>
+            <div class="cs-suggest-body">
+              <div class="cs-suggest-name">Dana Whitfield <span class="cs-suggested"><i class="ph ph-magic-wand"></i>Suggested</span></div>
+              <div class="cs-suggest-meta">
+                <span><i class="ph ph-map-pin"></i>2214 Westover Hills Blvd, Richmond, VA, 23225</span>
+                <span class="cs-sep">&middot;</span>
+                <span><i class="ph ph-calendar"></i>2026-10-20 - 2026-10-27</span>
               </div>
-              <div class="shot-queue-row shot-queue-active">
-                <span class="vendor-tag vendor-sw">SW</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">22405</div>
-                  <div class="shot-queue-sub">(no P/O)</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">$45.32</div>
-                  <div class="shot-queue-date">Apr 23</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="vendor-tag vendor-sw">SW</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">21668</div>
-                  <div class="shot-queue-sub">(no P/O)</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">$7.87</div>
-                  <div class="shot-queue-date">Apr 23</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="vendor-tag vendor-sw">SW</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">31071</div>
-                  <div class="shot-queue-sub">SHOP &middot; Christopher H. <span class="check">&#10003;</span></div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">$255.66</div>
-                  <div class="shot-queue-date">Apr 22</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="vendor-tag vendor-thd">THD</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">F8294</div>
-                  <div class="shot-queue-sub">12025030318</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">$418.20</div>
-                  <div class="shot-queue-date">Apr 22</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="vendor-tag vendor-lowes">L</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">907314</div>
-                  <div class="shot-queue-sub">CARTER CT &middot; Larry B. <span class="check">&#10003;</span></div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">$258.49</div>
-                  <div class="shot-queue-date">Apr 22</div>
-                </div>
-              </div>
-              <div class="shot-queue-row">
-                <span class="vendor-tag vendor-sw">SW</span>
-                <div class="shot-queue-meta">
-                  <div class="shot-queue-num">94426</div>
-                  <div class="shot-queue-sub">(no P/O)</div>
-                </div>
-                <div class="shot-queue-amt">
-                  <div class="ks-numeric">$63.96</div>
-                  <div class="shot-queue-date">Apr 21</div>
-                </div>
+              <div class="cs-chips">
+                <span class="cs-chip cs-chip-success"><i class="ph ph-check"></i>Job Address Match</span>
+                <span class="cs-chip cs-chip-muted"><i class="ph ph-tilde"></i>Within Job Dates</span>
               </div>
             </div>
+            <span class="cs-jobno">1187</span>
+            <span class="cs-btn">Match &rarr;</span>
+          </div>
 
-            <!-- Match panel -->
-            <div class="shot-panel">
-              <div class="shot-panel-head">
-                <span class="vendor-tag vendor-sw" style="width:36px;height:36px;font-size:12px;border-radius:4px">SW</span>
-                <div style="flex:1">
-                  <div style="font-size:18px;font-weight:600">22405</div>
-                  <div class="shot-queue-sub">(no P/O)</div>
-                </div>
-                <div style="text-align:right">
-                  <div class="ks-numeric" style="font-size:20px;font-weight:600">$45.32</div>
-                  <div class="shot-queue-date">Apr 23</div>
-                </div>
+          <div class="cs-card cs-suggest">
+            <span class="cs-key">2</span>
+            <div class="cs-suggest-body">
+              <div class="cs-suggest-name">Marcus Bell</div>
+              <div class="cs-suggest-meta">
+                <span><i class="ph ph-map-pin"></i>2214 Westover Rd, Midlothian, VA, 23113</span>
+                <span class="cs-sep">&middot;</span>
+                <span><i class="ph ph-calendar"></i>2026-10-02 - 2026-10-09</span>
               </div>
-
-              <div class="shot-panel-row">
-                <div class="shot-panel-title">Matching suggestions</div>
-                <div class="shot-keyhint">
-                  <kbd>1</kbd>&ndash;<kbd>3</kbd> select &middot; <kbd>Enter</kbd> confirm
-                </div>
-              </div>
-
-              <div class="suggest suggest-active">
-                <div class="suggest-num">1</div>
-                <div class="suggest-body">
-                  <div class="suggest-name">Laura M.</div>
-                  <div class="suggest-meta">
-                    <span><i class="ph ph-map-pin" aria-hidden="true"></i>123 Main Street, Richmond, VA</span>
-                    <span class="suggest-sep">&middot;</span>
-                    <span><i class="ph ph-calendar" aria-hidden="true"></i>Apr 16 &ndash; Apr 22</span>
-                  </div>
-                  <div class="suggest-tag">
-                    <i class="ph-fill ph-check" aria-hidden="true"></i>
-                    WITHIN JOB DATES
-                  </div>
-                </div>
-                <div class="suggest-id">2025-04-0123</div>
-                <button class="ks-btn ks-btn-secondary ks-btn-sm">Match &rarr;</button>
-              </div>
-
-              <div class="suggest">
-                <div class="suggest-num">2</div>
-                <div class="suggest-body">
-                  <div class="suggest-name">Rachelle B.</div>
-                  <div class="suggest-meta">
-                    <span><i class="ph ph-map-pin" aria-hidden="true"></i>123 Main Street, Richmond, VA</span>
-                    <span class="suggest-sep">&middot;</span>
-                    <span><i class="ph ph-calendar" aria-hidden="true"></i>Apr 20 &ndash; Apr 21</span>
-                  </div>
-                  <div class="suggest-tag">
-                    <i class="ph-fill ph-check" aria-hidden="true"></i>
-                    WITHIN JOB DATES
-                  </div>
-                </div>
-                <div class="suggest-id">2025-04-0128</div>
-              </div>
-
-              <div class="suggest">
-                <div class="suggest-num">3</div>
-                <div class="suggest-body">
-                  <div class="suggest-name">Tiffany S.</div>
-                  <div class="suggest-meta">
-                    <span><i class="ph ph-map-pin" aria-hidden="true"></i>123 Main Street, Richmond, VA</span>
-                    <span class="suggest-sep">&middot;</span>
-                    <span><i class="ph ph-calendar" aria-hidden="true"></i>Apr 27</span>
-                  </div>
-                  <div class="suggest-tag">
-                    <i class="ph-fill ph-check" aria-hidden="true"></i>
-                    WITHIN JOB DATES
-                  </div>
-                </div>
-                <div class="suggest-id">2025-04-0131</div>
-              </div>
-
-              <div class="suggest suggest-action">
-                <div class="suggest-key"><kbd>S</kbd></div>
-                <div class="suggest-body">
-                  <div class="suggest-name suggest-name-sm">Search for a job</div>
-                  <div class="suggest-action-desc">None of these right? Find by job #, customer, or address.</div>
-                </div>
-              </div>
-              <div class="suggest suggest-action">
-                <div class="suggest-key"><kbd>O</kbd></div>
-                <div class="suggest-body">
-                  <div class="suggest-name suggest-name-sm">Mark as overhead</div>
-                  <div class="suggest-action-desc">Not a job expense. Stays in the system, off the queue.</div>
-                </div>
+              <div class="cs-chips">
+                <span class="cs-chip cs-chip-success"><i class="ph ph-check"></i>Job Address Match</span>
               </div>
             </div>
+            <span class="cs-jobno">1179</span>
+          </div>
 
+          <div class="cs-card cs-suggest">
+            <span class="cs-key">3</span>
+            <div class="cs-suggest-body">
+              <div class="cs-suggest-name">Priya Natarajan</div>
+              <div class="cs-suggest-meta">
+                <span><i class="ph ph-map-pin"></i>418 Westview Dr, Richmond, VA, 23229</span>
+                <span class="cs-sep">&middot;</span>
+                <span><i class="ph ph-calendar"></i>2026-10-21</span>
+              </div>
+              <div class="cs-chips">
+                <span class="cs-chip cs-chip-muted"><i class="ph ph-tilde"></i>Within Job Dates</span>
+              </div>
+            </div>
+            <span class="cs-jobno">1190</span>
+          </div>
+
+          <div class="cs-card cs-suggest cs-action">
+            <span class="cs-key">S</span>
+            <div class="cs-suggest-body">
+              <div class="cs-suggest-name"><i class="ph ph-magnifying-glass"></i>Search</div>
+              <div class="cs-action-desc">None of the suggestions right? Search by job number, customer name, or address.</div>
+            </div>
+          </div>
+          <div class="cs-card cs-suggest cs-action cs-overhead">
+            <span class="cs-key">O</span>
+            <div class="cs-suggest-body">
+              <div class="cs-suggest-name"><i class="ph ph-circle-dashed"></i>Overhead</div>
+              <div class="cs-action-desc">Not a job expense. Keep the invoice in the system, but don't match it to a job.</div>
+            </div>
+          </div>
+          <div class="cs-card cs-suggest cs-action cs-ignore">
+            <span class="cs-key">I</span>
+            <div class="cs-suggest-body">
+              <div class="cs-suggest-name"><i class="ph ph-x"></i>Ignore</div>
+              <div class="cs-action-desc">Remove this invoice from the queue without matching.</div>
+            </div>
           </div>
         </div>
       </div>
+
+    </div>
+  </div>
+</div>

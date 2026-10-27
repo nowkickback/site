@@ -1,86 +1,122 @@
 {
-  "seo": {
-    "title": "Kickback \u2014 the AI-native platform for home-services businesses",
-    "description": "Kickback is the AI-native platform for the home-services back office. Costing is live today. Follow-Up and Warehouse are in private preview. HUD and Coach are next.",
-    "ogTitle": "Kickback \u2014 the AI-native platform for home-services businesses",
-    "ogDescription": "One platform for the messy back office: costing, follow-up, warehouse, dashboards, coaching. Start with Costing \u2014 live today.",
-    "themeColor": "#DE4444"
-  },
   "hero": {
-    "variant": "platform",
-    "pill": {
-      "icon": "ph-fill ph-sparkle",
-      "text": "Follow-Up is now in private preview",
-      "href": "/follow-up/"
-    },
-    "headlineHtml": "AI for the back office.<br><em>Not another chatbot.</em>",
-    "ledeHtml": "Kickback connects all your data from the tools you already use, then our AI costs jobs, follows up on leads, and more, surfacing only what needs your attention.<br>The work a six-figure ops manager would do, no training required.<br>So you can get your weekend back.",
-    "ctas": [
-      {
-        "label": "Try For Free",
-        "href": "https://platform.nowkickback.com",
-        "style": "primary"
-      },
-      {
-        "label": "See the Platform \u2193",
-        "href": "/#platform",
-        "style": "secondary"
-      }
-    ],
-    "meta": "Risk-Free Trial \u00b7 Forever Free Edition Available \u00b7 No Card Required",
+    "eyebrow": "THE KICKBACK PLATFORM",
+    "headlineHtml": "Set it up once. <em>Every app</em> runs on it.",
+    "lede": "Your CRM, supplier accounts, payroll, call recordings and team live in one place. Costing, Follow-Up and Warehouse all work from the same jobs and customers.",
+    "metaHtml": "Runs <a href=\"/costing/\">Costing</a>, <a href=\"/follow-up/\">Follow-Up</a> and <a href=\"/warehouse/\">Warehouse</a>",
+    "secondaryCta": { "label": "See What's Shared ↓", "href": "#connect" },
     "shot": "platform-home"
   },
-  "suite": {
-    "id": "platform",
-    "eyebrow": "THE KICKBACK PLATFORM",
-    "title": "One platform. The whole back office.",
-    "lede": "Most contracting software locks you in, then forces you to learn a new system. Kickback is built as a platform from the start \u2014 one login, one job graph, one set of crews and customers, sourced from the tools you already use, shared across every app in the platform."
-  },
-  "pillars": [
+  "sections": [
     {
-      "icon": "ph ph-graph",
-      "title": "One Source of Truth",
-      "body": "Every part of the platform reads from the same jobs, customers, crews, and vendors, from the CRM you already use."
+      "type": "features",
+      "id": "connect",
+      "eyebrow": "CONNECT ONCE",
+      "title": "Connect Each Tool One Time",
+      "lede": "Connections live on the platform, and every app reads the same jobs and customers. Turn on another app later and there's nothing new to connect.",
+      "items": [
+        {
+          "icon": "ph ph-database",
+          "title": "Your CRM",
+          "body": "Jobs, customers and estimates sync once and reach every app."
+        },
+        {
+          "icon": "ph ph-storefront",
+          "title": "Supplier Accounts",
+          "body": "Connect by API, with your portal login, or by forwarding emails. Invoices land on job costs and shipments land in Warehouse."
+        },
+        {
+          "icon": "ph ph-piggy-bank",
+          "title": "Payroll",
+          "body": "Labor payments sync daily or come in from a report upload, then cost against jobs in Costing."
+        },
+        {
+          "icon": "ph ph-voicemail",
+          "title": "Call Recordings",
+          "body": "Recorded sales calls sync daily. Follow-Up reads the call summary when it drafts a message."
+        },
+        {
+          "icon": "ph ph-clock-clockwise",
+          "title": "Daily Sync, Plus a Button",
+          "body": "API and portal connections sync each day on their own. Forwarded emails come in as they arrive. Hit Sync when you can't wait."
+        },
+        {
+          "icon": "ph ph-warning-circle",
+          "title": "Finish Supplier Sign-Ins Here",
+          "body": "When a supplier portal asks for a one-time code, the connection waits for you and you finish signing in from Kickback."
+        }
+      ]
     },
     {
-      "icon": "ph ph-user-circle",
-      "title": "One Login",
-      "body": "Add your teammates to the platform once. Give them access to one app, just a few, or all of them."
+      "type": "split",
+      "id": "supplier-logins",
+      "eyebrow": "ONE LOGIN, MORE APPS",
+      "title": "One Supplier Account Feeds Two Apps",
+      "body": "Connect Associated Materials or Wincore once and both Costing and Warehouse use it. Costing gets the invoices. Warehouse gets the load manifests and puts each truck on the books.",
+      "bullets": [
+        { "title": "Two Addresses, One Connection", "text": "Each supplier connection gets an invoice address for Costing and a manifest address for Warehouse. Copy them from the vendor page." },
+        { "title": "See What Each Supplier Feeds", "text": "The vendor list marks every supplier with the apps it serves." },
+        { "title": "Replace a Leaked Address", "text": "Make a new one and anything mailed to the old address bounces." }
+      ],
+      "shot": "platform-vendors"
     },
     {
-      "icon": "ph ph-plugs-connected",
-      "title": "One Connection",
-      "body": "Connect your CRM and your supplier accounts to the platform. Data flows automatically, so you can get right to work."
+      "type": "split",
+      "id": "roles",
+      "eyebrow": "ROLES AND AUDIT LOG",
+      "title": "Give Each Person the Apps They Use",
+      "body": "Invite people by email and switch on the apps each one needs. They get a link to join, and they only see the apps you turned on.",
+      "bullets": [
+        { "title": "Sub-Roles Inside Each App", "text": "Cadence Editor in Follow-Up. Device, Location and Stock Manager in Warehouse." },
+        { "title": "Billing and Integrations Roles", "text": "Let someone manage the subscription or connect suppliers without making them an owner." },
+        { "title": "Audit Log", "text": "Owners see every change in the organization, with who made it, when, and the before and after values." }
+      ],
+      "shot": "platform-roles"
     },
     {
-      "icon": "ph ph-shield-check",
-      "title": "One Trusted Platform",
-      "body": "Bank-grade encryption of your supplier credentials, and secure storage of your data. Peace of mind, without duct tape and string."
+      "type": "split",
+      "id": "security",
+      "eyebrow": "SIGN-IN SECURITY",
+      "title": "Passkeys and Two-Factor Codes",
+      "body": "Each person picks how they sign in. A passkey uses Touch ID, Face ID or Windows Hello. An authenticator app adds a 6-digit code to every password sign-in. A linked Google, Microsoft or Apple account works too.",
+      "bullets": [
+        { "title": "Backup Codes", "text": "Five single-use codes for the day someone loses their phone." },
+        { "title": "Account Lockout", "text": "Ten wrong passwords lock the account for 15 minutes." },
+        { "title": "Encrypted Credentials", "text": "Supplier passwords and API keys are encrypted at rest and never shown again after you save them." }
+      ],
+      "shot": "platform-security"
+    },
+    {
+      "type": "split",
+      "id": "notifications",
+      "eyebrow": "NOTIFICATIONS AND DIGESTS",
+      "title": "Hear About What Needs You",
+      "body": "Every alert lands in the notification center. Each person turns push and email on or off per alert, and each app sends its own daily digest at the hour an owner picks.",
+      "bullets": [
+        { "title": "Costing", "text": "A daily list of invoices auto-match applied, ready to review. Days with none send nothing." },
+        { "title": "Follow-Up", "text": "Each rep hears when drafts are ready. Owners get a daily list of follow-ups still open." },
+        { "title": "Warehouse", "text": "Pushes when a truck is loaded, arrives or closes, and when a job's material is staged. The daily digest lists trucks still being scanned in." }
+      ],
+      "shot": "platform-notifications"
+    },
+    {
+      "type": "split",
+      "id": "mobile",
+      "eyebrow": "MOBILE",
+      "title": "Kickback on Your iPhone",
+      "body": "Kickback Platform is on the App Store. Switch between your apps, tap a push to land on the right screen, and work the Follow-Up outbox from your phone.",
+      "bullets": [
+        { "icon": "ph-fill ph-check", "title": "iPhone", "text": "Search for Kickback Platform on the App Store and sign in with your Kickback account." },
+        { "icon": "ph ph-clock", "title": "Android", "text": "Coming Soon." }
+      ],
+      "appStoreCta": "Download on the App Store →",
+      "shot": "platform-mobile"
     }
   ],
-  "features": {
-    "title": "Built for the back office, by people who'd rather be in the field.",
-    "items": [
-      {
-        "icon": "ph ph-clock",
-        "title": "Get your weekend back.",
-        "body": "The receipts pile that used to take a Saturday afternoon clears in under fifteen minutes. The platform handles the data entry; you just confirm what's right."
-      },
-      {
-        "icon": "ph ph-chart-line-up",
-        "title": "Strengthen your relationships.",
-        "body": "Never forget a detail, never lose a lead, and never miss a chance to close. The AI keeps your customer relationships strong, drafting in your voice with context from across your business."
-      },
-      {
-        "icon": "ph ph-plugs-connected",
-        "title": "Stop juggling apps.",
-        "body": "Kickback pushes data back into your CRM and pulls data from the tools you already use, and keeps everything in sync without double-entry, juggling multiple apps, or sharing passwords."
-      }
-    ]
-  },
-  "quote": {
-    "eyebrow": "CUSTOMER STORY",
-    "text": "Job Costing used to give me anxiety. Now, it takes five minutes every morning and everything's in sync.",
-    "bylineHtml": "<strong>Troy</strong> \u00b7 That 1 Painter \u00b7 Richmond, VA"
+  "cta": {
+    "id": "demo",
+    "kicker": "ONE PLATFORM",
+    "title": "Put Your Whole Team on One Login",
+    "body": "If it's a fit, Kickback sets up your account and sends you the invite."
   }
 }

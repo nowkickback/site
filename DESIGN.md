@@ -143,7 +143,7 @@ Visual rejections already enforced by the codebase and product canon: no purple 
 Warm, low-chroma stone neutrals with a single vivid brand red; product ramps are reserved for Costing/Follow-Up (and unused marketing apps).
 
 ### Primary
-- **Kickback Mark Red** (`#DE4444` / `--red-500` / `--accent-500` on platform): primary fills — Start Free buttons, brand word accents, focus borders, CTA bands. Deepen to `#C62F2F` (`--red-600`) for hover and brand text (`--fg-brand`).
+- **Kickback Mark Red** (`#DE4444` / `--red-500` / `--accent-500` on platform): primary fills — Book a Demo buttons, brand word accents, focus borders, CTA bands. Deepen to `#C62F2F` (`--red-600`) for hover and brand text (`--fg-brand`).
 
 ### Secondary
 - **Costing Moss** (`#6F9334` / `--moss-500`): Costing product identity — icon tiles, suite highlights, inline “Costing” word color. Prefer deeper moss (`#587A26`) for small body text to hold AA contrast.
@@ -243,7 +243,7 @@ Controls feel **sharp, confident, and keyboard-ready** — like tools on the ben
 - **Placeholder:** `--fg-4`
 
 ### Navigation
-- Fixed top nav; transparent over homepage hero until scroll, then frosted shop/midnight surface (`backdrop-filter` blur). Mid-links appear after scroll. Brand wordmark left; Sign In + Book a Demo + Start Free right. Mobile: 40px menu toggle + stacked sheet. Follow system theme for wordmark light/dark assets.
+- Fixed top nav; transparent over homepage hero until scroll, then frosted shop/midnight surface (`backdrop-filter` blur). On the homepage mid-links appear after scroll; inner pages show them from the top. Mid-links: Apps (disclosure menu of Costing, Follow-Up, Warehouse), Platform, Pricing, FAQ. Brand wordmark left; Sign In + Book a Demo right. Mobile: 44px menu toggle + stacked sheet with the same links. Follow system theme for wordmark light/dark assets.
 
 ### Signature: Product Shot / Invoice Inbox
 In-page UI mock (window chrome, mono labels, suggested jobs, keyboard `ENTER` cues) is the system’s proof language. Treat it as a first-class component pattern: ledger chrome, not a stock screenshot collage.
@@ -255,7 +255,7 @@ Space Mono uppercase brand-colored label above a Space Grotesk headline — the 
 
 ### Do:
 - **Do** consume `css/tokens.css` variables (`--stone-*`, `--red-*`, `--accent-*`, `--space-*`, `--radius-*`, `--shadow-*`) instead of inventing new hex/spacing.
-- **Do** keep Start Free visually primary (mark red) and Book a Demo secondary (outlined surface).
+- **Do** keep Book a Demo visually primary (mark red). Secondary actions (See the Apps, See Pricing) use the outlined surface.
 - **Do** let Costing moss / Follow-Up tide color only product-named moments and product pages (`body[data-product]` accent remap).
 - **Do** use Space Mono for labels, prices, statuses, and keyboard hints.
 - **Do** respect OS light/dark via `data-theme` — swap wordmarks accordingly.
@@ -263,6 +263,6 @@ Space Mono uppercase brand-colored label above a Space Grotesk headline — the 
 ### Don't:
 - **Don't** introduce purple gradients, glassmorphism stacks, or oversized soft card radii.
 - **Don't** add a manual theme switcher.
-- **Don't** feature HUD/Coach as live marketing chrome (product canon).
+- **Don't** feature HUD, Coach or Foreman anywhere, or put status badges (Beta, Preview, Live) on apps.
 - **Don't** use muted stone (`--fg-3`) or bright moss-500 for small body text without checking AA contrast.
 - **Don't** rotate hero headlines or replace the product shot with abstract illustration as the primary proof.

@@ -15,14 +15,15 @@
 <div style="display:flex;gap:var(--space-14);flex-wrap:wrap">
 <div style="display:flex;flex-direction:column;gap:var(--space-2)">
 <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Platform</span>
-<a class="kb-footer-link" href="/costing/">Costing</a>
-<a class="kb-footer-link" href="/follow-up/">Follow-Up</a>
-<a class="kb-footer-link" href="/warehouse/">Warehouse</a>
+<a class="kb-footer-link" href="/platform/">Platform</a>
+{%- for app in productList %}
+<a class="kb-footer-link" href="{{ app.url }}">{{ app.name }}</a>
+{%- endfor %}
 </div>
 <div style="display:flex;flex-direction:column;gap:var(--space-2)">
 <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg-3)">Company</span>
 <a class="kb-footer-link" href="/about/">About</a>
-<a class="kb-footer-link" href="/#pricing">Pricing</a>
+<a class="kb-footer-link" href="/pricing/">Pricing</a>
 <a class="kb-footer-link" href="/#faq">FAQ</a>
 <a class="kb-footer-link" href="{{ demoUrl }}">Book a Demo</a>
 </div>

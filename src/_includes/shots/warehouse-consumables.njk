@@ -1,0 +1,38 @@
+{#- Consumables list (costr app/views/warehouse/consumables/index.html.erb).
+    Projected = on the shelf minus what open contracts still owe. Sample data only. -#}
+<div class="shot wh-shot" role="img" aria-label="Consumables list: stock on the shelf, stock projected after open jobs, reorder points and status">
+  <div class="shot-frame" aria-hidden="true">
+    <div class="wh-main">
+      <div class="wh-head">
+        <div class="wh-head-copy">
+          <div class="wh-title">Consumables</div>
+        </div>
+        <div class="wh-actions">
+          <span class="wh-btn wh-btn-sm wh-hide-sm">New consumable</span>
+          <span class="wh-btn wh-btn-primary wh-btn-sm"><i class="ph ph-scan"></i>Scan</span>
+        </div>
+      </div>
+
+      <div class="wh-tabs">
+        <span class="wh-tab-active">All<span class="wh-num">5</span></span>
+        <span>Reorder<span class="wh-num">2</span></span>
+        <span>Short<span class="wh-num">1</span></span>
+        <span class="wh-hide-sm">Out of stock<span class="wh-num">0</span></span>
+        <span>Needs a name<span class="wh-num">1</span></span>
+      </div>
+
+      <div class="wh-card wh-card-flush">
+        <table class="wh-table">
+          <thead><tr><th>Name</th><th class="wh-right wh-hide-sm">On the shelf</th><th class="wh-right">Projected</th><th class="wh-right wh-hide-sm">Minimum</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>White caulk<div class="wh-cell-sub">Caulk</div></td><td class="wh-num wh-right wh-hide-sm">24 <span class="wh-muted">tubes</span></td><td class="wh-num wh-right">9 <span class="wh-muted">tubes</span></td><td class="wh-num wh-right wh-hide-sm">12</td><td><span class="wh-badge wh-badge-warning">Low stock</span></td></tr>
+            <tr><td>White G8 coil<div class="wh-cell-sub">Coil</div></td><td class="wh-num wh-right wh-hide-sm">3 <span class="wh-muted">rolls</span></td><td class="wh-num wh-right wh-projected-short">−2 <span class="wh-muted">rolls</span></td><td class="wh-num wh-right wh-hide-sm">2</td><td><span class="wh-badge wh-badge-danger">Short</span></td></tr>
+            <tr><td>Trim screws, 2 1/2"<div class="wh-cell-sub">Fasteners</div></td><td class="wh-num wh-right wh-hide-sm">14 <span class="wh-muted">boxes</span></td><td class="wh-num wh-right">11 <span class="wh-muted">boxes</span></td><td class="wh-num wh-right wh-hide-sm">4</td><td><span class="wh-badge wh-badge-success">In stock</span></td></tr>
+            <tr><td>Composite shims<div class="wh-cell-sub">Shims</div></td><td class="wh-num wh-right wh-hide-sm">40 <span class="wh-muted">units</span></td><td class="wh-num wh-right">31 <span class="wh-muted">units</span></td><td class="wh-num wh-right wh-hide-sm">10</td><td><span class="wh-badge wh-badge-success">In stock</span></td></tr>
+            <tr><td>Unnamed · 0071649<div class="wh-cell-sub">Needs a name</div></td><td class="wh-num wh-right wh-hide-sm">6 <span class="wh-muted">units</span></td><td class="wh-num wh-right">6 <span class="wh-muted">units</span></td><td class="wh-num wh-right wh-hide-sm">0</td><td><span class="wh-badge wh-badge-success">In stock</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

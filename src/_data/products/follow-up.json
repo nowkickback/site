@@ -2,154 +2,217 @@
   "slug": "follow-up",
   "dataProduct": "follow_up",
   "name": "Follow-Up",
+  "tagline": "Quotes that close themselves.",
+  "lineup": "Every unsold estimate gets a follow-up cadence. Drafts are written overnight in your voice and go out when you approve them.",
   "themeColor": "#41778D",
-  "status": "preview",
-  "statusLabel": "PRIVATE PREVIEW",
-  "suiteTagClass": "next",
-  "suiteCardClass": "suite-card-followup",
+  "color": "var(--tide-500)",
   "icon": "ph-fill ph-chats",
   "url": "/follow-up/",
   "order": 2,
   "seo": {
-    "title": "Follow-Up \u2014 Kickback",
-    "description": "Follow-Up drafts outreach for every unsold estimate in your voice, queues what's due in a daily outbox, and keeps your pipeline warm. You approve, it sends.",
-    "ogTitle": "Follow-Up \u2014 Kickback",
-    "ogDescription": "Quotes that close themselves. AI-drafted follow-up for every unsold estimate, sent only with your approval."
+    "title": "Follow-Up — Kickback",
+    "description": "Follow-Up enrolls every unsold estimate from your CRM, drafts each day's texts and emails overnight, and queues them for your reps to send from their own Gmail and phone.",
+    "ogTitle": "Follow-Up — Kickback",
+    "ogDescription": "Every unsold estimate gets a cadence. Drafts are ready each morning, and nothing goes to a customer until a rep sends it."
   },
   "screenLabel": "Follow-Up page",
   "hero": {
     "variant": "product",
-    "showCrumb": false,
-    "headlineHtml": "Contextual follow-ups that <em>close themselves.</em>",
-    "lede": "Follow-Up pulls all your open estimates and merges in context from your CRM, phone and appointment recordings, and more. It drafts the day's outreach in your voice, then queues it up for you to approve and send.",
-    "ctas": [
-      {
-        "label": "Request Early Access",
-        "href": "https://platform.nowkickback.com/sales",
-        "style": "primary"
-      },
-      {
-        "label": "See how it works \u2193",
-        "href": "#how",
-        "style": "secondary"
-      }
-    ],
-    "metaHtml": "Part of the <a href=\"https://platform.nowkickback.com\">Kickback Platform</a> \u00b7 Sign-In or Create an Account",
+    "headlineHtml": "Every quote gets its <em class=\"fu-nowrap\">follow-up.</em>",
+    "lede": "Follow-Up enrolls each unsold estimate from your CRM, writes the day's texts and emails overnight, and lines them up in one Outbox. Your reps read each one and send it from their own Gmail and phone.",
+    "metaHtml": "Part of the <a href=\"/platform/\">Kickback Platform</a>",
     "shot": "follow-up-outbox"
   },
   "sections": [
     {
+      "type": "works-with",
+      "id": "works-with",
+      "title": "Works With",
+      "items": [
+        { "name": "Gmail" },
+        { "name": "Siro" }
+      ],
+      "note": "Emails go out through each rep's own Gmail. Siro call recordings tell the drafts what the customer said on the visit."
+    },
+    {
       "type": "steps",
       "id": "how",
       "eyebrow": "HOW FOLLOW-UP WORKS",
-      "title": "Never miss a touchpoint again.",
+      "title": "Your Follow-Up List, Written Every Morning",
       "titleClass": "ks-display",
-      "lede": "Connect your CRM and your recording platforms. Our platform pulls all your open estimates and merges in context, drafts the day's outreach in your voice, and queues it up for you to approve and send.",
+      "lede": "Connect your CRM, Gmail and Siro once. After that, the only screen your reps need is the Outbox.",
       "items": [
         {
           "num": "01",
-          "icon": "ph ph-funnel",
-          "title": "Estimates enroll themselves.",
-          "body": "Every unsold estimate syncs in from your CRM and joins a follow-up cadence automatically. No spreadsheet, no whiteboard, no \"did anyone call them back?\""
+          "icon": "ph ph-tray-arrow-down",
+          "title": "Estimates Enroll",
+          "body": "After each CRM sync, every unsold estimate joins Follow-Up. A rep confirms it with one tap and the cadence starts. Won, lost and canceled estimates stay out."
         },
         {
           "num": "02",
           "icon": "ph ph-moon-stars",
-          "title": "Drafts are ready before you are.",
-          "body": "Overnight, the AI writes the day's follow-ups in your voice \u2014 with the estimate, the message history, and summaries of your recorded calls as context. Nothing sends without you."
+          "title": "Drafts Are Written Overnight",
+          "body": "At 4am your time, Kickback writes a text and an email for every touch due that day, using the quote, the call recording and a photo or video from your library."
         },
         {
           "num": "03",
           "icon": "ph ph-paper-plane-tilt",
-          "title": "You approve. Statuses advance.",
-          "body": "Work the outbox top to bottom. Log what happened with one key \u2014 date given, thinking, won, lost \u2014 and the next touch schedules itself. Outcomes sync back to your CRM."
+          "title": "Reps Send and Log",
+          "body": "Reps call, send and log each touch from the Outbox. Turn on activity notes and every logged touch is added to the estimate in your CRM."
         }
       ]
     },
     {
-      "type": "split",
-      "id": "outbox",
-      "eyebrow": "THE OUTREACH OUTBOX",
-      "title": "Every due follow-up, cleared before your first coffee.",
-      "body": "Each rep gets a daily worklist of exactly what's due \u2014 nothing more. Date-given promises come first, then the cadence. Approve the draft, log the outcome, next. The pipeline stays warm without anyone keeping a list in their head.",
-      "bullets": [
+      "type": "capabilities",
+      "id": "capabilities",
+      "items": [
         {
-          "icon": "ph-fill ph-check",
-          "title": "Six statuses, zero ambiguity",
-          "text": "Date Given, Active, Thinking, Won, Lost, Nurture. Outcomes you log set the status; statuses pick the cadence."
+          "id": "cadences",
+          "eyebrow": "CADENCES",
+          "title": "Estimates Enroll Themselves",
+          "body": "You choose when an estimate enrolls: when it's created, when the visit is scheduled, or after the visit. From there its cadence decides when to reach out and whether to call, text or email. Owners can change the days and channels of each cadence.",
+          "bullets": [
+            { "title": "The Standard Sequence", "text": "Four touches over 14 days. Day 1 is a call and a text, day 3 a call and an email, and days 7 and 14 use all three." },
+            { "title": "Statuses Pick the Next Touch", "text": "Log Thinking after a call and the estimate moves to lighter check-ins on day 6 and day 10. A date from the customer moves it to Date Given, with the next touch on that day." },
+            { "title": "Nurture Catches the Rest", "text": "When a sequence ends without a decision, the estimate moves to Nurture, with touches on day 30, 60 and 90." },
+            { "title": "Won and Lost Come From Your CRM", "text": "Approve an option or mark the estimate lost in your CRM, and Follow-Up closes it on the next sync." }
+          ],
+          "shot": "follow-up-cadences"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Drafted in your voice",
-          "text": "nightly AI drafting with the estimate, past messages, and call summaries as context. Sent only with approval."
+          "id": "drafts",
+          "eyebrow": "OVERNIGHT DRAFTS",
+          "title": "Drafts Written Overnight in Your Voice",
+          "body": "Each draft is written in first person from the rep who owns the estimate and mentions a real detail from the quote. Texts stay under 320 characters, emails run 60 to 150 words, and the drafter is told never to make up a price, discount or deadline.",
+          "bullets": [
+            { "title": "What Was Said on the Visit", "text": "Connect Siro and the summary of the sales call goes into the draft, along with details like budget and timeline. The recording itself is never quoted." },
+            { "title": "Your Own Photos and Videos", "text": "Upload job photos and videos to the Media Library. Kickback tags each upload and attaches the best match to the text and email, with a one-line reason for the pick." },
+            { "title": "Rewrite on Request", "text": "Edit any draft or press Regenerate. In the iPhone app, ask for it shorter, more casual, with the price, or pushing for a decision." }
+          ],
+          "shot": "follow-up-draft"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Your channels, not ours",
-          "text": "connect your own Gmail and iMessage. Replies land back with you, because the message really came from you."
+          "id": "outbox",
+          "eyebrow": "APPROVE AND SEND",
+          "title": "The Outbox",
+          "body": "Each rep works one queue of today's touches, with dates the customer asked for first, then due date, then the biggest quotes. Call, text, email, log it, next lead. Nothing reaches a customer until the rep sends it.",
+          "bullets": [
+            { "title": "Email From Your Own Gmail", "text": "Connect Gmail once. Emails go from the rep's own address with their signature and photos attached." },
+            { "title": "Texts From Your Own Phone", "text": "Send the Text opens Messages with the draft filled in. On iPhone, the Kickback Send Text shortcut hands it to Messages with the photos attached." },
+            { "title": "Swipe or Use the Keyboard", "text": "In the iPhone app, swipe right to send and left to skip. On a desktop, J and K move through the queue and Enter confirms." },
+            { "title": "Every Touch Logged in Your CRM", "text": "With activity notes on, each logged touch is added to the estimate as a note with the rep, the time, the outcome and what was sent." }
+          ],
+          "shot": "follow-up-deck"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Calls in context",
-          "text": "Siro call recordings sync in and get summarized beside the estimate, so every draft knows what was actually said."
-        },
-        {
-          "icon": "ph-fill ph-check",
-          "title": "Synced back",
-          "text": "wins, losses, and follow-up dates push to your CRM automatically. One source of truth, like everything on the platform."
+          "id": "pipeline",
+          "eyebrow": "PIPELINE AND DIGESTS",
+          "title": "Pipeline and Digests",
+          "body": "The Pipeline lists every enrolled estimate with its rep, amount, status and whether the sales call was recorded. Filter by status, rep or recording. Reps see their own estimates and owners see them all.",
+          "bullets": [
+            { "title": "Drafts to Review", "text": "A morning push tells each rep how many drafts are waiting. You pick the hour, 7am by default." },
+            { "title": "Open Follow-Ups Digest", "text": "Owners get an email and a push at the end of the day listing every follow-up still due, with the rep and how many days it's overdue. It sends at 5pm unless you change it." },
+            { "title": "A Dashboard for the Numbers", "text": "Due today, open follow-ups, open value and wins in the last 30 days, above a list of overdue follow-ups." }
+          ],
+          "shot": "follow-up-pipeline"
         }
-      ],
-      "cta": {
-        "label": "Request Early Access \u2192",
-        "href": "https://platform.nowkickback.com/sales"
-      },
-      "kpis": {
-        "meta": "FOLLOW-UP \u00b7 DASHBOARD",
-        "title": "Today at a glance",
+      ]
+    },
+    {
+      "type": "automation",
+      "id": "automation",
+      "eyebrow": "WHAT RUNS ON ITS OWN",
+      "title": "Automatic vs. You Confirm",
+      "lede": "Kickback keeps the list and writes the drafts. Nothing goes to a customer until a rep sends it.",
+      "automatic": {
+        "title": "Automatic",
         "items": [
-          {
-            "label": "Due today",
-            "value": "12",
-            "sub": "queued in the outbox, drafts ready"
-          },
-          {
-            "label": "Open follow-ups",
-            "value": "84",
-            "sub": "estimates being worked right now"
-          },
-          {
-            "label": "Open value",
-            "value": "$412k",
-            "sub": "pipeline kept warm automatically"
-          },
-          {
-            "label": "Won \u00b7 30 days",
-            "value": "9",
-            "sub": "closed from follow-up outreach"
-          }
+          "Enrolling unsold estimates after each CRM sync",
+          "Scheduling each touch from the estimate's cadence",
+          "Closing estimates that are won or lost in your CRM",
+          "Writing the day's texts and emails at 4am",
+          "Tagging uploaded photos and videos and picking one per touch",
+          "Pulling call summaries from Siro",
+          "The morning draft count and the Open Follow-Ups Digest"
         ]
       },
-      "callout": {
-        "icon": "ph ph-moon-stars",
-        "tag": "FOLLOW-UP \u00b7 NIGHTLY DRAFTING",
-        "body": "While you sleep, every due touch gets a draft written in your voice. The morning outbox is approval work, not writing work."
+      "confirm": {
+        "title": "You Confirm",
+        "items": [
+          "Starting follow-up on each new estimate",
+          "Every call, text and email to a customer",
+          "Edits to any draft before it goes",
+          "Call results, such as won, lost, thinking or a date the customer gave",
+          "Status changes, each with a note",
+          "Turning on activity notes for your CRM"
+        ]
       }
     },
     {
+      "type": "other-apps",
+      "id": "other-apps",
+      "eyebrow": "ONE PLATFORM",
+      "title": "Works With Your Other Apps",
+      "lede": "Every Kickback app reads from the same CRM connection, so adding one means no new setup.",
+      "items": [
+        {
+          "slug": "costing",
+          "body": "Follow-Up works the estimate until it's won. Costing picks up the job from there and matches supplier invoices to it, so you know what it cost."
+        },
+        {
+          "slug": "warehouse",
+          "body": "Once a quote turns into a job, Warehouse tracks its material from the supplier's truck to the shelf to staging for the install."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "faq",
+      "eyebrow": "FAQ",
+      "title": "Questions About Follow-Up",
+      "items": [
+        {
+          "id": "follow-up-auto-send",
+          "q": "Does Kickback ever text or email a customer on its own?",
+          "a": "No. Every text and email waits in the Outbox until a rep sends it. Kickback doesn't place calls either. Reps call from their own phone."
+        },
+        {
+          "id": "follow-up-sender",
+          "q": "Who do customers see the messages from?",
+          "a": "The rep. Emails go through the rep's own Gmail with their signature. Texts open in Messages on the rep's phone or Mac, so they come from the rep's own number."
+        },
+        {
+          "id": "follow-up-voice",
+          "q": "How does it write in my voice?",
+          "a": "Drafts are written in first person from the rep who owns the estimate, kept short and plain, and tied to a detail from the quote. We can add notes on your company's tone when we set up your account, and reps can edit any draft before sending."
+        },
+        {
+          "id": "follow-up-recordings",
+          "q": "Do I need call recordings?",
+          "a": "No. Without Siro, drafts are written from the estimate in your CRM. With Siro connected, the summary of the sales call goes into each draft too."
+        },
+        {
+          "id": "follow-up-cadences",
+          "q": "Can I change the cadences?",
+          "a": "Yes. Owners, and anyone given the Cadence Editor role, can change the days and channels for Active, Thinking and Nurture, up to 10 touches each."
+        },
+        {
+          "id": "follow-up-crm-notes",
+          "q": "What gets written back to my CRM?",
+          "a": "With activity notes turned on, each logged touch adds one note to the estimate with the rep, the time, the outcome and what was sent. A status change adds a note with the rep's reason."
+        }
+      ]
+    },
+    {
+      "type": "pricing-line",
+      "id": "pricing"
+    },
+    {
       "type": "cta",
-      "variant": "preview"
+      "id": "demo",
+      "kicker": "FOLLOW-UP",
+      "title": "Follow Up on Every Quote",
+      "body": "Book a demo and we'll walk you through the Outbox. Kickback sets up your account."
     }
-  ],
-  "suite": {
-    "body": "Every unsold estimate gets an AI-drafted follow-up, in your voice, queued in a daily outbox. You approve, it sends, and the pipeline keeps itself warm.",
-    "disabled": false,
-    "liveRing": false
-  },
-  "pricing": {
-    "billable": true,
-    "baseMonthly": 489,
-    "includedUsers": 5,
-    "perUserAfter": 89,
-    "builderDesc": "Unlimited estimates in cadence, nightly AI drafting in your voice, sends from your own Gmail + iMessage."
-  }
+  ]
 }

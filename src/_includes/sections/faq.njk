@@ -1,0 +1,9 @@
+{% set s = section %}
+<section class="section section-surface" id="{{ s.id or 'faq' }}">
+  <div class="container faq-container">
+    {% set reveal = true %}
+    {% include "partials/section-head.njk" %}
+    {% set faqs = s.items %}
+    {% include "partials/faq-list.njk" %}
+  </div>
+</section>

@@ -1,63 +1,93 @@
 <script>
 (function () {
-      var PLATFORM = 249, APP = 489, PER_USER = 89, INCLUDED_USERS = 5;
-      var APPS = ['costing', 'follow-up', 'warehouse'];
-      var FLAT_APPS = { warehouse: true };
-      var total = document.getElementById('builder-total');
-      var platformPrice = document.getElementById('platform-price');
-      var note = document.getElementById('builder-note');
-      var noteIcon = document.getElementById('builder-note-icon');
-      var noteText = document.getElementById('builder-note-text');
-      if (!total || !platformPrice) return;
+  // Prices come from data attributes rendered from src/_data/pricing.json.
+  var builder = document.getElementById('builder');
+  if (!builder) return;
 
-      var users = { 'costing': INCLUDED_USERS, 'follow-up': INCLUDED_USERS };
-      var fmt = function (n) { return n.toLocaleString('en-US'); };
-      var box = function (key) { return document.getElementById('opt-' + key); };
+  var platform = {
+    monthly: Number(builder.dataset.platformMonthly),
+    annual: Number(builder.dataset.platformAnnual)
+  };
+  var seatCap = Number(builder.dataset.seatCap);
+  var rows = Array.prototype.slice.call(builder.querySelectorAll('[data-app]'));
+  var apps = rows.map(function (row) {
+    var d = row.dataset;
+    return {
+      row: row,
+      slug: d.app,
+      monthly: Number(d.monthly),
+      annual: Number(d.annual),
+      included: Number(d.included),
+      seatMonthly: Number(d.seatMonthly),
+      seatAnnual: Number(d.seatAnnual),
+      seat: d.seat,
+      seats: Number(d.included),
+      box: row.querySelector('input[type="checkbox"]')
+    };
+  });
 
-      function appPrice(key) {
-        if (FLAT_APPS[key]) return APP;
-        return APP + Math.max(0, users[key] - INCLUDED_USERS) * PER_USER;
-      }
+  var total = document.getElementById('builder-total');
+  var per = document.getElementById('builder-per');
+  var platformPrice = document.getElementById('platform-price');
+  var note = document.getElementById('builder-note');
+  var noteIcon = document.getElementById('builder-note-icon');
+  var noteText = document.getElementById('builder-note-text');
+  var fmt = function (n) { return '$' + n.toLocaleString('en-US'); };
 
-      function paint() {
-        var checked = APPS.filter(function (key) { return box(key).checked; });
-        var waived = checked.length === APPS.length;
-        var sum = checked.reduce(function (acc, key) { return acc + appPrice(key); }, 0);
-        total.textContent = fmt((waived ? 0 : PLATFORM) + sum);
-        platformPrice.classList.toggle('is-waived', waived);
-        note.classList.toggle('is-prompt', !waived);
-        noteIcon.className = waived ? 'ph-fill ph-check' : 'ph ph-piggy-bank';
-        noteText.innerHTML = waived
-          ? 'All apps added &mdash; the platform fee is on us.'
-          : 'Add every app and we&rsquo;ll waive the $' + fmt(PLATFORM) + '/mo platform fee.';
-        APPS.forEach(function (key) {
-          if (!FLAT_APPS[key]) {
-            document.getElementById('users-' + key).textContent = String(users[key]);
-          }
-          document.getElementById('price-' + key).textContent = '+$' + fmt(appPrice(key)) + '/mo';
-          // The last remaining app can't be unchecked — at least one app is required.
-          box(key).disabled = checked.length === 1 && box(key).checked;
-          box(key).closest('.builder-row').classList.toggle('is-on', box(key).checked);
-        });
-      }
+  function period() {
+    var picked = builder.querySelector('input[name="billing"]:checked');
+    return picked && picked.value === 'annual' ? 'annual' : 'monthly';
+  }
 
-      APPS.forEach(function (key) {
-        box(key).addEventListener('change', function () {
-          if (!APPS.some(function (k) { return box(k).checked; })) {
-            box(key).checked = true;
-            return;
-          }
-          paint();
-        });
-      });
-      document.querySelectorAll('.builder-stepper button[data-users]').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          var key = btn.dataset.users;
-          users[key] = Math.min(99, Math.max(1, users[key] + Number(btn.dataset.dir)));
-          paint();
-        });
-      });
+  function appPrice(app, p) {
+    var base = p === 'annual' ? app.annual : app.monthly;
+    var seat = p === 'annual' ? app.seatAnnual : app.seatMonthly;
+    return base + Math.max(0, app.seats - app.included) * seat;
+  }
+
+  function paint() {
+    var p = period();
+    var unit = p === 'annual' ? '/yr' : '/mo';
+    var on = apps.filter(function (a) { return a.box.checked; });
+    var waived = on.length === apps.length;
+    var fee = p === 'annual' ? platform.annual : platform.monthly;
+    var sum = on.reduce(function (acc, a) { return acc + appPrice(a, p); }, 0);
+
+    total.textContent = ((waived ? 0 : fee) + sum).toLocaleString('en-US');
+    per.textContent = unit;
+    platformPrice.textContent = fmt(fee) + unit;
+    platformPrice.classList.toggle('is-waived', waived);
+    note.classList.toggle('is-prompt', !waived);
+    noteIcon.className = waived ? 'ph-fill ph-check' : 'ph ph-piggy-bank';
+    noteText.textContent = waived
+      ? 'All three apps added. The platform fee is waived.'
+      : 'Add all three apps and the ' + fmt(fee) + unit + ' platform fee is waived.';
+
+    apps.forEach(function (a) {
+      var seatPrice = p === 'annual' ? a.seatAnnual : a.seatMonthly;
+      document.getElementById('seats-' + a.slug).textContent = String(a.seats);
+      document.getElementById('hint-' + a.slug).textContent =
+        a.included + ' included \u00b7 ' + fmt(seatPrice) + '/' + a.seat + unit + ' after' +
+        (a.seats >= seatCap ? ' \u00b7 ' + seatCap + ' max' : '');
+      document.getElementById('price-' + a.slug).textContent = '+' + fmt(appPrice(a, p)) + unit;
+      // At least one app is required, so the last checked box can't be cleared.
+      a.box.disabled = on.length === 1 && a.box.checked;
+      a.row.classList.toggle('is-on', a.box.checked);
+    });
+  }
+
+  apps.forEach(function (a) { a.box.addEventListener('change', paint); });
+  builder.querySelectorAll('input[name="billing"]').forEach(function (r) {
+    r.addEventListener('change', paint);
+  });
+  builder.querySelectorAll('button[data-seats-for]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var app = apps.filter(function (a) { return a.slug === btn.dataset.seatsFor; })[0];
+      app.seats = Math.min(seatCap, Math.max(app.included, app.seats + Number(btn.dataset.dir)));
       paint();
-    })();
+    });
+  });
+  paint();
+})();
 </script>

@@ -1,0 +1,56 @@
+{#- Manifest import report (costr app/views/warehouse/manifest_imports/show.html.erb,
+    _summary, _rows). Sample data only. -#}
+<div class="shot wh-shot" role="img" aria-label="Manifest import report: an emailed load sheet created a shipment with 46 new articles and matched 9 jobs">
+  <div class="shot-frame" aria-hidden="true">
+    <div class="wh-main">
+      <div class="wh-head">
+        <div class="wh-head-copy">
+          <div class="wh-crumb">Manifests</div>
+          <div class="wh-title">Manifest import</div>
+        </div>
+        <div class="wh-actions">
+          <span class="wh-btn wh-btn-sm wh-hide-sm"><i class="ph ph-tray-arrow-up"></i>Import another</span>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div class="wh-file">
+          <div style="min-width:0">
+            <div class="wh-file-name">AM_load_2026-10-26.pdf</div>
+            <div class="wh-help">Emailed · 4 minutes ago · Associated Materials</div>
+          </div>
+          <span class="wh-dot">Imported</span>
+        </div>
+      </div>
+
+      <div class="wh-card">
+        <div class="wh-summary">
+          <div>
+            <div class="wh-help">BOL</div>
+            <div class="wh-summary-bol">AM-2026-10-26</div>
+            <span class="wh-btn wh-btn-primary wh-btn-sm"><i class="ph ph-truck"></i>Open shipment</span>
+          </div>
+          <div class="wh-row-stats">
+            <div class="wh-row-stat"><b>46</b><span>new articles</span></div>
+            <div class="wh-row-stat wh-hide-sm"><b>0</b><span>updated</span></div>
+            <div class="wh-row-stat"><b>1</b><span>rejected row</span></div>
+            <div class="wh-row-stat"><b>9</b><span>matched jobs</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wh-card wh-card-flush">
+        <table class="wh-table wh-manifest-rows">
+          <thead><tr><th class="wh-right">Line</th><th>Serial</th><th>PO</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr><td class="wh-num wh-muted wh-right">1</td><td class="wh-num">7731042</td><td class="wh-num">028-5521</td><td><span class="wh-badge wh-badge-success">Created</span></td></tr>
+            <tr><td class="wh-num wh-muted wh-right">2</td><td class="wh-num">7731043</td><td class="wh-num">028-5521</td><td><span class="wh-badge wh-badge-success">Created</span></td></tr>
+            <tr><td class="wh-num wh-muted wh-right">3</td><td class="wh-num">7731058</td><td class="wh-num">028-5540</td><td><span class="wh-badge wh-badge-success">Created</span></td></tr>
+            <tr><td class="wh-num wh-muted wh-right">4</td><td class="wh-num wh-muted">—</td><td class="wh-num">028-5547</td><td><span class="wh-badge">Order only</span></td></tr>
+            <tr><td class="wh-num wh-muted wh-right">5</td><td class="wh-num">7731061</td><td class="wh-num wh-muted">—</td><td><span class="wh-badge wh-badge-danger">Rejected</span><span class="wh-outcome-note wh-hide-sm">No PO on this line</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

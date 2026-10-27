@@ -1,0 +1,31 @@
+<div class="fu-draft" role="img" aria-label="An overnight email draft for Rachel Byrne in the Outbox. Beside it, the Siro call summary the draft drew on, and below it a photo set the AI picked from the Media Library.">
+  <div class="fu-card fu-draft-rec" aria-hidden="true">
+    <div class="fu-draft-rec-head">
+      <span class="fu-rail-title">Recording</span>
+      <span class="fu-btn fu-btn-sm"><i class="ph ph-microphone"></i>Listen in Siro</span>
+    </div>
+    <p class="fu-rail-summary">Comparing two bids. Liked the white shaker look and asked whether the Better option includes new hardware. Wants it done before the holidays.</p>
+    <dl class="fu-rail-dl">
+      <div><dt>Decision maker</dt><dd>Homeowner and spouse</dd></div>
+      <div><dt>Desired start</dt><dd>Within 4 weeks</dd></div>
+      <div><dt>Competing bids</dt><dd class="fu-mono">2</dd></div>
+    </dl>
+  </div>
+  <div class="fu-card fu-composer fu-draft-email" aria-hidden="true">
+    <div class="fu-composer-head">
+      <span class="fu-step-icon is-current"><i class="ph ph-envelope-simple"></i></span>
+      <span class="fu-composer-title"><span class="fu-step-label">Send Email</span><span class="fu-composer-to">to <b>rachel.byrne@example.com</b></span></span>
+      <span class="fu-btn fu-btn-sm">Regenerate</span>
+    </div>
+    <div class="fu-composer-subject"><span class="fu-mono">Subject</span>Your kitchen quote, and the hardware question</div>
+    <div class="fu-composer-body">
+      <p>Hi Rachel,</p>
+      <p>You asked whether the Better option includes new hardware. It does: new pulls and soft-close hinges on every door, all in the $12,300.</p>
+      <p>I attached photos of a white shaker kitchen we finished last month so you can see the finish up close. If the holidays are still the goal, I'm happy to walk through either option this week.</p>
+    </div>
+    {% set fuMediaTitle = "Shaker kitchen, white" %}
+    {% set fuMediaType = "Photo set" %}
+    {% set fuMediaReason = "Matches the white shaker finish she liked on the visit." %}
+    {% include "shots/follow-up-media.njk" %}
+  </div>
+</div>

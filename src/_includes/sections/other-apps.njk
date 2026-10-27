@@ -1,0 +1,20 @@
+{# Works With Your Other Apps: cross-links to the other product pages.
+   Items are { slug, body }; name, icon, color and URL come from that product's data. #}
+{% set s = section %}
+<section class="section section-surface" id="{{ s.id or 'other-apps' }}">
+  <div class="container">
+    {% set reveal = true %}
+    {% include "partials/section-head.njk" %}
+    <div class="other-apps-grid reveal-group">
+      {% for item in s.items %}
+      {% set other = products[item.slug] %}
+      <a class="other-app reveal" href="{{ other.url }}" style="--app-color: {{ other.color }}">
+        <span class="other-app-mark" aria-hidden="true"><i class="{{ other.icon }}"></i></span>
+        <span class="other-app-name">{{ item.title or ('With ' + other.name) }}</span>
+        <span class="other-app-body">{{ item.body }}</span>
+        <span class="other-app-link">About {{ other.name }} <span aria-hidden="true">&rarr;</span></span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

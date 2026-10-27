@@ -1,23 +1,16 @@
 ---
 layout: layouts/base.njk
 ---
+{#- Product pages render from src/_data/products/<slug>.json in one standard order:
+    hero, works-with, steps (#how), capabilities, automation, other-apps, faq,
+    pricing-line (#pricing), cta (#demo). Each section's `type` names its template
+    in sections/; an unknown type fails the build. -#}
 {% set product = products[productKey] %}
 {% set hero = product.hero %}
 {% include "sections/hero.njk" %}
 
 {% for section in product.sections %}
-  {% if section.type == "logo-strip" %}
-    {% include "sections/logo-strip.njk" %}
-  {% elif section.type == "features" %}
-    {% include "sections/features.njk" %}
-  {% elif section.type == "steps" %}
-    {% include "sections/steps.njk" %}
-  {% elif section.type == "split" %}
-    {% include "sections/split.njk" %}
-  {% elif section.type == "cta" %}
-    {% set ctaVariant = section.variant %}
-    {% include "sections/cta-banner.njk" %}
-  {% endif %}
+  {% include "sections/" + ("cta-banner" if section.type == "cta" else section.type) + ".njk" %}
 {% endfor %}
 
 {{ content | safe }}

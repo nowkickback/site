@@ -1,0 +1,1111 @@
+/* Mockups and page-specific styles for costing.
+   The mockups redraw the real Costing screens (Invoice Inbox, Vendors,
+   Auto-Match Digest email, Labor split, Data Integrity) in HTML so they follow
+   light/dark. Every class is prefixed cs- because this file loads on every
+   page. Each mockup is a size container, so it reflows to the column it sits
+   in (hero or split visual) rather than to the viewport. */
+
+.cs-shot {
+  container-type: inline-size;
+  min-width: 0;
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  text-align: left;
+}
+.cs-shot .shot-frame {
+  border: 1px solid var(--border-subtle);
+}
+.cs-shot .shot-url {
+  display: block;
+}
+.cs-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.cs-muted {
+  color: var(--fg-3);
+}
+
+/* Shared bits ------------------------------------------------------------ */
+
+.cs-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1;
+  color: var(--fg-2);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+.cs-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 10px;
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--fg-1);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+.cs-btn-primary {
+  color: var(--fg-on-brand);
+  background: var(--bg-brand);
+  border-color: var(--bg-brand);
+}
+.cs-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+.cs-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 18px;
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+}
+.cs-chip-success {
+  color: var(--fg-success);
+  background: var(--bg-success-subtle);
+  border-color: color-mix(in oklab, var(--fg-success) 22%, transparent);
+}
+.cs-chip-info {
+  color: var(--fg-info);
+  background: var(--bg-info-subtle);
+  border-color: color-mix(in oklab, var(--fg-info) 22%, transparent);
+}
+.cs-chip-warning {
+  color: var(--fg-warning);
+  background: var(--bg-warning-subtle);
+  border-color: color-mix(in oklab, var(--fg-warning) 22%, transparent);
+}
+.cs-chip-muted {
+  color: var(--fg-3);
+  background: var(--bg-muted);
+  border-color: var(--border-subtle);
+}
+
+/* Square vendor logo tile, like connection_logo_tile in the app. */
+.cs-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: var(--stone-500, #6b6259);
+}
+.cs-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.cs-tile-lg {
+  width: 42px;
+  height: 42px;
+  font-size: 12px;
+}
+.cs-tile-sw { background: #c8102e; }
+.cs-tile-thd { background: #ee7125; }
+.cs-tile-lowes { background: #004990; padding: 4px; }
+.cs-tile-spectrum { background: #d42a2a; }
+.cs-tile-am { background: #1d3c6e; }
+.cs-tile-wincore { background: #2f6f9f; }
+
+/* Little app marks shown beside a vendor (Costing $, Warehouse box). */
+.cs-appmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 10px;
+}
+.cs-appmark-costing { background: var(--moss-600); }
+.cs-appmark-warehouse { background: var(--steel-600); }
+
+/* Four-bar confidence meter (kb-inbox-confidence). */
+.cs-bars {
+  --tier: var(--fg-4);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.cs-bars i {
+  width: 3px;
+  height: 10px;
+  border-radius: 1px;
+  background: color-mix(in oklab, var(--border-strong) 55%, transparent);
+}
+.cs-bars[data-tier="matched"] { --tier: var(--fg-success); }
+.cs-bars[data-tier="job_set"] { --tier: var(--fg-info); }
+.cs-bars[data-tier="close_call"] { --tier: var(--fg-warning); }
+.cs-bars[data-tier="no_clear_fit"] { --tier: var(--fg-danger); }
+.cs-bars[data-level="1"] i:nth-child(-n+1),
+.cs-bars[data-level="2"] i:nth-child(-n+2),
+.cs-bars[data-level="3"] i:nth-child(-n+3),
+.cs-bars[data-level="4"] i {
+  background: var(--tier);
+}
+
+/* Page header inside a mockup (kb_page_header). */
+.cs-page {
+  padding: 20px 22px 22px;
+  background: var(--bg-page);
+}
+.cs-page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.cs-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: 4px;
+}
+.cs-page-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.cs-card {
+  position: relative;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ======================================================================
+   Hero: Invoice Inbox (costing/matching/index)
+   ====================================================================== */
+
+.cs-inbox {
+  display: grid;
+  grid-template-columns: 190px 290px minmax(0, 1fr);
+  min-height: 560px;
+  background: var(--bg-page);
+  font-size: 12px;
+}
+
+/* App sidebar */
+.cs-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 10px;
+  background: var(--bg-page);
+  border-right: 1px solid var(--border-subtle);
+}
+.cs-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 6px 14px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+}
+.cs-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-md);
+  color: #fff;
+  background: var(--moss-600, #5d7d2b);
+  font-size: 13px;
+}
+.cs-brand em {
+  font-style: normal;
+  color: var(--fg-brand);
+}
+.cs-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--radius-md);
+  color: var(--fg-2);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.cs-nav-item > i {
+  font-size: 14px;
+  color: var(--fg-3);
+}
+.cs-nav-item.is-active {
+  color: var(--fg-1);
+  font-weight: 500;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+}
+.cs-nav-count {
+  margin-left: auto;
+  padding: 0 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--fg-brand);
+  border: 1px solid color-mix(in oklab, var(--fg-brand) 45%, transparent);
+  border-radius: var(--radius-sm);
+}
+.cs-nav-label {
+  margin: 12px 8px 4px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-4);
+}
+
+/* Queue */
+.cs-queue {
+  min-width: 0;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-subtle);
+}
+.cs-queue-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+}
+.cs-qrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+}
+.cs-qrow.is-selected {
+  background: var(--bg-brand-subtle);
+}
+.cs-qbody {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 10px;
+}
+.cs-qnum {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cs-qamt {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  text-align: right;
+  white-space: nowrap;
+}
+.cs-qsub {
+  display: flex;
+  gap: 5px;
+  min-width: 0;
+  font-size: 10.5px;
+  color: var(--fg-3);
+  white-space: nowrap;
+}
+.cs-qsub .cs-po {
+  font-family: var(--font-mono);
+  color: var(--fg-4);
+}
+.cs-qsub .cs-cust {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cs-qdate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  font-size: 10.5px;
+  color: var(--fg-3);
+  white-space: nowrap;
+}
+
+/* Match panel */
+.cs-panel {
+  min-width: 0;
+  padding: 14px 20px 20px;
+  background: var(--bg-page);
+}
+.cs-hints {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 10.5px;
+  color: var(--fg-3);
+}
+.cs-hints span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.cs-invoice-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+.cs-invoice-head .cs-qbody {
+  gap: 3px 12px;
+}
+.cs-invoice-head .cs-qnum,
+.cs-invoice-head .cs-qamt {
+  font-size: 16px;
+}
+.cs-invoice-head .cs-qsub,
+.cs-invoice-head .cs-qdate {
+  font-size: 11.5px;
+}
+.cs-panel-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 18px 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.cs-panel-row .cs-hints {
+  margin: 0;
+  font-weight: 400;
+}
+.cs-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cs-suggest {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  min-height: 72px;
+}
+.cs-suggest.is-selected {
+  box-shadow: 0 0 0 2px var(--border-brand);
+  border-color: transparent;
+}
+.cs-suggest.is-selected .cs-key {
+  color: var(--fg-on-brand);
+  background: var(--bg-brand);
+  border-color: var(--bg-brand);
+}
+.cs-suggest-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 52px;
+}
+.cs-suggest-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.cs-suggested {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--fg-info);
+  background: var(--bg-info-subtle);
+  border-radius: var(--radius-pill);
+}
+.cs-suggest-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  font-size: 10.5px;
+  color: var(--fg-3);
+}
+.cs-suggest-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.cs-suggest-meta i {
+  font-size: 11px;
+}
+.cs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 3px;
+}
+.cs-jobno {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 3px 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+  background: var(--bg-muted);
+  border-bottom-left-radius: var(--radius-md);
+}
+.cs-suggest .cs-btn {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+.cs-action {
+  min-height: 0;
+}
+.cs-action .cs-suggest-name i {
+  font-size: 12px;
+}
+.cs-action-desc {
+  font-size: 10.5px;
+  color: var(--fg-3);
+}
+
+@container (max-width: 1000px) {
+  .cs-inbox {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .cs-inbox .cs-nav {
+    display: none;
+  }
+}
+@container (max-width: 680px) {
+  .cs-inbox {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+  .cs-queue {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .cs-queue .cs-qrow:nth-child(n+5) {
+    display: none;
+  }
+  .cs-panel > .cs-hints,
+  .cs-panel-row .cs-hints,
+  .cs-suggest > .cs-key,
+  .cs-suggest-meta .cs-sep,
+  .cs-overhead,
+  .cs-ignore {
+    display: none;
+  }
+  .cs-panel {
+    padding: 12px;
+  }
+  .cs-suggest-body {
+    padding-right: 0;
+  }
+  .cs-suggest .cs-btn {
+    display: none;
+  }
+  .cs-jobno {
+    position: static;
+    align-self: flex-start;
+    order: 2;
+    border-radius: var(--radius-sm);
+  }
+}
+@container (max-width: 560px) {
+  .cs-shot .shot-url {
+    display: none;
+  }
+}
+
+/* ======================================================================
+   Capability: Vendors list (vendor_connections/index)
+   ====================================================================== */
+
+.cs-vendors {
+  display: flex;
+  flex-direction: column;
+}
+.cs-vrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+.cs-vrow:first-child {
+  border-top: 0;
+}
+.cs-vmain {
+  flex: 1;
+  min-width: 0;
+}
+.cs-vname {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cs-vname span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cs-vstatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--fg-success);
+}
+.cs-vstatus::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.cs-vstatus-warning {
+  color: var(--fg-warning);
+}
+.cs-vcount {
+  text-align: right;
+}
+.cs-vcount b {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.cs-vcount span {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+  color: var(--fg-3);
+}
+.cs-split-btn {
+  display: inline-flex;
+}
+.cs-split-btn .cs-btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.cs-split-btn .cs-btn + .cs-btn {
+  padding: 0 6px;
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.cs-chevron {
+  color: var(--fg-4);
+  font-size: 13px;
+}
+@container (max-width: 460px) {
+  .cs-vcount,
+  .cs-chevron,
+  .cs-split-btn .cs-btn + .cs-btn {
+    display: none;
+  }
+  .cs-split-btn .cs-btn:first-child {
+    border-radius: var(--radius-sm);
+  }
+  .cs-vrow {
+    gap: 10px;
+    padding: 11px 12px;
+  }
+}
+
+/* ======================================================================
+   Capability: Auto-Match Digest email (auto_match_digest_mailer)
+   ====================================================================== */
+
+.cs-mail-head {
+  padding: 12px 18px;
+  font-size: 11.5px;
+  color: var(--fg-3);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.cs-mail-head div + div {
+  margin-top: 3px;
+}
+.cs-mail-head b {
+  color: var(--fg-1);
+  font-weight: 500;
+}
+.cs-mail {
+  padding: 18px;
+  background: var(--bg-page);
+}
+.cs-mail-card {
+  padding: 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.cs-mail-card h4 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg-1);
+}
+.cs-mail-card p {
+  margin: 0 0 12px;
+}
+.cs-mail-card strong {
+  color: var(--fg-1);
+}
+.cs-mail-table {
+  width: 100%;
+  margin: 4px 0 14px;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.cs-mail-table th {
+  padding: 6px 6px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  border-bottom: 1px solid var(--border-default);
+}
+.cs-mail-table td {
+  padding: 8px 6px;
+  color: var(--fg-1);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.cs-mail-table td.cs-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.cs-mail-foot {
+  margin-top: 14px;
+  font-size: 10.5px;
+  color: var(--fg-4);
+  text-align: center;
+}
+@container (max-width: 480px) {
+  .cs-mail {
+    padding: 10px;
+  }
+  .cs-mail-card {
+    padding: 14px;
+  }
+  .cs-mail-table .cs-col-vendor,
+  .cs-mail-table .cs-col-status {
+    display: none;
+  }
+  .cs-mail-table th,
+  .cs-mail-table td {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  .cs-mail-table td {
+    font-size: 11px;
+  }
+  .cs-mail-table .cs-chip {
+    padding: 0 5px;
+    font-size: 8.5px;
+  }
+}
+
+/* ======================================================================
+   Capability: Labor split (costing/labor_payments/show)
+   ====================================================================== */
+
+.cs-amount-big {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 20px;
+  text-align: right;
+  white-space: nowrap;
+}
+.cs-amount-big small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--fg-3);
+}
+.cs-labor-card {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.cs-labor-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.cs-labor-card-head span:last-child {
+  font-weight: 500;
+}
+.cs-alloc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 12px;
+}
+.cs-alloc:last-child {
+  border-bottom: 0;
+}
+.cs-alloc-main {
+  flex: 1;
+  min-width: 0;
+}
+.cs-alloc-main div:first-child {
+  font-weight: 500;
+}
+.cs-alloc-main div + div {
+  font-size: 10.5px;
+  color: var(--fg-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cs-alloc .cs-x {
+  color: var(--fg-3);
+  font-size: 12px;
+}
+.cs-subhead {
+  margin: 4px 0 2px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.cs-subnote {
+  margin: 0 0 8px;
+  font-size: 10.5px;
+  color: var(--fg-3);
+}
+.cs-suggest-job {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.cs-input {
+  width: 84px;
+  height: 26px;
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 24px;
+  text-align: right;
+  color: var(--fg-1);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+}
+@container (max-width: 440px) {
+  .cs-page {
+    padding: 16px 12px;
+  }
+  .cs-page-title {
+    font-size: 20px;
+  }
+  .cs-amount-big {
+    font-size: 16px;
+  }
+  .cs-input {
+    width: 70px;
+  }
+  .cs-suggest-job,
+  .cs-labor-card {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* ======================================================================
+   Capability: Data Integrity, duplicates (data_integrity/_duplicate_card)
+   ====================================================================== */
+
+.cs-di-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.cs-di-tabs .cs-nav-item {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+.cs-di-tabs .cs-nav-item.is-active {
+  border-color: transparent;
+  box-shadow: 0 0 0 1.5px var(--border-brand);
+}
+.cs-dup-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.cs-dup-head b {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.cs-dup-head span {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.cs-dup-grid {
+  display: grid;
+  grid-template-columns: minmax(78px, auto) minmax(0, 1fr) minmax(0, 1fr);
+  font-size: 11.5px;
+}
+.cs-dup-grid > div {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+.cs-dup-grid > div:nth-child(3n+2),
+.cs-dup-grid > div:nth-child(3n+3) {
+  border-left: 1px solid var(--border-subtle);
+}
+.cs-dup-label {
+  color: var(--fg-3);
+}
+.cs-dup-pick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+.cs-dup-pick.is-selected {
+  background: var(--bg-brand-subtle);
+}
+.cs-radio {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  flex: 0 0 auto;
+}
+.cs-dup-pick.is-selected .cs-radio {
+  border-color: var(--border-brand);
+  box-shadow: inset 0 0 0 2.5px var(--bg-surface), inset 0 0 0 6px var(--border-brand);
+}
+.cs-dup-grid .is-diff {
+  color: var(--fg-1);
+  font-weight: 500;
+}
+.cs-dup-grid .cs-dup-label.is-diff {
+  color: var(--fg-warning);
+  font-weight: 400;
+  background: var(--bg-warning-subtle);
+}
+.cs-dup-grid .is-same {
+  color: var(--fg-3);
+}
+.cs-dup-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 11.5px;
+  color: var(--fg-3);
+}
+.cs-dup-foot strong {
+  color: var(--fg-1);
+}
+.cs-dup-actions {
+  display: flex;
+  gap: 6px;
+}
+@container (max-width: 440px) {
+  .cs-dup-grid {
+    grid-template-columns: 82px minmax(0, 1fr) minmax(0, 1fr);
+    font-size: 11px;
+  }
+  .cs-dup-grid > div {
+    padding: 7px 8px;
+  }
+  .cs-dup-foot,
+  .cs-dup-head {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/* Works With: the supplier logos are dark-on-transparent, so give them a
+   light plate in dark mode or they disappear. */
+:root[data-theme="dark"] body[data-product="costing"] .works-with-item:has(img) {
+  background: #f7f5f2;
+  border-color: transparent;
+}
+
+/* ======================================================================
+   Homepage hero: the desktop Invoice Inbox window in src/index.njk.
+   Reuses the inbox pieces above, tightened to fit beside the phone. The
+   homepage accent is platform red, so the window re-points the brand
+   tokens at Costing's moss like the real app does.
+   ====================================================================== */
+
+.cs-hb-list,
+.cs-hb-panel {
+  --fg-brand: var(--moss-600);
+  --bg-brand: var(--moss-600);
+  --border-brand: var(--moss-500);
+  --fg-on-brand: #fff;
+  color: var(--fg-1);
+  font-size: 12px;
+}
+:root[data-theme="dark"] .cs-hb-list,
+:root[data-theme="dark"] .cs-hb-panel {
+  --fg-brand: var(--moss-300);
+}
+.cs-hb-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px 10px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.cs-hb-head .cs-nav-count {
+  margin-left: 0;
+  font-weight: 400;
+}
+.cs-hb-head .cs-btn {
+  margin-left: auto;
+  font-family: var(--font-sans);
+}
+.cs-hb-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-left: 2px solid transparent;
+}
+.cs-hb-row.is-selected {
+  background: var(--bg-surface);
+  border-left-color: var(--moss-500);
+}
+.cs-hb-row .cs-tile {
+  width: 28px;
+  height: 28px;
+}
+.cs-hb-panel {
+  background: var(--bg-page);
+}
+.cs-hb-panel .cs-invoice-head {
+  padding: 10px 14px;
+}
+.cs-hb-panel .cs-invoice-head .cs-qnum,
+.cs-hb-panel .cs-invoice-head .cs-qamt {
+  font-size: 15px;
+}
+.cs-hb-panel .cs-panel-row {
+  margin: 4px 0 0;
+}
+.cs-hb-panel .cs-suggest {
+  min-height: 0;
+  padding: 9px 12px;
+}
+.cs-hb-panel .cs-suggest-body {
+  gap: 3px;
+  padding-right: 64px;
+}
+.cs-hb-panel .cs-suggest-meta {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.cs-hb-panel .cs-chips {
+  margin-top: 1px;
+}
+.cs-hb-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.cs-hb-actions .cs-card {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.cs-hb-actions .cs-card i {
+  font-size: 12px;
+}
+.cs-hb-toast {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 11.5px;
+  color: var(--fg-2);
+}

@@ -16,23 +16,6 @@
   background: var(--accent-500);
   color: #ffffff;
 }
-.pillar-icon {
-  background: var(--bg-brand-subtle);
-  border-radius: 4px;
-  color: var(--accent-600);
-}
-.suite-card-costing .suite-card-icon {
-  box-shadow:
-    0 0 0 4px rgba(111, 147, 52, 0.18),
-    0 8px 20px -6px rgba(111, 147, 52, 0.45),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
-}
-.suite-card-live {
-  box-shadow:
-    0 0 0 2px var(--moss-500),
-    0 12px 32px -12px rgba(111, 147, 52, 0.4),
-    var(--shadow-md);
-}
 .ks-eyebrow {
   color: var(--accent-600);
   font-weight: 600;
@@ -49,16 +32,12 @@
     0 16px 40px -16px rgba(var(--accent-rgb), 0.45),
     var(--shadow-lg);
 }
-.step-num,
-.suite-card-tag.live {
+.step-num {
   font-weight: 700;
 }
 .hero-headline em {
   color: var(--accent-500);
   text-shadow: 0 0 30px rgba(var(--accent-rgb), 0.25);
-}
-.estimate-callout-tag {
-  color: var(--accent-300);
 }
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -94,24 +73,6 @@ body[data-product="warehouse"] {
   --accent-700: var(--steel-700);
   --accent-rgb: 100, 114, 133;
 }
-body[data-product="hud"] {
-  --accent-50: var(--ochre-50);
-  --accent-200: var(--ochre-200);
-  --accent-300: var(--ochre-300);
-  --accent-500: var(--ochre-500);
-  --accent-600: var(--ochre-600);
-  --accent-700: var(--ochre-700);
-  --accent-rgb: 178, 120, 24;
-}
-body[data-product="coach"] {
-  --accent-50: var(--plum-50);
-  --accent-200: var(--plum-200);
-  --accent-300: var(--plum-300);
-  --accent-500: var(--plum-500);
-  --accent-600: var(--plum-600);
-  --accent-700: var(--plum-700);
-  --accent-rgb: 142, 92, 132;
-}
 
 /* Brand-derived tokens are computed where they're declared, so the :root
    copies in tokens.css resolve against the platform red. Re-declare them on
@@ -141,8 +102,7 @@ body[data-product] {
   letter-spacing: -0.04em;
 }
 .ks-h1,
-.ks-display,
-.quote-text {
+.ks-display {
   font-weight: 700;
   letter-spacing: -0.025em;
 }
@@ -220,14 +180,8 @@ body[data-product] {
   color: #d6d0c9;
   border-color: rgba(255, 255, 255, 0.18);
 }
-:root[data-theme="dark"] .vendor-logo {
-  filter: grayscale(1) invert(0.85);
-}
-:root[data-theme="dark"] .vendor-logo:hover {
-  filter: invert(0.05);
-}
-:root[data-theme="dark"] .quote-text::before,
-:root[data-theme="dark"] .quote-text::after {
+/* accent-600 is too dark on the midnight page; eyebrows follow the lighter dark-mode brand text. */
+:root[data-theme="dark"] .ks-eyebrow {
   color: var(--fg-brand);
 }
 /* Swap the orange logo for the inverse mark in nav (footer is already inverse). */
@@ -238,14 +192,10 @@ body[data-product] {
 :root[data-theme="dark"] .cta-banner {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
-:root[data-theme="dark"] .estimate-callout {
-  background: #000000;
-}
 /* Product-shot browser chrome: keep the frame a step darker than its body
    (light mode gets the same hierarchy from --bg-muted in site.css). */
 :root[data-theme="dark"] .shot-topbar,
-:root[data-theme="dark"] .shot-sidebar,
-:root[data-theme="dark"] .shot-panel {
+:root[data-theme="dark"] .shot-sidebar {
   background: #14110f;
 }
 :root[data-theme="dark"] .ks-avatar {
@@ -262,20 +212,14 @@ body,
 .section,
 .section-tinted,
 .section-surface,
-.suite-card,
 .feature-card,
 .step,
 .tier,
-.dashboard-card,
 .shot-frame,
 .shot-sidebar,
-.shot-panel,
-.shot-queue,
 .ks-btn,
 .feature-icon,
 .step-icon,
-.pillar-icon,
-.suite-card-icon,
 .hero-headline em {
   transition:
     background-color 220ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -289,20 +233,14 @@ body,
   .section,
   .section-tinted,
   .section-surface,
-  .suite-card,
   .feature-card,
   .step,
   .tier,
-  .dashboard-card,
   .shot-frame,
   .shot-sidebar,
-  .shot-panel,
-  .shot-queue,
   .ks-btn,
   .feature-icon,
   .step-icon,
-  .pillar-icon,
-  .suite-card-icon,
   .hero-headline em {
     transition: none;
   }

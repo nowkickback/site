@@ -1,0 +1,13 @@
+{# Composer footer for the AI-picked media item, as in the Outbox composer.
+   Expects fuMediaTitle, fuMediaType and fuMediaReason in scope. #}
+<div class="fu-media">
+  <span class="fu-media-thumb"><span></span><span></span></span>
+  <span class="fu-media-main">
+    <span class="fu-media-title"><span class="fu-badge fu-badge-brand"><i class="ph ph-images"></i>{{ fuMediaType }}</span>{{ fuMediaTitle }}</span>
+    <span class="fu-media-reason"><i class="ph ph-sparkle"></i>{{ fuMediaReason }}</span>
+  </span>
+  <span class="fu-media-switch">
+    <span class="fu-media-switch-copy"><span>Attach media</span><span>Will send</span></span>
+    <span class="fu-toggle"></span>
+  </span>
+</div>

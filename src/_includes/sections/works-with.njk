@@ -1,0 +1,18 @@
+{# Suppliers and services an app pulls from. Items are { name, logo? };
+   names render as text until a logo file is supplied. #}
+{% set s = section %}
+<section class="section section-sm section-surface works-with" id="{{ s.id or 'works-with' }}">
+  <div class="container">
+    <div class="works-with-inner reveal-group">
+      <h2 class="works-with-title reveal">{{ s.title or 'Works With' }}</h2>
+      <ul class="works-with-list reveal" role="list">
+        {% for item in s.items %}
+        <li class="works-with-item">
+          {% if item.logo %}<img src="{{ item.logo }}" alt="{{ item.name }}" loading="lazy" decoding="async">{% else %}{{ item.name }}{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% if s.note %}<p class="works-with-note reveal">{{ s.note }}</p>{% endif %}
+    </div>
+  </div>
+</section>

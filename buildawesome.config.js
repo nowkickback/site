@@ -8,6 +8,11 @@ module.exports = async function ($config) {
   $config.addWatchTarget("assets/");
   $config.addWatchTarget("fonts/woff2/");
 
+  // "$4,890" — prices come from src/_data/pricing.json.
+  $config.addFilter("usd", (n) => "$" + Number(n).toLocaleString("en-US"));
+  $config.addFilter("merge", (a, b) => ({ ...a, ...b }));
+  $config.addFilter("findBy", (list, key, value) => (list || []).find((item) => item[key] === value));
+
   return {
     dir: {
       input: "src",

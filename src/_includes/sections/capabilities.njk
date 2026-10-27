@@ -1,0 +1,9 @@
+{# The capabilities a buyer pays for, one split section each. Sides and
+   backgrounds alternate so a long run of them still reads as separate. #}
+{% set caps = section %}
+<div id="{{ caps.id or 'capabilities' }}" class="capabilities">
+  {% for item in caps.items %}
+    {% set section = item | merge({ reversed: loop.index0 % 2 == 1, surface: 'section-surface' if loop.index0 % 2 == 0 else 'section-tinted section-ruled' }) %}
+    {% include "sections/split.njk" %}
+  {% endfor %}
+</div>

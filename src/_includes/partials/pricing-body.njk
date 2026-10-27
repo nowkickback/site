@@ -1,135 +1,147 @@
-<!-- ============================================================ PRICING -->
-  <section id="pricing" class="section section-tinted">
-    <div class="container">
-      <div class="section-head reveal-group">
-        <div class="ks-eyebrow reveal">PRICING</div>
-        <h2 class="ks-h1 reveal">Start free. Add the apps you need.</h2>
-        <p class="ks-lede reveal">Everything runs on the Kickback platform &mdash; one login, your CRM synced once, shared by every app. Try it all free, then build your package: add Costing, Follow-Up, Warehouse, or any mix. Change it any time.</p>
-      </div>
-
-      <div class="pricing-grid pricing-grid-builder reveal-group">
-
-        <div class="tier tier-hi reveal">
-          <div class="tier-tag">PICK YOUR APPS</div>
-          <div class="tier-name">Kickback Platform</div>
-          <label class="builder-row is-locked is-on" style="--row-accent: var(--red-500)">
-            <input type="checkbox" checked disabled aria-label="Kickback Platform (required)">
-            <span class="builder-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
-            <span class="builder-copy">
-              <span class="builder-name">Platform <span class="ks-badge">REQUIRED</span></span>
-              <p class="builder-desc">One login, unlimited teammates with roles, your CRM synced, credentials in a bank-grade vault.</p>
-            </span>
-            <span class="builder-price" id="platform-price">$249/mo</span>
-          </label>
-
-          <label class="builder-row is-on" style="--row-accent: var(--moss-500)">
-            <input type="checkbox" id="opt-costing" checked aria-label="Add Costing">
-            <span class="builder-mark" style="background: var(--moss-500)"><i class="ph-fill ph-currency-dollar" aria-hidden="true"></i></span>
-            <span class="builder-copy">
-              <span class="builder-name">Costing</span>
-              <p class="builder-desc">Unlimited invoice matching, vendor sync + email ingest, PDFs attached to your CRM jobs, data-integrity dashboards.</p>
-              <span class="builder-users">
-                <span class="builder-users-label">Users</span>
-                <span class="builder-stepper">
-                  <button type="button" data-users="costing" data-dir="-1" aria-label="Fewer Costing users">&minus;</button>
-                  <span class="builder-stepper-count" id="users-costing">5</span>
-                  <button type="button" data-users="costing" data-dir="1" aria-label="More Costing users">+</button>
-                </span>
-                <span class="builder-users-hint">5 included &middot; $89/user after</span>
-              </span>
-            </span>
-            <span class="builder-price" id="price-costing">+$489/mo</span>
-          </label>
-
-          <label class="builder-row is-on" style="--row-accent: var(--tide-500)">
-            <input type="checkbox" id="opt-follow-up" checked aria-label="Add Follow-Up">
-            <span class="builder-mark" style="background: var(--tide-500)"><i class="ph-fill ph-chats" aria-hidden="true"></i></span>
-            <span class="builder-copy">
-              <span class="builder-name">Follow-Up</span>
-              <p class="builder-desc">Unlimited estimates in cadence, nightly AI drafting in your voice, sends from your own Gmail + iMessage.</p>
-              <span class="builder-users">
-                <span class="builder-users-label">Users</span>
-                <span class="builder-stepper">
-                  <button type="button" data-users="follow-up" data-dir="-1" aria-label="Fewer Follow-Up users">&minus;</button>
-                  <span class="builder-stepper-count" id="users-follow-up">5</span>
-                  <button type="button" data-users="follow-up" data-dir="1" aria-label="More Follow-Up users">+</button>
-                </span>
-                <span class="builder-users-hint">5 included &middot; $89/user after</span>
-              </span>
-            </span>
-            <span class="builder-price" id="price-follow-up">+$489/mo</span>
-          </label>
-
-          <label class="builder-row is-on" style="--row-accent: var(--steel-500)">
-            <input type="checkbox" id="opt-warehouse" checked aria-label="Add Warehouse">
-            <span class="builder-mark" style="background: var(--steel-500)"><i class="ph-fill ph-package" aria-hidden="true"></i></span>
-            <span class="builder-copy">
-              <span class="builder-name">Warehouse</span>
-              <p class="builder-desc">Unlimited shipments and floor staff, scanners included, serialized receiving + locations, CRM job matching, shop-supply counts.</p>
-              <span class="builder-users">
-                <span class="builder-users-hint">Unlimited floor staff &middot; scanners included &middot; no per-seat fee</span>
-              </span>
-            </span>
-            <span class="builder-price" id="price-warehouse">+$489/mo</span>
-          </label>
-
-          <div class="builder-note" id="builder-note">
-            <i class="ph-fill ph-check" id="builder-note-icon" aria-hidden="true"></i>
-            <span id="builder-note-text">All apps added &mdash; the platform fee is on us.</span>
-          </div>
-
-          <div class="builder-total">
-            <span class="builder-total-label">Your package</span>
-            <span class="tier-price-row">
-              <span class="tier-dollar">$</span>
-              <span class="tier-price" id="builder-total">1,467</span>
-              <span class="tier-per">/mo</span>
-            </span>
-          </div>
-
-          <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="https://platform.nowkickback.com">Start Your Package</a>
-          <ul class="tier-list">
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Unlimited usage on every app you add</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Add or drop apps any time</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>HUD and Coach join your package when they launch</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Priority email support</span></li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-tag">FOR SOLO OPERATORS</div>
-          <div class="tier-name">Forever Free</div>
-          <div class="tier-price-row">
-            <span class="tier-dollar">$</span>
-            <span class="tier-price">0</span>
-          </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://platform.nowkickback.com">Start Free</a>
-          <ul class="tier-list">
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>1 CRM connection</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Every app included</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>10 invoices matched / month</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>10 estimates on follow-up / month</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Warehouse preview limits apply</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>No card required</span></li>
-          </ul>
-        </div>
-
-        <div class="tier reveal">
-          <div class="tier-tag">FOR FRANCHISES AND MULTI-LOCATION OWNERS</div>
-          <div class="tier-name">Custom</div>
-          <div class="tier-price-row">
-            <span class="tier-price" style="font-size: 36px;">(let&rsquo;s chat)</span>
-          </div>
-          <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="https://platform.nowkickback.com/sales">Contact Us</a>
-          <ul class="tier-list">
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Multi-location &amp; franchise rollouts</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>More than 25 vendor connections</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Custom limits and rollout plan</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Security + procurement support</span></li>
-            <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Dedicated success manager</span></li>
-          </ul>
-        </div>
-
-      </div>
+{#- /pricing. Every amount comes from src/_data/pricing.json; the package
+    builder script (partials/pricing-script.njk) reads the same numbers from
+    the data attributes below. -#}
+<section id="pricing" class="section section-tinted">
+  <div class="container">
+    <div class="section-head reveal-group">
+      <div class="ks-eyebrow reveal">PRICING</div>
+      <h1 class="ks-h1 reveal">One Platform Fee. Add the Apps You Need.</h1>
+      <p class="ks-lede reveal">Every account runs on the Kickback platform: one login, your tools connected once, shared by every app. Add Costing, Follow-Up, Warehouse or any mix. Subscribe to all three and the platform fee is waived.</p>
     </div>
-  </section>
+
+    <div class="pricing-grid pricing-grid-builder reveal-group">
+
+      <div class="tier tier-hi reveal" id="builder"
+        data-platform-monthly="{{ pricing.platform.monthly }}"
+        data-platform-annual="{{ pricing.platform.annual }}"
+        data-seat-cap="{{ pricing.seatCap }}">
+        <div class="tier-tag">BUILD YOUR PACKAGE</div>
+        <div class="tier-name">Kickback Platform</div>
+
+        <fieldset class="builder-billing">
+          <legend class="visually-hidden">Billing period</legend>
+          <label><input type="radio" name="billing" value="monthly" checked><span>Monthly</span></label>
+          <label><input type="radio" name="billing" value="annual"><span>Annual <em>2 Months Free</em></span></label>
+        </fieldset>
+
+        <label class="builder-row is-locked is-on" style="--row-accent: var(--red-500)">
+          <input type="checkbox" checked disabled aria-label="Kickback Platform (required)">
+          <span class="builder-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
+          <span class="builder-copy">
+            <span class="builder-name">Platform <span class="ks-badge">REQUIRED</span></span>
+            <p class="builder-desc">One login for your team, roles for each app, the Audit Log, and your CRM and supplier accounts connected once. {{ pricing.platform.waiver }}.</p>
+          </span>
+          <span class="builder-price" id="platform-price">{{ pricing.platform.monthly | usd }}/mo</span>
+        </label>
+
+        {% for a in pricing.apps %}
+        {%- set prod = products[a.slug] %}
+        <label class="builder-row is-on" style="--row-accent: {{ prod.color }}"
+          data-app="{{ a.slug }}" data-monthly="{{ a.monthly }}" data-annual="{{ a.annual }}"
+          data-included="{{ a.includedSeats }}" data-seat-monthly="{{ a.seatMonthly }}" data-seat-annual="{{ a.seatAnnual }}"
+          data-seat="{{ a.seat }}" data-seats="{{ a.seats }}">
+          <input type="checkbox" id="opt-{{ a.slug }}" checked aria-label="Add {{ prod.name }}">
+          <span class="builder-mark" style="background: {{ prod.color }}"><i class="{{ prod.icon }}" aria-hidden="true"></i></span>
+          <span class="builder-copy">
+            <span class="builder-name">{{ prod.name }}</span>
+            <p class="builder-desc">{{ prod.tagline }}{% if a.seatNote %} {{ a.seatNote }}{% endif %}</p>
+            <span class="builder-users">
+              <span class="builder-users-label" id="seats-label-{{ a.slug }}">{{ a.seatLabel }}</span>
+              <span class="builder-stepper">
+                <button type="button" data-seats-for="{{ a.slug }}" data-dir="-1" aria-label="Fewer {{ prod.name }} {{ a.seats }}">&minus;</button>
+                <output class="builder-stepper-count" id="seats-{{ a.slug }}" aria-labelledby="seats-label-{{ a.slug }}" aria-live="polite">{{ a.includedSeats }}</output>
+                <button type="button" data-seats-for="{{ a.slug }}" data-dir="1" aria-label="More {{ prod.name }} {{ a.seats }}">+</button>
+              </span>
+              <span class="builder-users-hint" id="hint-{{ a.slug }}">{{ a.includedSeats }} included &middot; {{ a.seatMonthly | usd }}/{{ a.seat }}/mo after</span>
+            </span>
+          </span>
+          <span class="builder-price" id="price-{{ a.slug }}">+{{ a.monthly | usd }}/mo</span>
+        </label>
+        {% endfor %}
+
+        <div class="builder-note" id="builder-note" aria-live="polite">
+          <i class="ph-fill ph-check" id="builder-note-icon" aria-hidden="true"></i>
+          <span id="builder-note-text">All three apps added. The platform fee is waived.</span>
+        </div>
+
+        <div class="builder-total">
+          <span class="builder-total-label">Your Package</span>
+          <span class="tier-price-row" aria-live="polite">
+            <span class="tier-dollar">$</span>
+            <span class="tier-price" id="builder-total">{{ (pricing.apps | sum("monthly")) | usd | replace("$", "") }}</span>
+            <span class="tier-per" id="builder-per">/mo</span>
+          </span>
+        </div>
+
+        <a class="ks-btn ks-btn-primary ks-btn-lg tier-cta" href="{{ site.demoUrl }}">Book a Demo</a>
+        <ul class="tier-list">
+          <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>We set up your account and connect your tools with you on the demo</span></li>
+          <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Owners can add apps and seats later from Billing</span></li>
+          <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Up to {{ pricing.seatCap }} seats per app. Need more? Talk to us.</span></li>
+        </ul>
+      </div>
+
+      <div class="tier reveal" id="custom">
+        <div class="tier-tag">FRANCHISES AND MULTI-LOCATION</div>
+        <div class="tier-name">Custom</div>
+        <div class="tier-price-row">
+          <span class="tier-price tier-price-text">Let&rsquo;s Talk</span>
+        </div>
+        <a class="ks-btn ks-btn-secondary ks-btn-lg tier-cta" href="{{ site.salesUrl }}">Talk to Sales</a>
+        <ul class="tier-list">
+          <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>Several locations or franchisees on one plan</span></li>
+          <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>More than {{ pricing.seatCap }} seats on an app</span></li>
+          <li><i class="ph-fill ph-check" aria-hidden="true"></i><span>A rollout plan we build with you</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="price-list" class="section section-surface">
+  <div class="container">
+    <div class="section-head reveal-group">
+      <div class="ks-eyebrow reveal">PRICE LIST</div>
+      <h2 class="ks-h1 reveal">Every Price in One Table</h2>
+      <p class="ks-lede reveal">Annual plans cost ten times the monthly price, so you get two months free.</p>
+    </div>
+    <div class="price-list reveal">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Monthly</th>
+            <th scope="col">Annual</th>
+            <th scope="col">Included</th>
+            <th scope="col">Each Extra Seat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span class="price-list-mark" style="background: var(--red-500)"><i class="ph-fill ph-database" aria-hidden="true"></i></span>{{ pricing.platform.name }}</th>
+            <td data-label="Monthly">{{ pricing.platform.monthly | usd }}</td>
+            <td data-label="Annual">{{ pricing.platform.annual | usd }}</td>
+            <td data-label="Included" colspan="2">{{ pricing.platform.waiver }}</td>
+          </tr>
+          {% for a in pricing.apps %}
+          {%- set prod = products[a.slug] %}
+          <tr>
+            <th scope="row"><a href="{{ prod.url }}"><span class="price-list-mark" style="background: {{ prod.color }}"><i class="{{ prod.icon }}" aria-hidden="true"></i></span>{{ prod.name }}</a></th>
+            <td data-label="Monthly">{{ a.monthly | usd }}</td>
+            <td data-label="Annual">{{ a.annual | usd }}</td>
+            <td data-label="Included">{{ a.includedSeats }} {{ a.seat if a.includedSeats == 1 else a.seats }}</td>
+            <td data-label="Each Extra Seat">{{ a.seatMonthly | usd }}/mo or {{ a.seatAnnual | usd }}/yr per {{ a.seat }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <ul class="price-list-rules">
+        <li>{{ pricing.platform.waiver }}.</li>
+        {% for a in pricing.apps %}{% if a.seatNote %}<li>{{ products[a.slug].name }}: {{ a.seatNote }}</li>{% endif %}{% endfor %}
+        <li>Owners take a seat in Costing and Follow-Up.</li>
+        <li>You can buy up to {{ pricing.seatCap }} seats per app. Beyond that, <a href="{{ site.salesUrl }}">talk to sales</a>.</li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{# FAQ accordion shared by the homepage and product pages. Expects `faqs`:
+   [{ id, q, a }]. Behavior lives in assets/home.js (initFaq). #}
+<div style="display:flex;flex-direction:column;gap:var(--space-3)">
+{% for item in faqs %}
+<div data-reveal="1"{% if not loop.first %} data-delay="{{ (loop.index0 * 40) }}"{% endif %} style="background:var(--bg-page);border-radius:2px;box-shadow:var(--shadow-sm)">
+<h3 style="margin:0;font:inherit"><button type="button" data-faq="1" id="faq-btn-{{ item.id }}" aria-expanded="false" aria-controls="faq-panel-{{ item.id }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:none;border:0;cursor:pointer;text-align:left;font-family:var(--font-sans);font-size:16px;font-weight:500;color:var(--fg-1);overflow-wrap:anywhere">{{ item.q }}<i class="ph ph-caret-down" data-faq-caret="1" aria-hidden="true" style="font-size:16px;color:var(--fg-3);flex:0 0 auto;transition:transform 150ms cubic-bezier(0.4,0,0.2,1)"></i></button></h3>
+<div data-faq-body="1" id="faq-panel-{{ item.id }}" role="region" aria-labelledby="faq-btn-{{ item.id }}" hidden style="overflow:hidden"><p style="margin:0;padding:0 22px 20px;font-size:14.5px;color:var(--fg-2);line-height:1.6;overflow-wrap:anywhere">{{ item.a }}</p></div>
+</div>
+{% endfor %}
+</div>

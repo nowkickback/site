@@ -1,0 +1,64 @@
+{#- Data Integrity, redrawn from the sidebar group plus
+    costing/data_integrity/_duplicate_card. Sample data only. -#}
+<div class="cs-shot" role="img" aria-label="Data Integrity: counts for Duplicates, Zero Cost Items and Unlinked Items, and two copies of one cost line compared side by side with the differing field highlighted.">
+  <div class="shot-frame">
+    <div class="shot-topbar">
+      <div class="shot-traffic">
+        <span style="background:#E56767"></span>
+        <span style="background:#E8B94B"></span>
+        <span style="background:#6CC078"></span>
+      </div>
+      <div class="shot-url">platform.nowkickback.com/costing/data_integrity/duplicates</div>
+      <div></div>
+    </div>
+    <div class="cs-page">
+      <div class="cs-di-tabs">
+        <span class="cs-nav-item is-active"><i class="ph ph-copy"></i>Duplicates<span class="cs-nav-count">2</span></span>
+        <span class="cs-nav-item"><i class="ph ph-receipt-x"></i>Zero Cost Items<span class="cs-nav-count">4</span></span>
+        <span class="cs-nav-item"><i class="ph ph-link-break"></i>Unlinked Items<span class="cs-nav-count">11</span></span>
+      </div>
+      <div class="cs-page-head">
+        <div>
+          <div class="cs-eyebrow">Data Integrity</div>
+          <div class="cs-page-title">Resolve Duplicates</div>
+        </div>
+      </div>
+
+      <div class="cs-card">
+        <div class="cs-dup-head"><b>Marcus Bell</b><span>2 copies &middot; 1 field differs</span></div>
+        <div class="cs-dup-grid">
+          <div></div>
+          <div class="cs-dup-pick is-selected"><span class="cs-radio"></span>Copy 1</div>
+          <div class="cs-dup-pick"><span class="cs-radio"></span>Copy 2</div>
+
+          <div class="cs-dup-label">Amount</div>
+          <div class="cs-mono is-same">$412.80</div>
+          <div class="cs-mono is-same">$412.80</div>
+
+          <div class="cs-dup-label">Vendor</div>
+          <div class="is-same">Sherwin-Williams</div>
+          <div class="is-same">Sherwin-Williams</div>
+
+          <div class="cs-dup-label">Date</div>
+          <div class="is-same">No date</div>
+          <div class="is-same">No date</div>
+
+          <div class="cs-dup-label">Invoice #</div>
+          <div class="is-same">&ndash;</div>
+          <div class="is-same">&ndash;</div>
+
+          <div class="cs-dup-label is-diff">Description</div>
+          <div class="is-diff">Exterior satin, 5 gal</div>
+          <div class="is-diff">Exterior satin</div>
+        </div>
+        <div class="cs-dup-foot">
+          <span>Keeping selected will delete <strong>1 other</strong>.</span>
+          <span class="cs-dup-actions">
+            <span class="cs-btn cs-btn-ghost">Ignore &middot; keep all</span>
+            <span class="cs-btn cs-btn-primary">Keep selected &middot; delete 1</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

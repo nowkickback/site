@@ -1,0 +1,52 @@
+{% set fuPipe = [
+  { name: "Laura Mendez", num: "4417", addr: "212 Brook Rd", rep: "Mike K.", tile: "MK", rec: true, amt: "$8,450.00", status: "Date Given", cls: "brand" },
+  { name: "Rachel Byrne", num: "4409", addr: "48 Linden Ct", rep: "Mike K.", tile: "MK", rec: true, amt: "$12,300.00", status: "Active", cls: "" },
+  { name: "Tom Salas", num: "4392", addr: "9 Harbor Way", rep: "Jess T.", tile: "JT", rec: true, amt: "$4,980.00", status: "Thinking", cls: "warning" },
+  { name: "Chris Hale", num: "4371", addr: "1704 Grove Ave", rep: "Jess T.", tile: "JT", rec: false, amt: "$22,140.00", status: "Active", cls: "" },
+  { name: "Dana Price", num: "4366", addr: "330 Elm St", rep: "Mike K.", tile: "MK", rec: true, amt: "$7,215.00", status: "Won", cls: "success" },
+  { name: "Larry Boone", num: "4318", addr: "57 Mill Pond Ln", rep: "Unassigned", tile: "–", rec: false, amt: "$6,720.00", status: "Nurture", cls: "" }
+] %}
+<div class="fu-pipe" role="img" aria-label="The Follow-Up Pipeline: enrolled estimates with rep, recording, amount and status, filtered by status, rep and recording. In front of it, the Open Follow-Ups Digest email listing follow-ups still open, with how many days each is overdue.">
+  <div class="fu-card fu-pipe-card" aria-hidden="true">
+    <div class="fu-pipe-head">Pipeline</div>
+    <div class="fu-pipe-filters">
+      <span class="fu-select">All statuses<i class="ph ph-caret-down"></i></span>
+      <span class="fu-select">All reps<i class="ph ph-caret-down"></i></span>
+      <span class="fu-select fu-hide-sm">Any recording<i class="ph ph-caret-down"></i></span>
+      <span class="fu-btn">Filter</span>
+    </div>
+    <div class="fu-pipe-table">
+      <div class="fu-pipe-tr fu-pipe-th fu-mono">
+        <span>Customer</span><span class="fu-pipe-rep">Rep</span><span class="fu-pipe-rec">Recording</span><span class="fu-pipe-amt">Amount</span><span>Status</span>
+      </div>
+      {% for r in fuPipe %}
+      <div class="fu-pipe-tr">
+        <span class="fu-pipe-cust">
+          <span class="fu-tile">{{ r.tile }}</span>
+          <span class="fu-pipe-cust-main"><b>{{ r.name }}</b><small>Estimate #{{ r.num }} · {{ r.addr }}</small></span>
+        </span>
+        <span class="fu-pipe-rep">{{ r.rep }}</span>
+        <span class="fu-pipe-rec"><i class="ph {{ 'ph-microphone is-on' if r.rec else 'ph-microphone-slash' }}"></i></span>
+        <span class="fu-pipe-amt fu-mono">{{ r.amt }}</span>
+        <span><span class="fu-status{% if r.cls %} fu-status-{{ r.cls }}{% endif %}">{{ r.status }}</span></span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="fu-digest" aria-hidden="true">
+    <div class="fu-digest-subject"><i class="ph ph-envelope-simple"></i><span>3 follow-ups still open, Northline Home</span></div>
+    <div class="fu-digest-body">
+      <div class="fu-mono fu-digest-brand">Kickback</div>
+      <div class="fu-digest-title">3 follow-ups still open</div>
+      <p>3 follow-ups at <b>Northline Home</b> are still open and haven't been touched by the assigned rep.</p>
+      <div class="fu-digest-table">
+        <div class="fu-digest-tr fu-digest-th fu-mono"><span>Customer</span><span>Rep</span><span class="fu-digest-due">Due</span><span>Overdue</span></div>
+        <div class="fu-digest-tr"><span><b>Chris Hale</b></span><span>Jess T.</span><span class="fu-digest-due">October 18</span><span><span class="fu-digest-badge is-danger">8 days</span></span></div>
+        <div class="fu-digest-tr"><span><b>Larry Boone</b></span><span>Unassigned</span><span class="fu-digest-due">October 24</span><span><span class="fu-digest-badge">2 days</span></span></div>
+        <div class="fu-digest-tr"><span><b>Tom Salas</b></span><span>Jess T.</span><span class="fu-digest-due">October 26</span><span><span class="fu-digest-badge is-neutral">Due today</span></span></div>
+      </div>
+      <span class="fu-digest-btn">Open the Follow-Up dashboard</span>
+    </div>
+  </div>
+</div>

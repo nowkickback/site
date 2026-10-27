@@ -2,155 +2,268 @@
   "slug": "warehouse",
   "dataProduct": "warehouse",
   "name": "Warehouse",
+  "tagline": "Every piece accounted for.",
+  "lineup": "Shipments import before the truck arrives, receiving is a scan, and every piece already knows which job it belongs to.",
   "themeColor": "#647285",
-  "status": "preview",
-  "statusLabel": "PRIVATE PREVIEW",
-  "suiteTagClass": "next",
-  "suiteCardClass": "suite-card-warehouse",
+  "color": "var(--steel-500)",
   "icon": "ph-fill ph-package",
   "url": "/warehouse/",
   "order": 3,
   "seo": {
-    "title": "Warehouse \u2014 Kickback",
-    "description": "Warehouse tracks every piece from truck to install. Scan to receive, locate, and match material to the right CRM job \u2014 no paper load sheets.",
-    "ogTitle": "Warehouse \u2014 Kickback",
-    "ogDescription": "Complete visibility from order to install. Scan receiving, live locations, and CRM job matching for home-services warehouses."
+    "title": "Warehouse — Kickback",
+    "description": "Warehouse turns supplier load sheets into shipments, receives and racks material by scan, and shows which jobs have everything in.",
+    "ogTitle": "Warehouse — Kickback",
+    "ogDescription": "Load sheets import themselves. Pieces scan in, scan onto racks, and each job shows when its material is all here."
   },
   "screenLabel": "Warehouse page",
   "hero": {
     "variant": "product",
-    "showCrumb": false,
-    "headlineHtml": "Complete visibility, from <em>order to install.</em>",
-    "lede": "Warehouse replaces paper load sheets and whiteboards with a live dashboard. Shipments import before the truck arrives, receiving is a scan, and every piece already knows which job it belongs to.",
-    "ctas": [
-      {
-        "label": "Request Early Access",
-        "href": "https://platform.nowkickback.com/sales",
-        "style": "primary"
-      },
-      {
-        "label": "See how it works \u2193",
-        "href": "#how",
-        "style": "secondary"
-      }
-    ],
-    "metaHtml": "Part of the <a href=\"https://platform.nowkickback.com\">Kickback Platform</a> \u00b7 Scanners included \u00b7 No per-seat fee",
+    "headlineHtml": "Know where every piece is, from <em>truck to install.</em>",
+    "lede": "Your supplier's load sheet becomes a shipment before the truck pulls in. The dock scans pieces off the truck and onto racks, and each job shows the moment all of its material is here.",
+    "metaHtml": "Part of the <a href=\"/platform/\">Kickback Platform</a> · Billed per paired scanner",
     "shot": "warehouse-dashboard"
   },
   "sections": [
     {
+      "type": "works-with",
+      "id": "works-with",
+      "title": "Works With",
+      "items": [
+        { "name": "MI Windows and Doors" },
+        { "name": "Associated Materials" },
+        { "name": "Wincore" }
+      ],
+      "note": "Load sheets and ship notices from these suppliers import as shipments."
+    },
+    {
       "type": "steps",
       "id": "how",
       "eyebrow": "HOW WAREHOUSE WORKS",
-      "title": "From truck to rack in minutes.",
+      "title": "From Load Sheet to Install",
       "titleClass": "ks-display",
-      "lede": "Connect your CRM once. Warehouse imports load manifests, matches pieces to open orders, and keeps every location live \u2014 so floor staff scan instead of hunting.",
+      "lede": "Connect your CRM and your suppliers once. After that, the warehouse runs on scans.",
       "items": [
         {
           "num": "01",
-          "icon": "ph ph-truck",
-          "title": "The truck arrives already matched.",
-          "body": "We pull the load manifest or order confirmation from your supplier. Every PO, strap, bundle, and piece lands in the app before anyone unloads \u2014 no typing required."
+          "icon": "ph ph-envelope-simple",
+          "title": "The Manifest Imports Itself",
+          "body": "Your supplier emails the load sheet to the address Kickback gives you, or you upload it. Every PO, bundle and serial lands as a shipment, and each order links to its CRM job by PO number."
         },
         {
           "num": "02",
           "icon": "ph ph-barcode",
-          "title": "Receiving is point and zap.",
-          "body": "Open the truck's scan screen and zap each barcode. Scan a wrapped bundle once and every piece on that truck inside it receives in one step."
+          "title": "Scan It In, Scan It Away",
+          "body": "The dock scans each piece, or a bundle label once, as it comes off the truck. Scan a rack label and the piece, or its whole order, is put away there."
         },
         {
           "num": "03",
-          "icon": "ph ph-map-pin",
-          "title": "Every piece has a home.",
-          "body": "Scan the rack, then the item \u2014 or move a whole order with one tap. Search by serial, PO, customer order, or bill of lading and get an answer in seconds."
+          "icon": "ph ph-check-square",
+          "title": "Pull What's Ready",
+          "body": "A job is ready once every shipping line is received. When it's scheduled, the picker gets a route through the racks and stages each piece by scan."
         }
       ]
     },
     {
-      "type": "split",
-      "id": "receiving",
-      "eyebrow": "RECEIVE \u00b7 LOCATE \u00b7 MATCH",
-      "title": "Where is it? One scan, not an hour of walking.",
-      "body": "Orders score against jobs already in your CRM. Clear matches link themselves. Uncertain ones stay unmatched with the best candidates \u2014 never the wrong customer. Shop supplies count by scan, with reorder points on the dashboard.",
-      "bullets": [
+      "type": "capabilities",
+      "id": "capabilities",
+      "items": [
         {
-          "icon": "ph-fill ph-check",
-          "title": "Zero rows typed",
-          "text": "Load sheets import automatically from your suppliers. Upload by hand when you need to."
+          "id": "manifests",
+          "eyebrow": "MANIFEST IMPORT",
+          "title": "Shipments Import Themselves",
+          "body": "Each supplier connection gets its own manifest email address. Your supplier sends load sheets there, or you drop the file on the Manifests page. Kickback reads the PO, bundle and serial on every line and builds the shipment before the truck shows up.",
+          "bullets": [
+            {
+              "title": "Matched to the Right Job",
+              "text": "Orders link to CRM jobs on an exact PO match. Anything less certain stays Unmatched with the three closest jobs, so material never lands on the wrong customer."
+            },
+            {
+              "title": "Every Line Accounted For",
+              "text": "The import report marks each line Created, Updated, Order only or Rejected. A bad line is set aside and the rest of the load still lands."
+            },
+            {
+              "title": "Revised Load Sheets",
+              "text": "Send a new sheet for the same BOL and the shipment updates in place. Pieces already received stay received."
+            },
+            {
+              "title": "New Shipment Alerts",
+              "text": "When a manifest creates a shipment, your warehouse team gets a push."
+            }
+          ],
+          "shot": "warehouse-manifest"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Bundle receive",
-          "text": "One scan marks every piece in a wrapped bundle that is on that truck."
+          "id": "receiving",
+          "eyebrow": "RECEIVE AND PUT AWAY",
+          "title": "Receive and Put Away by Scan",
+          "body": "Scan each piece as it comes off the truck, or scan a bundle strap once to receive everything in it. Then scan a rack label to put a piece away, or its whole order at once. Scan or type any serial, PO or BOL into search and the record opens.",
+          "bullets": [
+            {
+              "title": "Locations and Floor Plans",
+              "text": "Print a QR or barcode label for every rack. Draw the building with walls, dock doors and aisles, then tap a rack to see what's on it."
+            },
+            {
+              "title": "Pair a Scanner With One Code",
+              "text": "A manager names the gun, like Dock 1, and gets a one-time pairing code. The gun scans it and from then on it's locked to Warehouse."
+            },
+            {
+              "title": "Revoke at Once",
+              "text": "Lose a gun and press Revoke. It stops working on its next request."
+            },
+            {
+              "title": "Billed by Scanner",
+              "text": "You pay for each paired scanner. Floor staff accounts don't add to the bill, so add everyone who works the warehouse."
+            }
+          ],
+          "shot": "warehouse-receive"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "CRM job matching",
-          "text": "Pieces link to the right job from your existing CRM data. You confirm the installer \u2014 the app never assigns work alone."
+          "id": "readiness",
+          "eyebrow": "JOB READINESS",
+          "title": "Know What's Ready to Install",
+          "body": "Each job lists its contract lines and the pieces received against each one. Once every shipping line is in, the job moves to Ready to Schedule on the Jobs list.",
+          "bullets": [
+            {
+              "title": "Scheduling Follows Your CRM",
+              "text": "When the office books the install in your CRM, every received piece on that job is scheduled. Unbook it and they go back to received."
+            },
+            {
+              "title": "Pick Routes and Pick Sheets",
+              "text": "The Pick page walks the floor plan rack by rack and ends at a dock door. Print it as a pick sheet, with or without the map."
+            },
+            {
+              "title": "Staged by Scan",
+              "text": "The picker scans each piece to stage it. When the last one is staged, your warehouse team gets a push."
+            },
+            {
+              "title": "Needs Attention",
+              "text": "A job your CRM canceled or unbooked while pieces were already moving gets flagged, with what to put back."
+            }
+          ],
+          "shot": "warehouse-job"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Scanners included",
-          "text": "We ship configured guns at no device cost. Floor staff need no daily login. A lost gun locks with one click."
-        },
-        {
-          "icon": "ph-fill ph-check",
-          "title": "Shop supplies too",
-          "text": "Screws, shims, caulk \u2014 multiple barcodes hit the same line. Reorder points flag what is low or out."
+          "id": "consumables",
+          "eyebrow": "STOCK COUNTS",
+          "title": "Consumables",
+          "body": "Caulk, coil, shims and screws are counted by scan, and each one has a reorder point. Kickback works out what your open jobs will use from their contract lines, so the projected count already takes out what's owed.",
+          "bullets": [
+            {
+              "title": "Usage Rates",
+              "text": "Set what each product category uses, like feet of coil per window. Override it for a single product when it differs."
+            },
+            {
+              "title": "Pulled Against the Job",
+              "text": "Pulls on the pick screen are recorded against the job, so each job shows what it still owes."
+            },
+            {
+              "title": "New Barcodes Don't Stop the Dock",
+              "text": "Scan something nobody has entered yet and it's counted under Needs a Name. Name it later."
+            },
+            {
+              "title": "Reorder and Short on the Dashboard",
+              "text": "The dashboard counts what's at its reorder point and what open jobs will run short on."
+            }
+          ],
+          "shot": "warehouse-consumables"
         }
-      ],
-      "cta": {
-        "label": "Request Early Access \u2192",
-        "href": "https://platform.nowkickback.com/sales"
-      },
-      "kpis": {
-        "meta": "WAREHOUSE \u00b7 DASHBOARD",
-        "title": "Today on the floor",
+      ]
+    },
+    {
+      "type": "automation",
+      "id": "automation",
+      "eyebrow": "WHO DOES WHAT",
+      "title": "Automatic vs. You Confirm",
+      "lede": "Kickback keeps the counts. Anything that could put material on the wrong job waits for a person.",
+      "automatic": {
+        "title": "Automatic",
         "items": [
-          {
-            "label": "Trucks inbound",
-            "value": "3",
-            "sub": "manifests matched, ready to receive"
-          },
-          {
-            "label": "Pieces on hand",
-            "value": "1,248",
-            "sub": "serialized stock with live locations"
-          },
-          {
-            "label": "Unmatched orders",
-            "value": "7",
-            "sub": "awaiting a CRM job confirmation"
-          },
-          {
-            "label": "Low / out",
-            "value": "12",
-            "sub": "shop supplies below reorder point"
-          }
+          "Emailed load sheets import as shipments",
+          "Orders link to jobs on an exact PO match",
+          "Pieces go on a contract line when only one line fits",
+          "Shipments close when the last piece is scanned in",
+          "Received pieces are scheduled when your CRM books the install",
+          "Projected stock updates as jobs open, change and get pulled",
+          "A daily digest of trucks still being unloaded"
         ]
       },
-      "callout": {
-        "icon": "ph ph-barcode",
-        "tag": "WAREHOUSE \u00b7 SCAN TO KNOW",
-        "body": "Serial, bundle, PO, customer order, or bill of lading \u2014 one search answers where it is, on the gun, in seconds."
+      "confirm": {
+        "title": "You Confirm",
+        "items": [
+          "Orders without a clear PO match",
+          "Kickback's suggested line for each loose piece",
+          "Which consumable each product color uses",
+          "Scheduling by hand when your CRM doesn't book installs",
+          "Stock count corrections",
+          "Pairing and revoking scanners"
+        ]
       }
     },
     {
+      "type": "other-apps",
+      "id": "other-apps",
+      "eyebrow": "ONE PLATFORM",
+      "title": "Works With Your Other Apps",
+      "lede": "Warehouse runs on the same CRM jobs and supplier connections as the rest of Kickback.",
+      "items": [
+        {
+          "slug": "costing",
+          "body": "Connect Associated Materials or Wincore once. Costing gets the invoices, Warehouse gets the load sheets, and both land on the same CRM jobs."
+        },
+        {
+          "slug": "follow-up",
+          "body": "Follow-Up works your open estimates. Once a job sells and its order ships, Warehouse tracks the material to install."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "faq",
+      "eyebrow": "FAQ",
+      "title": "Questions About Warehouse",
+      "items": [
+        {
+          "id": "warehouse-suppliers",
+          "q": "Which suppliers does Warehouse import from?",
+          "a": "MI Windows and Doors, Associated Materials and Wincore. Wincore ship notices list orders without serial numbers, so Wincore pieces can't be scanned in yet."
+        },
+        {
+          "id": "warehouse-ready",
+          "q": "How does Warehouse decide a job is ready?",
+          "a": "You choose which product categories arrive from a supplier. A job is ready when every line in those categories has its full quantity received. Broken and mismeasured pieces don't count."
+        },
+        {
+          "id": "warehouse-scanners",
+          "q": "Do we need scanners to use it?",
+          "a": "No. Receiving, put-away and search work in any browser, and you can type into every scan box. Paired scanners give the floor a shared login that only opens Warehouse."
+        },
+        {
+          "id": "warehouse-billing",
+          "q": "How is Warehouse billed?",
+          "a": "By paired scanner. The plan includes one, and you can add more. Floor staff accounts don't count, and revoking a scanner frees its slot."
+        },
+        {
+          "id": "warehouse-lost-scanner",
+          "q": "What if a scanner goes missing?",
+          "a": "Revoke it in Warehouse settings. It stops working on its next request and needs a new pairing code to come back."
+        },
+        {
+          "id": "warehouse-setup",
+          "q": "How do we get started?",
+          "a": "Book a demo. Kickback sets up your account, then you connect your CRM and suppliers, print rack labels and pair a scanner. The setup guide in Warehouse walks through each step."
+        }
+      ]
+    },
+    {
+      "type": "pricing-line",
+      "id": "pricing"
+    },
+    {
       "type": "cta",
-      "variant": "warehouse"
+      "id": "demo",
+      "kicker": "WAREHOUSE",
+      "title": "Have Your Next Truck Entered Before It Arrives",
+      "body": "Book a demo and we'll walk through Warehouse with you. Kickback sets up your account."
     }
-  ],
-  "suite": {
-    "body": "Receive shipments by scan, know where every piece sits, and match material to the right CRM job \u2014 no paper load sheets, no hunting the warehouse.",
-    "disabled": false,
-    "liveRing": false
-  },
-  "pricing": {
-    "billable": true,
-    "baseMonthly": 489,
-    "includedUsers": null,
-    "perUserAfter": 0,
-    "flatSeats": true,
-    "builderDesc": "Unlimited shipments and floor staff, scanners included, serialized receiving + locations, CRM job matching, shop-supply counts."
-  }
+  ]
 }

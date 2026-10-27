@@ -2,152 +2,217 @@
   "slug": "costing",
   "dataProduct": "costing",
   "name": "Costing",
+  "tagline": "Every dollar in its place.",
+  "lineup": "Supplier invoices arrive on their own and get matched to the job. Confirm with one keystroke and the cost posts to your CRM before your coffee's cold.",
   "themeColor": "#6F9334",
-  "status": "live",
-  "statusLabel": "PUBLIC BETA",
-  "suiteTagClass": "live",
-  "suiteCardClass": "suite-card-costing",
+  "color": "var(--moss-500)",
   "icon": "ph-fill ph-currency-dollar",
   "url": "/costing/",
   "order": 1,
   "seo": {
-    "title": "Costing \u2014 Kickback",
-    "description": "Costing matches vendor invoices to your CRM jobs, automatically. Sherwin-Williams, Home Depot Pro, Lowe's Pro, and more. Built for the keyboard.",
-    "ogTitle": "Costing \u2014 Kickback",
-    "ogDescription": "Vendor invoices matched to your CRM jobs in seconds. Cleared with the keyboard. Posted straight to your CRM."
+    "title": "Costing — Kickback",
+    "description": "Costing pulls supplier invoices in every day, matches each one to a job in your CRM, and posts confirmed costs and invoice PDFs back to that job.",
+    "ogTitle": "Costing — Kickback",
+    "ogDescription": "Supplier invoices pulled in daily, matched to the right job, and posted back to your CRM."
   },
   "screenLabel": "Costing page",
   "hero": {
     "variant": "product",
-    "showCrumb": false,
-    "headlineHtml": "Never hunt for a <em>receipt</em> again.",
-    "lede": "Costing pulls vendor invoices in from the vendors you already use, matches each one to the right job, and posts it to your CRM with a single keystroke.",
-    "ctas": [
-      {
-        "label": "Try Costing Today",
-        "href": "https://platform.nowkickback.com",
-        "style": "primary"
-      },
-      {
-        "label": "See how it works \u2193",
-        "href": "#how",
-        "style": "secondary"
-      }
-    ],
-    "metaHtml": "Part of the <a href=\"https://platform.nowkickback.com\">Kickback Platform</a> \u00b7 Sign-In or Create an Account",
+    "headlineHtml": "Every supplier invoice on the right <em>job</em>.",
+    "lede": "Costing pulls invoices from your supplier accounts every day and matches each one to a job in your CRM. You confirm the cost with one key, and it lands on the job with the invoice PDF.",
+    "metaHtml": "Part of the <a href=\"/platform/\">Kickback Platform</a>",
     "shot": "costing-inbox"
   },
   "sections": [
     {
-      "type": "logo-strip"
+      "type": "works-with",
+      "id": "works-with",
+      "title": "Works With",
+      "items": [
+        { "name": "Sherwin-Williams", "logo": "/assets/vendors/sherwin-williams.png" },
+        { "name": "Spectrum Paint", "logo": "/assets/vendors/spectrum-paint.png" },
+        { "name": "The Home Depot", "logo": "/assets/vendors/home-depot.svg" },
+        { "name": "Lowe's", "logo": "/assets/vendors/lowes.svg" },
+        { "name": "Associated Materials" },
+        { "name": "Wincore" },
+        { "name": "Gusto" }
+      ],
+      "note": "Supplier invoices for material costs. Gusto payroll for labor."
     },
     {
       "type": "steps",
       "id": "how",
       "eyebrow": "HOW COSTING WORKS",
-      "title": "From zero to costed in minutes.",
+      "title": "Invoice to Job Cost",
       "titleClass": "ks-display",
-      "lede": "Connect your CRM and your vendor accounts. Our platform watches for new invoices, uses context from the invoice and your job data to suggest the best match, and lets you confirm with a single keystroke.",
+      "lede": "Connect your CRM and your supplier accounts once. After that, every invoice goes through the same three steps.",
       "items": [
         {
           "num": "01",
-          "icon": "ph ph-envelope-simple",
-          "title": "New invoices arrive in your inbox.",
-          "body": "Invoices can come from any vendor, via their portal, emailed receipts or PDFs, or any other way they send them to you. Costing pulls in the details like line items and totals, P/O numbers, and more, so nothing gets re-typed."
+          "icon": "ph ph-tray-arrow-down",
+          "title": "Invoices Arrive",
+          "body": "Costing pulls new invoices from your supplier accounts every day. Home Depot and Lowe's order emails can also be forwarded straight in."
         },
         {
           "num": "02",
-          "icon": "ph ph-magnifying-glass",
-          "title": "Costing suggests the best match.",
-          "body": "We rank likely matches using the signals on each invoice and across your job data: names, dates, locations, references, and historical patterns. The best options rise to the top so you don't have to search for the right job."
+          "icon": "ph ph-magic-wand",
+          "title": "Auto-Match Finds the Job",
+          "body": "It checks each invoice's PO against your jobs' numbers, addresses, customer names and dates. Clear matches get linked to the job. The rest wait in your Invoice Inbox with the three likeliest jobs."
         },
         {
           "num": "03",
           "icon": "ph ph-check-square",
-          "title": "Confirm and Post to your CRM.",
-          "bodyHtml": "Match an existing line item or create a new one, then hit <kbd>Enter</kbd>. The cost is posted to the matched job, the receipt PDF is attached in your CRM, and your job costing reports stay accurate."
+          "title": "Costs Land on the Job",
+          "bodyHtml": "Pick the cost line and press <kbd>Enter</kbd>. The invoice total posts to the job in your CRM. The invoice PDF is already on that job, attached when the invoice was linked, if the supplier provides one."
         }
       ]
     },
     {
-      "type": "split",
-      "id": "matching",
-      "eyebrow": "AI-DRIVEN MATCHING",
-      "title": "Clear your queue without even thinking.",
-      "bodyHtml": "The whole inbox runs on the keyboard. <kbd>J</kbd>/<kbd>K</kbd> through the queue, <kbd>1</kbd>\u2013<kbd>3</kbd> to pick a suggested job, <kbd>Enter</kbd> to confirm. Hard ones go to <kbd>S</kbd>earch. Junk goes to <kbd>O</kbd>verhead or <kbd>I</kbd>gnore. Built for the operator who'd rather get their Saturday back.",
-      "bullets": [
+      "type": "capabilities",
+      "id": "capabilities",
+      "items": [
         {
-          "icon": "ph-fill ph-check",
-          "title": "Vendor Support",
-          "text": "Whether your vendors have a portal, email you receipts, or something else, our platform supports it all."
+          "id": "supplier-invoices",
+          "eyebrow": "SUPPLIER CONNECTIONS",
+          "title": "Invoices Come In by Themselves",
+          "body": "Connect each supplier account once. Every day Costing signs in, pulls the new invoices and grabs the PDF where the supplier has one. Nobody has to log into portals or dig through email to find them.",
+          "bullets": [
+            { "title": "Direct Connections", "text": "Sherwin-Williams, Associated Materials and Wincore sync straight from the supplier's system with your account login." },
+            { "title": "Portal Pulls", "text": "Spectrum Paint and The Home Depot are read from their websites with your saved login. If a portal asks for a one-time code, you finish signing in from Kickback." },
+            { "title": "Email Forwarding", "text": "Home Depot and Lowe's order emails forwarded to your connection's address show up without waiting for the daily sync." },
+            { "title": "Sync Any Time", "text": "Press Sync for an extra pull, or run a Full Historical Sync to bring in older invoices." }
+          ],
+          "shot": "costing-vendors"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Smart Suggestions",
-          "text": "Costing reads the P/O field, the customer name on the receipt, active job dates, and more to suggest the best match. Most invoices match in one click."
+          "id": "auto-match",
+          "eyebrow": "AUTO-MATCH",
+          "title": "Auto-Match",
+          "bodyHtml": "Auto-Match compares every new invoice with the jobs opened around its date. When the PO matches a job number, or one job is a clear fit, it links the invoice to that job on its own. Close calls wait in the Invoice Inbox, which runs on the keyboard: <kbd>J</kbd> and <kbd>K</kbd> move through the queue, <kbd>1</kbd> to <kbd>3</kbd> pick a job, <kbd>Enter</kbd> confirms, <kbd>S</kbd> searches, and <kbd>O</kbd> or <kbd>I</kbd> marks an invoice overhead or ignored.",
+          "bullets": [
+            { "title": "Linked Invoices Arrive Ready", "text": "Invoices it linked show up with the job set and a cost line already picked. Press Enter to post it." },
+            { "title": "Every Guess Shows Its Reason", "text": "Each suggested job is tagged with what lined up: the PO, the job address, the customer name or the job dates." },
+            { "title": "Daily Auto-Match Digest", "text": "One email a day lists the invoices Auto-Match linked in the last 24 hours, with a link to undo any of them. Owners pick the hour, and nothing is sent on days it linked none." }
+          ],
+          "shot": "costing-digest"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Synced to your CRM",
-          "text": "No need to re-type anything or use another app. The invoice is posted, the receipt PDF is attached, and your job-costing reports stay accurate, all in the CRM you already use."
+          "id": "labor",
+          "eyebrow": "LABOR",
+          "title": "Labor Costing From Payroll",
+          "body": "Connect Gusto and payroll payments come in every day, or upload a payments report exported from Gusto. Open a payment, split it across the jobs it covered by dollar amount, and each share posts to that job in your CRM as a labor line.",
+          "bullets": [
+            { "title": "Suggested Jobs", "text": "Costing lists the jobs that person was assigned to around the pay date, with the unsplit balance already filled in." },
+            { "title": "Changed Payments Get Flagged", "text": "If payroll changes a payment you already split, it moves to Needs Review so you can check the split again." },
+            { "title": "Removals Carry Over", "text": "Take a share off a job and its labor line comes off the job in your CRM too." }
+          ],
+          "shot": "costing-labor"
         },
         {
-          "icon": "ph-fill ph-check",
-          "title": "Data-Integrity Checks",
-          "text": "Spot duplicate invoices, jobs with no cost items yet, and zero-cost line items waiting on a receipt. No more manual double-checking."
+          "id": "data-integrity",
+          "eyebrow": "DATA INTEGRITY",
+          "title": "Data Integrity",
+          "body": "Costing also checks the cost lines already on your jobs and sorts the problems into three lists. Delete a line in Kickback and it's gone from your CRM too.",
+          "bullets": [
+            { "title": "Duplicates", "text": "Copies of a cost line on the same job, side by side with the differences highlighted. Keep one and delete the rest." },
+            { "title": "Zero Cost Items", "text": "Cost lines sitting on a job at $0.00." },
+            { "title": "Unlinked Items", "text": "Cost lines with no supplier invoice behind them." }
+          ],
+          "shot": "costing-duplicates"
         }
-      ],
-      "cta": {
-        "label": "Try Costing free \u2192",
-        "href": "https://platform.nowkickback.com"
-      },
-      "kpis": {
-        "meta": "JOBS \u00b7 HEALTH",
-        "title": "Costing sanity check",
+      ]
+    },
+    {
+      "type": "automation",
+      "id": "automation",
+      "eyebrow": "WHO DOES WHAT",
+      "title": "Automatic vs. You Confirm",
+      "lede": "Auto-Match decides which job an invoice belongs to. A person decides what changes the costs on that job.",
+      "automatic": {
+        "title": "Automatic",
         "items": [
-          {
-            "label": "Total jobs",
-            "value": "403",
-            "sub": "active across all CRM accounts"
-          },
-          {
-            "label": "Missing cost items",
-            "value": "94",
-            "sub": "no costs recorded on the job yet"
-          },
-          {
-            "label": "Unlinked invoices",
-            "value": "5",
-            "sub": "matched to a job but not a line item"
-          },
-          {
-            "label": "Unmatched line items",
-            "value": "266",
-            "sub": "cost items with no invoice attached"
-          }
+          "Pulling new invoices from your supplier accounts every day",
+          "Pulling payroll payments from Gusto every day",
+          "Linking an invoice to its job when the PO matches the job number",
+          "Linking an invoice to its job when Auto-Match is confident",
+          "Attaching the invoice PDF to the job in your CRM once the invoice is linked",
+          "Ranking the three likeliest jobs for every invoice left in the inbox",
+          "Picking a starting cost line for each linked invoice",
+          "Sending the daily Auto-Match Digest"
         ]
       },
-      "callout": {
-        "icon": "ph ph-clock-clockwise",
-        "tag": "COSTING \u00b7 HOURLY SYNC",
-        "body": "New invoices land in your inbox automatically. Job costing in your CRM catches up without anyone re-typing a single line."
+      "confirm": {
+        "title": "You Confirm",
+        "items": [
+          "The job for every invoice Auto-Match wasn't sure about",
+          "Which cost line an invoice posts to, or adding a new one",
+          "Marking an invoice as overhead or ignoring it",
+          "Splitting each payroll payment across jobs",
+          "Deleting duplicates, zero cost items and unlinked items",
+          "Whether Auto-Match links jobs at all (owners can switch it off)"
+        ]
       }
     },
     {
+      "type": "other-apps",
+      "id": "other-apps",
+      "eyebrow": "ONE PLATFORM",
+      "title": "Works With Your Other Apps",
+      "lede": "Costing shares its CRM and supplier connections with the rest of Kickback, so you connect each account once.",
+      "items": [
+        {
+          "slug": "warehouse",
+          "body": "Connect Associated Materials or Wincore once and it feeds both apps. Costing reads each order as an invoice, and Warehouse tracks the delivery for the same job."
+        },
+        {
+          "slug": "follow-up",
+          "body": "Both apps run on the same CRM connection. Follow-Up chases your open estimates, and Costing tracks what the won jobs cost."
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "id": "faq",
+      "eyebrow": "FAQ",
+      "title": "Questions About Costing",
+      "items": [
+        {
+          "id": "costing-auto-post",
+          "q": "Will it change my job costs without asking?",
+          "a": "No. Auto-Match links invoices to jobs and attaches the PDF. A cost line goes on a job only when someone on your team confirms it."
+        },
+        {
+          "id": "costing-wrong-job",
+          "q": "What if Auto-Match picks the wrong job?",
+          "a": "Undo it from the daily digest or from the Auto-Matched view in the inbox. The invoice goes back in the queue for you to match by hand."
+        },
+        {
+          "id": "costing-portals",
+          "q": "Do I still have to log into supplier portals?",
+          "a": "Only to connect each account, and when a portal asks for a one-time code. Costing handles the daily sign-in after that."
+        },
+        {
+          "id": "costing-labor-cost",
+          "q": "What labor cost does it use?",
+          "a": "The gross pay on each payroll payment. Employer taxes and hours aren't pulled in, and a person decides how each payment splits across jobs."
+        },
+        {
+          "id": "costing-crm",
+          "q": "Will it work with my CRM?",
+          "a": "Ask when you book a demo. Kickback sets up every account, so you'll know before you start."
+        }
+      ]
+    },
+    {
+      "type": "pricing-line",
+      "id": "pricing"
+    },
+    {
       "type": "cta",
-      "variant": "live"
+      "id": "demo",
+      "kicker": "BOOK A DEMO",
+      "title": "Get Supplier Invoices Off Your Desk",
+      "body": "We'll walk you through Costing, from connecting your suppliers to clearing the Invoice Inbox."
     }
-  ],
-  "suite": {
-    "body": "Vendor invoices from anywhere get matched, posted, and attached without manual data entry, right into your CRM. No more hunting for receipts or guessing where an invoice belongs.",
-    "disabled": false,
-    "liveRing": true
-  },
-  "pricing": {
-    "billable": true,
-    "baseMonthly": 489,
-    "includedUsers": 5,
-    "perUserAfter": 89,
-    "builderDesc": "Unlimited invoice matching, vendor sync + email ingest, PDFs attached to your CRM jobs, data-integrity dashboards."
-  }
+  ]
 }
