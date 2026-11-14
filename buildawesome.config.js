@@ -3,6 +3,8 @@ module.exports = async function ($config) {
   $config.addPassthroughCopy("css");
   $config.addPassthroughCopy("assets");
   $config.addPassthroughCopy({ "fonts/woff2": "fonts/woff2" });
+  // Unlisted partner branding deck: linked from nowhere, noindex, shared by URL.
+  $config.addPassthroughCopy({ "decks/branding": "p/branding-7q4m" });
 
   $config.addWatchTarget("css/");
   $config.addWatchTarget("assets/");

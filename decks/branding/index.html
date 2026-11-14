@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Unlisted: shared by link with prospective partners, kept out of search. -->
+<meta name="robots" content="noindex, nofollow">
+<title>Partner branding · Kickback</title>
+<!-- The live app build. Every mock below is real kb-* markup; only brand
+     tokens (--color-*brand*, --font-display), strings and assets change. -->
+<link rel="stylesheet" href="kickback-app.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Archivo stands in for the partner's own display face (white-label only). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<style>
+  /* The build resolves font URLs relative to app/assets/builds; repoint them. */
+  @font-face { font-family: "Inter"; font-weight: 100 900; font-display: swap; src: url("/fonts/woff2/Inter-Variable.woff2") format("woff2"); }
+  @font-face { font-family: "Space Grotesk"; font-weight: 300 700; font-display: swap; src: url("/fonts/woff2/SpaceGrotesk-Variable.woff2") format("woff2"); }
+  @font-face { font-family: "Space Mono"; font-weight: 400; font-display: swap; src: url("/fonts/woff2/SpaceMono-Regular.woff2") format("woff2"); }
+  @font-face { font-family: "Space Mono"; font-weight: 700; font-display: swap; src: url("/fonts/woff2/SpaceMono-Bold.woff2") format("woff2"); }
+
+  /* ====== Partner (entered in the settings panel) ======
+     A partner hands over one primary color and one accent; the whole ramp is
+     mixed from the primary. The script sets --ln-base, --ln-glow, --ln-on
+     (text on the primary) and --ln-text (primary darkened to read on paper). */
+  :root {
+    --ln-base: #1f3c6b;
+    --ln-glow: #eaa53c;
+    --ln-on: #ffffff;
+    --ln-50: color-mix(in oklab, var(--ln-base) 8%, white);
+    --ln-300: color-mix(in oklab, var(--ln-base) 48%, white);
+    --ln-400: color-mix(in oklab, var(--ln-base) 68%, white);
+    --ln-500: color-mix(in oklab, var(--ln-base) 86%, white);
+    --ln-600: var(--ln-base);
+    --ln-tile: var(--ln-base);
+    --ln-font: "Archivo", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --kb-fire: #c62f2f;
+  }
+
+  /* ====== Brand scopes ======
+     Each scope names a ramp; one mapping turns any ramp into the semantic
+     tokens product theming uses. A partner tier only swaps the ramp. */
+  .p-platform  { --b-50: var(--color-fire-50);  --b-300: var(--color-fire-300);  --b-400: var(--color-fire-400);  --b-500: var(--color-fire-500);  --b-600: var(--color-fire-600);  --mk: var(--color-fire-600); }
+  .p-costing   { --b-50: var(--color-moss-50);  --b-300: var(--color-moss-300);  --b-400: var(--color-moss-400);  --b-500: var(--color-moss-500);  --b-600: var(--color-moss-600);  --mk: var(--color-moss-600); }
+  .p-follow_up { --b-50: var(--color-tide-50);  --b-300: var(--color-tide-300);  --b-400: var(--color-tide-400);  --b-500: var(--color-tide-500);  --b-600: var(--color-tide-600);  --mk: var(--color-tide-600); }
+  .p-warehouse { --b-50: var(--color-steel-50); --b-300: var(--color-steel-300); --b-400: var(--color-steel-400); --b-500: var(--color-steel-500); --b-600: var(--color-steel-600); --mk: var(--color-steel-600); }
+  /* Foreman fills sit a step darker than its gold mark, as in the app. */
+  .p-foreman   { --b-50: var(--color-gold-50);  --b-300: var(--color-gold-300);  --b-400: var(--color-gold-400);  --b-500: var(--color-gold-800);  --b-600: var(--color-gold-700);  --mk: var(--color-gold-600); }
+  .p-platform, .p-costing, .p-follow_up, .p-warehouse, .p-foreman {
+    --color-fg-brand: var(--b-600);
+    --color-bg-active: var(--b-50);
+    --color-bg-brand: var(--b-600);
+    --color-bg-brand-hover: var(--b-500);
+    --color-bg-brand-active: var(--b-600);
+    --color-bg-brand-subtle: var(--b-50);
+    --color-border-brand: var(--b-500);
+    --color-border-brand-subtle: var(--b-300);
+    --color-border-focus: var(--b-400);
+    --color-ring-focus: color-mix(in srgb, var(--b-500) 25%, transparent);
+  }
+  @media (prefers-color-scheme: dark) {
+    .p-platform, .p-costing, .p-follow_up, .p-warehouse, .p-foreman {
+      --color-fg-brand: var(--b-300);
+      --color-bg-active: color-mix(in srgb, var(--b-400) 18%, transparent);
+      --color-bg-brand: var(--b-500);
+      --color-bg-brand-hover: var(--b-400);
+      --color-bg-brand-active: var(--b-500);
+      --color-bg-brand-subtle: color-mix(in srgb, var(--b-400) 15%, transparent);
+      --color-border-brand: var(--b-400);
+      --color-border-brand-subtle: color-mix(in srgb, var(--b-400) 35%, transparent);
+      --color-border-focus: var(--b-400);
+      --color-ring-focus: color-mix(in srgb, var(--b-400) 40%, transparent);
+    }
+  }
+
+  /* Grey-label: the partner ramp on Platform pages only; products keep their
+     hues. White-label: the partner ramp and face everywhere. */
+  [data-tier="grey"] .p-platform,
+  [data-tier="white"] :is(.p-platform, .p-costing, .p-follow_up, .p-warehouse, .p-foreman) {
+    --b-50: var(--ln-50); --b-300: var(--ln-300); --b-400: var(--ln-400); --b-500: var(--ln-500); --b-600: var(--ln-600);
+    --color-fg-on-brand: var(--ln-on);
+  }
+  [data-tier="white"] :is(.p-platform, .p-costing, .p-follow_up, .p-warehouse, .p-foreman, .em-scope) { --font-display: var(--ln-font); --mk: var(--ln-base); }
+  @media (prefers-color-scheme: light) {
+    [data-tier="grey"] .p-platform,
+    [data-tier="white"] :is(.p-platform, .p-costing, .p-follow_up, .p-warehouse, .p-foreman) { --color-fg-brand: var(--ln-text, var(--ln-base)); }
+  }
+  .bd-prod { color: var(--b-600); }
+  @media (prefers-color-scheme: dark) { .bd-prod { color: var(--b-300); } }
+  [data-tier="white"] .kb-brand-name { font-stretch: 108%; letter-spacing: -0.01em; }
+  .bd-appmark { display: flex; align-items: center; justify-content: center; flex: none; background: var(--mk); color: #fff; }
+  [data-tier="white"] .bd-appmark { color: var(--ln-on); }
+
+  /* Tier-only elements. Themed slides and strip cells carry their own
+     data-tier and never nest, so these selectors cannot cross-match. */
+  [data-tier="today"] [data-show]:not([data-show~="today"]),
+  [data-tier="co"]    [data-show]:not([data-show~="co"]),
+  [data-tier="grey"]  [data-show]:not([data-show~="grey"]),
+  [data-tier="white"] [data-show]:not([data-show~="white"]) { display: none !important; }
+
+  body.is-presenting .bd-internal { display: none !important; }
+  body:not(.is-presenting) .bd-present-only { display: none !important; }
+
+  /* ====== Deck ====== */
+  html, body { height: 100%; }
+  body { margin: 0; overflow: hidden; background: var(--color-bg-page); font-family: var(--font-sans); color: var(--color-fg-1); }
+  .bd-app { height: 100dvh; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+
+  .bd-top { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 16px; padding: 12px 24px; border-bottom: 1px solid var(--color-border-subtle); }
+  .bd-top-title { display: flex; align-items: center; gap: 10px; min-width: 0; font-family: var(--font-display); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; white-space: nowrap; }
+  .bd-top-title > span:last-child { overflow: hidden; text-overflow: ellipsis; }
+  .bd-kb-tile { display: flex; align-items: center; justify-content: center; flex: none; width: 28px; height: 28px; border-radius: 2px; background: var(--kb-fire); color: #fff; }
+  .bd-top-right { justify-self: end; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--color-fg-3); white-space: nowrap; }
+  .bd-top-right b { color: var(--color-fg-1); font-weight: 500; }
+  .bd-count { font-family: var(--font-mono); font-size: 12px; color: var(--color-fg-4); }
+
+  .bd-deck { position: relative; overflow: hidden; }
+  .bd-slide { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 24px 88px 16px; box-sizing: border-box;
+    opacity: 0; visibility: hidden; transform: translateX(56px);
+    transition: opacity 260ms ease-out, transform 460ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 460ms; }
+  .bd-slide.is-before { transform: translateX(-56px); }
+  .bd-slide.is-active { opacity: 1; visibility: visible; transform: none; transition: opacity 320ms ease-out 60ms, transform 460ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s; }
+  .bd-slide-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+  .bd-slide-head h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; letter-spacing: -0.025em; margin: 0; }
+  .bd-slide-head p { margin: 0; font-size: 13px; color: var(--color-fg-3); }
+  .bd-slide-body { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 32px; }
+  body.is-presenting .bd-slide-body { grid-template-columns: minmax(0, 1fr); }
+  .bd-fit { min-width: 0; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 28px; }
+  .bd-slide-scroll { overflow: auto; }
+
+  .bd-nav { position: fixed; top: 50%; z-index: 40; width: 44px; height: 44px; margin-top: -8px; display: flex; align-items: center; justify-content: center; border: 0; border-radius: 4px; background: var(--color-bg-surface); color: var(--color-fg-1); box-shadow: var(--kb-shadow-md); cursor: pointer;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms; }
+  .bd-nav:hover:not(:disabled) { transform: translateY(-1px); box-shadow: var(--kb-shadow-lg); }
+  .bd-nav:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+  .bd-nav:focus-visible, .bd-fab:focus-visible, .bd-dot:focus-visible { outline: 3px solid var(--color-ring-focus); outline-offset: 2px; }
+  .bd-prev { left: 24px; }
+  .bd-next { right: 24px; }
+
+  .bd-bottom { display: flex; justify-content: center; align-items: center; height: 52px; }
+  .bd-dots { display: flex; gap: 6px; align-items: center; }
+  .bd-dot { width: 22px; height: 22px; padding: 0; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .bd-dot::before { content: ""; width: 8px; height: 8px; border-radius: 1px; background: var(--color-brimstone-300); transition: width 260ms cubic-bezier(0.22, 1, 0.36, 1), background-color 200ms; }
+  .bd-dot:hover::before { background: var(--color-fg-3); }
+  .bd-dot[aria-current="true"]::before { width: 20px; background: var(--color-fg-1); }
+
+  /* ====== Settings: floating action button + pop-out panel ====== */
+  .bd-fab { position: fixed; right: 24px; bottom: 20px; z-index: 60; display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px 0 14px; border: 0; border-radius: 6px; background: var(--color-fg-1); color: var(--color-bg-page); font: 500 14px/1 var(--font-sans); box-shadow: var(--kb-shadow-lg); cursor: pointer;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms; }
+  .bd-fab:hover { transform: translateY(-1px); box-shadow: var(--kb-shadow-xl); }
+  .bd-fab .ln-mark { border-radius: 3px; }
+  .bd-fab[aria-expanded="true"] { background: var(--color-bg-surface); color: var(--color-fg-1); }
+  .bd-pop { position: fixed; right: 24px; bottom: 80px; z-index: 59; width: 400px; max-width: calc(100vw - 32px); max-height: calc(100dvh - 112px); overflow: auto; box-sizing: border-box; padding: 20px; background: var(--color-bg-surface); border-radius: 6px; box-shadow: var(--kb-shadow-xl);
+    transform-origin: 100% 100%; opacity: 0; visibility: hidden; transform: translateY(8px) scale(0.97);
+    transition: opacity 160ms ease-out, transform 240ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 240ms; }
+  .bd-pop.is-open { opacity: 1; visibility: visible; transform: none; transition: opacity 180ms ease-out, transform 280ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s; }
+  .bd-pop-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .bd-pop-head h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.02em; margin: 0; }
+  .bd-icon-btn { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 0; border-radius: 2px; background: none; color: var(--color-fg-3); cursor: pointer; }
+  .bd-icon-btn:hover { background: var(--color-bg-muted); color: var(--color-fg-1); }
+  .bd-preview { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; margin-bottom: 16px; background: var(--color-bg-sunken); border-radius: 4px; }
+  .bd-preview-marks { display: flex; align-items: flex-end; gap: 8px; }
+  .bd-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 12px; }
+  .bd-fields .is-wide { grid-column: 1 / -1; }
+  .bd-fields .kb-label { display: block; margin-bottom: 4px; }
+  .bd-fields .kb-input { width: 100%; border-radius: 2px; }
+  .bd-color { display: flex; gap: 6px; }
+  .bd-color input[type="color"] { width: 40px; height: 40px; padding: 2px; flex: none; border: 1px solid var(--color-border-default); border-radius: 2px; background: var(--color-bg-surface); cursor: pointer; }
+  .bd-color .kb-input { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; }
+  .bd-check { display: flex; align-items: center; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--color-border-subtle); font-size: 14px; color: var(--color-fg-2); cursor: pointer; }
+  .bd-check input { width: 16px; height: 16px; accent-color: var(--kb-fire); }
+  .bd-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+  .bd-copied { font-size: 13px; color: var(--color-fg-success); overflow-wrap: anywhere; }
+
+  /* Cover */
+  .bd-cover { justify-content: center; }
+  .bd-cover-inner { max-width: 1120px; width: 100%; margin: 0 auto; }
+  .bd-cover h1 { font-family: var(--font-display); font-weight: 600; font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 14px; text-wrap: balance; }
+  .bd-cover-intro { margin: 0 0 32px; max-width: 64ch; font-size: 15px; line-height: 1.6; color: var(--color-fg-2); }
+  .bd-cover-foot { margin-top: 24px; font-size: 13px; color: var(--color-fg-3); }
+  .bd-cover-foot kbd { font-family: var(--font-mono); font-size: 11px; color: var(--color-fg-2); border: 1px solid var(--color-border-default); border-radius: 2px; padding: 1px 5px; }
+  .bd-rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; border: 0; min-width: 0; }
+  .bd-rail legend { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+  .bd-opt { position: relative; display: flex; flex-direction: column; gap: 12px; padding: 16px 16px 18px; background: var(--color-bg-surface); border-radius: 4px; box-shadow: var(--kb-shadow-sm); cursor: pointer;
+    transition: box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1); }
+  .bd-opt:hover { transform: translateY(-1px); box-shadow: var(--kb-shadow-md); }
+  .bd-opt input { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; margin: -1px; overflow: hidden; }
+  .bd-opt:has(input:checked) { box-shadow: 0 0 0 2px var(--color-fg-1), var(--kb-shadow-md); }
+  .bd-opt:has(input:focus-visible) { outline: 3px solid var(--color-ring-focus); outline-offset: 3px; }
+  .bd-opt-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .bd-opt-name { font-family: var(--font-display); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.02em; }
+  .bd-opt kbd { font-family: var(--font-mono); font-size: 11px; color: var(--color-fg-4); border: 1px solid var(--color-border-default); border-radius: 2px; padding: 0 5px; line-height: 18px; }
+  .bd-opt-def { font-size: 13px; line-height: 1.5; color: var(--color-fg-3); margin: 0; }
+  .bd-share { display: flex; height: 6px; gap: 2px; }
+  .bd-share i { display: block; border-radius: 1px; }
+  .bd-share .kb { background: var(--kb-fire); }
+  .bd-share .ln { background: var(--ln-600); }
+  .bd-share-key { display: flex; justify-content: space-between; font-size: 11px; color: var(--color-fg-4); margin-top: -6px; }
+
+  /* Notes: what this tier changes on this slide. */
+  .bd-notes { display: flex; flex-direction: column; gap: 4px; margin: 0; padding-top: 4px; font-size: 13px; line-height: 1.5; overflow: auto; }
+  .bd-notes dt { color: var(--color-fg-3); font-weight: 500; margin-top: 10px; }
+  .bd-notes dt:first-child { margin-top: 0; }
+  .bd-notes dd { margin: 0; color: var(--color-fg-1); overflow-wrap: anywhere; }
+  .bd-notes code, .bd-mono { font-family: var(--font-mono); font-size: 12px; }
+
+  /* ====== Frames ====== */
+  .bd-frame { display: flex; flex-direction: column; background: var(--color-bg-surface); border-radius: 8px; box-shadow: var(--kb-shadow-lg); overflow: hidden; }
+  .bd-tabs { display: flex; align-items: flex-end; gap: 10px; height: 40px; padding: 0 12px; background: var(--color-bg-sunken); }
+  .bd-dots3 { display: flex; gap: 7px; align-self: center; margin-right: 6px; }
+  .bd-dots3 i { width: 11px; height: 11px; border-radius: 50%; background: var(--color-brimstone-300); }
+  .bd-tab { display: flex; align-items: center; gap: 8px; height: 31px; padding: 0 14px 0 10px; max-width: 340px; background: var(--color-bg-surface); border-radius: 6px 6px 0 0; font-size: 12px; color: var(--color-fg-2); white-space: nowrap; overflow: hidden; }
+  .bd-tab > span:last-child { overflow: hidden; text-overflow: ellipsis; }
+  .bd-fav { display: inline-flex; width: 14px; height: 14px; flex: none; border-radius: 2px; overflow: hidden; }
+  .bd-urlbar { display: flex; align-items: center; gap: 14px; height: 42px; padding: 0 14px; color: var(--color-fg-3); border-bottom: 1px solid var(--color-border-default); }
+  .bd-url { flex: 1; display: flex; align-items: center; gap: 7px; height: 28px; padding: 0 12px; border-radius: 999px; background: var(--color-bg-sunken); font-size: 13px; color: var(--color-fg-3); }
+  .bd-url b { color: var(--color-fg-1); font-weight: 500; }
+
+  .bd-vp { position: relative; overflow: hidden; flex: none; }
+  .bd-canvas { width: var(--w); height: var(--h); zoom: var(--z, 1); }
+  .bd-canvas *, .bd-strip-row * { view-transition-name: none !important; }
+
+  /* The app shell inside a frame: force the desk layout whatever the window. */
+  .bd-canvas .kb-shell { min-height: 0; height: 100%; flex-direction: row; }
+  .bd-canvas .kb-sidebar { position: relative; height: 100%; transform: none; translate: none; box-shadow: none; transition: none; overflow: hidden; }
+  .bd-canvas .kb-sidebar .kb-app-switcher { display: block; }
+  .bd-canvas .kb-shell-main { overflow: hidden; }
+  .bd-canvas a, .bd-canvas button { cursor: default; }
+  .bd-canvas .kb-page-header-block { margin-bottom: 24px; }
+  .bd-canvas .kb-page-header { flex-wrap: nowrap; }
+  .bd-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .bd-stats.is-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .bd-mark-plain { background: transparent !important; overflow: hidden; }
+  .bd-mark-plain svg { display: block; width: 100%; height: 100%; }
+
+  /* Sidebar plates: co-brand's partner plate, grey-label's Kickback plate. */
+  .bd-plate { display: flex; align-items: center; gap: 10px; padding: 8px 10px; margin-bottom: 8px; border: 1px solid var(--color-border-default); border-radius: 4px; background: var(--color-bg-surface); text-decoration: none; }
+  .bd-plate svg.ln-mark { flex: none; }
+  .bd-plate-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+  .bd-plate-name { font-size: 13px; font-weight: 600; line-height: 1.3; color: var(--color-fg-1); }
+  .bd-plate-sub { font-size: 12px; color: var(--color-fg-3); }
+  .bd-powered { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 14px; font-weight: 500; color: var(--color-fg-2); }
+  .bd-powered .bd-kb-tile { width: 24px; height: 24px; }
+
+  /* Sign-in */
+  .bd-signin { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: var(--color-bg-page); }
+  .bd-signin-col { width: 448px; }
+  .bd-form > * + * { margin-top: 20px; }
+  .bd-form-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .bd-alt { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--color-border-default); display: grid; gap: 12px; }
+  .bd-signin-foot { margin-top: 20px; text-align: center; font-size: 13px; color: var(--color-fg-3); display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .bd-signin-foot a { color: var(--color-fg-3); text-decoration: underline; text-underline-offset: 3px; }
+  .bd-co { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 32px; }
+  .bd-co-marks { display: flex; align-items: center; gap: 14px; color: var(--color-fg-4); }
+  .bd-co-marks .kb-brand-mark { background: var(--kb-fire); }
+  .bd-co-name { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bd-co-name small { font-size: 14px; color: var(--color-fg-3); }
+
+  /* Partner logo: lettering is the partner's art, fixed in every tier. */
+  .ln-logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+  .ln-word { display: flex; flex-direction: column; font-family: var(--ln-font); line-height: 1; color: var(--color-fg-1); }
+  .ln-word b { font-weight: 800; font-stretch: 112%; font-size: 26px; letter-spacing: 0.01em; text-transform: uppercase; white-space: nowrap; }
+  .ln-word small { font-weight: 600; font-stretch: 100%; font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-fg-3); margin-top: 5px; }
+  .ln-logo.is-sm { gap: 9px; }
+  .ln-logo.is-sm .ln-word b { font-size: 18px; }
+  .ln-logo.is-sm .ln-word small { font-size: 8px; margin-top: 3px; }
+  .bd-signin .ln-logo { margin: 0 auto 32px; display: flex; justify-content: center; }
+
+  /* Phone */
+  .bd-phone { width: 390px; height: 844px; padding: 12px; border-radius: 56px; background: #0f0d0c; box-sizing: border-box; }
+  .bd-phone-vp { border-radius: 56px; box-shadow: var(--kb-shadow-xl); }
+  .bd-screen { position: relative; height: 100%; border-radius: 44px; overflow: hidden; background: var(--color-bg-page); display: flex; flex-direction: column; font-family: -apple-system, "SF Pro Text", var(--font-sans); }
+  .bd-island { position: absolute; top: 11px; left: 50%; width: 122px; height: 35px; margin-left: -61px; background: #000; border-radius: 20px; z-index: 3; }
+  .bd-status { display: flex; justify-content: space-between; align-items: center; height: 54px; padding: 4px 32px 0 40px; font-size: 16px; font-weight: 600; color: var(--color-fg-1); flex: none; background: var(--color-bg-surface); }
+  .bd-status span:last-child { display: flex; gap: 6px; align-items: center; }
+  .bd-navbar { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; height: 44px; padding: 0 8px; background: var(--color-bg-surface); border-bottom: 1px solid var(--color-border-default); flex: none; }
+  .bd-navbar b { text-align: center; font-size: 17px; font-weight: 600; color: var(--color-fg-1); }
+  .bd-navbar span { display: flex; justify-content: center; color: var(--color-fg-brand); }
+  .bd-phone-body { flex: 1; overflow: hidden; padding: 16px; }
+  .bd-phone-body .bd-stats { grid-template-columns: 1fr; gap: 16px; margin-bottom: 16px; }
+  .bd-home-ind { position: absolute; bottom: 8px; left: 50%; width: 134px; height: 5px; margin-left: -67px; border-radius: 3px; background: var(--color-fg-1); opacity: 0.85; }
+  .bd-homescreen { width: 120px; flex: none; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .bd-appicon { width: 64px; height: 64px; border-radius: 15px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex: none; box-shadow: var(--kb-shadow-sm); }
+  .bd-appicon-kb { background: var(--kb-fire); color: #fff; }
+  .bd-appicon svg.ln-mark { width: 100%; height: 100%; }
+  .bd-icon-label { font-size: 12px; color: var(--color-fg-2); text-align: center; }
+
+  /* Email: the client follows the theme, the message stays light like the real mailer. */
+  .bd-mail-head { padding: 20px 24px 16px; border-bottom: 1px solid var(--color-border-default); background: var(--color-bg-surface); }
+  .bd-mail-subject { font-size: 18px; font-weight: 600; margin: 0 0 14px; color: var(--color-fg-1); }
+  .bd-mail-from { display: flex; align-items: center; gap: 12px; }
+  .bd-mail-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--em-on); font-weight: 600; font-size: 15px; flex: none; background: var(--em-accent); }
+  .bd-mail-who { flex: 1; min-width: 0; font-size: 13px; color: var(--color-fg-3); line-height: 1.45; }
+  .bd-mail-who b { color: var(--color-fg-1); font-weight: 600; font-size: 14px; }
+  .bd-mail-date { font-size: 12px; color: var(--color-fg-3); white-space: nowrap; }
+  .bd-mail-body { height: 100%; background: #f5f3f0; padding: 28px 16px 36px; color: #423c36; font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.55; }
+  .em-scope { --em-accent: #c62f2f; --em-on: #fff; --em-display: "Space Grotesk", -apple-system, "Inter", sans-serif; display: flex; flex-direction: column; }
+  [data-tier="grey"] .em-scope, [data-tier="white"] .em-scope { --em-accent: var(--ln-base); --em-on: var(--ln-on); }
+  [data-tier="white"] .em-scope { --em-display: var(--ln-font); }
+  .em-container { max-width: 600px; margin: 0 auto; background: #fff; border: 1px solid #eae6e1; border-radius: 6px; overflow: hidden; }
+  .em-bar { height: 3px; background: var(--em-accent); }
+  .em-header { padding: 20px 28px 0; }
+  .em-head-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .em-brand { font-family: "Space Mono", ui-monospace, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #5c554e; }
+  .em-header .ln-word { color: #1a1614; }
+  .em-header .ln-word small { color: #5c554e; }
+  .em-content { padding: 20px 28px 28px; }
+  .em-content h1 { margin: 0 0 12px; font-family: var(--em-display); font-size: 21px; font-weight: 600; line-height: 1.3; color: #1a1614; letter-spacing: -0.01em; }
+  [data-tier="white"] .em-content h1 { font-stretch: 108%; }
+  .em-content p { margin: 0 0 16px; }
+  .em-lead { font-size: 16px; color: #423c36; }
+  .em-lead strong { color: #1a1614; font-weight: 600; }
+  .em-btn { display: inline-block; margin: 4px 0 20px; padding: 11px 22px; font-size: 15px; font-weight: 600; color: var(--em-on); background: var(--em-accent); border-radius: 4px; text-decoration: none; }
+  .em-muted { color: #7c746b; font-size: 13px; }
+  .em-footer { max-width: 600px; margin: 0 auto; padding: 20px 28px 0; font-size: 12px; line-height: 1.5; color: #7c746b; }
+  .em-powered { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 13px; font-weight: 600; color: #423c36; }
+  .em-powered .bd-kb-tile { width: 18px; height: 18px; }
+
+  /* ====== Matrix ====== */
+  .bd-strip-row .kb-brand { margin: 0; justify-content: flex-start; gap: 10px; padding: 6px 8px; background: var(--color-bg-sunken); border-radius: 4px; }
+  .bd-strip-row .kb-brand-mark { width: 28px; height: 28px; border-radius: 2px; }
+  .bd-strip-row .kb-brand-name { font-size: 16px; white-space: nowrap; }
+  .bd-strip-host { margin-top: 8px; font-size: 12px; color: var(--color-fg-3); font-family: var(--font-mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bd-matrix-wrap { background: var(--color-bg-surface); border-radius: 4px; box-shadow: var(--kb-shadow-sm); max-width: 1240px; width: 100%; margin: 0 auto; }
+  .bd-matrix { width: 100%; min-width: 900px; border-collapse: collapse; font-size: 13px; line-height: 1.5; table-layout: fixed; }
+  .bd-matrix col.k { width: 170px; }
+  .bd-matrix th, .bd-matrix td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--color-border-subtle); }
+  .bd-matrix thead th { position: sticky; top: 0; z-index: 1; background: var(--color-bg-surface); font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--color-fg-1); border-bottom-color: var(--color-border-default); }
+  .bd-matrix tbody th { font-weight: 500; color: var(--color-fg-3); }
+  .bd-matrix td { color: var(--color-fg-1); }
+  .bd-matrix td.same { color: var(--color-fg-4); }
+  .bd-matrix tbody tr:last-child > * { border-bottom: 0; }
+  body[data-active="today"] [data-col="today"],
+  body[data-active="co"] [data-col="co"],
+  body[data-active="grey"] [data-col="grey"],
+  body[data-active="white"] [data-col="white"] { background-color: var(--color-bg-muted); }
+
+  /* Build notes */
+  .bd-build { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; max-width: 1120px; margin: 0 auto; }
+  .bd-build h3 { font-size: 15px; font-weight: 600; margin: 0 0 6px; color: var(--color-fg-1); }
+  .bd-build p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--color-fg-2); max-width: 62ch; }
+  .bd-build code { font-family: var(--font-mono); font-size: 12px; color: var(--color-fg-1); background: var(--color-bg-muted); padding: 1px 4px; border-radius: 2px; }
+
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 260ms; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+
+  @media (max-width: 1100px) {
+    .bd-slide-body { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; }
+    .bd-notes { max-height: 120px; }
+  }
+  @media (max-width: 760px) {
+    .bd-top { grid-template-columns: minmax(0, 1fr) auto; padding: 10px 12px; }
+    .bd-top .kb-segmented { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+    .bd-top .kb-segmented-option > span { white-space: nowrap; padding-inline: 8px; }
+    .bd-top-right b { display: none; }
+    .bd-slide { padding: 16px 12px 8px; }
+    .bd-cover { overflow: auto; justify-content: flex-start; }
+    .bd-cover h1 { font-size: 1.75rem; }
+    .bd-rail { grid-template-columns: 1fr 1fr; }
+    .bd-nav { top: auto; bottom: 20px; margin: 0; }
+    .bd-prev { left: 12px; }
+    .bd-next { left: 64px; right: auto; }
+    .bd-fab { right: 12px; padding: 0 12px; }
+    .bd-fab-label { display: none; }
+    .bd-pop { right: 12px; left: 12px; width: auto; max-width: none; }
+    .bd-dots { display: none; }
+    .bd-homescreen { display: none; }
+    .bd-build { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bd-slide, .bd-slide.is-active, .bd-pop, .bd-pop.is-open, .bd-opt, .bd-nav, .bd-fab { transition: none; }
+  }
+</style>
+</head>
+<body data-active="co">
+<!--
+THESIS: One suite, four brand budgets, shown one example per slide. The same
+live screens re-skin for any partner typed into the settings panel.
+OWN-WORLD: Kickback's field-office ledger (brimstone paper, Space Grotesk/Inter,
+2px corners). The partner world (its color ramp, initials mark, Archivo)
+enters only through tokens, strings and assets.
+FIRST VIEWPORT: The cover: the partner's name on Kickback and the four tiers as
+selectable cards with a Kickback/partner share bar.
+SIGNATURE: Left/right walks the examples; 1-4 re-skins the current one in place.
+RISK: Grey vs white differ mostly in infrastructure; notes and the matrix carry
+that difference, not pixels alone.
+-->
+<div class="bd-app">
+  <header class="bd-top">
+    <div class="bd-top-title"><span class="bd-kb-tile" id="bd-kb-mark"></span><span class="bd-internal">Partner branding</span><span class="bd-present-only" data-fill>Lantern on Kickback</span></div>
+    <div class="kb-segmented" role="radiogroup" aria-label="Branding tier" id="bd-seg"></div>
+    <div class="bd-top-right"><b id="bd-slide-name"></b><span class="bd-count" id="bd-count"></span></div>
+  </header>
+
+  <main class="bd-deck" id="deck" aria-roledescription="carousel" aria-label="Branding examples"></main>
+
+  <div class="bd-bottom"><nav class="bd-dots" id="bd-dots" aria-label="Slides"></nav></div>
+</div>
+
+<button class="bd-nav bd-prev" type="button" id="bd-prev" aria-label="Previous example"></button>
+<button class="bd-nav bd-next" type="button" id="bd-next" aria-label="Next example"></button>
+
+<button class="bd-fab" type="button" id="bd-fab" aria-expanded="false" aria-controls="bd-pop"><span id="bd-fab-mark"></span><span class="bd-fab-label">Partner settings</span></button>
+<section class="bd-pop" id="bd-pop" aria-labelledby="h-partner" role="dialog">
+  <div class="bd-pop-head"><h2 id="h-partner">Partner</h2><button class="bd-icon-btn" type="button" id="bd-pop-close" aria-label="Close partner settings"></button></div>
+  <div class="bd-preview" id="bd-preview" aria-label="Generated logo"></div>
+  <form class="bd-fields" id="bd-form" autocomplete="off" onsubmit="return false">
+    <div class="is-wide"><label class="kb-label" for="p-name">Partner name</label><input class="kb-input" id="p-name" name="name" maxlength="48"></div>
+    <div><label class="kb-label" for="p-short">Short name</label><input class="kb-input" id="p-short" name="short" maxlength="18"></div>
+    <div><label class="kb-label" for="p-initials">Initials</label><input class="kb-input" id="p-initials" name="initials" maxlength="3"></div>
+    <div><label class="kb-label" for="p-color-hex">Primary color</label><div class="bd-color"><input type="color" id="p-color" aria-label="Pick primary color"><input class="kb-input" id="p-color-hex" name="color" maxlength="7" spellcheck="false"></div></div>
+    <div><label class="kb-label" for="p-accent-hex">Accent color</label><div class="bd-color"><input type="color" id="p-accent" aria-label="Pick accent color"><input class="kb-input" id="p-accent-hex" name="accent" maxlength="7" spellcheck="false"></div></div>
+    <div class="is-wide"><label class="kb-label" for="p-domain">Partner domain</label><input class="kb-input" id="p-domain" name="domain" maxlength="40" spellcheck="false"></div>
+  </form>
+  <input type="checkbox" id="bd-present" checked hidden>
+  <div class="bd-actions">
+    <button class="kb-btn kb-btn-secondary kb-btn-sm" type="button" id="bd-copy">Copy demo link</button>
+    <button class="kb-btn kb-btn-ghost kb-btn-sm" type="button" id="bd-reset">Reset to sample</button>
+    <span class="bd-copied" id="bd-copied" role="status"></span>
+  </div>
+</section>
+
+<script src="icons.js"></script>
+<script>
+(() => {
+  // ---- Partner, entered in the settings panel and carried in the URL ----
+  const DEFAULT = { name: "Lantern Trades Network", short: "Lantern", initials: "LT", color: "#1f3c6b", accent: "#eaa53c", domain: "lanterntrades.com" };
+  const HEX = /^#[0-9a-f]{6}$/i;
+  const params = new URLSearchParams(location.search);
+  const P = Object.fromEntries(Object.entries(DEFAULT).map(([k, v]) => [k, params.get(k)?.trim() || v]));
+  if (!HEX.test(P.color)) P.color = DEFAULT.color;
+  if (!HEX.test(P.accent)) P.accent = DEFAULT.accent;
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const slug = () => P.short.toLowerCase().replace(/[^a-z0-9]/g, "") || "partner";
+  // Copy is written for Lantern; every partner fact routes through here.
+  // Function replacements, so a "$" in a partner name is never a pattern.
+  const fill = (html) => [
+    ["Lantern Trades Network", () => esc(P.name)],
+    ["Lantern navy", () => `${esc(P.short)}'s color`],
+    ["lanterntrades.com", () => esc(P.domain)],
+    ["lantern.nowkickback.com", () => `${slug()}.nowkickback.com`],
+    ["lantern@nowkickback.com", () => `${slug()}@nowkickback.com`],
+    ["Lantern", () => esc(P.short)],
+  ].reduce((out, [from, to]) => out.replaceAll(from, to), html);
+  const linear = (c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
+  const channels = (hex) => [1, 3, 5].map((i) => linear(parseInt(hex.slice(i, i + 2), 16) / 255));
+  const luminance = (hex) => { const [r, g, b] = channels(hex); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  // The primary scaled down in linear light until it reads on paper (≈4.8:1).
+  const readable = (hex) => {
+    const lum = luminance(hex);
+    const k = lum > 0.17 ? 0.17 / lum : 1;
+    return "#" + channels(hex).map((c) => {
+      const lin = c * k;
+      const s = lin <= 0.0031308 ? lin * 12.92 : 1.055 * lin ** (1 / 2.4) - 0.055;
+      return Math.round(s * 255).toString(16).padStart(2, "0");
+    }).join("");
+  };
+
+  const TIERS = [
+    { key: "today", name: "Kickback today", short: "Today", share: [1, 0], def: "Kickback's name, marks and colors throughout. The baseline." },
+    { key: "co",    name: "Co-brand",       short: "Co-brand", share: [1, 1], def: "Kickback stays the product. Lantern Trades Network's name and mark sit beside it on sign-in, in email and in the sidebar." },
+    { key: "grey",  name: "Grey-label",     short: "Grey-label", share: [2, 3], def: "Lantern's name, mark and color lead, but Kickback signs every surface: its domain, a Kickback plate, \"on Kickback\" in titles and email." },
+    { key: "white", name: "White-label",    short: "White-label", share: [0, 1], def: "Lantern's own product: its domain, type, sender and App Store listing. Members never see Kickback." },
+  ];
+
+  // ---- Icons and marks ----
+  const I = (name, { h = 18, style = "regular", cls = "" } = {}) =>
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="${h}" height="${h}" fill="currentColor" class="${cls}" aria-hidden="true">${ICONS[style][name]}</svg>`;
+  const SI = (name) => `<span class="kb-sidebar-icon">${I(name)}${I(name, { style: "fill", cls: "kb-sidebar-icon-fill" })}</span>`;
+  const KB = (h) => `<svg viewBox="0 0 183 161" height="${h}" fill="currentColor" aria-hidden="true"><path transform="translate(-33.5378698, -44.90075)" d="M145.97479,91.58717 L183.50701,133.467635 L187.6264,133.467635 L187.6264,44.90075 L216.46213,44.90075 L216.46213,205.09925 L187.6264,205.09925 L187.6264,160.014815 L183.50701,160.014815 L143.68624,205.09925 L106.31376,205.09925 L66.4929898,160.014815 L62.3735998,160.014815 L62.3735998,205.09925 L33.5378698,205.09925 L33.5378698,44.90075 L62.3735998,44.90075 L62.3735998,133.467635 L66.4929898,133.467635 L104.02521,91.58717 L145.97479,91.58717 Z M124.99987,108.93975 L89.1496348,146.51237 L124.99887,185.23575 L160.850365,146.51237 L124.99987,108.93975 Z"/></svg>`;
+  const KB_TILE = (s, h) => `<span class="bd-kb-tile" style="width:${s}px;height:${s}px">${KB(h)}</span>`;
+  // The partner's quick mark: initials on the primary, an accent rule beneath.
+  const LN = (s = 28, rx = 3) => {
+    const raw = (P.initials || P.short.slice(0, 1) || "?").toUpperCase();
+    const n = [...raw].length;
+    const size = n >= 3 ? 12.5 : n === 2 ? 16 : 21;
+    return `<svg class="ln-mark" viewBox="0 0 40 40" width="${s}" height="${s}" aria-hidden="true"><rect width="40" height="40" rx="${rx}" fill="var(--ln-tile)"/><text x="20" y="19" text-anchor="middle" dominant-baseline="central" font-family="Archivo, Inter, sans-serif" font-weight="800" font-size="${size}" letter-spacing="0.4" fill="var(--ln-on)">${esc(raw)}</text><rect x="13" y="29" width="14" height="2.6" rx="0.5" fill="var(--ln-glow)"/></svg>`;
+  };
+  const LN_LOGO = (sm) => {
+    const tagline = P.name.toLowerCase().startsWith(P.short.toLowerCase()) ? P.name.slice(P.short.length).trim() : P.name;
+    return `<span class="ln-logo${sm ? " is-sm" : ""}">${LN(sm ? 28 : 44)}<span class="ln-word"><b>${esc(P.short)}</b>${tagline ? `<small>${esc(tagline)}</small>` : ""}</span></span>`;
+  };
+
+  // ---- Synthetic data ----
+  const INVITER = "dana@bluewaterpha.com";
+  const ORG = "Bluewater Plumbing &amp; Air";
+  const PRODUCTS = {
+    platform:  { name: "Platform",  icon: null,              subtitle: "Your data, connected once." },
+    costing:   { name: "Costing",   icon: "currency-dollar", subtitle: "Every dollar in its place.", hue: "moss" },
+    follow_up: { name: "Follow-Up", icon: "chats",           subtitle: "Follow up on every open estimate.", hue: "tide" },
+    warehouse: { name: "Warehouse", icon: "package",         subtitle: "Every article accounted for.", hue: "steel" },
+    foreman:   { name: "Foreman",   icon: "hard-hat",        subtitle: "Your data, ready to ask.", hue: "gold" },
+  };
+  const appMark = (key, size, icon) => `<span class="bd-appmark p-${key} ${size}">${PRODUCTS[key].icon ? I(PRODUCTS[key].icon, { h: icon }) : KB(Math.round(icon * 0.85))}</span>`;
+
+  // ---- Shell pieces ----
+  const out = I("arrow-square-out", { h: 14, cls: "text-fg-4" });
+  const nav = (icon, label, { active = false, extra = "" } = {}) =>
+    `<a class="kb-sidebar-item${active ? " is-active" : ""}">${SI(icon)}<span class="kb-sidebar-item-label">${label}</span>${extra}</a>`;
+  const group = (label, items) => `<div class="kb-sidebar-group">${label ? `<div class="kb-sidebar-group-label">${label}</div>` : ""}${items.join("")}</div>`;
+  const badge = (n) => `<span class="kb-badge kb-badge-brand -mr-1">${n}</span>`;
+  const header = (title, action) => `<div class="kb-page-header-block"><header class="kb-page-header">
+      <div class="kb-page-header-main"><div class="kb-page-header-heading"><h1>${title}</h1></div></div>
+      ${action ? `<div class="kb-page-header-actions"><a class="kb-btn kb-btn-primary">${I(action[1], { h: 16 })}${action[0]}</a></div>` : ""}
+    </header></div>`;
+  const stat = (label, value, icon, tone = "text-fg-1") => `
+    <a class="kb-card"><div class="flex items-start justify-between gap-3"><div>
+      <div class="font-mono text-xs tracking-wider text-fg-3 uppercase mb-1">${label}</div>
+      <div class="font-display text-3xl font-semibold ${tone} tabular-nums">${value}</div></div>
+      <span class="text-fg-3 shrink-0" aria-hidden="true">${I(icon, { h: 28, style: "thin" })}</span></div></a>`;
+
+  const shell = (key, navHtml, main) => {
+    const p = PRODUCTS[key];
+    const tile = `<span class="kb-brand-mark bd-appmark p-${key}" data-show="today co">${p.icon ? I(p.icon, { h: 16 }) : KB(14)}</span>`;
+    return `<div class="kb-shell">
+      <nav class="kb-sidebar" aria-label="Mock navigation">
+        <details class="kb-app-switcher"><summary class="kb-brand cursor-pointer select-none">
+          ${tile}<span class="kb-brand-mark bd-mark-plain" data-show="grey white">${LN(28, 3)}</span>
+          <span class="kb-brand-name"><span class="text-fg-2 font-semibold" data-t="word"></span> <span class="kb-brand-product bd-prod">${p.name}</span></span>
+          <span class="kb-app-switcher-caret">${I("caret-down", { h: 12 })}</span>
+        </summary></details>
+        ${navHtml}
+        <div class="flex-1"></div>
+        <a class="bd-plate" data-show="co">${LN(28, 3)}<span class="bd-plate-text"><span class="bd-plate-name">Lantern Trades Network</span><span class="bd-plate-sub">Member resources</span></span>${out}</a>
+        <a class="bd-plate" data-show="grey">${KB_TILE(28, 15)}<span class="bd-plate-text"><span class="bd-plate-name">Powered by Kickback</span><span class="bd-plate-sub">Help Center</span></span>${out}</a>
+        <div class="kb-sidebar-group">
+          <details class="kb-user-tile"><summary class="kb-sidebar-item">
+            <span class="kb-user-tile-avatar">D</span>
+            <span class="kb-user-tile-info"><span class="kb-user-tile-name">Dana Whitfield</span><span class="kb-user-tile-org">${ORG}</span></span>
+            <span class="kb-app-switcher-caret">${I("caret-up-down", { h: 12 })}</span>
+          </summary></details>
+        </div>
+      </nav>
+      <main class="kb-shell-main"><div class="kb-page">${main}</div></main>
+    </div>`;
+  };
+
+  // ---- App screens (copy and structure from the real views) ----
+  const homeMain = () => header("Home") + `
+    <div class="kb-card kb-card-flush kb-rows-list mb-4">
+      ${["costing", "follow_up", "warehouse", "foreman"].map((k) => `
+        <a class="kb-rows-list-item group items-center no-underline">
+          ${appMark(k, "size-8 rounded-md", 18)}
+          <span class="font-display font-semibold text-fg-1 leading-tight w-36 shrink-0">${PRODUCTS[k].name}</span>
+          <span class="text-sm text-fg-3 leading-snug flex-1 min-w-0 truncate">${PRODUCTS[k].subtitle}</span>
+          <span class="shrink-0 flex text-fg-4">${I("caret-right", { h: 14 })}</span>
+        </a>`).join("")}
+    </div>`;
+  const homeNav = () => [
+    group(null, [nav("house", "Home", { active: true }), nav("chart-bar", "Reports"), nav("megaphone", "What's New"), nav("lifebuoy", "Help Center")]),
+    group("Platform Data", [nav("database", "CRM Accounts"), nav("storefront", "Vendors"), nav("voicemail", "Recordings"), nav("bank", "Payroll"), nav("users-three", "Laborers")]),
+    group("Organization", [nav("gear", "Settings"), nav("users", "Members"), nav("clock-counter-clockwise", "Audit Log"), nav("credit-card", "Billing")]),
+  ].join("");
+
+  const ATTENTION = [
+    ["Invoice Inbox", "tray", 23, "$38,410 waiting to be matched"],
+    ["Unlinked Cost Lines", "link-break", 12, "Cost lines with no vendor invoice"],
+    ["Labor Payments", "hand-coins", 7, "Waiting to be split across jobs"],
+    ["Duplicates", "copy", 4, "Cost lines on one job that look like copies"],
+    ["Zero-Cost Lines", "receipt-x", 3, null],
+  ];
+  const costingMain = () => header("Dashboard", ["Open Inbox", "tray"]) + `
+    <section class="kb-card mb-6">
+      <div class="font-mono text-xs tracking-wider text-fg-3 uppercase">Fully Costed · Last 30 Days</div>
+      <div class="flex items-start gap-5 mt-3 mb-5">
+        <span class="kb-display text-7xl leading-none tabular-nums">84<span class="text-4xl text-fg-3 align-top">%</span></span>
+        <p class="max-w-[34ch] pt-2 text-fg-2 leading-relaxed">of invoiced dollars are fully costed. <a class="kb-link whitespace-nowrap">Finish the Rest →</a></p>
+      </div>
+      <div class="kb-meter"><span style="width: 84%"></span><i class="kb-meter-target" style="--kb-meter-target: 90%"></i></div>
+      <div class="flex justify-between mt-2 text-xs text-fg-3 tabular-nums"><span>84% done</span><span>Target 90%</span></div>
+      <div class="flex gap-9 mt-6 pt-5 border-t border-border-default">
+        <a class="flex flex-col gap-0.5 no-underline"><span class="kb-display text-2xl tabular-nums">$38,410</span><span class="text-xs text-fg-3">Open Unmatched</span></a>
+        <a class="flex flex-col gap-0.5 no-underline"><span class="kb-display text-2xl tabular-nums">$112,960</span><span class="text-xs text-fg-3">Labor Split · 30 Days</span></a>
+      </div>
+    </section>
+    <h2 class="font-mono text-xs tracking-wider text-fg-3 uppercase m-0 mb-2">Needs Attention</h2>
+    <div class="kb-rows-list">
+      ${ATTENTION.map(([label, icon, count, sub], i) => `
+        <a class="kb-rows-list-item group items-center no-underline">
+          <span class="grid place-items-center ${i ? "size-10" : "size-11"} rounded-sm bg-bg-brand-subtle text-fg-brand shrink-0">${I(icon, { h: i ? 21 : 24, style: "thin" })}</span>
+          <span class="min-w-0 flex flex-col"><span class="font-medium text-fg-1">${label}</span>${sub ? `<span class="text-xs text-fg-3 truncate">${sub}</span>` : ""}</span>
+          <span class="ml-auto kb-display ${i ? "text-2xl" : "text-3xl"} tabular-nums">${count}</span>
+          <span class="kb-connection-row-caret">${I("caret-right", { h: 18 })}</span>
+        </a>`).join("")}
+    </div>`;
+  const costingNav = () => [
+    group(null, [nav("gauge", "Dashboard", { active: true }), nav("tray", "Invoice Inbox", { extra: badge(23) }), nav("hand-coins", "Labor")]),
+    group("Data Integrity", [nav("copy", "Duplicates"), nav("receipt-x", "Zero-Cost Lines"), nav("link-break", "Unlinked Cost Lines")]),
+    group(null, [nav("chart-bar", "Reports")]),
+    group("Platform Data", [nav("database", "CRM Accounts", { extra: out }), nav("storefront", "Vendors", { extra: out }), nav("bank", "Payroll", { extra: out }), nav("users-three", "Laborers", { extra: out })]),
+  ].join("");
+
+  const OVERDUE = [
+    ["MO", "#8e5c84", "Marisol Ortega", "4182", "1450 Ridgeview Dr", "Nov 10", "$14,820.00"],
+    ["JT", "#41778d", "Glen & Patti Hargrove", "4167", "88 Cedar Hollow Ln", "Nov 11", "$9,460.00"],
+    ["RM", "#587a26", "Desmond Achebe", "4159", "2207 Larkin Ave", "Nov 11", "$6,235.00"],
+    ["AL", "#b27818", "Hollis Ferraro", "4144", "31 Quarry St", "Nov 12", "$22,900.00"],
+    ["JT", "#41778d", "Priya Raman", "4139", "610 Briar Ct", "Nov 12", "$3,180.00"],
+  ];
+  const followStats = () => stat("Due Today", "14", "tray-arrow-up") + stat("Open Estimates", "63", "funnel") + stat("Open Value", "$418,250.00", "currency-dollar") + stat("Won · 30 Days", "9", "trophy");
+  const overdueTable = (rows, compact) => `
+    <section class="kb-card kb-card-table">
+      <div class="kb-card-header"><h3 class="font-display font-semibold text-lg text-fg-1 m-0">Overdue Touches</h3>${compact ? "" : `<a class="kb-btn kb-btn-ghost kb-btn-sm">View Pipeline</a>`}</div>
+      <div class="kb-table-scroll"><table class="kb-table">
+        ${compact ? "" : `<thead><tr><th>Customer</th><th>Due</th><th class="kb-num">Amount</th></tr></thead>`}
+        <tbody>${rows.map(([ini, color, name, num, addr, due, amt]) => `
+          <tr><td class="whitespace-normal"><div class="flex items-center gap-3">
+            <span class="flex shrink-0 font-mono font-semibold text-white/90 items-center justify-center size-8 text-xs rounded-sm" style="background-color:${color}">${ini}</span>
+            <div class="min-w-0"><a class="font-medium text-fg-1">${name}</a><p class="kb-help-text">Estimate #${num}${compact ? "" : ` · ${addr}`}</p></div></div></td>
+            ${compact ? "" : `<td class="text-fg-2"><span class="text-xs font-medium text-fg-danger whitespace-nowrap">Overdue · ${due}</span></td>`}
+            <td class="kb-num">${amt}</td></tr>`).join("")}
+        </tbody></table></div>
+      ${compact ? "" : `<div class="kb-card-footer"><span class="text-sm text-fg-3">Showing 5 of 11 estimates with an overdue touch. <a class="text-fg-brand">View Pipeline</a></span></div>`}
+    </section>`;
+  const followMain = () => header("Dashboard", ["Open Outreach Outbox", "tray-arrow-up"]) + `<div class="bd-stats">${followStats()}</div>` + overdueTable(OVERDUE, false);
+  const followNav = () => [
+    group(null, [nav("gauge", "Dashboard", { active: true }), nav("tray-arrow-up", "Outreach Outbox", { extra: badge(14) }), nav("kanban", "Pipeline")]),
+    group("Setup", [nav("images", "Media Library"), nav("clock-countdown", "Cadences"), nav("gear", "Settings", { extra: out })]),
+    group(null, [nav("chart-bar", "Reports")]),
+    group("Platform Data", [nav("database", "CRM Accounts", { extra: out }), nav("voicemail", "Recordings", { extra: out })]),
+  ].join("");
+
+  const READY = [
+    ["Okafor Residence", "2219 Saddle Creek Dr", "J-30418", "Install"],
+    ["Brenner Family", "71 Pecan Grove Ct", "J-30405", "Install"],
+    ["Lakeview Dental", "900 Shoreline Pkwy, Suite 4", "J-30399", "Service"],
+    ["Castillo Residence", "1308 Mockingbird Ln", "J-30391", "Install"],
+    ["Whitaker Duplex", "45 Elm Row", "J-30377", "Service"],
+  ];
+  const warehouseMain = () => header("Dashboard") + `
+    <div class="bd-stats is-5">${stat("Ready to Schedule", "18", "package")}${stat("Being Unloaded", "2", "truck")}${stat("To Reorder", "6", "stack")}${stat("Short for Open Jobs", "3", "warning")}${stat("Missing Rates", "5", "question")}</div>
+    <section class="kb-card kb-card-table mb-4">
+      <div class="kb-card-header flex flex-wrap items-center justify-between gap-3">
+        <h2 class="font-display font-semibold text-lg text-fg-1 m-0">Ready to Schedule</h2>
+        <div class="flex flex-wrap items-center gap-1" role="group" aria-label="Service type">
+          <a class="kb-btn kb-btn-sm no-underline kb-btn-secondary">All <span class="tabular-nums text-fg-3">18</span></a>
+          <a class="kb-btn kb-btn-sm no-underline kb-btn-ghost">Install <span class="tabular-nums text-fg-3">12</span></a>
+          <a class="kb-btn kb-btn-sm no-underline kb-btn-ghost">Service <span class="tabular-nums text-fg-3">6</span></a>
+        </div>
+      </div>
+      <div class="kb-table-scroll"><table class="kb-table">
+        <thead><tr><th>Customer</th><th>Job #</th><th>Service Type</th></tr></thead>
+        <tbody>${READY.map(([name, addr, job, type]) => `<tr><td class="whitespace-normal"><a class="font-medium text-fg-1">${name}</a><p class="kb-help-text">${addr}</p></td><td class="font-mono text-fg-2">${job}</td><td class="text-fg-2">${type}</td></tr>`).join("")}</tbody>
+      </table></div>
+      <div class="kb-card-footer"><span class="text-sm text-fg-3">Showing 5 of 18. <a class="text-fg-brand">See every job ready to schedule</a>.</span></div>
+    </section>`;
+  const warehouseNav = () => [
+    group(null, [nav("magnifying-glass", "Search"), nav("gauge", "Dashboard", { active: true }), nav("briefcase", "Jobs")]),
+    group("Inventory", [nav("truck", "Shipments"), nav("barcode", "Articles"), nav("stack", "Consumables"), nav("clipboard-text", "Stock Audits")]),
+    group("Setup", [nav("map-pin", "Locations"), nav("map-trifold", "Floor Plans"), nav("upload-simple", "Manifests"), nav("ruler", "Usage Rates"), nav("gear", "Settings", { extra: out })]),
+  ].join("");
+
+  const THREADS = [
+    ["Which open jobs are over their material budget?", "is-succeeded", "Answered · 3 questions", "12 minutes ago"],
+    ["Vendor invoices still unmatched this month", "is-succeeded", "Answered · 2 questions", "2 hours ago"],
+    ["Estimates over $10k with no touch in two weeks", "is-succeeded", "Answered · 1 question", "yesterday"],
+    ["Labor cost per job for October installs", "is-succeeded", "Answered · 4 questions", "3 days ago"],
+    ["Which tech closes the most service upgrades?", "is-needs_attention", "Refused · 1 question", "5 days ago"],
+    ["Consumables short for next week's jobs", "is-succeeded", "Answered · 2 questions", "last week"],
+  ];
+  const foremanMain = () => header("Ask", ["New Ask Thread", "plus"]) + `
+    <ol class="fm-threads" aria-label="Ask threads">
+      ${THREADS.map(([title, dot, state, when]) => `<li class="fm-thread-row"><a>
+        <span class="fm-thread-title">${title}</span>
+        <span class="kb-dot fm-thread-state ${dot}"><span class="kb-dot-label">${state}</span></span>
+        <span class="fm-thread-when">${when}</span></a></li>`).join("")}
+    </ol>`;
+  const foremanNav = () => [
+    group(null, [nav("chat-circle-dots", "Ask", { active: true })]),
+    group("Meetings", [nav("presentation-chart", "Decks"), nav("list-checks", "Commitments")]),
+    group(null, [nav("chart-bar", "Scorecards")]),
+    group(null, [nav("gear-six", "Setup")]),
+    group(null, [nav("chart-bar", "Reports")]),
+  ].join("");
+
+  // ---- Slides ----
+  const browser = (key, path, page, canvas) => `
+    <div class="bd-frame">
+      <div class="bd-tabs"><span class="bd-dots3"><i></i><i></i><i></i></span><span class="bd-tab"><span class="bd-fav" data-t="fav"></span><span>${page}${key === "platform" ? "" : ` · ${PRODUCTS[key].name}`} · <span data-t="tabSuffix"></span></span></span></div>
+      <div class="bd-urlbar">${I("arrow-left", { h: 16 })}${I("arrow-right", { h: 16 })}${I("arrow-clockwise", { h: 16 })}<span class="bd-url">${I("lock-simple", { h: 14 })}<span><b data-t="host"></b>${path}</span></span></div>
+      <div class="bd-vp">${canvas}</div>
+    </div>`;
+  const canvas = (cls, w, h, inner) => `<div class="bd-canvas ${cls}" data-w="${w}" data-h="${h}" style="--w:${w}px;--h:${h}px">${inner}</div>`;
+  const appSlide = (key, path, page, title, navFn, mainFn) => ({
+    key, title, themed: true, notes: key,
+    body: () => browser(key, path, page, canvas(`p-${key}`, 1440, 860, shell(key, navFn(), mainFn()))),
+  });
+
+  const SLIDES = [
+    { key: "cover", title: "Tiers", cover: true },
+    appSlide("platform", "/", "Home", "Platform home", homeNav, homeMain),
+    appSlide("costing", "/costing", "Dashboard", "Costing dashboard", costingNav, costingMain),
+    appSlide("follow_up", "/follow_up", "Dashboard", "Follow-Up dashboard", followNav, followMain),
+    appSlide("warehouse", "/warehouse", "Dashboard", "Warehouse dashboard", warehouseNav, warehouseMain),
+    appSlide("foreman", "/foreman", "Ask", "Foreman", foremanNav, foremanMain),
+    { key: "signin", title: "Sign-in", themed: true, notes: "signin", body: () => `
+      <div class="bd-frame">
+        <div class="bd-tabs"><span class="bd-dots3"><i></i><i></i><i></i></span><span class="bd-tab"><span class="bd-fav" data-t="fav"></span><span>Sign In · <span data-t="tabSuffix"></span></span></span></div>
+        <div class="bd-urlbar"><span class="bd-url">${I("lock-simple", { h: 14 })}<span><b data-t="host"></b>/users/sign_in</span></span></div>
+        <div class="bd-vp">${canvas("p-platform", 1100, 720, `
+          <div class="bd-signin"><div class="bd-signin-col">
+            <div class="kb-brand" data-show="today"><span class="kb-brand-mark">${KB(26)}</span><span class="kb-brand-name"><span class="text-fg-4">Kickback</span> Platform</span></div>
+            <div class="bd-co" data-show="co">
+              <div class="bd-co-marks"><span class="kb-brand-mark">${KB(26)}</span>${I("x", { h: 18, style: "thin" })}${LN(48, 4)}</div>
+              <div class="bd-co-name"><span class="kb-brand-name" style="color:var(--kb-fire)"><span class="text-fg-4">Kickback</span> Platform</span><small>for Lantern Trades Network members</small></div>
+            </div>
+            <div data-show="grey white">${LN_LOGO(false)}</div>
+            <div class="kb-card"><div class="bd-form">
+              <div><label class="kb-label">Email</label><input class="kb-input" type="email" value="${INVITER}" tabindex="-1" readonly></div>
+              <div><div class="bd-form-row"><label class="kb-label">Password</label><a class="text-fg-brand text-sm font-medium leading-none">Forgot?</a></div><input class="kb-input" type="password" value="sample-password" tabindex="-1" readonly></div>
+              <div><button class="kb-btn kb-btn-primary w-full justify-center" type="button" tabindex="-1">Sign In</button></div>
+            </div>
+            <div class="bd-alt">
+              <button class="kb-btn kb-btn-secondary w-full justify-center" type="button" tabindex="-1">${I("fingerprint", { h: 16 })}Sign In with a Passkey</button>
+              <button class="kb-btn kb-btn-secondary w-full justify-center" type="button" tabindex="-1">${I("google-logo", { h: 16 })}Continue with Google</button>
+            </div></div>
+            <div class="bd-signin-foot" data-show="grey"><span class="bd-powered">${KB_TILE(24, 13)}Powered by Kickback</span></div>
+            <div class="bd-signin-foot" data-show="white">© 2026 Lantern Trades Network · <a>Privacy</a> · <a>Terms</a></div>
+          </div></div>`)}</div>
+      </div>` },
+    { key: "phone", title: "On the phone", themed: true, notes: "phone", extraW: 148, body: () => `
+      <div class="bd-vp bd-phone-vp">${canvas("p-follow_up", 390, 844, `
+        <div class="bd-phone"><div class="bd-screen">
+          <span class="bd-island"></span>
+          <div class="bd-status"><span>9:41</span><span>${I("cell-signal-full", { h: 17, style: "fill" })}${I("wifi-high", { h: 17, style: "fill" })}${I("battery-full", { h: 22, style: "fill" })}</span></div>
+          <div class="bd-navbar"><span>${I("list", { h: 24 })}</span><b>Dashboard</b><span>${I("tray-arrow-up", { h: 22 })}</span></div>
+          <div class="bd-phone-body"><div class="bd-stats">${followStats()}</div>${overdueTable(OVERDUE.slice(0, 4), true)}</div>
+          <span class="bd-home-ind"></span>
+        </div></div>`)}</div>
+      <div class="bd-homescreen"><span data-t="appIcon"></span><span class="bd-icon-label" data-t="appName"></span></div>` },
+    { key: "email", title: "Email", themed: true, notes: "email", body: () => `
+      <div class="bd-frame"><div class="bd-vp">${canvas("em-scope", 820, 700, `
+        <div class="bd-mail-head">
+          <p class="bd-mail-subject">You've Been Invited to ${ORG}</p>
+          <div class="bd-mail-from"><span class="bd-mail-avatar" data-t="avatar"></span>
+            <span class="bd-mail-who"><b data-t="from"></b> &lt;<span data-t="fromAddr"></span>&gt;<br>to me</span>
+            <span class="bd-mail-date">Nov 13, 9:12 AM</span></div>
+        </div>
+        <div class="bd-mail-body">
+          <div class="em-container"><div class="em-bar"></div>
+            <div class="em-header" data-t="emBrand"></div>
+            <div class="em-content">
+              <h1>Join ${ORG} on <span data-t="word"></span></h1>
+              <p class="em-lead"><strong>${INVITER}</strong> invited you to join <strong>${ORG}</strong>.</p>
+              <a class="em-btn">Accept Invitation</a>
+              <p class="em-muted">This invitation expires on November 27, 2026. If you weren't expecting it, you can ignore this email.</p>
+            </div></div>
+          <div class="em-footer" data-t="emFoot"></div>
+        </div>`)}</div></div>` },
+    { key: "matrix", title: "Who owns what", matrix: true },
+  ];
+
+  // ---- Per-tier strings (data-t hooks) ----
+  let T;
+  const buildStrings = () => {
+    const kbFav = KB_TILE(14, 8);
+    const lnFav = LN(14, 4);
+    const kbIcon = `<span class="bd-appicon bd-appicon-kb">${KB(28)}</span>`;
+    const initial = esc((P.short.trim()[0] || "P").toUpperCase());
+    T = {
+      today: { fav: kbFav, tabSuffix: "Kickback Platform", host: "platform.nowkickback.com", word: "Kickback", appIcon: kbIcon, appName: "Kickback",
+        from: "Kickback Platform", fromAddr: "platform@nowkickback.com", avatar: "K",
+        emBrand: `<span class="em-brand">Kickback</span>`,
+        emFoot: `Sent by Kickback because ${INVITER} invited you to ${ORG}.` },
+      co: { fav: kbFav, tabSuffix: "Kickback Platform", host: "platform.nowkickback.com", word: "Kickback", appIcon: kbIcon, appName: "Kickback",
+        from: "Kickback for Lantern Trades Network", fromAddr: "platform@nowkickback.com", avatar: "K",
+        emBrand: `<span class="em-brand">Kickback × Lantern Trades Network</span>`,
+        emFoot: `Sent by Kickback for Lantern Trades Network because ${INVITER} invited you to ${ORG}.` },
+      grey: { fav: lnFav, tabSuffix: "Lantern on Kickback", host: "lantern.nowkickback.com", word: "Lantern", appIcon: kbIcon, appName: "Kickback",
+        from: "Lantern Trades Network", fromAddr: "lantern@nowkickback.com", avatar: initial,
+        emBrand: `<div class="em-head-row">${LN_LOGO(true)}<span class="em-brand">on Kickback</span></div>`,
+        emFoot: `Sent for Lantern Trades Network because ${INVITER} invited you to ${ORG}.<br><span class="em-powered">${KB_TILE(18, 10)}Powered by Kickback</span>` },
+      white: { fav: lnFav, tabSuffix: "Lantern", host: "app.lanterntrades.com", word: "Lantern", appIcon: `<span class="bd-appicon">${LN(64, 0)}</span>`, appName: "Lantern",
+        from: "Lantern Trades Network", fromAddr: "members@lanterntrades.com", avatar: initial,
+        emBrand: LN_LOGO(true),
+        emFoot: `Sent by Lantern Trades Network because ${INVITER} invited you to ${ORG}. Reply to reach Lantern member support.` },
+    };
+  };
+
+  // ---- Per-tier notes ----
+  const appNotes = (key) => {
+    const p = PRODUCTS[key];
+    const keeps = p.hue ? `${p.name} keeps its own ${p.hue}, so members can still tell the apps apart.` : "Platform pages take it everywhere: buttons, badges, focus rings, links.";
+    return {
+      today: [["Sidebar", `${p.name}'s tile and "Kickback ${p.name}" open the app switcher.`], ["Accent", p.hue ? `${p.name}'s ${p.hue}; fire on Platform pages.` : "Fire."], ["Address", "<code>platform.nowkickback.com</code>"]],
+      co: [["Sidebar", "Unchanged at the top. A Lantern plate sits above the user tile and links to the network's member resources."], ["Accent", "Unchanged. The network shows up as a member badge, not a theme."], ["Partner supplies", "Name, square mark, one link."]],
+      grey: [["Sidebar", `Lantern's mark and "Lantern ${p.name}" lead. A Kickback plate sits above the user tile and opens Kickback's Help Center.`], ["Accent", `Lantern navy on Platform pages. ${p.hue ? keeps : ""}`], ["Address", "<code>lantern.nowkickback.com</code>, tab \"… · Lantern on Kickback\""], ["Partner supplies", "Adds a horizontal logo, a color ramp and a subdomain."]],
+      white: [["Sidebar", `Lantern's mark and "Lantern ${p.name}". No Kickback anywhere: tab, favicon, help, error pages.`], ["Accent", "Lantern navy in every product. App tiles take it too; their icons tell the apps apart."], ["Type", "Archivo stands in for the network's face on titles and figures; Inter stays for reading."], ["Address", "<code>app.lanterntrades.com</code>: the network's DNS, Kickback's TLS."]],
+    };
+  };
+  const N = {
+    signin: {
+      today: [["Lockup", "\"Kickback Platform\""], ["Methods", "Password, passkey, Google."]],
+      co: [["Lockup", "Both marks, and \"for Lantern Trades Network members\"."], ["Accounts", "Members sign in with the Kickback account they already have."]],
+      grey: [["Lockup", "Lantern's logo on top, a full Kickback lockup under the form."], ["Methods", "Passkeys keep working: <code>lantern.nowkickback.com</code> sits under Kickback's domain."]],
+      white: [["Lockup", "Lantern's logo, the network's privacy and terms links."], ["Methods", "Passkeys belong to a domain, so members enroll again on <code>app.lanterntrades.com</code>. Google sign-in needs the network's own OAuth client, or the consent screen names Kickback."]],
+    },
+    phone: {
+      today: [["App", "Kickback for iPhone and Android, one listing."]],
+      co: [["App", "The same Kickback app. The Lantern plate rides along in the drawer."]],
+      grey: [["App", "The same Kickback app and icon. The pages turn Lantern after sign-in."], ["Needs", "The nav bar tint is native, so the shell has to read the partner's color from the server to match."]],
+      white: [["App", "A Lantern build: its own bundle ID, icon, push keys and App Store listing."], ["Needs", "Lantern's developer account (App Review 4.2.6), and a release for each Kickback update."]],
+    },
+    email: {
+      today: [["From", "Kickback Platform &lt;platform@nowkickback.com&gt;"], ["Header", "\"KICKBACK\" in the mailer's mono wordmark."], ["Accent", "Fire, from the mailer layout."]],
+      co: [["From", "\"Kickback for Lantern Trades Network\", Kickback's address."], ["Header", "Both names on the wordmark line."], ["Footer", "Says which network the member belongs to."]],
+      grey: [["From", "Lantern Trades Network &lt;lantern@nowkickback.com&gt;. The address stays on Kickback's domain, so there are no DNS changes to make."], ["Header", "Lantern's logo with \"on Kickback\" beside it; Lantern navy bar and button."], ["Footer", "Ends with a Kickback mark and \"Powered by Kickback\"."]],
+      white: [["From", "Lantern Trades Network &lt;members@lanterntrades.com&gt;. The network publishes SPF and DKIM records for Kickback's mail provider."], ["Header", "Lantern's logo. Headline in the network's face where the mail client allows web fonts."], ["Footer", "Replies go to Lantern member support."]],
+    },
+  };
+  const notesFor = (key) => N[key] || appNotes(key);
+
+  const MATRIX = `
+    <div class="bd-matrix-wrap"><table class="bd-matrix">
+      <colgroup><col class="k"><col><col><col><col></colgroup>
+      <thead><tr><th scope="col"><span class="sr-only">Surface</span></th><th scope="col" data-col="today">Kickback today</th><th scope="col" data-col="co">Co-brand</th><th scope="col" data-col="grey">Grey-label</th><th scope="col" data-col="white">White-label</th></tr></thead>
+      <tbody>
+        <tr class="bd-strip-row">${'<th scope="row">Lockup</th>'}${TIERS.map(({ key }) => `
+          <td data-tier="${key}" data-col="${key}" class="p-follow_up">
+            <div class="kb-brand"><span class="kb-brand-mark bd-appmark p-follow_up" data-show="today co">${I("chats", { h: 16 })}</span><span class="kb-brand-mark bd-mark-plain" data-show="grey white">${LN(28, 3)}</span><span class="kb-brand-name"><span class="text-fg-2 font-semibold" data-t="word"></span> <span class="bd-prod">Follow-Up</span></span></div>
+            <div class="bd-strip-host" data-t="host"></div>
+          </td>`).join("")}</tr>
+        <tr><th scope="row">Address</th><td data-col="today"><span class="bd-mono">platform.nowkickback.com</span></td><td data-col="co" class="same">Same</td><td data-col="grey"><span class="bd-mono">lantern.nowkickback.com</span></td><td data-col="white"><span class="bd-mono">app.lanterntrades.com</span>, the network's domain pointed at Kickback</td></tr>
+        <tr><th scope="row">Sign-in</th><td data-col="today">Kickback Platform lockup</td><td data-col="co">Kickback × Lantern lockup</td><td data-col="grey">Lantern logo, a full "Powered by Kickback" lockup under the form</td><td data-col="white">Lantern logo, the network's legal links</td></tr>
+        <tr><th scope="row">Sidebar brand</th><td data-col="today">Product tile + "Kickback Follow-Up"</td><td data-col="co">Same, plus a Lantern plate above the user tile</td><td data-col="grey">Lantern mark + "Lantern Follow-Up", a Kickback plate above the user tile</td><td data-col="white">Lantern mark + "Lantern Follow-Up"</td></tr>
+        <tr><th scope="row">Accent</th><td data-col="today">Fire on Platform, one hue per product</td><td data-col="co" class="same">Same</td><td data-col="grey">Lantern navy on Platform pages; products keep their hues</td><td data-col="white">Lantern navy in every product, light and dark</td></tr>
+        <tr><th scope="row">Display type</th><td data-col="today">Space Grotesk</td><td data-col="co" class="same">Same</td><td data-col="grey" class="same">Same</td><td data-col="white">The network's face (Archivo here)</td></tr>
+        <tr><th scope="row">Tab title, favicon</th><td data-col="today">"… · Kickback Platform", Kickback mark</td><td data-col="co" class="same">Same</td><td data-col="grey">"… · Lantern on Kickback", Lantern mark</td><td data-col="white">"… · Lantern", Lantern mark</td></tr>
+        <tr><th scope="row">App switcher</th><td data-col="today">"Kickback" over each product name</td><td data-col="co" class="same">Same</td><td data-col="grey">"Lantern" over each product name</td><td data-col="white">"Lantern" over each name; tiles in Lantern navy, icons tell apps apart</td></tr>
+        <tr><th scope="row">Email sender</th><td data-col="today"><span class="bd-mono">platform@nowkickback.com</span></td><td data-col="co">"Kickback for Lantern Trades Network", same address</td><td data-col="grey">"Lantern Trades Network" at <span class="bd-mono">lantern@nowkickback.com</span></td><td data-col="white"><span class="bd-mono">members@lanterntrades.com</span>, signed with the network's DKIM</td></tr>
+        <tr><th scope="row">Phone app</th><td data-col="today">Kickback</td><td data-col="co" class="same">Same</td><td data-col="grey">Kickback app; Lantern inside after sign-in</td><td data-col="white">A Lantern build on Lantern's App Store account</td></tr>
+        <tr><th scope="row">Passkeys, Google</th><td data-col="today">Bound to <span class="bd-mono">nowkickback.com</span></td><td data-col="co" class="same">Same</td><td data-col="grey" class="same">Same; a subdomain keeps them working</td><td data-col="white">Members re-enroll passkeys on the new domain; Google needs the network's own OAuth client</td></tr>
+        <tr><th scope="row">Help and support</th><td data-col="today">Kickback Help Center</td><td data-col="co" class="same">Same</td><td data-col="grey">Kickback Help Center, Lantern contact for account questions</td><td data-col="white">Network-named help; the network answers first</td></tr>
+        <tr><th scope="row">Partner supplies</th><td data-col="today">Nothing</td><td data-col="co">Name, square mark, one link</td><td data-col="grey">+ horizontal logo, color ramp, subdomain</td><td data-col="white">+ domain and DNS, sending domain, display face, dark ramp, App Store account, first-line support</td></tr>
+      </tbody>
+    </table></div>`;
+
+  // ---- Render ----
+  const deck = document.getElementById("deck");
+  const isPresenting = () => document.body.classList.contains("is-presenting");
+  let tier = TIERS.some((t) => t.key === location.hash.slice(1).split("/")[0]) ? location.hash.slice(1).split("/")[0] : "co";
+  let current = Math.max(0, SLIDES.findIndex((s) => s.key === location.hash.slice(1).split("/")[1]));
+
+  const coverHtml = () => `
+    <div class="bd-cover-inner">
+      <h1 class="bd-internal">Co-brand, grey-label, white-label</h1>
+      <h1 class="bd-present-only">Lantern on Kickback</h1>
+      <p class="bd-cover-intro bd-internal">Four ways the same Kickback suite could reach a franchise or coaching network's member shops, from Kickback's brand throughout to the network running it as its own product. Every screen is the app's live stylesheet; each tier swaps only brand tokens, strings and assets.</p>
+      <p class="bd-cover-intro bd-present-only">Four ways Lantern Trades Network can bring Kickback to its member shops, from Kickback's brand throughout to Lantern running it as its own product. Pick a tier, then step through the screens.</p>
+      <fieldset class="bd-rail"><legend>Branding tier</legend>
+        ${TIERS.map(({ key, name, share, def }, i) => {
+          const [kb, ln] = share;
+          return `<label class="bd-opt"><input type="radio" name="tier" value="${key}">
+            <span class="bd-opt-top"><span class="bd-opt-name">${name}</span><kbd>${i + 1}</kbd></span>
+            <span class="bd-share" aria-hidden="true">${kb ? `<i class="kb" style="flex:${kb}"></i>` : ""}${ln ? `<i class="ln" style="flex:${ln}"></i>` : ""}</span>
+            <span class="bd-share-key" aria-hidden="true"><span>${kb ? "Kickback" : ""}</span><span>${ln ? "Lantern" : ""}</span></span>
+            <p class="bd-opt-def">${def}</p></label>`;
+        }).join("")}
+      </fieldset>
+      <p class="bd-cover-foot"><kbd>←</kbd> <kbd>→</kbd> step through the screens · <kbd>1</kbd>–<kbd>4</kbd> switch tier · Bluewater Plumbing &amp; Air and every person, address and number shown are sample data.</p>
+    </div>`;
+
+  const slideHtml = (s) => {
+    if (s.cover) return coverHtml();
+    const head = `<div class="bd-slide-head"><h2>${s.title}</h2></div>`;
+    if (s.matrix) return head + `<div class="bd-slide-scroll">${MATRIX}</div>`;
+    return head + `<div class="bd-slide-body"><div class="bd-fit"${s.extraW ? ` data-extra-w="${s.extraW}"` : ""}>${s.body()}</div><dl class="bd-notes bd-internal" data-notes="${s.notes}"></dl></div>`;
+  };
+
+  const paint = (root, t) => {
+    root.querySelectorAll("[data-t]").forEach((el) => {
+      if (el.closest("[data-tier]") === root) el.innerHTML = fill(T[t][el.dataset.t] ?? "");
+    });
+  };
+
+  const render = () => {
+    const root = document.documentElement.style;
+    root.setProperty("--ln-base", P.color);
+    root.setProperty("--ln-glow", P.accent);
+    root.setProperty("--ln-on", luminance(P.color) > 0.4 ? "#1a1614" : "#ffffff");
+    root.setProperty("--ln-text", readable(P.color));
+    buildStrings();
+    deck.innerHTML = fill(SLIDES.map((s, i) => `
+      <section class="bd-slide${s.cover ? " bd-cover" : ""}${s.internal ? " bd-internal" : ""}" data-index="${i}" ${s.themed ? `data-tier="${tier}"` : ""} aria-roledescription="slide" aria-label="${s.title}">${slideHtml(s)}</section>`).join(""));
+    deck.querySelectorAll(".bd-strip-row [data-tier]").forEach((cell) => paint(cell, cell.dataset.tier));
+    document.querySelectorAll("[data-fill]").forEach((el) => {
+      el.dataset.src ??= el.innerHTML;
+      el.innerHTML = fill(el.dataset.src);
+    });
+    document.getElementById("bd-preview").innerHTML = `${LN_LOGO(true)}<span class="bd-preview-marks"><span class="bd-appicon" style="width:44px;height:44px;border-radius:10px">${LN(44, 0)}</span>${LN(28, 3)}${LN(16, 3)}</span>`;
+    document.getElementById("bd-fab-mark").innerHTML = LN(24, 3);
+    applyTier();
+    show(current, { instant: true });
+  };
+
+  const applyTier = () => {
+    document.body.dataset.active = tier;
+    deck.querySelectorAll(".bd-slide[data-tier]").forEach((slide) => {
+      slide.dataset.tier = tier;
+      paint(slide, tier);
+      const dl = slide.querySelector("[data-notes]");
+      if (dl) dl.innerHTML = fill(notesFor(dl.dataset.notes)[tier].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join(""));
+    });
+    document.querySelectorAll('input[name="tier"], input[name="tier-compact"]').forEach((input) => { input.checked = input.value === tier; });
+  };
+
+  // ---- Slide navigation ----
+  const reachable = () => SLIDES.map((s, i) => i).filter((i) => !(SLIDES[i].internal && isPresenting()));
+  const dots = document.getElementById("bd-dots");
+  const show = (index, { instant = false } = {}) => {
+    const list = reachable();
+    if (!list.includes(index)) index = list.reduce((best, i) => (Math.abs(i - index) < Math.abs(best - index) ? i : best), list[0]);
+    current = index;
+    deck.querySelectorAll(".bd-slide").forEach((slide) => {
+      const i = Number(slide.dataset.index);
+      if (instant) slide.style.transition = "none";
+      slide.classList.toggle("is-active", i === index);
+      slide.classList.toggle("is-before", i < index);
+      slide.setAttribute("aria-hidden", String(i !== index));
+      slide.inert = i !== index;
+      if (instant) { slide.offsetHeight; slide.style.transition = ""; }
+    });
+    const pos = list.indexOf(index);
+    document.getElementById("bd-prev").disabled = pos <= 0;
+    document.getElementById("bd-next").disabled = pos >= list.length - 1;
+    document.getElementById("bd-count").textContent = `${pos + 1} / ${list.length}`;
+    document.getElementById("bd-slide-name").textContent = SLIDES[index].title;
+    dots.innerHTML = list.map((i) => `<button class="bd-dot" type="button" data-go="${i}" aria-label="${SLIDES[i].title}" aria-current="${i === index}"></button>`).join("");
+    fitAll();
+    history.replaceState(null, "", demoUrl());
+  };
+  const step = (dir) => {
+    const list = reachable();
+    const next = list[list.indexOf(current) + dir];
+    if (next !== undefined) show(next);
+  };
+
+  const setTier = (t) => {
+    if (t === tier) return;
+    tier = t;
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const run = () => { applyTier(); history.replaceState(null, "", demoUrl()); };
+    if (document.startViewTransition && !still) document.startViewTransition(run);
+    else run();
+  };
+
+  // ---- Fit fixed-size canvases into their slide ----
+  const fit = (box) => {
+    const canvasEl = box.querySelector(".bd-canvas");
+    if (!canvasEl) return;
+    const vp = canvasEl.parentElement;
+    const frame = box.querySelector(".bd-frame") || vp;
+    const w = Number(canvasEl.dataset.w), h = Number(canvasEl.dataset.h);
+    const chrome = frame.offsetHeight - vp.offsetHeight;
+    const extra = Number(box.dataset.extraW || 0);
+    const z = Math.min(1, (box.clientWidth - extra) / w, (box.clientHeight - chrome) / h);
+    canvasEl.style.setProperty("--z", Math.max(0.2, z).toFixed(4));
+  };
+  const fitAll = () => deck.querySelectorAll(".bd-fit").forEach(fit);
+  new ResizeObserver(fitAll).observe(deck);
+
+  // ---- Settings panel ----
+  const field = (id) => document.getElementById(id);
+  const fab = field("bd-fab");
+  const pop = field("bd-pop");
+  const present = field("bd-present");
+  const setOpen = (open) => {
+    pop.classList.toggle("is-open", open);
+    fab.setAttribute("aria-expanded", String(open));
+    if (open) field("p-name").focus({ preventScroll: true });
+  };
+  fab.addEventListener("click", () => setOpen(!pop.classList.contains("is-open")));
+  field("bd-pop-close").addEventListener("click", () => { setOpen(false); fab.focus(); });
+  document.addEventListener("pointerdown", (e) => {
+    if (pop.classList.contains("is-open") && !pop.contains(e.target) && !fab.contains(e.target)) setOpen(false);
+  });
+
+  const syncFields = () => {
+    ["name", "short", "initials", "domain"].forEach((k) => { field(`p-${k}`).value = P[k]; });
+    field("p-color").value = field("p-color-hex").value = P.color;
+    field("p-accent").value = field("p-accent-hex").value = P.accent;
+    present.checked = isPresenting();
+  };
+  const demoUrl = () => {
+    const q = new URLSearchParams();
+    Object.entries(P).forEach(([k, v]) => { if (v !== DEFAULT[k]) q.set(k, v); });
+    if (isPresenting()) q.set("present", "1");
+    const search = q.toString();
+    return `${location.pathname}${search ? `?${search}` : ""}#${tier}/${SLIDES[current].key}`;
+  };
+  let frame = 0;
+  const update = () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(render);
+  };
+  field("bd-form").addEventListener("input", (e) => {
+    const t = e.target;
+    if (t.type === "color") {
+      field(`${t.id}-hex`).value = t.value;
+      P[t.id === "p-color" ? "color" : "accent"] = t.value;
+    } else if (t.name === "color" || t.name === "accent") {
+      const v = t.value.trim().startsWith("#") ? t.value.trim() : `#${t.value.trim()}`;
+      if (!HEX.test(v)) return;
+      P[t.name] = v;
+      field(t.name === "color" ? "p-color" : "p-accent").value = v;
+    } else if (t.name === "domain") {
+      P.domain = t.value.trim().toLowerCase().replace(/^https?:\/\//, "").replace(/\/.*$/, "") || DEFAULT.domain;
+    } else if (t.name in P) {
+      P[t.name] = t.value.trim() || (t.name === "initials" ? "" : DEFAULT[t.name]);
+    }
+    update();
+  });
+  present.addEventListener("change", () => {
+    document.body.classList.toggle("is-presenting", present.checked);
+    update();
+  });
+  field("bd-reset").addEventListener("click", () => {
+    Object.assign(P, DEFAULT);
+    syncFields();
+    update();
+  });
+  const copied = field("bd-copied");
+  field("bd-copy").addEventListener("click", async () => {
+    const url = new URL(demoUrl(), location.href).href;
+    try {
+      await navigator.clipboard.writeText(url);
+      copied.textContent = "Link copied";
+    } catch {
+      copied.textContent = url;
+    }
+    setTimeout(() => { copied.textContent = ""; }, 4000);
+  });
+
+  // ---- Input ----
+  field("bd-seg").innerHTML = TIERS.map(({ key, short }) =>
+    `<label class="kb-segmented-option"><input class="kb-segmented-input" type="radio" name="tier-compact" value="${key}"><span>${short}</span></label>`).join("");
+  field("bd-prev").innerHTML = I("caret-left", { h: 20 });
+  field("bd-next").innerHTML = I("caret-right", { h: 20 });
+  field("bd-pop-close").innerHTML = I("x", { h: 18 });
+  field("bd-kb-mark").innerHTML = KB(15);
+  field("bd-prev").addEventListener("click", () => step(-1));
+  field("bd-next").addEventListener("click", () => step(1));
+  dots.addEventListener("click", (e) => { const go = e.target.closest("[data-go]"); if (go) show(Number(go.dataset.go)); });
+  document.addEventListener("change", (e) => { if (e.target.name?.startsWith("tier")) setTier(e.target.value); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && pop.classList.contains("is-open")) { setOpen(false); fab.focus(); return; }
+    if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.("input, textarea, select, .bd-pop")) return;
+    if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); step(1); return; }
+    if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); step(-1); return; }
+    const t = TIERS[Number(e.key) - 1];
+    if (t) setTier(t.key);
+  });
+  // A typed or pasted #tier/slide address jumps straight there.
+  addEventListener("hashchange", () => {
+    const [t, key] = location.hash.slice(1).split("/");
+    if (TIERS.some((x) => x.key === t)) setTier(t);
+    const i = SLIDES.findIndex((s) => s.key === key);
+    if (i >= 0 && i !== current) show(i);
+  });
+  let touchX = null;
+  deck.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  deck.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 60) step(dx < 0 ? 1 : -1);
+    touchX = null;
+  });
+
+  // The public copy is always the partner view.
+  document.body.classList.add("is-presenting");
+  syncFields();
+  render();
+})();
+</script>
+</body>
+</html>
